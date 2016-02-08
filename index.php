@@ -31,16 +31,32 @@ padding: 5px 0px; font-size:20px; font-family:Arial;">MySporTeam</h4>
         <h1 class="centre">Bienvenue</h1>
         <!--Partie Photographie-->
         <section>
-          <h2>Affichage de texte avec PHP</h2>
-          <p>
-              Cette ligne a été écrite entièrement en HTML.<br />
-              <?php echo "Celle-ci a été écrite entièrement en PHP."; ?>
-          </p>
+          <div class="ligne1">
+            <div class="div1 usualbackground">
+              <span class="Police1">test</span>
+              <div class="img1 usualbackground" style="background-image:url('http://bde.campus-ecn.fr/images/admissibles/sport.png');"></div>
+
+            </div><div class="div1 usualbackground" >
+              <span class="Police1">test</span>
+              <div class="img1 usualbackground" style="background-image:url('http://objectif-reussir.fr/wp-content/uploads/2015/08/maigrir-vite-sans-r%C3%A9gime-sans-sport-niaque-gain-vitesse-reussir-success.jpg');"></div>
+            </div>
+          </div>
+          <div class="ligne2">
+            <div class="div1 usualbackground">
+              <span class="Police1">test</span>
+              <div class="img1 usualbackground" style="background-image:url('http://img0.mxstatic.com/wallpapers/8ddc10e5c8f41bada818aeaac0073577_large.jpeg');"></div>
+            </div><div class="div1 usualbackground">
+              <span class="Police1">test</span>
+              <div class="img1 usualbackground" style="background-image:url('http://pensezparlez.fr/wp-content/uploads/2015/01/in-sports1.jpg');"></div>
+            </div>
+          </div>
         </section>
 
         <!--Partie Texte-->
         <aside>
-          <p>test</p>
+          <div class="div5 usualbackground">
+
+          </div>
         </aside>
       </div>
 

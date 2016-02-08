@@ -3,12 +3,12 @@
   margin:0;
   padding: 0;
   border: 0;
+  box-sizing:border-box;
 }
 
 body{
   min-height: 666px;
 }
-
 
 header,
 section,
@@ -19,16 +19,14 @@ footer {
 
 section {
   float: left;
-  width: 63%;
-  background-color:rgb(209, 247, 222);
-  margin-left:30px;
+  width: 65%;
+  /*margin-left:30px;*/
 }
+
 aside {
   float: right;
-  width: 30%;
-  background-color:rgb(249, 212, 250);
-  margin-right:30px;
-
+  width: 35%;
+  /*margin-right:20px;*/
 }
 
 footer{
@@ -73,6 +71,52 @@ footer{
   display:inline-block;
   }
 
+/*Contenu photo accueil*/
+.div1{
+  position:relative;
+  width:50%;
+  height:300px;
+  display: inline-block;
+  background-color:black;
+  opacity:1;
+  overflow: hidden;
+}
+
+.img1{
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  z-index:1;
+  transition:all 0.8s ease;
+}
+
+.div1 span{
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  padding: 135px 0;
+  text-align: center;
+  z-index:2;
+  overflow: hidden;
+}
+
+.div1 span:hover + .img1{
+  transform:scale(1.5);
+  filter:brightness(0.5);
+
+}
+
+/*Section aside*/
+.div5{
+  height:600px;
+  background-image:url("http://g02.a.alicdn.com/kf/HTB1flHVIpXXXXa1XFXXq6xXFXXXU/Automne-et-hiver-bande-verticale-Pyjamas-femmes-femmes-douces-sport-100-coton-des-v&ecirc;tements-de-nuit.jpg");
+  filter: blur(1px);
+  filter: opacity(80%);
+}
+.ligne1 , .ligne2{
+  height: 300px;
+}
+
 
   /*Fonctionnel*/
 .centre{
@@ -82,4 +126,15 @@ footer{
 .memeligne{
   display: block;
   vertical-align:middle;
+}
+
+.usualbackground{
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Police1{
+  color:red;
+  font-size:30px;
 }
