@@ -1,0 +1,40 @@
+*{
+  margin:0;
+  padding: 0;
+  border: 0;
+}
+
+
+.centre{
+  text-align:center;
+}
+
+footer{
+  background-color:#938a8a;
+  width:100%;
+}
+
+.menu li{
+  display:inline-block;
+  font-size: 15px;
+  margin:5px;
+  color:red;
+}
+
+.menu {
+  display:inline-block;
+  width: 70%;
+  font-size: 0;
+  text-align: justify;
+}
+
+.menu:after{
+  content:"";
+  width: 100%;
+  display:inline-block;
+  }
+
+.memeligne{
+  display: block;
+  vertical-align:middle;
+}
