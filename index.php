@@ -12,9 +12,9 @@
     <body>
       <!--Menu en haut de la page-->
       <header>
-        <div class="memeligne">
+        <div id="hautdepage" class="memeligne">
           <h4 style="display: inline-block; margin-left:30px;margin-right:30px; vertical-align: top;
-padding: 7px 0px;">MySporTeam</h4>
+padding: 5px 0px; font-size:20px; font-family:Arial;">MySporTeam</h4>
           <ul class="menu">
             <li>Accueil</li>
             <li>MySporTeam</li>
@@ -27,18 +27,26 @@ padding: 7px 0px;">MySporTeam</h4>
       </header>
 
       <!--Contenu de la page-->
-      <div id="content"> 
+      <div id="content">
         <h1 class="centre">Bienvenue</h1>
-        <h2>Affichage de texte avec PHP</h2>
-        <p>
-            Cette ligne a été écrite entièrement en HTML.<br />
-            <?php echo "Celle-ci a été écrite entièrement en PHP."; ?>
-        </p>
+        <!--Partie Photographie-->
+        <section>
+          <h2>Affichage de texte avec PHP</h2>
+          <p>
+              Cette ligne a été écrite entièrement en HTML.<br />
+              <?php echo "Celle-ci a été écrite entièrement en PHP."; ?>
+          </p>
+        </section>
+
+        <!--Partie Texte-->
+        <aside>
+          <p>test</p>
+        </aside>
       </div>
 
       <!--Footer de la page-->
       <footer>
-        <p class="centre">Ceci est un test.</p>
+        <p class="centre" style="padding:10px;">Tout droits réservés, mySporteam<span style="font-size:13px;"><sup>TM</sup></span>.</p>
       </footer>
   </body>
 

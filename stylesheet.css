@@ -9,16 +9,46 @@ body{
   min-height: 666px;
 }
 
+
+header,
+section,
+aside,
+footer {
+  margin: 0 0 24px 0;
+}
+
+section {
+  float: left;
+  width: 63%;
+  background-color:rgb(209, 247, 222);
+  margin-left:30px;
+}
+aside {
+  float: right;
+  width: 30%;
+  background-color:rgb(249, 212, 250);
+  margin-right:30px;
+
+}
+
 footer{
   background-color:#938a8a;
   width:100%;
   bottom: 0;
   height: 40px;
+  clear: both;
+  margin-bottom: 0;
+}
+
+#hautdepage{
+  background-color:rgb(182, 232, 238);
 }
 
 #content{
   position: relative;
 }
+
+
 
  /*MENU*/
 .menu li{
@@ -26,6 +56,8 @@ footer{
   font-size: 15px;
   margin:5px;
   color:red;
+  font-family: Arial;
+  font-size:20px;
 }
 
 .menu {
