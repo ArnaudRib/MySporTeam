@@ -1,19 +1,26 @@
+/*GROSSES SECTIONS*/
 *{
   margin:0;
   padding: 0;
   border: 0;
 }
 
-
-.centre{
-  text-align:center;
+body{
+  min-height: 666px;
 }
 
 footer{
   background-color:#938a8a;
   width:100%;
+  bottom: 0;
+  height: 40px;
 }
 
+#content{
+  position: relative;
+}
+
+ /*MENU*/
 .menu li{
   display:inline-block;
   font-size: 15px;
@@ -33,6 +40,12 @@ footer{
   width: 100%;
   display:inline-block;
   }
+
+
+  /*Fonctionnel*/
+.centre{
+  text-align:center;
+}
 
 .memeligne{
   display: block;
