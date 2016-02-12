@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html>
-	<?php include("Header.php"); ?>
+    <head>
+        <link rel="stylesheet" href="stylesheet.css"/>
+        <title>MySporTeam</title>
+        <meta charset="utf-8" />
+    </head>
 
-			<section>
 
-				<h1> Inscription </h1>
+    <body>
+      <!--Menu en haut de la page-->
+      <?php include("header.php"); ?>
 
-				<form method="post" action="" class="id">
-					<table>
-						<tr>
-							<td> Pseudo </td>
-							<td><input type="text" placeholder="Identifiant" class="identifiant"><td>
-						</tr>
-						<tr>
-							<td> Adresse E-mail</td>
-							<td><input type="text" placeholder="Adresse E-mail" classe="identifiant"></td>
-						</tr>
-						<tr>
-							<td> Mot de Passe</td>
-							<td><input type="password" placeholder="Mot de Passe" classe="identifiant"></td>
-						</tr>
+      <!--Contenu de la page-->
+      <nav id="content">
+        <h1> Inscription </h1>
 
-						<tr>
-							<td>Confirmation de Mot de Passe</td>
-							<td><input type="password" placeholder="Confirmation Mot de Passe" classe="identifiant"></td>
-						</tr>
-						<tr>
-							<td> </td>
-							<td><input type="submit" value="Confirmer" class="idconfirm"></td>
-						</tr>
-				</form>
-			</section>
+        <form method="post" action="" class="id">
+          <table>
+            <tr>
+              <td> Pseudo </td>
+              <td><input type="text" placeholder="Identifiant" class="identifiant"><td>
+            </tr>
+            <tr>
+              <td> Adresse E-mail</td>
+              <td><input type="text" placeholder="Adresse E-mail" classe="identifiant"></td>
+            </tr>
+            <tr>
+              <td> Mot de Passe</td>
+              <td><input type="password" placeholder="Mot de Passe" classe="identifiant"></td>
+            </tr>
 
-			<?php include("Footer.php"); ?>
-		<div>
-	</body>
+            <tr>
+              <td>Confirmation de Mot de Passe</td>
+              <td><input type="password" placeholder="Confirmation Mot de Passe" classe="identifiant"></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td><input type="submit" value="Confirmer" class="idconfirm"></td>
+            </tr>
+          </table>
+        </form>
+
+
+      </nav>
+
+      <!--Footer de la page-->
+      <?php include("footer.php"); ?>
+
+  </body>
+
 </html>
