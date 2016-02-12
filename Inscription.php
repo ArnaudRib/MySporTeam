@@ -12,36 +12,29 @@
       <?php include("header.php"); ?>
 
       <!--Contenu de la page-->
-      <nav id="content">
-        <h1> Inscription </h1>
+      <nav>
+        <form action="formulaire.php" method="post" enctype="multipart/form-data">
+          <fieldset>
+            <legend> Inscription </legend>
+            Pseudonyme :
+            <input type="text" name="pseudo" placeholder="Identifiant" /> <br />
 
-        <form method="post" action="" class="id">
-          <table>
-            <tr>
-              <td> Pseudo </td>
-              <td><input type="text" placeholder="Identifiant" class="identifiant"><td>
-            </tr>
-            <tr>
-              <td> Adresse E-mail</td>
-              <td><input type="text" placeholder="Adresse E-mail" classe="identifiant"></td>
-            </tr>
-            <tr>
-              <td> Mot de Passe</td>
-              <td><input type="password" placeholder="Mot de Passe" classe="identifiant"></td>
-            </tr>
+            Adresse email :
+            <input type="text" name="email" placeholder="Email" /> <br />
 
-            <tr>
-              <td>Confirmation de Mot de Passe</td>
-              <td><input type="password" placeholder="Confirmation Mot de Passe" classe="identifiant"></td>
-            </tr>
-            <tr>
-              <td> </td>
-              <td><input type="submit" value="Confirmer" class="idconfirm"></td>
-            </tr>
-          </table>
+            Confirmation adresse email :
+            <input type="text" name="pseudo" placeholder="-----" /> <br />
+
+            Mot de passe :
+            <input type="text" name="pseudo" placeholder="Mot de passe" /> <br />
+
+            Confirmation mot de passe :
+            <input type="text" name="pseudo" placeholder="-----" /> <br /><br />
+
+
+            <input type="submit" name="Envoyer" /> <br />
+          </fieldset>
         </form>
-
-
       </nav>
 
       <!--Footer de la page-->

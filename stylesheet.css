@@ -171,3 +171,11 @@ footer{
   color:red;
   font-size:30px;
 }
+
+/* Inscription */
+
+fieldset {
+  border: 1px black solid;
+  margin: 0.5em;
+  padding: 0.5em;
+}
