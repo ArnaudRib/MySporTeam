@@ -40,7 +40,7 @@
         <!--Partie Texte-->
         <aside>
           <div class="div2 usualbackground">
-            <div class="img2 usualbackground" style="background-image:url('http://g02.a.alicdn.com/kf/HTB1flHVIpXXXXa1XFXXq6xXFXXXU/Automne-et-hiver-bande-verticale-Pyjamas-femmes-femmes-douces-sport-100-coton-des-v&ecirc;tements-de-nuit.jpg');"></div>
+            <div class="img2 usualbackground" style="background-image:url('images/chintoc.jpg');"></div>
               <div class="div2bis">
                 <div class="Haut1">
                 <p>test</p>

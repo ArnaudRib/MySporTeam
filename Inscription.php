@@ -13,26 +13,25 @@
 
       <!--Contenu de la page-->
       <nav>
-        <form action="formulaire.php" method="post" enctype="multipart/form-data">
+        <form action="formulaire.php" method="post">
           <fieldset>
             <legend> Inscription </legend>
             Pseudonyme :
-            <input type="text" name="pseudo" placeholder="Identifiant" /> <br />
+            <input type="text" name="pseudo" placeholder="Identifiant" required> </br>
 
             Adresse email :
-            <input type="text" name="email" placeholder="Email" /> <br />
+            <input type="text" name="email" placeholder="Email" required> </br>
 
             Confirmation adresse email :
-            <input type="text" name="pseudo" placeholder="-----" /> <br />
+            <input type="text" name="email_confirmation" placeholder="-----" required> </br>
 
             Mot de passe :
-            <input type="text" name="pseudo" placeholder="Mot de passe" /> <br />
+            <input type="password" name="mot_de_passe" placeholder="Mot de passe" required> </br>
 
             Confirmation mot de passe :
-            <input type="text" name="pseudo" placeholder="-----" /> <br /><br />
+            <input type="password" name="mot_de_passe_confirmation" placeholder="•••••••" required> </br></br>
 
-
-            <input type="submit" name="Envoyer" /> <br />
+            <input type="submit" name="Envoyer"> <br>
           </fieldset>
         </form>
       </nav>
