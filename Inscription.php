@@ -13,23 +13,70 @@
 
       <!--Contenu de la page-->
       <nav>
-        <form action="formulaire.php" method="post">
+        <form style="margin:10px;" action="formulaire.php" method="post">
           <fieldset>
-            <legend> Inscription </legend>
+            <legend style="margin-left:7%;"> Inscription </legend>
+
+            Sexe :
+            <input type="radio" name="sexe" value="male" checked> M.
+            <input type="radio" name="sexe" value="female"> Mme.</span>
+            </br>
+
+            <!--PARTIE DATE DE NAISSANCE-->
+            Date de naissance :
+
+            <!--Demande l'année-->
+            <select style="border:1px solid black; padding-right:5px;" name="jour">
+              <?php
+              for ($i=1; $i<=31; $i++){
+                $jour=$i;
+                ?>
+                <option value="<?php echo $jour?>"><?php echo $jour;?></option>
+                <?php //permet de fermer la boucle
+              }
+              ?>
+            </select>
+
+            <!-- Demande le mois-->
+            <select style="border:1px solid black; padding-right:5px;" name="mois">
+              <?php
+              $months_list = array("Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre");
+              ?><?
+              for ($i=0;$i<12;$i++){
+                $mois=$i;
+                ?>
+                <option value="<?php echo $mois?>"><?php echo $months_list[$i];?></option>
+                <?
+              }
+              ?>
+            </select>
+
+            <!--Demande l'année-->
+            <select style="border:1px solid black; padding-right:5px;" name="annee">
+              <?php
+              for ($i=0; $i<100; $i++){
+                $annee=intval(date('Y'))-$i; //Donne à la variable date le int transformé en string - la valeur de i.
+                ?>
+                <option value="<?php echo $annee?>"><?php echo $annee;?></option>
+                <?php //permet de fermer la boucle
+              }
+              ?>
+            </select>
+            <!--FIN PARTIE DATE DE NAISSANCE-->
+
+            </br>
             Pseudonyme :
             <input type="text" name="pseudo" placeholder="Identifiant" required> </br>
 
             Adresse email :
             <input type="text" name="email" placeholder="Email" required> </br>
 
-            Confirmation adresse email :
-            <input type="text" name="email_confirmation" placeholder="-----" required> </br>
-
             Mot de passe :
             <input type="password" name="mot_de_passe" placeholder="Mot de passe" required> </br>
 
             Confirmation mot de passe :
             <input type="password" name="mot_de_passe_confirmation" placeholder="•••••••" required> </br></br>
+
 
             <input type="submit" name="Envoyer"> <br>
           </fieldset>
