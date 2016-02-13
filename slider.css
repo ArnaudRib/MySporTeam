@@ -1,0 +1,22 @@
+.slider{
+  margin:0 auto;
+}
+
+.slider img{
+  visibility:hidden;
+  position:absolute;
+  opacity:1;
+  transition:all 0.8s ease;
+}
+
+.slider img:hover{
+  opacity:0.6;
+}
+
+.visible{
+  visibility:visible !important;
+}
+
+.invisible{
+  visibility:hidden !important;
+}
