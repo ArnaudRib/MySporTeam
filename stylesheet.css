@@ -110,13 +110,14 @@ footer{
 .div1 span:hover + .img1{
   transform:scale(1.5);
   filter:brightness(0.5);
-
+    -webkit-filter:brightness(0.5);
 }
 
 /*Section aside*/
 .div2{
   height:600px;
   filter: opacity(80%);
+  -webkit-filter: opacity(80%);
   position:relative;
 }
 
@@ -125,12 +126,14 @@ footer{
   position:absolute;
   height:600px;
   filter: opacity(80%);
+    -webkit-filter: opacity(80%);
   display:inline-block;
   z-index:2;
 }
 
 .Haut1{
-  margin:5% 10% 2% 10%;  display:inline-block;
+  margin:5% 10% 2% 10%;
+  display:inline-block;
   background-color: red;
   width: 80%;
   height: 70%;
