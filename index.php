@@ -52,6 +52,9 @@
         </aside>
       </nav>
 
+      <iframe src="SliderFade/SliderFade.php" width="100%" height="500px"></iframe>
+      <iframe src="SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>
+
       <!--Footer de la page-->
       <?php include("footer.php"); ?>
 
