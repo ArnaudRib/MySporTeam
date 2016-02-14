@@ -4,6 +4,15 @@ var TailleSlider=document.getElementsByClassName("slider")[0].offsetWidth; //ré
 
 Initialisation();
 
+function Automatique(){
+  if (i<gallery.length){
+    i++
+  }else{
+    i=1
+  }
+  Slide(i);
+}
+
 function Next(){
   if (i<gallery.length){
     i++
@@ -41,3 +50,5 @@ function Slide(numeroimage){ //Mets les images sur une ligne
     }
   }
 }
+
+setInterval(Automatique, 3000);
