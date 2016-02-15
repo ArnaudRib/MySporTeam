@@ -14,7 +14,7 @@
       <!--Contenu de la page-->
       <nav>
         <form style="margin:10px;" action="formulaire.php" method="post">
-          <fieldset>
+          <fieldset class="encadrement">
             <legend style="margin-left:7%;"> Inscription </legend>
 
             Sexe :
@@ -72,20 +72,20 @@
             <input type="text" name="email" placeholder="Email" required> </br>
 
             Mot de passe :
-            <input type="password" name="mot_de_passe" placeholder="Mot de passe" required> </br>
+            <input id="mdp" type="password" name="mot_de_passe" placeholder="Mot de passe" oninput="Verification()" required> </br>
 
             Confirmation mot de passe :
-            <input type="password" name="mot_de_passe_confirmation" placeholder="•••••••" required> </br></br>
+            <input id="mdp_verification" type="password" name="mot_de_passe_confirmation" placeholder="•••••••" oninput="Verification()" required> </br></br>
 
-
-            <input type="submit" name="Envoyer"> <br>
+            <input id="submit" type="submit" name="Envoyer"> <br>
           </fieldset>
         </form>
       </nav>
 
+
       <!--Footer de la page-->
       <?php include("footer.php"); ?>
-
+      <script src="Verification.js"></script>
   </body>
 
 </html>
