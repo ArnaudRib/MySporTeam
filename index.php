@@ -14,6 +14,10 @@
       <!--Partie Popup-->
       <div id="popup" class="popup">
         <div id="division1" class="division1">
+          <div class="Recherche">
+            <h2 style="margin-left:10%; margin-right:10%; text-align:left; font-size:1.8em; display:inline-block;">Sports</h2>
+            <input id="search" type="text" name="search" class="searchbar" placeholder="Recherche..."/>
+          </div>
           <?php for ($i=0;$i<20;$i++){ //Requete SQL pour le nombre de sports + photo correcpondantes!?>
             <div class="boxes usualbackground" style="background-image: url('http://www.online-image-editor.com//styles/2014/images/example_image.png')";>
             </div>

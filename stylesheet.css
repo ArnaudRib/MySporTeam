@@ -1,4 +1,8 @@
 /*GROSSES SECTIONS*/
+html{
+  font-family: 'Comic Sans MS', cursive;
+}
+
 *{
   margin:0;
   padding: 0;
@@ -198,6 +202,27 @@ footer{
 
 .division1 div{
   display:inline-block;
+}
+
+.division1 .Recherche{
+  display:block;
+  margin:10px auto;
+}
+
+.searchbar{
+  width: 200px;
+  margin: 0px auto;
+  display: inline-block;
+  height: 30px;
+  border-radius:15px;
+}
+
+input.searchbar{
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  font-size: 17px;
+  padding-left:10px;
+  outline: none;
 }
 
 .boxes{
