@@ -14,7 +14,7 @@
       <!--Partie Popup-->
       <div id="popup" class="popup">
         <div id="division1" class="division1">
-          <?php for ($i=0;$i<15;$i++){ //Requete SQL pour le nombre de sports + photo correcpondantes!?>
+          <?php for ($i=0;$i<20;$i++){ //Requete SQL pour le nombre de sports + photo correcpondantes!?>
             <div class="boxes usualbackground" style="background-image: url('http://www.online-image-editor.com//styles/2014/images/example_image.png')";>
             </div>
           <?php
@@ -37,10 +37,10 @@
           <div class="ligne2">
             <div class="div3 usualbackground">
               <span class="Police2">Forum</span>
-              <div class="img1 usualbackground" style="background-image:url('images/sport3.jpg');"></div>
+              <div class="img2 usualbackground" style="background-image:url('images/sport3.jpg');"></div>
             </div><div class="div3 usualbackground">
               <span class="Police2">Aide</span>
-              <div class="img1 usualbackground" style="background-image:url('images/sport4.jpg');"></div>
+              <div class="img2 usualbackground" style="background-image:url('images/sport4.jpg');"></div>
             </div>
           </div>
         </section>
@@ -48,7 +48,7 @@
         <!--Partie Texte-->
         <aside>
           <div class="div2 usualbackground">
-            <div class="img2 usualbackground" style="background-image:url('images/chintoc.jpg');"></div>
+            <div class="img3 usualbackground" style="background-image:url('images/chintoc.jpg');"></div>
               <div class="div2bis">
                 <div class="Haut1">
                 <p>test</p>

@@ -72,7 +72,7 @@ footer{
   }
 
 /*Contenu photo accueil*/
-.div1{
+.div1{ /* Division Sport*/
   position:relative;
   width:100%;
   height:450px;
@@ -82,7 +82,7 @@ footer{
   overflow: hidden;
 }
 
-.div3{
+.div3{ /* Division Forum + Aide*/
   position:relative;
   width:50%;
   height:150px;
@@ -92,7 +92,7 @@ footer{
   overflow: hidden;
 }
 
-.img1{
+.img1{ /* Photo Sport*/
   width: 100%;
   height: 100%;
   position:absolute;
@@ -100,30 +100,38 @@ footer{
   transition:all 0.8s ease;
 }
 
-.img2{
+.img2{ /* Image forum et Aide*/
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  z-index:1;
+  transition:all 0.8s ease;
+}
+
+.img3{ /*Image Chintoc*/
   width: 100%;
   height: 100%;
   position:absolute;
   z-index:1;
 }
 
-.div1 span{
+.div1 span{ /*Text Sport**/
   width: 100%;
   height: 100%;
   position:absolute;
-  padding: 205px 0;
-  text-align: center;
+  padding: 205px 0; /*centre verticalement*/
+  text-align: center; /*centre au milieu*/
   z-index:2;
   overflow: hidden;
+  cursor:pointer;
 }
 
 .div1 span:hover + .img1{
-  transform:scale(1.5);
-  filter:brightness(0.5);
-    -webkit-filter:brightness(0.5);
+  filter:blur(10px);
+    -webkit-filter:blur(10px);
 }
 
-.div3 span{
+.div3 span{ /* ATTENTION DIV2 UTILISEE PLUS BAS!! Text forum + aide*/
   width: 100%;
   height: 100%;
   position:absolute;
@@ -131,12 +139,16 @@ footer{
   text-align: center;
   z-index:2;
   overflow: hidden;
+  cursor:pointer;
 }
 
-.div3 span:hover + .img1{
+.div3 span:hover + .img2{
+  filter:blur(10px);
+    -webkit-filter:blur(3px);
+  /*EFFET ZOOM + GRISE
   transform:scale(1.5);
   filter:brightness(0.5);
-    -webkit-filter:brightness(0.5);
+    -webkit-filter:brightness(0.5);*/
 }
 
 
@@ -152,7 +164,7 @@ footer{
   height: 100%;
   z-index:4;
   background-color: rgba(0, 0, 0, 0);
-  transition:all 0.5s linear;
+  transition:all 0.4s linear;
 }
 
 .popup h1{
@@ -167,21 +179,21 @@ footer{
   overflow:scroll;
   position: static;
   z-index: 9999;
-  background-color:rgba(92, 92, 92, 0.8);
-  transition:all 0.5s linear;
-  transform: scale(0.0000001);
+  background-color:rgba(98, 97, 97, 0.9);
+  transition:all 0.4s linear;
+  transform: rotate(80deg)scale(0.0000001);
   text-align: center;
 }
 
 
 .visible{
   visibility:visible;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9); /*Noircit les extérieurs du pop up*/
 }
 
 .visible2{
   visibility:visible;
-  transform: scale(1);
+  transform: rotate(0deg)scale(1);
 }
 
 .division1 div{
@@ -193,6 +205,12 @@ footer{
   height:35%;
   margin:3% 2%;
   background-color:red;
+  cursor:pointer;
+  transition: all 0.2s ease;
+}
+
+.boxes:hover{
+  transform:scale(1.05);
 }
 
 
