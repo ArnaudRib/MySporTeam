@@ -74,8 +74,18 @@ footer{
 /*Contenu photo accueil*/
 .div1{
   position:relative;
+  width:100%;
+  height:450px;
+  display: inline-block;
+  background-color:black;
+  opacity:1;
+  overflow: hidden;
+}
+
+.div3{
+  position:relative;
   width:50%;
-  height:300px;
+  height:150px;
   display: inline-block;
   background-color:black;
   opacity:1;
@@ -101,7 +111,7 @@ footer{
   width: 100%;
   height: 100%;
   position:absolute;
-  padding: 135px 0;
+  padding: 205px 0;
   text-align: center;
   z-index:2;
   overflow: hidden;
@@ -112,6 +122,79 @@ footer{
   filter:brightness(0.5);
     -webkit-filter:brightness(0.5);
 }
+
+.div3 span{
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  padding: 75px 0;
+  text-align: center;
+  z-index:2;
+  overflow: hidden;
+}
+
+.div3 span:hover + .img1{
+  transform:scale(1.5);
+  filter:brightness(0.5);
+    -webkit-filter:brightness(0.5);
+}
+
+
+
+/* PARTIE POP UP*/
+
+.popup{
+  visibility:hidden;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  z-index:4;
+  background-color: rgba(0, 0, 0, 0);
+  transition:all 0.5s linear;
+}
+
+.popup h1{
+  font-size:90px;
+}
+
+.division1{
+  margin:5% auto;
+  width:80%;
+  height:80%;
+  box-shadow: black 0 0 10px;
+  overflow:scroll;
+  position: static;
+  z-index: 9999;
+  background-color:rgba(92, 92, 92, 0.8);
+  transition:all 0.5s linear;
+  transform: scale(0.0000001);
+  text-align: center;
+}
+
+
+.visible{
+  visibility:visible;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.visible2{
+  visibility:visible;
+  transform: scale(1);
+}
+
+.division1 div{
+  display:inline-block;
+}
+
+.boxes{
+  width:19%;
+  height:35%;
+  margin:3% 2%;
+  background-color:red;
+}
+
 
 /*Section aside*/
 .div2{
@@ -149,8 +232,12 @@ footer{
   z-index: 2;
 }
 
-.ligne1 , .ligne2{
-  height: 300px;
+.ligne1 {
+  height: 450px;
+}
+
+.ligne2{
+  height: 150px;
 }
 
 
@@ -172,6 +259,11 @@ footer{
 
 .Police1{
   color:red;
+  font-size:60px;
+}
+
+.Police2{
+  color:green;
   font-size:30px;
 }
 

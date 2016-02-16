@@ -11,27 +11,35 @@
       <!--Menu en haut de la page-->
       <?php include("header.php"); ?>
 
+      <!--Partie Popup-->
+      <div id="popup" class="popup">
+        <div id="division1" class="division1">
+          <?php for ($i=0;$i<15;$i++){ //Requete SQL pour le nombre de sports + photo correcpondantes!?>
+            <div class="boxes usualbackground" style="background-image: url('http://www.online-image-editor.com//styles/2014/images/example_image.png')";>
+            </div>
+          <?php
+        }
+          ?>
+        </div>
+      </div>
+
       <!--Contenu de la page-->
       <nav id="content">
         <h1 class="centre">Bienvenue</h1>
         <!--Partie Photographie-->
         <section>
-          <div class="ligne1">
+          <div onclick="popup()" class="ligne1">
             <div class="div1 usualbackground">
-              <span class="Police1">test</span>
+              <span class="Police1">Sports</span>
               <div class="img1 usualbackground" style="background-image:url('images/sport.png');"></div>
-
-            </div><div class="div1 usualbackground" >
-              <span class="Police1">test</span>
-              <div class="img1 usualbackground" style="background-image:url('images/sport2.jpg');"></div>
             </div>
           </div>
           <div class="ligne2">
-            <div class="div1 usualbackground">
-              <span class="Police1">test</span>
+            <div class="div3 usualbackground">
+              <span class="Police2">Forum</span>
               <div class="img1 usualbackground" style="background-image:url('images/sport3.jpg');"></div>
-            </div><div class="div1 usualbackground">
-              <span class="Police1">test</span>
+            </div><div class="div3 usualbackground">
+              <span class="Police2">Aide</span>
               <div class="img1 usualbackground" style="background-image:url('images/sport4.jpg');"></div>
             </div>
           </div>
@@ -54,6 +62,7 @@
 
       <iframe src="SliderFade/SliderFade.php" width="100%" height="500px"></iframe>
       <iframe src="SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>
+      <script src="PopUp.js"></script>
 
       <!--Footer de la page-->
       <?php include("footer.php"); ?>
