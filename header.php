@@ -1,14 +1,9 @@
 <header>
-  <div id="hautdepage" class="memeligne">
-    <h4 style="display: inline-block; margin-left:30px;margin-right:30px; vertical-align: top;
-padding: 5px 0px; font-size:20px; font-family:Arial;">MySporTeam</h4>
+  <div id="stylesheet.css" class="memeligne">
     <ul class="menu">
-      <li> <a href="index.php"> Accueil</a></li>
-      <li>MySporTeam</li>
-      <li>Cours</li>
-      <li>Training</li>
-      <li>Compétitions</li>
-      <li>Forums</li>
+      <li> <a href= "index.php"> <img src="Images/mysporteam.png" width="285px" height="200px"></a></li>
+      <li> <img src= "user.png"></li>
+      <li> <a href="connexion.php">Connexion </a></li>
       <li> <a href="Inscription.php">Inscription </a></li>
     </ul>
   </div>

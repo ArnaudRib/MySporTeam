@@ -7,7 +7,7 @@
   </head>
   <body>
     <?php include("header.php"); ?>
-    <h1 class="">Connection</h1>
+    <h1 class="">Connexion</h1>
 
     <section class="bloc1">
       <div class="encadrement" style="padding:3%;">
