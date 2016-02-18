@@ -16,14 +16,12 @@
         <div id="division1" class="division1">
           <div class="Recherche">
             <h2 style="margin-left:10%; margin-right:10%; text-align:left; font-size:1.8em; display:inline-block;">Sports</h2>
-            <input id="search" type="text" name="search" class="searchbar" placeholder="Recherche..."/>
+            <input id="search" type="text" name="search" class="searchbar" placeholder="Recherche..." onkeyup="getresults(this.value)"  autocomplete="off" spellcheck="false"/>
           </div>
-          <?php for ($i=0;$i<20;$i++){ //Requete SQL pour le nombre de sports + photo correcpondantes!?>
-            <div class="boxes usualbackground" style="background-image: url('http://www.online-image-editor.com//styles/2014/images/example_image.png')";>
-            </div>
-          <?php
-        }
-          ?>
+          <div id="PhotoSport">
+            <?php include("recherchesport.php"); ?>
+        </div>
+
         </div>
       </div>
 
@@ -67,6 +65,7 @@
       <iframe src="SliderFade/SliderFade.php" width="100%" height="500px"></iframe>
       <iframe src="SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>
       <script src="PopUp.js"></script>
+      <script src="RechercheSport.js"></script>
 
       <!--Footer de la page-->
       <?php include("footer.php"); ?>
