@@ -155,6 +155,23 @@ footer{
     -webkit-filter:brightness(0.5);*/
 }
 
+#bouttoninscription{
+  text-align:center;
+}
+
+.button{
+  background-color: white;
+  padding:10px 15px;
+  border: 10px 50px;
+  font-size:20px;
+  width: 100%;
+  height:100%;
+  border: 40px solid;
+}
+
+.button:hover{
+  background-color: red;
+}
 
 
 /* PARTIE POP UP*/

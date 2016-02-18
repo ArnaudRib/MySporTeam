@@ -52,10 +52,16 @@
           <div class="div2 usualbackground">
             <div class="img3 usualbackground" style="background-image:url('images/chintoc.jpg');"></div>
               <div class="div2bis">
-                <div class="Haut1">
-                <p>test</p>
+                <div class="Haut1" style="padding:20px; text-align:justify; font-size:20px;">
+                <p><strong>MySporteam</strong> vous permet d'intéragir avec des personnes ayant les mêmes passions que vous ! </br></br>
+                  En vous inscrivant, vous pourrez participer à des cours, des entraînements, des compétitions proche
+                  de chez vous, et communiquer avec des passionnés du sport !</p>
                 </div><div class="Bas1">
-                  <p>test</p>
+                  <div id="bouttoninscription">
+                    <a href="inscription.php">
+                      <button class="button">Inscrivez vous!</button>
+                    </a>
+                  </div>
                 </div>
             </div>
           </div>
