@@ -393,3 +393,9 @@ fieldset input{
   margin:40px;
   border-radius:10px;
 }
+
+label{
+    display: block;
+    width: 150px;
+    float: left;
+}
