@@ -7,7 +7,7 @@
 #
 # Hôte: localhost (MySQL 5.6.28)
 # Base de données: MySporTeamBDD
-# Temps de génération: 2016-02-19 13:35:33 +0000
+# Temps de génération: 2016-03-11 17:54:53 +0000
 # ************************************************************
 
 
@@ -20,26 +20,20 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Affichage de la table Sports
+# Affichage de la table photo
 # ------------------------------------------------------------
 
-CREATE TABLE `Sports` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) DEFAULT NULL,
-  `photo` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `photo` (
+  `id_photo` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nom` varchar(30) DEFAULT NULL,
+  `chemin` int(100) DEFAULT NULL,
+  `chemin_thumb` int(100) DEFAULT NULL,
+  `id_groupe` int(11) DEFAULT NULL,
+  `id_utilisateur` int(11) DEFAULT NULL,
+  `id_sports` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_photo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `Sports` WRITE;
-/*!40000 ALTER TABLE `Sports` DISABLE KEYS */;
-
-INSERT INTO `Sports` (`id`, `nom`, `photo`)
-VALUES
-	(1,'football','/images/Sports/football.jpg'),
-	(2,'rugby','/images/Sports/rugby.jpg');
-
-/*!40000 ALTER TABLE `Sports` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 
