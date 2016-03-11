@@ -41,12 +41,10 @@
             <select style="border:1px solid black; padding-right:5px;" name="mois">
               <?php
               $months_list = array("Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre");
-              ?><?
               for ($i=0;$i<12;$i++){
-                $mois=$i;
                 ?>
-                <option value="<?php echo $mois?>"><?php echo $months_list[$i];?></option>
-                <?
+                <option value="<?php echo $i?>"><?php echo $months_list[$i];?></option>
+                <?php
               }
               ?>
             </select>
