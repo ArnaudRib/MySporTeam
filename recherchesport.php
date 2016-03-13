@@ -1,30 +1,24 @@
 <!--MODEL-->
 <?php
 
-// url du serveur
-$servername = "localhost";
-// Nom d'utilisateur Base de données
-$username = "root";
-// MDP utilisateur
-$password = "";
-// Nom de la base de donnée
-$dbname = "MySporTeamBDD";
+include("connectBDD.php");
 
-$co = mysqli_connect($servername, $username, $password, $dbname); // se connecter à la bdd
-
-$text = $_GET['resultat'];
-
+if(isset($_GET['resultat'])){
+  $text = $_GET['resultat'];
+}else{
+  $text= '';
+}
 $sql = "SELECT id, nom, photo FROM Sports WHERE nom LIKE '%$text%' LIMIT 10";
-$result = mysqli_query($co, $sql);
+$results = $db->query($sql)->fetchAll();
 
-if (mysqli_num_rows($result) == 0) { //Si la recherche ne donne rien?>
+if (!$results) { //Si la recherche ne donne rien?>
   <p style="color:red;"> <?php echo "Désolé :( </br> YA PAS DE SPORT QUI S'APPELLE $text !!!";?> </p>
 <?php
 }
 
-while ($row = mysqli_fetch_assoc($result)) { //row choisit une seule ligne.
+foreach ($results as $result) { //row choisit une seule ligne.
   ?>
-    <div title="<?php echo $row['nom']?>" class="boxes" style="background-image: url('<?php echo $row['photo']?>')";></div>
+    <div title="<?php echo $result['nom']?>" class="boxes" style="background-image: url('<?php echo $result['photo']?>')";></div>
   <?php
 }
 ?>
