@@ -9,10 +9,10 @@
   <body>
     <!--SLIDER FADE-->
     <?php $ListImg=[
-      "/asset/images/chintoc.jpg",
-      "/asset/images/sport.png",
-      "/asset/images/sport2.jpg",
-      "/asset/images/sport3.jpg"
+      "../images/chintoc.jpg",
+      "../images/sport.png",
+      "../images/sport2.jpg",
+      "../images/sport3.jpg"
       ]?>
     <?php CreationSlider($ListImg) ?>
 
