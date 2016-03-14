@@ -6,7 +6,7 @@
       <input id="search" type="text" name="search" class="searchbar" placeholder="Recherche..." onkeyup="getresults(this.value)"  autocomplete="off" spellcheck="false"/>
     </div>
     <div id="PhotoSport">
-      <?php include("recherchesport.php"); ?>
+      <?php include("view/recherchesport.php"); ?>
     </div>
 
   </div>

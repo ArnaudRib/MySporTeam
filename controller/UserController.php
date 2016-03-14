@@ -11,7 +11,7 @@ class UserController
     $this->user=new UserModele();
   }
 
-  function connexion()
+  public function connexion()
   {
     $message='';
     if (empty($_POST['pseudo']) || empty($_POST['mot_de_passe']) ) //Oublie d'un champ
@@ -40,6 +40,7 @@ class UserController
         pour revenir à la page d accueil</p>';
       }
     }
-    loadpage('Connexion',['stylesheet.css'],'view/ConnexionVue.php', ['message'=>$message]);
+    $vue=new Vue("Connexion","User",['stylesheet.css']);
+    $vue->loadpage(['message'=>$message]);
   }
 }
