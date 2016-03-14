@@ -69,7 +69,7 @@
     </div>
   </section>
 <?php else:?>
-  <p>Vous êtes déjà connecté! pd</br> Pour vous déconnecter, cliquez <a href="connexion.php?deconnexion=true">ici<a/></p>
+  <p>Vous êtes déjà connecté!</br> Pour vous déconnecter, cliquez <a href="connexion.php?deconnexion=true">ici<a/></p>
       <?php if (isset($_GET['deconnexion'])){
         session_unset($_SESSION['pseudo']);
         header('Location: connexion.php');
