@@ -58,7 +58,7 @@ footer{
 header {
   background-image: url('/asset/images/banniere.jpg');
   background-size : cover;
-  height: 100%;
+  height: 250px;
   width: 100%;
   margin: 0;
   display: inline-block;

@@ -1,3 +1,5 @@
 <?php
-require 'config/Vue.php';
-loadpage('Accueil',['stylesheet.css'],'view/index.php');
+require_once 'config/Vue.php';
+
+$vue=new Vue("Accueil","Accueil",['stylesheet.css']);
+$vue=loadpage();
