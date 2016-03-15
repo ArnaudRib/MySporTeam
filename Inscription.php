@@ -18,14 +18,14 @@
             <legend style="margin-left:7%;"> Inscription </legend>
 
             Sexe :
-            <input type="radio" name="sexe" value="H" checked> M.
-            <input type="radio" name="sexe" value="F"> Mme.</span>
+            <input type="radio" name="sexe" value="male" checked> M.
+            <input type="radio" name="sexe" value="female"> Mme.</span>
             </br>
 
             <!--PARTIE DATE DE NAISSANCE-->
             Date de naissance :
 
-            <!--Demande le jour-->
+            <!--Demande l'année-->
             <select style="border:1px solid black; padding-right:5px;" name="jour">
               <?php
               for ($i=1; $i<=31; $i++){
@@ -41,10 +41,12 @@
             <select style="border:1px solid black; padding-right:5px;" name="mois">
               <?php
               $months_list = array("Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre");
+              ?><?
               for ($i=0;$i<12;$i++){
+                $mois=$i;
                 ?>
-                <option value="<?php echo $i?>"><?php echo $months_list[$i];?></option>
-                <?php
+                <option value="<?php echo $mois?>"><?php echo $months_list[$i];?></option>
+                <?
               }
               ?>
             </select>
@@ -61,6 +63,7 @@
               ?>
             </select>
             <!--FIN PARTIE DATE DE NAISSANCE-->
+
             </br>
             Pseudonyme :
             <input type="text" name="pseudo" placeholder="Identifiant" required> </br>

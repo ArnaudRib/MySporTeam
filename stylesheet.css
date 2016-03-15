@@ -14,14 +14,6 @@ body{
   min-height: 666px;
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-thead{
-  text-align: center;
-}
-
 header,
 section,
 aside,
@@ -54,150 +46,37 @@ footer{
   position: relative;
 }
 
-/*HEADER*/
-header {
-  background-image: url('/asset/images/banniere.jpg');
-  background-size : cover;
-  height: 250px;
-  width: 100%;
-  margin: 0;
-  display: inline-block;
-}
 
-#logo {
-  margin-left: 2rem;
-  margin-top:1rem;
-  width:170px;
-  height:150px;
-}
 
-.imageheader{
+ /*MENU*/
+.menu li{
   display:inline-block;
+  font-size: 15px;
+  margin:5px;
+  color:red;
+  font-family: Arial;
+  font-size:20px;
+}
+
+.menu li a {
+  text-decoration:none;
+  color :black;
 }
 
 .menu {
-  margin-right: 150px;
-  margin-top:120px;
-  display: relative;
-  float: right;
   display:inline-block;
+  width: 70%;
+  font-size: 0;
+  text-align: justify;
 }
 
-.boutonmenu{
-  padding: 0px 10px;
-  color: white;
-  font-size: 2em;
-  margin:0 auto;
-  cursor: pointer;
-  background: grey;
-  transition: 0.5s background ease, 0.5s color ease;
-}
-
-.boutonmenu:hover{
-  color: red;
-  background: black;
-}
-
-.menuderoulant li {
-  list-style: none;
+.menu:after{
+  content:"";
   width: 100%;
-  margin-bottom: 10px;
-  display: inline;
-}
-
-header input{
-  padding:10px;
-  border-radius: 40px;
-  border : 3px solid #FE2E2E;
-  display: inline-block;
-  outline:none;
-}
-
-.menuderoulant{
-  visibility:visible;
-}
-
-.boutonmenu {
-  display:none;
-  visibility: hidden;
-}
-
-@media (max-width:800px){
-   #logo{
-     width:85px;
-     height: 75px;
-   }
-   .menu{
-     margin-right:0px;
-     margin-top:35px;
-   }
-}
-
-@media (max-width:560px){
-  .boutonmenu {
-    font-family:"Times";
-    display:inline-block;
-    visibility: visible;
-    float:right;
-    margin:40px 30px 30px 30px;
+  display:inline-block;
   }
-  .imageheader{
-    display:inline-block;
-    float:left;
-    width:24%;
-  }
-  .menuderoulant {
-    position: relative;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 1s ease;
-    text-align: center;
-    display: inline-block;
-  }
-
-  .visible3 {
-    max-height: 500px;
-  }
-
-  .menuderoulant li {
-    list-style: none;
-    margin-bottom: 10px;
-    display: inline-block;
-  }
-  .menu {
-    width:50%;
-    float:none;
-  }
-}
-
-
-#bouton{
-  text-decoration: none;
-  padding:7px;
-  font-family: 'Trebuchet MS', Helvetica, sans-serif;
-  font-weight: bold;
-  color:#ffffff;
-  border : 3px solid #FE2E2E;
-  background-color: #FE2E2E;
-  border-radius: 40px;
-  text-align:center;
-  text-decoration: none;
-  display: inline-block;
-  vertical-align:middle;
-  transition:0.5s background ease;
-}
-
-#bouton:hover {
-  color:#FF0000;
-  background-color: #ffffff;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-
 
 /*Contenu photo accueil*/
-
 .div1{ /* Division Sport*/
   position:relative;
   width:100%;
@@ -506,10 +385,4 @@ fieldset input{
   border:1px solid black;
   margin:40px;
   border-radius:10px;
-}
-
-label{
-    display: block;
-    width: 150px;
-    float: left;
 }
