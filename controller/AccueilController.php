@@ -11,7 +11,7 @@ class AccueilController
     /*$this->user=new AccueilModele();*/
   }
 
-  public function connexion()
+  public function loadVue()
   {
     $vue=new Vue("Accueil","Accueil",['stylesheet.css']);
     $vue->loadpage();

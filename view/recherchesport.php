@@ -1,14 +1,16 @@
 <!--MODEL-->
 <?php
 
-include("connectBDD.php");
+require_once('config/connectBDD.php');
 
 if(isset($_GET['resultat'])){
   $text = $_GET['resultat'];
 }else{
   $text= '';
 }
+
 $sql = "SELECT id, nom, photo FROM Sports WHERE nom LIKE '%$text%' LIMIT 10";
+
 $results = $db->query($sql)->fetchAll();
 
 if (!$results) { //Si la recherche ne donne rien?>

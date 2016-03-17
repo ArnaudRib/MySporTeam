@@ -1,7 +1,7 @@
 <?php
 
-require('controller/AccueilController.php');
-require('controller/UserController.php');
+require_once('controller/AccueilController.php');
+require_once('controller/UserController.php');
 
 class Route
 {
@@ -22,14 +22,11 @@ class Route
     $obj = json_decode($json, true);
     foreach ($obj as $key => $value){
       $value = "#^".$value."$#";
-      var_dump($_GET['p']);
-      var_dump($value);
-
       if (preg_match($value, $_GET['p'], $this->params)){
-        loadController($key);
+        $this->loadController($key);
       }
       else{
-        echo "désolé ca marche pas :c";
+        //rien besoin de mettre xD
       }
     }
   }
@@ -37,11 +34,11 @@ class Route
   function loadController($page){
     switch ($page) {
       case 'Accueil':
-        $this->ctr['Accueil'];
+        $this->ctr['Accueil']->loadVue();
         break;
 
       case 'Connexion':
-        $this->ctr['User'];
+        $this->ctr['User']->connexion();
         break;
 
       default:

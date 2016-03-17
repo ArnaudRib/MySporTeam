@@ -7,7 +7,7 @@
       <h2>Déjà inscrit?</h2>
       <?php
       if (!isset($_POST['pseudo'])){ //On est dans la page de formulaire ?>
-        <form style="margin:10px;" action="index.php" method="post">
+        <form style="margin:10px;" method="post">
           <fieldset>
             <label for="pseudo">Pseudo :</label>
             <input type="text" name="pseudo" placeholder="Pseudo" required> </br>
