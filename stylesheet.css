@@ -64,15 +64,27 @@ header {
   display: inline-block;
 }
 
-#logo {
-  margin-left: 2rem;
-  margin-top:1rem;
-  width:170px;
-  height:150px;
+
+
+ /*MENU*/
+.menu li{
+  display:inline-block;
+  font-size: 15px;
+  margin:auto;
+  color:red;
+  font-family: Arial;
+  font-size:20px;
+  text-align: center;
+  width: 25%;
+  float: left;
+  height: 80px;
 }
 
-.imageheader{
-  display:inline-block;
+.menu li a {
+  text-decoration:none;
+  color :white;
+  line-height: 80px;
+  vertical-align: middle;
 }
 
 .menu {

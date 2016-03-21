@@ -1,9 +1,4 @@
 <header>
-  <div class="imageheader">
-    <a href="">
-    <img id="logo" src="Images/mysporteam2.png"/>
-    </a>
-  </div>
 
   <div class="menu">
     <div class="menuderoulant">
