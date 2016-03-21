@@ -10,7 +10,7 @@
 </head>
 
 <div class="Calendrier">
-  <div class="side">
+  <!-- <div class="side">
     <label class="green">
       <input type="checkbox" name="cal-1" checked="true" id="cal-1" onchange="refreshCal(this)" calendrier="1">
       <label>calendrier 1</label>
@@ -19,7 +19,7 @@
       <input type="checkbox" name="cal-2" checked="true" id="cal-2" onchange="refreshCal(this)" calendrier="2">
       <label>calendrier 2</label>
     </label>
-  </div>
+  </div> -->
 
   <?php $year = date('Y');
   for ($i=0; $i < 12; $i++) {
