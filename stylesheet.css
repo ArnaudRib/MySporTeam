@@ -80,17 +80,12 @@ aside {
   color :white;
   line-height: 80px;
   vertical-align: middle;
-=======
-.logo img{
-  width:500px;
-}
 
 .logo {
   top:-130px;
 left:3rem;
  position: absolute;
  z-index: 1;
->>>>>>> origin/master
 }
 
 .menushort{

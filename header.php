@@ -1,9 +1,5 @@
 <header>
-<<<<<<< HEAD
-
-=======
 <div class="menuheader">
->>>>>>> origin/master
   <div class="menu">
     <div class="logo">
       <a ref="index.php"><img src="Images/logomysporteam.png"/></a>
