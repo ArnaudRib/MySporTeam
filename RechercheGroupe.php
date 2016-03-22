@@ -10,7 +10,7 @@
       <?php include("header.php"); ?>
 
       <div class="groupe">
-        <div class="imagegroupe usualbackground" style="background-image:url(images/sport.png);"> </div>
+        <div class="imagegroupe usualbackground" style="background-image:url('images/sport.png');"> </div>
         <div class="nomgroupe">
           <h3> Nom groupe </h3>
           <p>Test</p>
