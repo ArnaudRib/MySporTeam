@@ -499,3 +499,30 @@ fieldset input{
   margin:40px;
   border-radius:10px;
 }
+
+/* Page RechercheGroupe */
+.groupe{
+  padding: 20px;
+  border: 1px solid black;
+  margin: 40px;
+  width: 400px;
+  height: 250px;
+}
+
+.imagegroupe{
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  height: 65%;
+}
+
+.nomgroupe{
+  margin-left: 10px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#descriptiongroupe{
+  font-size: 80%;
+}
