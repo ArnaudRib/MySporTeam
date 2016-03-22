@@ -5,7 +5,7 @@ $servername = "localhost";
 // Nom d'utilisateur Base de données
 $username = "root";
 // MDP utilisateur
-$password = "";
+$password = "root";
 // Nom de la base de donnée
 $dbname = "MySporTeamBDD";
 
