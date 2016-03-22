@@ -41,6 +41,10 @@ class Route
         $this->ctr['User']->connexion();
         break;
 
+      case 'Inscription':
+        $this->ctr['User']->inscription();
+        break;
+
       default:
         # code...
         break;

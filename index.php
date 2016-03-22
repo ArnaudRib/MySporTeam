@@ -2,6 +2,6 @@
 
 session_start();
 
-require("config/Route.php");
+require_once("config/Route.php");
 $route=new Route;
 $route->getPage();

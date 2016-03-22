@@ -43,4 +43,18 @@ class UserController
     $vue=new Vue("Connexion","User",['stylesheet.css']);
     $vue->loadpage(['message'=>$message]);
   }
+
+  public function inscription()
+  {
+    if (isset($_POST['pseudo']) || isset($_POST['mot_de_passe'])){
+      $data->$this->user->InscriptionUser()->fetch();
+      if($data){
+        echo 'Inscription réussie!';
+      }else{
+        echo 'erreur';
+      }
+    } //Oublie d'un champ
+    $vue=new Vue("Inscription","User",['stylesheet.css']);
+    $vue->loadpage();
+  }
 }
