@@ -13,7 +13,7 @@
         <div class="imagegroupe usualbackground" style="background-image:url(images/sport.png);"> </div>
         <div class="nomgroupe">
           <h3> Nom groupe </h3>
-          <p>Test </p>
+          <p>Test</p>
         </div>
         <div id="descriptiongroupe"> Homines enim eruditos et sobrios ut infaustos et inutiles vitant, eo quoque accedente quod et nomenclatores adsueti haec et talia venditare, mercede accepta lucris quosdam et prandiis inserunt subditicios ignobiles et obscuros.
         </div>

@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="stylesheet.css">
-    <title>MySporTeam</title>
-  </head>
-  <body>
-    <?php include("header.php"); ?>
-    <h1 class="">Connexion</h1>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="stylesheet.css">
+  <title>MySporTeam</title>
+</head>
+<body>
+  <?php include("header.php");
+  session_start();?>
+  <h1 class="">Connexion</h1>
 
-    <section class="bloc1">
-      <div class="encadrement" style="padding:3%;">
-        <h2>Déjà inscrit?</h2>
-        <form style="margin:10px;" action="verification.php" method="post">
+  <?php if(!isset($_SESSION['pseudo'])): ?>
+  <section class="bloc1">
+    <div class="encadrement" style="padding:3%;">
+      <h2>Déjà inscrit?</h2>
+      <?php
+      if (!isset($_POST['pseudo'])){ //On est dans la page de formulaire ?>
+        <form style="margin:10px;" action="connexion.php" method="post">
           <fieldset>
-            Adresse Email :
-            <input type="text" name="email" placeholder="Email" required> </br>
+            <label for="pseudo">Pseudo :</label>
+            <input type="text" name="pseudo" placeholder="Pseudo" required> </br>
 
-            Mot de passe :
+            <label for="motdepasse">Mot de passe :</label>
             <input type="password" name="mot_de_passe" placeholder="Mot de passe" required> </br>
 
             <a href="#tamere">Mot de passe oublié?</a></br>
             <input type="submit" name="Envoyer"> <br>
-
           </fieldset>
-
-
         </form>
+        <?php
+      }else{
+        $message='';
+        if (empty($_POST['pseudo']) || empty($_POST['mot_de_passe']) ) //Oublie d'un champ
+        {
+          $message = '<p>une erreur s\'est produite pendant votre identification.
+          Vous devez remplir tous les champs</p>
+          <p>Cliquez <a href="./connexion.php">ici</a> pour revenir</p>';
+        } else {//On check le mot de passe
+          include('connectBDD.php');
+          $sql="SELECT * FROM utilisateurs WHERE pseudo=? and mot_de_passe=?";
+          $query=$db->prepare($sql); //a mettre dans model
+          $query->execute([$_POST['pseudo'], sha1($_POST['mot_de_passe'])]);
+          $data=$query->fetch();
 
           if ($data['mot_de_passe'] == sha1($_POST['mot_de_passe'])) // Acces OK !
           {
@@ -61,12 +76,12 @@
       } ?>
 <?php endif; ?>
 
-    <aside class="bloc2">
-      <div class="encadrement" style="padding:3%;">
-        <h2>Pas encore inscrit?</h2>
-        <a href="inscription.php">ICI<a>
+  <aside class="bloc2">
+    <div class="encadrement" style="padding:3%;">
+      <h2>Pas encore inscrit?</h2>
+      <a href="inscription.php">ICI<a>
       </div>
     </aside>
     <?php include("footer.php"); ?>
   </body>
-</html>
+  </html>
