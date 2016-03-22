@@ -10,6 +10,7 @@
 </head>
 
 <div class="Calendrier">
+  <script> afficheMois(); </script>
   <!-- <div class="side">
     <label class="green">
       <input type="checkbox" name="cal-1" checked="true" id="cal-1" onchange="refreshCal(this)" calendrier="1">
@@ -33,7 +34,7 @@
       <?php
       $taille = ceil(($decalage + $numb_of_days[$mois-1]-1)/7)*7;
       ?>
-    <div class="cal" id="<?php echo $mois ?>">
+  <div class="cal">
     <h2><?php echo ucfirst(strftime('%B', mktime(0,0,0,$mois, 10))) ?> <?php echo date('Y') ?></h2>
     <div class="nav" id="next" onclick="changeCal(1)">></div>
     <div class="nav" id="previous" onclick="changeCal(-1)"><</div>
