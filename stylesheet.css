@@ -58,28 +58,9 @@ aside {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
-
-
- /*MENU*/
-.menu li{
-  display:inline-block;
-  font-size: 15px;
-  margin:auto;
-  color:red;
-  font-family: Arial;
-  font-size:20px;
-  text-align: center;
-  width: 25%;
-  float: left;
-  height: 80px;
+.logo img{
+  width:500px;
 }
-
-.menu li a {
-  text-decoration:none;
-  color :white;
-  line-height: 80px;
-  vertical-align: middle;
 
 .logo {
   top:-130px;
