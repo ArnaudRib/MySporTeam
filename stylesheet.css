@@ -22,7 +22,6 @@ thead{
   text-align: center;
 }
 
-header,
 section,
 aside,
 footer {
@@ -41,73 +40,96 @@ aside {
   /*margin-right:20px;*/
 }
 
-footer{
-  background-color:#938a8a;
-  width:100%;
-  bottom: 0;
-  height: 40px;
-  clear: both;
-  margin-bottom: 0;
-}
-
 #content{
   position: relative;
 }
 
 /*HEADER*/
-header {
-  background-image: url(Images/banniere.jpg);
-  background-size : cover;
-  height: 100%;
+.menuheader {
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+  background-size: cover;
   width: 100%;
+  height:150px;
   margin: 0;
+  display: block;
+  z-index:1000;
+  position:relative;
+  border-bottom: inset;
+  overflow: hidden;
+}
+
+.logo img{
+  width:500px;
+}
+
+.logo {
+  top:-130px;
+left:3rem;
+ position: absolute;
+ z-index: 1;
+}
+
+.menushort{
+  top: 0px;
+  position:fixed;
+  z-index:999;
+  color:red;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+  background-size : cover;
+  display: block;
+  width:100%;
+  height:70px;
+}
+
+.logo2 img{
+  width:160px;
+}
+
+.logo2 {
+  top:-35px;
+left:6rem;
+ position: absolute;
+ z-index: 1;
+}
+
+.menushort nav{
+  position: absolute;
+  right:4rem;;
+  top:10px;
+  display: inline-block;
+  z-index: 3;
+}
+
+.menushort li{
   display: inline-block;
 }
 
+.menushort input{
+  margin-bottom:10px;
+  padding:10px;
+  margin-right:10px;
+  border-radius: 10px;
+  outline:none;
+  width:200px;
+}
 
 
- /*MENU*/
-.menu li{
-  display:inline-block;
-  font-size: 15px;
-  margin:auto;
-  color:red;
-  font-family: Arial;
+.menushort li a{
+  font-family: Verdana;
+  color: #ffffff;
   font-size:20px;
-  text-align: center;
-  width: 25%;
-  float: left;
-  height: 80px;
+  padding:10px;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.menu li a {
-  text-decoration:none;
-  color :white;
-  line-height: 80px;
-  vertical-align: middle;
-}
-
-.menu {
-  margin-right: 150px;
-  margin-top:120px;
-  display: relative;
-  float: right;
-  display:inline-block;
-}
-
-.boutonmenu{
-  padding: 0px 10px;
-  color: white;
-  font-size: 2em;
-  margin:0 auto;
-  cursor: pointer;
-  background: grey;
-  transition: 0.5s background ease, 0.5s color ease;
-}
-
-.boutonmenu:hover{
-  color: red;
-  background: black;
+.menushort li a:hover{
+  color: black;
+  font-size:20px;
+  padding:10px;
+  text-decoration: none;
+  border-bottom: 3px solid black;
+  display: inline-block;
 }
 
 .menuderoulant li {
@@ -115,14 +137,6 @@ header {
   width: 100%;
   margin-bottom: 10px;
   display: inline;
-}
-
-header input{
-  padding:10px;
-  border-radius: 40px;
-  border : 3px solid #FE2E2E;
-  display: inline-block;
-  outline:none;
 }
 
 .menuderoulant{
@@ -134,24 +148,44 @@ header input{
   visibility: hidden;
 }
 
-@media (max-width:800px){
-   #logo{
-     width:85px;
-     height: 75px;
-   }
-   .menu{
-     margin-right:0px;
-     margin-top:35px;
-   }
+@media (max-width:1000px){
+  .menushort{
+      visibility: hidden;
+    }
 }
 
-@media (max-width:560px){
+@media (max-width:1000px){
+  .menuheader {
+    background-color: #3164f6;
+    background-size: cover;
+    width: 100%;
+    height:100px;
+    margin: 0;
+    display: block;
+    z-index:1000;
+    position:relative;
+    border-bottom: inset;
+    overflow: hidden;
+  }
+
+  .logo img{
+    width:300px;
+  }
+
+  .logo {
+    top:-70px;
+  left:3rem;
+   position: absolute;
+   z-index: 1;
+  }
+
   .boutonmenu {
     font-family:"Times";
     display:inline-block;
     visibility: visible;
     float:right;
-    margin:40px 30px 30px 30px;
+    font-size:40px;
+    margin:20px 30px 30px 30px;
   }
   .imageheader{
     display:inline-block;
@@ -159,12 +193,13 @@ header input{
     width:24%;
   }
   .menuderoulant {
-    position: relative;
+    background-color: blue;
+    position: absolute;
     overflow: hidden;
     max-height: 0;
     transition: max-height 1s ease;
-    text-align: center;
-    display: inline-block;
+    text-align: left;
+    display: block;
   }
 
   .visible3 {
@@ -182,31 +217,64 @@ header input{
   }
 }
 
+.menu li{
+  padding:5px;
+}
 
-#bouton{
-  text-decoration: none;
-  padding:7px;
-  font-family: 'Trebuchet MS', Helvetica, sans-serif;
-  font-weight: bold;
-  color:#ffffff;
-  border : 3px solid #FE2E2E;
-  background-color: #FE2E2E;
-  border-radius: 40px;
-  text-align:center;
+.menu nav{
+  position:absolute;
+  top:39px;
+  right:3rem;
+  margin:20px;
+}
+
+.menu input{
+  padding:10px;
+  border-radius: 10px;
+  border : 3px solid #ffffff;
+  display: inline-block;
+  outline:none;
+  width:250px;
+}
+
+.menu li a{
+  font-family: Verdana;
+  color: #ffffff;
+  font-size:20px;
+  padding:8px;
   text-decoration: none;
   display: inline-block;
-  vertical-align:middle;
-  transition:0.5s background ease;
 }
 
-#bouton:hover {
-  color:#FF0000;
-  background-color: #ffffff;
-  font-weight: bold;
+.menu li a:hover{
+  color: black;
+  font-size:20px;
+  padding:8px;
   text-decoration: none;
+  border-bottom: 3px solid black;
+  display: inline-block;
 }
 
+/*FOOTER*/
+footer {
+  background-color:#2E2E2E;
+  height: 50px;
+  width: 100%;
+  margin: 0;
+}
 
+footer li{
+  color:#ffffff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.textfooter {
+    height:4px;
+    vertical-align: middle;
+    margin: auto;
+    text-align: center;
+}
 
 /*Contenu photo accueil*/
 
@@ -524,4 +592,563 @@ label{
     display: block;
     width: 150px;
     float: left;
+}
+
+/*PAGE MON GROUPE*/
+
+.haut_mongroupe{
+margin:auto;
+height:250px;
+width:100%;
+background-image: url("Images/image_groupe.jpg");
+background-size: cover;
+}
+
+.haut_mongroupe h1{
+  color:#ffffff;
+  position: absolute;
+  top:65px;
+  left:280px;
+  font-family: Verdana;
+  display: inline-block;
+}
+
+.hautdugroupe{
+  margin: auto;
+  width: 1100px;
+  position:relative;
+  top:140px;
+}
+
+
+#image_mongroupe{
+  width:170px;
+  height: 170px;
+  margin-top: 0px;
+  margin-left: 5rem;
+  display: inline-block;
+  padding:5px;
+  border:solid 1px grey;
+  background-color: white;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 10;
+}
+
+.menu_mongroupe {
+  position: absolute;
+  top:110px;
+  width:1100px;
+  display: block;
+  overflow: hidden;
+  border-bottom: solid 1px grey;
+  height:45px;
+  z-index: 1;
+  background-color: #ffffff;
+  border-radius: 0px 0px 15px 15px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.menu_mongroupe nav {
+  display: inline-block;
+  margin: 0;
+  margin-left: 250px;
+}
+
+.menu_mongroupe nav a{
+    font-family: Verdana;
+  text-decoration: none;
+  font-size: 18px;
+    color: #08298A;
+}
+
+.menu_mongroupe nav a:hover{
+  text-decoration: none;
+  font-size: 18px;
+  color:black;
+}
+
+.menu_mongroupe nav a:focus{
+  text-decoration: none;
+  font-size: 18px;
+  color:black;
+}
+
+.menu_mongroupe nav li:focus{
+  padding-top: 7px;
+  padding-left: 18px;
+  padding-right: 12px;
+  display: inline-block;
+  border-top:solid 5px black;
+}
+
+.menu_mongroupe nav li{
+  margin:0px;
+  padding: 12px;
+  padding-left: 18px;
+  display: inline-block;
+}
+
+.menu_mongroupe nav li:hover{
+  padding-top: 6px;
+  padding-left: 18px;
+  padding-right: 12px;
+  display: inline-block;
+  border-top:solid 6px black;
+}
+
+.bouton_inscription {
+  display: inline-block;
+  color:#0B610B;
+  background-color: #FAFAFA;
+  font-size: 18px;
+  margin-left: 120px;
+  border: outset 1px;
+  border-radius: 8px;
+  padding:4px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.bouton_inscription:hover{
+  border-top: solid 6px #0B610B;
+  background-color: #E6E6E6;
+  font-size: 18px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 2px;
+  padding-bottom: 5px;
+  font-family: Verdana, sans-serif;
+  text-decoration: none;
+}
+
+.bouton_inscription a{
+  color:#0B610B;
+  font-size: 18px;
+  font-family: Verdana, sans-serif;
+  border-top:green;
+  text-decoration: none;
+}
+
+.bouton_inscription a:hover{
+  font-size: 18px;
+  font-family: Verdana, sans-serif;
+  text-decoration: none;
+}
+
+
+body{
+  background-color: #E6E6E6;
+  height: 100%;
+  width: 100%;
+}
+
+.corps_mongroupe{
+  position: relative;
+  top:62px;
+  width:1107px;
+  margin:auto;
+  clear:both;
+}
+
+.mur_mongroupe{
+  display: inline-block;
+  vertical-align: top;
+  width:49.1%;
+}
+
+.cote_droit{
+    display: inline-block;
+    width:25%;
+    vertical-align: top;
+}
+
+.cote_gauche{
+    display: inline-block;
+    width:25%;
+    vertical-align: top;
+}
+
+.forme_case{
+  width:98%;
+  margin-top: auto;
+  display: block;
+  overflow: hidden;
+  background-color: #ffffff;
+  border-radius: 9px ;
+  box-shadow: 5px 5px 5px #888888;
+  margin-bottom: 12px;
+}
+
+.text_apropos{
+  margin-left: 6px;
+  width:90%;
+}
+
+#titre h1{
+  font-family: Verdana, sans-serif;
+  font-size: 18px;
+  padding:5px;
+  color:#ffffff;
+  font-weight: normal;
+  margin-left:4px;
+  background:cover;
+}
+
+#titre{
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+  background: cover;
+  width:100%;
+}
+
+#text_mongroupe{
+  font-family: Verdana, sans-serif;
+  font-size: 14px;
+  padding:9px;
+  color:#070719;
+  font-weight: normal;
+  text-align: justify;
+}
+
+#nom_sport{
+  background: linear-gradient(141deg, #FF0000 19%, #FF4000 61%, #FF8000 75%);
+  font-family:Arial black;
+}
+
+#nom_sport h1{
+  margin-left: 10px;
+}
+
+.evenements li{
+  height:100px;
+  overflow: hidden;
+  display: block;
+}
+
+
+.evenements img{
+  width:100%;
+}
+
+.evenements li:hover{
+  filter: blur(2px);
+  -webkit-filter:blur(2px);
+}
+
+.evenements h2{
+  color:white;
+}
+
+#publication{
+  margin: auto;
+  border-bottom: solid 1px grey;
+  display: block;
+}
+
+#publication:hover{
+  margin: auto;
+  border-bottom: solid 1px grey;
+  display: block;
+  background-color: #FAFAFA;
+}
+
+#publication h1{
+  font-family: Verdana;
+  font-size: 20px;
+  margin-left: 7px;
+  display: inline;
+}
+
+#publication h2{
+  font-family: Verdana;
+  font-size: 10px;
+  margin-left: 7px;
+  display: inline;
+  color:#848484;
+  text-decoration: none;
+}
+
+#publication p{
+  padding:7px;
+  font-family: Verdana;
+  font-size: 16px;
+  margin-left: 7px;
+  margin-bottom: 8px;
+}
+
+@media (max-width:1110px){
+  .haut_mongroupe{
+  margin:auto;
+  height:150px;
+  width:100%;
+  background-image: url("Images/image_groupe.jpg");
+  background-size: cover;
+  }
+
+  .haut_mongroupe h1{
+    color:#ffffff;
+    position: absolute;
+    top:30px;
+    left:40%;
+    font-family: Verdana;
+    display: inline-block;
+    font-size: 25px;
+  }
+
+  .hautdugroupe{
+    margin: auto;
+    width: 100%;
+    position:relative;
+    top:0px;
+    border: solid 0px red;
+  }
+
+
+  #image_mongroupe{
+    width:80px;
+    height: 80px;
+    margin-top: 15px;
+    margin-left: 10%;
+    display: inline-block;
+    padding:5px;
+    border:solid 1px grey;
+    background-color: white;
+    border-radius: 4px;
+    display: inline-block;;
+    z-index: 10;
+  }
+
+  .menu_mongroupe {
+    position: absolute;
+    top:110px;
+    width:100%;
+    display: block;
+    overflow: hidden;
+    border-bottom: solid 1px grey;
+    height:250px;
+    z-index: 1;
+    background-color: #ffffff;
+    border-radius: 0px;
+    box-shadow: 0px;
+  }
+
+  .menu_mongroupe nav {
+    display: block;
+    margin-left:30%;
+  }
+
+  .menu_mongroupe nav a{
+      font-family: Verdana;
+    text-decoration: none;
+    font-size: 18px;
+      color: #08298A;
+  }
+
+  .menu_mongroupe nav a:hover{
+    text-decoration: none;
+    font-size: 18px;
+    color:black;
+  }
+
+  .menu_mongroupe nav a:focus{
+    text-decoration: none;
+    font-size: 18px;
+    color:black;
+  }
+
+  .menu_mongroupe nav li:focus{
+    padding-top: 7px;
+    padding-left: 18px;
+    padding-right: 12px;
+    display: inline-block;
+    border-top:solid 5px black;
+  }
+
+  .menu_mongroupe nav li{
+    margin:0px;
+    padding: 12px;
+    padding-left: 18px;
+    display: block;
+  }
+
+  .menu_mongroupe nav li:hover{
+    padding-top: 6px;
+    padding-left: 18px;
+    padding-right: 12px;
+    display: inline-block;
+    border-top:solid 6px black;
+  }
+
+  .bouton_inscription {
+    display: inline-block;
+    color:#0B610B;
+    background-color: #FAFAFA;
+    font-size: 18px;
+    margin-left: 32%;
+    border: outset 1px;
+    border-radius: 8px;
+    padding:4px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .bouton_inscription:hover{
+    border-top: solid 6px #0B610B;
+    background-color: #E6E6E6;
+    font-size: 18px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    font-family: Verdana, sans-serif;
+    text-decoration: none;
+  }
+
+  .bouton_inscription a{
+    color:#0B610B;
+    font-size: 18px;
+    font-family: Verdana, sans-serif;
+    border-top:green;
+    text-decoration: none;
+  }
+
+  .bouton_inscription a:hover{
+    font-size: 18px;
+    font-family: Verdana, sans-serif;
+    text-decoration: none;
+  }
+
+
+  body{
+    background-color: #E6E6E6;
+    height: 100%;
+    width: 100%;
+  }
+
+  .corps_mongroupe{
+    position: relative;
+    top:220px;
+    width:100%;
+    margin:auto;
+    clear:both;
+  }
+
+  .mur_mongroupe{
+    display: block;
+    vertical-align: top;
+    width:100%;
+  }
+
+  .cote_droit{
+      display: block;
+      width:100%;
+      vertical-align: top;
+  }
+
+  .cote_gauche{
+      display: block;
+      width:100%;
+      vertical-align: top;
+  }
+
+  .forme_case{
+    width:98%;
+    margin-top: auto;
+    display: block;
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 9px ;
+    box-shadow: 5px 5px 5px #888888;
+    margin-bottom: 12px;
+  }
+
+  .text_apropos{
+    margin-left: 6px;
+    width:90%;
+  }
+
+  #titre h1{
+    font-family: Verdana, sans-serif;
+    font-size: 18px;
+    padding:5px;
+    color:#ffffff;
+    font-weight: normal;
+    margin-left:4px;
+    background:cover;
+  }
+
+  #titre{
+      background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+    background: cover;
+    width:100%;
+  }
+
+  #text_mongroupe{
+    font-family: Verdana, sans-serif;
+    font-size: 14px;
+    padding:9px;
+    color:#070719;
+    font-weight: normal;
+    text-align: justify;
+  }
+
+  #nom_sport{
+    background: linear-gradient(141deg, #FF0000 19%, #FF4000 61%, #FF8000 75%);
+    font-family:Arial black;
+  }
+
+  #nom_sport h1{
+    margin-left: 10px;
+  }
+
+  .evenements li{
+    height:100px;
+    overflow: hidden;
+    display: block;
+  }
+
+  .evenements img{
+    width:100%;
+  }
+
+  .evenements h2{
+    color:white;
+  }
+
+  #publication{
+    margin: auto;
+    border-bottom: solid 1px grey;
+    display: block;
+  }
+
+  #publication:hover{
+    margin: auto;
+    border-bottom: solid 1px grey;
+    display: block;
+    background-color: #FAFAFA;
+  }
+
+  #publication h1{
+    font-family: Verdana;
+    font-size: 20px;
+    margin-left: 7px;
+    display: inline;
+  }
+
+  #publication h2{
+    font-family: Verdana;
+    font-size: 10px;
+    margin-left: 7px;
+    display: inline;
+    color:#848484;
+    text-decoration: none;
+  }
+
+  #publication p{
+    padding:7px;
+    font-family: Verdana;
+    font-size: 16px;
+    margin-left: 7px;
+    margin-bottom: 8px;
+  }
 }
