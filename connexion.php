@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +7,7 @@
   <title>MySporTeam</title>
 </head>
 <body>
-  <?php include("header.php");
-  session_start();?>
+  <?php include("header.php");?>
   <h1 class="">Connexion</h1>
 
   <?php if(!isset($_SESSION['pseudo'])): ?>
@@ -63,25 +63,29 @@
           }
           $query->CloseCursor();
         }
-        echo $message.'</div></body></html>';
       }
       ?>
     </div>
   </section>
 <?php else:?>
   <p>Vous êtes déjà connecté!</br> Pour vous déconnecter, cliquez <a href="connexion.php?deconnexion=true">ici<a/></p>
-      <?php if (isset($_GET['deconnexion'])){
-        session_unset($_SESSION['pseudo']);
-        header('Location: connexion.php');
-      } ?>
+  <?php
+  if (isset($_GET['deconnexion'])){
+    session_unset($_SESSION['pseudo']);
+    header('Location: connexion.php');
+  } ?>
 <?php endif; ?>
 
   <aside class="bloc2">
     <div class="encadrement" style="padding:3%;">
       <h2>Pas encore inscrit?</h2>
-      <a href="inscription.php">ICI<a>
-      </div>
-    </aside>
-    <?php include("footer.php"); ?>
+      <a href="inscription.php">ICI</a>
+    </div>
+  </aside>
+
+  <?php include("footer.php"); ?>
+
+
   </body>
+
   </html>
