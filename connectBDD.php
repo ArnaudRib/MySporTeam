@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <?php
 
 // url du serveur
