@@ -8,8 +8,8 @@
         <ul>
         <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
         <li> <a href="pagegroupe.php">Accueil</a></li>
-        <li> <a href="connexion.php">Forums</a></li>
-        <li> <a href="Inscription.php">Connexion</a></li>
+        <li> <a href="forums.php">Forums</a></li>
+        <li> <a href="connexion.php">Connexion</a></li>
       </ul>
     </nav>
   </div>
