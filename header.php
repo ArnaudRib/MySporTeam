@@ -2,7 +2,7 @@
 <div class="menuheader">
   <div class="menu">
     <div class="logo">
-      <a ref="index.php"><img src="Images/logomysporteam.png"/></a>
+      <a href="index.php"><img src="Images/logomysporteam.png"/></a>
     </div>
     <nav class="menuderoulant">
         <ul>
