@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 /*GROSSES SECTIONS*/
 html{
   font-family: 'Kaushan Script', cursive;
@@ -1185,4 +1186,32 @@ body{
     margin-left: 7px;
     margin-bottom: 8px;
   }
+}
+
+/* aide*/
+
+.question {
+    width: 165%;
+    margin-left: 10%;
+    margin-top: 50px;
+}
+
+.faq {
+    margin-left: 47%;
+    margin-top: 50px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.question1 {
+  display:inline-block;
+  width: 49%;
+  text-decoration: none;
+}
+.question2 {
+  display: inline-block;
+  width:49%;
+  text-decoration: none;
 }
