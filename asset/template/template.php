@@ -15,4 +15,12 @@
 <!--Menu en bas de la page-->
 <?php include("footer.php"); ?>
 </body>
+
+  <script type="text/javascript">
+    function showmenu(){
+     document.querySelector('.menuderoulant').classList.toggle("visible3");
+    }
+  </script>
+  <script type="text/javascript" src="asset/js/header.js"/>
+  
 </html>

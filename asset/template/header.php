@@ -1,26 +1,35 @@
 <header>
-  <div class="imageheader">
-    <a href="">
-    <img id="logo" src="asset/images/mysporteam2.png"/>
-    </a>
-  </div>
-
+<div class="menuheader">
   <div class="menu">
-    <div class="menuderoulant">
+    <div class="logo">
+      <a href="index.php"><img src="Images/logomysporteam.png"/></a>
+    </div>
+    <nav class="menuderoulant">
         <ul>
         <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
-        <li> <a id="bouton" href="forums.php">Forums </a></li>
-        <li> <a id="bouton" href="connexion.php">Connexion </a></li>
-        <li> <a id="bouton" href="Inscription.php">Inscription </a></li>
+        <li> <a href="pagegroupe">Accueil</a></li>
+        <li> <a href="forums.php">Forums</a></li>
+        <li> <a href="connexion">Connexion</a></li>
       </ul>
-    </div>
+    </nav>
   </div>
   <div class="boutonmenu" onclick="showmenu()">☰</div>
+</div>
+
+<div class="menushort">
+  <div class="logo2">
+    <a ref="index.php"><img src="Images/logomysporteam.png"/></a>
+  </div>
+  <nav>
+      <ul>
+      <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
+      <li> <a href="pagegroupe.php">Accueil</a></li>
+      <li> <a href="connexion.php">Forums</a></li>
+      <li> <a href="Inscription.php">Connexion</a></li>
+    </ul>
+  </nav>
+</div>
 
 
-  <script type="text/javascript">
-    function showmenu(){
-     document.querySelector('.menuderoulant').classList.toggle("visible3");
-    }
-  </script>
+
 </header>

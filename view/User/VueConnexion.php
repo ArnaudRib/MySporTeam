@@ -37,6 +37,6 @@
   <aside class="bloc2">
     <div class="encadrement" style="padding:3%;">
       <h2>Pas encore inscrit?</h2>
-      <a href="inscription.php">ICI<a>
+      <a href="inscription">ICI<a>
       </div>
     </aside>
