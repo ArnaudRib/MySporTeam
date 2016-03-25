@@ -5,13 +5,9 @@ function toggleMenu() {
   if (hauteur>=150){
     header.classList.add('apparition');
     header.classList.remove('dissolution');
-    console.log("visible");
   }else{
     header.classList.remove('apparition');
     header.classList.add('dissolution');
-
-    console.log("caché :p");
-
   }
 }
 
