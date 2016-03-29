@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -72,7 +74,6 @@
       <iframe src="SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>
       <script src="PopUp.js"></script>
       <script src="RechercheSport.js"></script>
-
       <!--Footer de la page-->
       <?php include("footer.php"); ?>
 

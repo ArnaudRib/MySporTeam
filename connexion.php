@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,11 +7,9 @@
   <title>MySporTeam</title>
 </head>
 <body>
-  <?php include("header.php");
-  session_start();?>
+  <?php include("header.php"); ?>
   <h1 class="">Connexion</h1>
 
-  <?php if(!isset($_SESSION['pseudo'])): ?>
   <section class="bloc1">
     <div class="encadrement" style="padding:3%;">
       <h2>Déjà inscrit?</h2>
@@ -38,7 +37,7 @@
           <p>Cliquez <a href="./connexion.php">ici</a> pour revenir</p>';
         } else {//On check le mot de passe
           include('connectBDD.php');
-          $sql="SELECT * FROM utilisateurs WHERE pseudo=? and mot_de_passe=?";
+          $sql="SELECT * FROM utilisateurs WHERE pseudo=? AND mot_de_passe=?";
           $query=$db->prepare($sql); //a mettre dans model
           $query->execute([$_POST['pseudo'], sha1($_POST['mot_de_passe'])]);
           $data=$query->fetch();
@@ -68,13 +67,6 @@
       ?>
     </div>
   </section>
-<?php else:?>
-  <p>Vous êtes déjà connecté!</br> Pour vous déconnecter, cliquez <a href="connexion.php?deconnexion=true">ici<a/></p>
-      <?php if (isset($_GET['deconnexion'])){
-        session_unset($_SESSION['pseudo']);
-        header('Location: connexion.php');
-      } ?>
-<?php endif; ?>
 
   <aside class="bloc2">
     <div class="encadrement" style="padding:3%;">

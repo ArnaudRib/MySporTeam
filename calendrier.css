@@ -1,215 +1,123 @@
-/*Calendrier*/
-.side{
-  width:25%;
-  margin: 100px auto;
-  display:inline-block;
-  vertical-align:top;
-}
-
-.cal{
-  width:65%;
-  margin:100px auto;
-  display:inline-block;
-}
-
-tbody tr{
-  width: 100%;
-}
-
-.cell{
-  border: 1px black solid;
-  width: 10%;
-  height: 100px;
-}
-
 #next {
   float: right;
+  padding-right: 10px;
 }
 
 #previous {
   float: left;
+  padding-left: 10px;
 }
 
-.cal .nav {
-  margin: 20px 0;
-  padding: 5px 10px;
-  font-size: 20px;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  font-family: inherit;
+.nav {
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 0px;
+  color: white;
+  background-color: rgba(255, 0, 0, 0);
 }
 
-.nav:hover {
-  border-radius: 5px;
-  color: red;
+.calendrier {
+  top: 50px;
+  position: relative;
+  margin:3px auto;
+  width: 70%;
+  box-shadow: 0px 0px 5px #000000;
 }
 
-.cal > h2 {
-  display: inline-block;
-  margin: 20px auto;
-  color: red;
-  font-weight: 200;
-  font-size: 2.5em;
+.disabled {
+  background-color: lightgrey;
 }
 
-.selected {
-  display: inline-block;
+h2 {
+  color: white;
+  margin-top: 20px;
+  padding-top: 5px;
+  text-align: center;
+
+  min-width: 560px;
+  font: 1.5em Verdana;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+  border: 1px solid black;
+  border-bottom: 0px;
 }
 
 table {
   border-collapse: collapse;
-  margin-bottom: 50px;
-  width: 100%;
-  table-layout: fixed;
+  background-color: white;
 }
 
-table.selected {
-  display: block;
-}
-
-table tbody td {
-  width: 14.28%;
-  height: 100px;
-  border: solid 1px grey;
+td {
+  min-width: 80px;
   padding: 5px;
-  vertical-align: top;
-  position: relative;
+  padding-bottom: 10px;
+  border: 1px solid black;
 }
 
-table thead td {
+thead {
+}
+
+.jourSemaine {
   text-align: center;
-  font-weight: bold;
-  padding: 5px;
+  font: 1.2em Verdana;
 }
 
-table .disabled {
-  background: lightgrey;
+.chiffreSemaine {
+  float:left;
+  font: 1em Verdana;
+    font-weight: bold;
+  width: 100%;
+  margin-bottom: 5px;
 }
 
-table td h2 {
-  text-align: left;
-  font-weight: lighter;
-  font-size: 40px;
-}
-
-.cal .event {
-  text-align: left;
-  display: block;
-  margin: 5px 2px;
-  border-radius: 5px;
+.event {
+  text-align: right;
+  width: 100%;
   color: white;
-  padding: 5px;
-}
-
-.sidebar > label {
-  padding: 5px;
-  padding-left: 8px;
-  color: white;
-  display: block;
-  margin: 5px;
-  border-radius: 5px;
-}
-
-.sidebar input {
-  vertical-align: middle;
-}
-
-.red {
-  background: red;
-}
-
-.green {
-  background: green;
-}
-
-td span {
-  cursor: pointer;
-}
-
-span.event.hidden {
-  display: none;
-}
-
-.today {
-  color: red;
-  font-weight: 400;
-}
-
-.event-list {
-  height: 70px;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  position: relative;
-}
-.event-list:hover {
-  overflow-y: auto;
-}
-
-.event-list::-webkit-scrollbar {
-  width: 1px;
-  position: absolute;
-}
-
-.event-list::-webkit-scrollbar-thumb {
-  background: lightgrey;
-}
-
-td .modal {
-  position: absolute;
-  width: 270px;
-  background: white;
-  color: black;
-  min-height: 300px;
-  box-shadow: 0 3px 30px grey;
-  display: none;
-  text-align: left;
-  z-index: 10;
-  top: 100%;
-  left: 0;
+  font: 0.75em Verdana;
+  max-width: 100%;
+  max-height: 3ex;
+  overflow: hidden;
+  margin: 1px;
+  padding: 3px;
   border-radius: 3px;
 }
 
-.modal .head {
-  padding: 10px;
-  border-radius: 3px 3px 0 0;
+.pas_important {
+  background-color: rgba(0, 150, 0, 0.60);
 }
 
-.modal h2 {
-  font-size: 2em;
-  color: white;
-  font-weight: 200;
+.important {
+  background-color: rgba(150, 0, 0, 0.60);
 }
 
-.modal .subtitle {
-  font-size: .8em;
-  color: white;
-  font-weight: bold;
+.haut_calendrier {
+  width: 100%;
+  height: 250px;
+  background-image: url("Images/fond_cliff.jpg");
+  background-size: cover;
 }
 
-.modal p {
-  padding: 0 10px;
-  color: grey;
-  margin-bottom: 20px;
-  margin-top: 10px;
+.titre_calendrier {
+  margin-left: 10%;
+  position: relative;
+  top: 100%;
+  width: 80%;
+  border: 1px solid grey;
+  border-top: 0px;
+  height:45px;
+  z-index: 1;
+  background-color: #ffffff;
+  border-radius: 0px 0px 15px 15px;
+  box-shadow: 2px 2px 2px grey;
 }
 
-td div.modal.show {
-  display: block;
-}
-
-button {
-  background: none;
-  border: none;
-}
-
-.modal button {
-  margin: .5em;
-  color: white;
-  float: right;
-  font-size: 1em;
-  cursor: pointer;
-}
-.modal button:hover {
-  color: white;
+.titre_calendrier h1 {
+  margin: 5px;
+  padding-left: 10px;
+  font-family: Verdana;
+  text-decoration: none;
+  font-size: 1.8em;
+  color: #08298A;
 }

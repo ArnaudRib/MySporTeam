@@ -9,7 +9,7 @@ $password = "root";
 // Nom de la base de donnée
 $dbname = "MySporTeamBDD";
 
-$db = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+$db = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 // set the PDO error mode to exception
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>
