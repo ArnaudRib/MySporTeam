@@ -1,9 +1,6 @@
-<!--Menu en haut de la page-->
-<?php include("header.php"); ?>
-
 <!--Contenu de la page-->
 <nav>
-  <form style="margin:10px;" action="formulaire.php" method="post">
+  <form style="margin:10px;" method="post">
     <fieldset class="encadrement">
       <legend style="margin-left:7%;"> Inscription </legend>
 
@@ -65,6 +62,8 @@
   <input id="mdp_verification" type="password" name="mot_de_passe_confirmation" placeholder="•••••••" oninput="Verification()" required> </br></br>
 
   <input id="submit" type="submit" name="Envoyer"> <br>
+
+  <?php echo $message; ?>
 </fieldset>
 </form>
 </nav>

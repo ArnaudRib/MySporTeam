@@ -10,7 +10,6 @@
       require_once('model/AccueilModele.php');
        ?>
     </div>
-
   </div>
 </div>
 

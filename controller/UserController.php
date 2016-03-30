@@ -11,50 +11,68 @@ class UserController
     $this->user=new UserModele();
   }
 
-  public function connexion()
+
+  public function connection()
   {
     $message='';
-    if (empty($_POST['pseudo']) || empty($_POST['mot_de_passe']) ) //Oublie d'un champ
+    if (!empty($_POST['pseudo']) && !empty($_POST['mot_de_passe']) ) //Oublie d'un champ
     {
-      $message = '<p>une erreur s\'est produite pendant votre identification.
-      Vous devez remplir tous les champs</p>
-      <p>Cliquez <a href="./connexion.php">ici</a> pour revenir</p>';
-    } else {//On check le mot de passe
+      //On check le mot de passe
       $data=$this->user->CheckUser()->fetch();
       if ($data['mot_de_passe'] == sha1($_POST['mot_de_passe'])) // Acces OK !
       {
-        $_SESSION['pseudo'] = $data['pseudo'];
-        $_SESSION['mot_de_passe'] = $data['mot_de_passe'];
+        $_SESSION['user']=$data;
         $message = '<p>Bienvenue '.$data['pseudo'].',
         vous êtes maintenant connecté!</p>
         <p>Cliquez <a href="./">ici</a>
-        pour revenir à la page d accueil</p>';
+        pour revenir à la page d accueil. Vous pouvez aussi
+        cliquer <a href="deconnection">
+         ici pour vous deconnecter</a>.';
       }
       else // Acces pas OK !
       {
         $message = '<p>Une erreur s\'est produite
         pendant votre identification.<br /> Le mot de passe ou le pseudo
-        entré n\'est pas correcte.</p><p>Cliquez <a href="./Connexion">ici</a>
-        pour revenir à la page précédente
-        <br /><br />Cliquez <a href="./">ici</a>
-        pour revenir à la page d accueil</p>';
+        entré n\'est pas correcte.</p>
+        <br />Cliquez <a href="./">ici</a>
+        pour revenir à la page d accueil, ou modifiez les informations saisies.</p>';
       }
     }
-    $vue=new Vue("Connexion","User",['stylesheet.css']);
+
+    $vue=new Vue("Connection","User",['stylesheet.css']);
+    $vue->dump($data);
     $vue->loadpage(['message'=>$message]);
   }
 
+
   public function inscription()
   {
-    if (isset($_POST['pseudo']) || isset($_POST['mot_de_passe'])){
-      $data->$this->user->InscriptionUser()->fetch();
-      if($data){
-        echo 'Inscription réussie!';
+    $message='';
+    if(!empty($_POST)){
+      if (isset($_POST['pseudo']) || isset($_POST['mot_de_passe'])){
+        if($_POST['mot_de_passe']==$_POST['mot_de_passe_confirmation']){
+          $data1=$this->user->FreePseudo($_POST['pseudo']);
+          if(!$data1){
+            $data=$this->user->InscriptionUser(); //si il y a une réponse, true + tableau de la réponse, sinon, false.
+            if($data){
+              $message= 'Inscription réussie!';
+            }
+          }else{
+            $message= "Pseudo déjà utilisé!";
+          }
+        }else{
+          $message= 'Mots de passe non correspondants.';
+        }
       }else{
-        echo 'erreur';
+        $message= 'Un des champs est vide.';
       }
-    } //Oublie d'un champ
-    $vue=new Vue("Inscription","User",['stylesheet.css']);
-    $vue->loadpage();
+    }
+    $vue=new Vue("Inscription","User",['stylesheet.css'], ['Verification.js']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
+    $vue->loadpage(['message'=>$message]);
+  }
+
+  public function deconnection(){
+    session_unset($_SESSION['user']);
+    header('Location: connection');
   }
 }

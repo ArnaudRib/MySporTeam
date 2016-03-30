@@ -11,4 +11,8 @@ function toggleMenu() {
   }
 }
 
+function showmenu(){
+ document.querySelector('.menuderoulant').classList.toggle("visible3");
+}
+
 window.addEventListener("scroll",toggleMenu);

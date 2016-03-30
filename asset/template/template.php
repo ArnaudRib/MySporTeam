@@ -16,11 +16,8 @@
 <?php include("footer.php"); ?>
 </body>
 
-  <script type="text/javascript">
-    function showmenu(){
-     document.querySelector('.menuderoulant').classList.toggle("visible3");
-    }
-  </script>
+
+  <?php $this->loadjs();?>
   <script type="text/javascript" src="asset/js/header.js"/>
-  
+
 </html>

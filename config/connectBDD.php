@@ -12,6 +12,7 @@ class BaseDeDonnes
     if ($this->db==null){
       $this->db = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
       $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $this->db->query("SET NAMES UTF8"); // Evite les problemes d'encodage.
     }
     return $this->db;
   }

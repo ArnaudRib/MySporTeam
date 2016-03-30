@@ -600,21 +600,15 @@ fieldset input{
   padding: 0.5em;
 }
 
-/*Connexion*/
-.bloc1 {
-  width:50%;
-  margin:0 5%;
-  float:left;
-  padding:10px;
+/*connection*/
+.block1{
+  width:66%;
+  display:inline-block;
 }
 
-.bloc2 {
-  width:30%;
-  margin-right:10%;
-  margin-top:5%;
-  margin-bottom:5%;
-  float:right;
-  padding:10px;
+.block2{
+  width:33%;
+  display:inline-block;
 }
 
 .encadrement{

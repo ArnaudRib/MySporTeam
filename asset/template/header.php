@@ -9,7 +9,7 @@
         <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
         <li> <a href="pagegroupe">Accueil</a></li>
         <li> <a href="forums.php">Forums</a></li>
-        <li> <a href="connexion">Connexion</a></li>
+        <li> <a href="connection">connection</a></li>
       </ul>
     </nav>
   </div>
@@ -24,8 +24,8 @@
       <ul>
       <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
       <li> <a href="pagegroupe.php">Accueil</a></li>
-      <li> <a href="connexion.php">Forums</a></li>
-      <li> <a href="Inscription.php">Connexion</a></li>
+      <li> <a href="connection.php">Forums</a></li>
+      <li> <a href="Inscription.php">connection</a></li>
     </ul>
   </nav>
 </div>

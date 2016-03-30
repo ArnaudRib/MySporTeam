@@ -1,5 +1,7 @@
 {
   "Accueil":"",
-  "Connexion":"connexion",
-  "Inscription":"inscription"
+  "connection":"connection",
+  "inscription":"inscription",
+  "deconnection":"deconnection"
+
 }

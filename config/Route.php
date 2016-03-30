@@ -11,6 +11,7 @@ class Route
 
   function __construct()
   {
+    session_start(); //permet de rester connecter partout ;)
     $this->ctr =[
       'Accueil' => new AccueilController,
       'User'=> new UserController
@@ -37,11 +38,15 @@ class Route
         $this->ctr['Accueil']->loadVue();
         break;
 
-      case 'Connexion':
-        $this->ctr['User']->connexion();
+      case 'connection':
+        $this->ctr['User']->connection();
         break;
 
-      case 'Inscription':
+      case 'deconnection':
+        $this->ctr['User']->deconnection();
+        break;
+
+      case 'inscription':
         $this->ctr['User']->inscription();
         break;
 
