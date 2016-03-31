@@ -16,4 +16,9 @@ class AccueilController
     $vue=new Vue("Accueil","Accueil",['stylesheet.css']);
     $vue->loadpage();
   }
+
+  public function loadphoto()
+  {
+
+  }
 }
