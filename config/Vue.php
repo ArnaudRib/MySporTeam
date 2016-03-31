@@ -5,7 +5,7 @@ class Vue
   private $nomcss;
   private $fichier;
 
-  function __construct($page, $controller, $nomcss, $nomjs)
+  function __construct($page, $controller, $nomcss=[], $nomjs=[])
   {
     $this->titre=$page;
     $this->fichier="view/".$controller."/Vue".$page.".php";
@@ -13,7 +13,7 @@ class Vue
     $this->nomjs=$nomjs;
   }
 
-  function loadpage($parametres){
+  function loadpage($parametres=[]){
     extract($parametres);
     $titre = $this->titre;
     require('asset/template/template.php');
@@ -29,6 +29,11 @@ class Vue
     foreach ($this->nomjs as $nom) {
       echo '<script src="asset/js/'.$nom.'"></script>';
     }
+  }
+
+  function loadajax($parametres=[]){
+    extract($parametres);
+    require('asset/template/templatevide.php');
   }
 
   function dump($var){ //Sous forme de tableau!

@@ -19,12 +19,16 @@ class BaseDeDonnes
 
   function requeteSQL($sql, $parametres=[]){
     {
-      if (empty($parametres)){
-        return $this->connectBDD()->query($sql);
-      }else{
-        $query=$this->connectBDD()->prepare($sql); //a mettre dans model
-        $query->execute($parametres);
-        return $query;
+      try {
+        if (empty($parametres)){
+          return $this->connectBDD()->query($sql);
+        }else{
+          $query=$this->connectBDD()->prepare($sql); //a mettre dans model
+          $query->execute($parametres);
+          return $query;
+        }
+      } catch (Exception $e) {
+        echo $e->getMessage();
       }
     }
   }

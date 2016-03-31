@@ -5,6 +5,6 @@ function getresults(str) {
       document.getElementById("PhotoSport").innerHTML = xmlhttp.responseText;
     }
   };
-  xmlhttp.open("GET", "recherchesport.php?resultat=" + str, true);
+  xmlhttp.open("GET", "ajaxloadphoto?resultat=" + str, true);
   xmlhttp.send();
 }

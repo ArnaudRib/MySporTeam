@@ -26,9 +26,6 @@ class Route
       if (preg_match($value, $_GET['p'], $this->params)){
         $this->loadController($key);
       }
-      else{
-        //rien besoin de mettre xD
-      }
     }
   }
 
@@ -48,6 +45,10 @@ class Route
 
       case 'inscription':
         $this->ctr['User']->inscription();
+        break;
+
+      case 'ajaxloadphoto':
+        $this->ctr['Accueil']->loadphoto();
         break;
 
       default:

@@ -1,5 +1,5 @@
 <?php
-require 'config/connectBDD.php';
+require_once 'config/connectBDD.php';
 
 class UserModele extends BaseDeDonnes
 {

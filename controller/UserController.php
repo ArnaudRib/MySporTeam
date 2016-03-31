@@ -40,7 +40,6 @@ class UserController
     }
 
     $vue=new Vue("Connection","User",['stylesheet.css']);
-    $vue->dump($data);
     $vue->loadpage(['message'=>$message]);
   }
 
