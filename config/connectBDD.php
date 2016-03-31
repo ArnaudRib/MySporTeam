@@ -10,9 +10,8 @@ class BaseDeDonnes
 
   function connectBDD(){
     if ($this->db==null){
-      $this->db = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
-      $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $this->db->query("SET NAMES UTF8"); // Evite les problemes d'encodage.
+      $this->db = new PDO("mysql:host=$this->servername;dbname=$this->dbname;charset=utf8", $this->username, $this->password);
+      $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     }
     return $this->db;
   }
