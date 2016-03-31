@@ -1156,11 +1156,21 @@ body{
 
 /* Page RechercheGroupe */
 .groupe{
+  display: inline-block;
+  border-radius: 20px;
   padding: 20px;
   border: 1px solid black;
-  margin: 40px;
-  width: 400px;
+  margin: 1%;
+  width: 47%;
   height: 250px;
+  transition: 1s all ease;
+}
+
+.groupe:hover{
+  display: inline-block;
+  border: 1px solid black;
+  width: 48%;
+  height: 260px;
 }
 
 .imagegroupe{
@@ -1179,4 +1189,42 @@ body{
 
 #descriptiongroupe{
   font-size: 80%;
+}
+
+.filtre{
+  vertical-align: top;
+  display: inline-block;
+  width: 18%;
+  text-align: center;
+}
+
+.filtre p{
+  margin-top: 50%;
+}
+
+.recherchefiltre{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.recherchegroupe{
+  display: inline-block;
+  max-width: 63%;
+  margin: 0 auto;
+}
+
+#boutonrecherche{
+  color: white;
+  border: 2px outset grey;
+  border-radius: 5px;
+  background-color: rgb(16, 201, 196);
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+#boutonrecherche:active{
+  border-style: inset;
 }
