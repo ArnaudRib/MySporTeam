@@ -1,6 +1,4 @@
-<script src="PopUp.js"></script>
-<script src="RechercheSport.js"></script>
-<script src="header.js">
+<script src="asset/js/header.js">
 
 </script>
 <footer>
