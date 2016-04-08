@@ -1,7 +1,7 @@
 {
   "Accueil":"",
-  "connection":"connection",
+  "connexion":"connexion",
   "inscription":"inscription",
-  "deconnection":"deconnection",
+  "deconnexion":"deconnexion",
   "ajaxloadphoto":"ajaxloadphoto"
 }

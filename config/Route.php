@@ -35,12 +35,12 @@ class Route
         $this->ctr['Accueil']->loadVue();
         break;
 
-      case 'connection':
-        $this->ctr['User']->connection();
+      case 'connexion':
+        $this->ctr['User']->connexion();
         break;
 
-      case 'deconnection':
-        $this->ctr['User']->deconnection();
+      case 'deconnexion':
+        $this->ctr['User']->deconnexion();
         break;
 
       case 'inscription':

@@ -12,7 +12,7 @@ class UserController
   }
 
 
-  public function connection()
+  public function connexion()
   {
     $message='';
     if (!empty($_POST['pseudo']) && !empty($_POST['mot_de_passe']) ) //Oublie d'un champ
@@ -26,7 +26,7 @@ class UserController
         vous êtes maintenant connecté!</p>
         <p>Cliquez <a href="./">ici</a>
         pour revenir à la page d accueil. Vous pouvez aussi
-        cliquer <a href="deconnection">
+        cliquer <a href="deconnexion">
          ici pour vous deconnecter</a>.';
       }
       else // Acces pas OK !
@@ -39,7 +39,7 @@ class UserController
       }
     }
 
-    $vue=new Vue("Connection","User",['stylesheet.css']);
+    $vue=new Vue("connexion","User",['stylesheet.css']);
     $vue->loadpage(['message'=>$message]);
   }
 
@@ -50,7 +50,7 @@ class UserController
     if(!empty($_POST)){
       if (isset($_POST['pseudo']) || isset($_POST['mot_de_passe'])){
         if($_POST['mot_de_passe']==$_POST['mot_de_passe_confirmation']){
-          $data1=$this->user->FreePseudo($_POST['pseudo']);
+          $data1=$this->user->FreePseudo($_POST['pseudo']); // si pseudo non déjà utilisé.
           if(!$data1){
             $data=$this->user->InscriptionUser(); //si il y a une réponse, true + tableau de la réponse, sinon, false.
             if($data){
@@ -70,8 +70,8 @@ class UserController
     $vue->loadpage(['message'=>$message]);
   }
 
-  public function deconnection(){
+  public function deconnexion(){
     session_unset($_SESSION['user']);
-    header('Location: connection');
+    header('Location: connexion');
   }
 }

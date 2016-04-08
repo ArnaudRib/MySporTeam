@@ -1,11 +1,11 @@
 <?php /* if (!isset($_POST['pseudo'])): //On est dans la page de formulaire ?>
-  <p>Vous êtes déjà connecté!</br> Pour vous déconnecter, cliquez <a href="deconnection">ici<a/></p>
+  <p>Vous êtes déjà connecté!</br> Pour vous déconnecter, cliquez <a href="deconnexion">ici<a/></p>
 <?php
     session_unset($_SESSION['pseudo']);
     header('Location: index.php'); //A changer :(..
 endif; */?>
 
-<h1 class="">connection</h1>
+<h1 class="">connexion</h1>
 
 <div class="block1">
   <div class="encadrement" style="padding:3%;">
