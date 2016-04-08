@@ -5,7 +5,7 @@
       <a href="index.php"><img src="Images/logomysporteam.png"/></a>
     </div>
     <nav class="menuderoulant">
-        <ul>
+      <ul>
         <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
         <li> <a href="pagegroupe">Accueil</a></li>
         <li> <a href="forums.php">Forums</a></li>
