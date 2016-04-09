@@ -58,15 +58,19 @@ aside {
   overflow: hidden;
 }
 
-.logo img{
-  width:500px;
+#logo_header{
+  width:300px;
 }
 
 .logo {
-  top:-130px;
-left:3rem;
+  top:-50px;
+left:1.5rem;
  position: absolute;
  z-index: 1;
+}
+
+#bouton_on-off {
+  width: 20px;
 }
 
 .menushort{
@@ -169,7 +173,7 @@ left:6rem;
     overflow: hidden;
   }
 
-  .logo img{
+  #logo_header{
     width:300px;
   }
 
@@ -235,7 +239,7 @@ left:6rem;
   border : 3px solid #ffffff;
   display: inline-block;
   outline:none;
-  width:250px;
+  width:160px;
 }
 
 .menu li a{
@@ -614,12 +618,6 @@ fieldset input{
   margin-bottom:5%;
   float:right;
   padding:10px;
-}
-
-.encadrement{
-  border:1px solid black;
-  margin:40px;
-  border-radius:10px;
 }
 
 label{

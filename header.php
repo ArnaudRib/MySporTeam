@@ -1,10 +1,4 @@
 <header>
-<<<<<<< HEAD
-<div class="menuheader">
-  <div class="menu">
-    <div class="logo">
-      <a href="index.php"><img src="Images/logomysporteam.png"/></a>
-=======
   <div class="menuheader">
     <div class="menu">
       <div class="logo">
@@ -32,16 +26,10 @@
   <div class="menushort">
     <div class="logo2">
       <a ref="index.php"><img src="Images/logomysporteam.png"/></a>
->>>>>>> Alexis
     </div>
     <nav>
       <ul>
         <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
-<<<<<<< HEAD
-        <li> <a href="pagegroupe.php">Accueil</a></li>
-        <li> <a href="forum.php">Forums</a></li>
-        <li> <a href="connexion.php">Connexion</a></li>
-=======
         <li> <a href="index.php">Accueil</a></li>
         <li> <a href="">Forums</a></li>
         <?php if(!isset($_SESSION['pseudo'])) : ?>
@@ -53,7 +41,6 @@
           <li> <a href="profil.php">Profil</a></li>
           <li> <a href="deconnexion.php"><img id="bouton_on-off" src="Images/bouton_on-off.png" /></a></li>
         <?php endif; ?>
->>>>>>> Alexis
       </ul>
     </nav>
   </div>

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-=======
 <?php session_start(); ?>
 
-<!DOCTYPE html>
->>>>>>> Alexis
 <html>
     <head>
         <link rel="stylesheet" href="stylesheet.css"/>
@@ -76,12 +71,9 @@
 
       <iframe src="SliderFade/SliderFade.php" width="100%" height="500px"></iframe>
       <iframe src="SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>
-<<<<<<< HEAD
-
-=======
       <script src="PopUp.js"></script>
       <script src="RechercheSport.js"></script>
->>>>>>> Alexis
+
       <!--Footer de la page-->
       <?php include("footer.php"); ?>
 
