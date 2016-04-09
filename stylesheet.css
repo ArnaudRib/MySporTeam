@@ -586,12 +586,6 @@ fieldset input{
   padding:10px;
 }
 
-.encadrement{
-  border:1px solid black;
-  margin:40px;
-  border-radius:10px;
-}
-
 label{
     display: block;
     width: 150px;

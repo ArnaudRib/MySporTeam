@@ -1,7 +1,99 @@
-Test coucou 
+code a garder, utile pour le profil...
 
-Ca va? 
-bien Bonjour pd
+<div class="donnees_perso">
+  <label for="nom">Nom :</label>
+  <br />
+  <input type="text" name="nom" placeholder="Nom" required> <br />
 
- Va te faire! Ehhh c'est pas bien!
-ozeiuhroziehrozier
+  <label for="prenom">Prénom :</label>
+  <br />
+  <input type="text" name="prenom" placeholder="Prénom" required> <br />
+
+</div>
+
+<div class="details">
+  <label for="sexe">Sexe :</label>
+  <br />
+  <input type="radio" name="sexe" value="H" checked> M.
+  <input type="radio" name="sexe" value="F"> Mme.
+  <br />
+
+  <!--PARTIE DATE DE NAISSANCE-->
+  <label for="birthday">Date de naissance :</label>
+  <br /><br />
+
+  <!--Demande le jour-->
+  <select name="jour">
+    <?php
+    for ($i=1; $i<=31; $i++){
+      $jour=$i;
+      ?>
+      <option value="<?php echo $jour?>"><?php echo $jour;?></option>
+      <?php //permet de fermer la boucle
+    }
+    ?>
+  </select>
+
+  <!-- Demande le mois-->
+  <select name="mois">
+    <?php
+    $months_list = array("Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre");
+    for ($i=0;$i<12;$i++){
+      ?>
+      <option value="<?php echo $i?>"><?php echo $months_list[$i];?></option>
+      <?php
+    }
+    ?>
+  </select>
+
+  <!--Demande l'année-->
+  <select name="annee">
+    <?php
+    for ($i=0; $i<100; $i++){
+      $annee=intval(date('Y'))-$i; //Donne à la variable date le int transformé en string - la valeur de i.
+      ?>
+      <option value="<?php echo $annee?>"><?php echo $annee;?></option>
+      <?php //permet de fermer la boucle
+    }
+    ?>
+  </select>
+  <!--FIN PARTIE DATE DE NAISSANCE-->
+  <br />
+
+  <label for="phone">Numéro de téléphone :</label>
+  <br /><br />
+  <input type="text" name="phone" placeholder="Numéro de téléphone" required> <br />
+
+  <label for="adresse">Adresse  :</label>
+  <br />
+  <input type="text" name="adresse" placeholder="Adresse" required> <br />
+
+  <label for="ville">Ville :</label>
+  <br />
+  <input type="text" name="ville" placeholder="Ville" required> <br />
+</div>
+
+
+----------------------------------------
+
+
+.haut_inscription {
+  width: 100%;
+  height: 250px;
+  background-image: url("Images/image_inscription.jpg");
+  background-size: cover;
+}
+
+.titre_inscription {
+  margin-left: 10%;
+  position: relative;
+  top: 100%;
+  width: 80%;
+  border: 1px solid grey;
+  border-top: 0px;
+  height:45px;
+  z-index: 1;
+  background-color: #ffffff;
+  border-radius: 0px 0px 15px 15px;
+  box-shadow: 2px 2px 2px grey;
+}
