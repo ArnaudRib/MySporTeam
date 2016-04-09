@@ -1,19 +1,19 @@
 # ************************************************************
 # Sequel Pro SQL dump
-# Version 4529
+# Version 4541
 #
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
 # Hôte: localhost (MySQL 5.6.28)
 # Base de données: MySporTeamBDD
-# Temps de génération: 2016-03-31 15:11:31 +0000
+# Temps de génération: 2016-04-09 21:31:53 +0000
 # ************************************************************
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_connexion=@@COLLATION_connexion */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
@@ -145,14 +145,15 @@ CREATE TABLE `message_de_groupe` (
 DROP TABLE IF EXISTS `photo`;
 
 CREATE TABLE `photo` (
-  `id_photo` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `nom` varchar(30) DEFAULT NULL,
-  `chemin` int(100) DEFAULT NULL,
-  `chemin_thumb` int(100) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  `chemin` varchar(1000) DEFAULT NULL,
+  `chemin_thumb` varchar(1000) DEFAULT NULL,
   `id_groupe` int(11) unsigned DEFAULT NULL,
   `id_utilisateur` int(11) unsigned DEFAULT NULL,
   `id_sports` int(11) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id_photo`),
+  PRIMARY KEY (`id`),
   KEY `id_groupe` (`id_groupe`),
   KEY `id_utilisateur` (`id_utilisateur`),
   KEY `id_sports` (`id_sports`),
@@ -161,6 +162,16 @@ CREATE TABLE `photo` (
   CONSTRAINT `photo_ibfk_3` FOREIGN KEY (`id_sports`) REFERENCES `sports` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `photo` WRITE;
+/*!40000 ALTER TABLE `photo` DISABLE KEYS */;
+
+INSERT INTO `photo` (`id`, `nom`, `description`, `chemin`, `chemin_thumb`, `id_groupe`, `id_utilisateur`, `id_sports`)
+VALUES
+	(1,'football_photo','Sport de balle','/asset/images/Sports/football.jpg',NULL,NULL,NULL,1),
+	(2,'rugby_photo','Sport de balle','/asset/images/Sports/rugby.jpg',NULL,NULL,NULL,2);
+
+/*!40000 ALTER TABLE `photo` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Affichage de la table planning
@@ -189,7 +200,6 @@ DROP TABLE IF EXISTS `sports`;
 CREATE TABLE `sports` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) DEFAULT NULL,
-  `photo` varchar(255) DEFAULT NULL,
   `description` varchar(10000) DEFAULT NULL,
   `id_type` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -200,10 +210,10 @@ CREATE TABLE `sports` (
 LOCK TABLES `sports` WRITE;
 /*!40000 ALTER TABLE `sports` DISABLE KEYS */;
 
-INSERT INTO `sports` (`id`, `nom`, `photo`, `description`, `id_type`)
+INSERT INTO `sports` (`id`, `nom`, `description`, `id_type`)
 VALUES
-	(1,'football','/images/Sports/football.jpg','Sport de balles',NULL),
-	(2,'rugby','/images/Sports/rugby.jpg','Sport du ballon rond',NULL);
+	(1,'football','Sport de balles',NULL),
+	(2,'rugby','Sport du ballon rond',NULL);
 
 /*!40000 ALTER TABLE `sports` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -266,7 +276,7 @@ CREATE TABLE `utilisateur` (
   PRIMARY KEY (`id`),
   KEY `id_photo` (`id_photo`),
   KEY `id_ville` (`id_ville`),
-  CONSTRAINT `utilisateur_ibfk_1` FOREIGN KEY (`id_photo`) REFERENCES `photo` (`id_photo`),
+  CONSTRAINT `utilisateur_ibfk_1` FOREIGN KEY (`id_photo`) REFERENCES `photo` (`id`),
   CONSTRAINT `utilisateur_ibfk_2` FOREIGN KEY (`id_ville`) REFERENCES `ville` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -277,7 +287,9 @@ INSERT INTO `utilisateur` (`id`, `nom`, `prénom`, `email`, `sexe`, `mot_de_pass
 VALUES
 	(1,'Nom','Prénom','arnaud_rib@hotmail.fr','H','password',NULL,NULL,NULL,'test',NULL,NULL,NULL),
 	(2,NULL,NULL,'test','H','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',NULL,NULL,'2016-00-01','lapin',NULL,NULL,NULL),
-	(3,NULL,NULL,'test','H','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',NULL,NULL,'2011-03-03','test',NULL,NULL,NULL);
+	(3,NULL,NULL,'test','H','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',NULL,NULL,'2011-03-03','test',NULL,NULL,NULL),
+	(6,NULL,NULL,'a','H','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8',NULL,NULL,'2016-00-01','aa',NULL,NULL,NULL),
+	(7,NULL,NULL,'a','H','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8',NULL,NULL,'2016-00-01','a',NULL,NULL,NULL);
 
 /*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -339,4 +351,4 @@ CREATE TABLE `ville` (
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_connexion=@OLD_COLLATION_connexion */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
