@@ -601,10 +601,6 @@ fieldset input{
 }
 
 /*connexion*/
-.exterieur {
-  background-image: url("asset/images/Users/wallpaper.png");
-  background-size: auto;
-}
 
 fieldset {
   position: relative;
@@ -856,7 +852,8 @@ background-size: cover;
 
 
 body{
-  background-color: #E6E6E6;
+  background-image:url("../images/wallpaper.png");
+  background-size: auto;
   height: 100%;
   width: 100%;
 }

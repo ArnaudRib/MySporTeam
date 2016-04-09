@@ -1,6 +1,8 @@
+<div class="exterieur">
 
+</div>
 <nav id="inscription">
-  <form action="formulaire.php" method="post">
+  <form action="" method="post">
     <div class="haut_inscription">
       <h1>Inscription</h1>
     </div>
@@ -8,16 +10,16 @@
     <fieldset>
 
       <br />
-      <div><label for="pseudo"><img src="images/icone_utilisateur.png" /></label>
+      <div><label for="pseudo"><img src="asset/images/Users/icone_utilisateur.png" /></label>
       <input type="text" name="pseudo" placeholder="Identifiant" required></div> <br />
 
-      <div><label for="email" class="email"><img src="images/icone_email.png" /></label>
+      <div><label for="email" class="email"><img src="asset/images/Users/icone_email.png" /></label>
       <input type="text" name="email" placeholder="Email" required></div> <br />
 
-      <div><label for="password"><img src="images/icone_lock.png" /></label>
+      <div><label for="password"><img src="asset/images/Users/icone_lock.png" /></label>
       <input id="mdp" type="password" name="mot_de_passe" placeholder="Mot de passe" oninput="Verification()" required></div> <br />
 
-      <div><label for="check_psswd"><img src="images/icone_lock.png" /></label>
+      <div><label for="check_psswd"><img src="asset/images/Users/icone_lock.png" /></label>
       <input id="mdp_verification" type="password" name="mot_de_passe_confirmation" placeholder="Confirmation du mdp" oninput="Verification()" required></div> <br />
 
       <input id="submit" type="submit" name="Envoyer" value="S'inscrire"> <br />
@@ -25,8 +27,11 @@
     </fieldset>
   </form>
 </nav>
+</div>
 
-<!--Contenu de la page-
+<!--
+ANCIEN CONTENU .. A NE PAS EFFACER, SERA UTILE POUR COMPLETER MON PROFIL PROBABLEMENT.
+Contenu de la page-
 <nav>
   <form style="margin:10px;" method="post">
     <fieldset class="encadrement">
