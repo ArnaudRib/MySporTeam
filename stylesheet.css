@@ -1281,6 +1281,7 @@ ul {
 
 .container {
   padding:10px;
+  transition:1s all ease;
 }
 
 .fleche, .lien-forum {
@@ -1301,4 +1302,8 @@ ul {
 	margin-right: 5px;
 	margin-top: 2px;
 	margin-bottom: 2px;
+}
+
+.container:hover{
+  background-color: rgb(156, 156, 156);
 }
