@@ -23,17 +23,17 @@ class UserController
       {
         $_SESSION['user']=$data;
         $message = '<p>Bienvenue '.$data['pseudo'].',
-        vous êtes maintenant connecté!</p>
+        vous êtes maintenant connecté!
         <p>Cliquez <a href="./">ici</a>
         pour revenir à la page d accueil. Vous pouvez aussi
         cliquer <a href="deconnexion">
-         ici pour vous deconnecter</a>.';
+         ici pour vous deconnecter</a>.</p>';
       }
       else // Acces pas OK !
       {
         $message = '<p>Une erreur s\'est produite
         pendant votre identification.<br /> Le mot de passe ou le pseudo
-        entré n\'est pas correcte.</p>
+        entré n\'est pas correcte.
         <br />Cliquez <a href="./">ici</a>
         pour revenir à la page d accueil, ou modifiez les informations saisies.</p>';
       }

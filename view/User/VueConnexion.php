@@ -1,33 +1,35 @@
 <?php /* if (!isset($_POST['pseudo'])): //On est dans la page de formulaire ?>
   <p>Vous êtes déjà connecté!</br> Pour vous déconnecter, cliquez <a href="deconnexion">ici<a/></p>
-<?php
-    session_unset($_SESSION['pseudo']);
-    header('Location: index.php'); //A changer :(..
+  <?php
+  session_unset($_SESSION['pseudo']);
+  header('Location: index.php'); //A changer :(..
 endif; */?>
 
-<h1 class="">connexion</h1>
+<div class="exterieur">
 
-<div class="block1">
-  <div class="encadrement" style="padding:3%;">
-  <h2>Déjà inscrit?</h2>
-    <form style="margin:10px;" method="post">
-      <fieldset>
-        <label for="pseudo">Pseudo :</label>
-        <input type="text" name="pseudo" placeholder="Pseudo" required> </br>
+<div id="inscription">
+  <form action="" method="post">
 
-        <label for="motdepasse">Mot de passe :</label>
-        <input type="password" name="mot_de_passe" placeholder="Mot de passe" required> </br>
+    <div class="haut_inscription">
+      <h1>Connexion</h1>
+    </div>
 
-        <a href="#tamere">Mot de passe oublié?</a></br>
-        <input type="submit" name="Envoyer"> <br>
+    <fieldset>
+      <div>
+        <label for="login"><img src="asset/images/Users/icone_utilisateur.png" /></label>
+        <input type="text" name="pseudo" placeholder="Email ou Pseudo" required>
+      </div> <br />
+
+      <div><label for="mdp"><img src="asset/images/Users/icone_lock.png" /></label>
+        <input id="mdp" type="password" name="mot_de_passe" placeholder="Mot de passe" oninput="Verification()" required></div> <br />
+        <p><a href=""> Mot de passe oublié ? </a>|<a href="inscription"> Pas inscrit ?</a></p>
+
+        <?php echo $message; ?>
+      </br>
+        <input id="submit" type="submit" name="Envoyer" value="Se connecter"> <br />
+
       </fieldset>
     </form>
-    <?php echo $message; ?>
   </div>
-</div>
-<div class="block2">
-  <div class="encadrement" style="padding:3%;">
-    <h2>Pas encore inscrit?</h2>
-    <a href="inscription">ICI<a>
-  </div>
+
 </div>
