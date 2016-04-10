@@ -19,7 +19,6 @@
       <div class="haut_inscription">
         <h1>Inscription</h1>
       </div>
-
       <fieldset>
 
         <br />

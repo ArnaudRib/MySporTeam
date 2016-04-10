@@ -1,6 +1,6 @@
 /*GROSSES SECTIONS*/
 html{
-  font-family: 'Kaushan Script', cursive;
+  font-family: 'Verdana', cursive;
 }
 
 *{
@@ -11,7 +11,10 @@ html{
 }
 
 body{
-  min-height: 666px;
+  position: absolute;
+  background: url("images/wallpaper2.png");
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 table {
@@ -45,25 +48,24 @@ aside {
 }
 
 /*HEADER*/
-.menuheader {
+menuheader {
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
   background-size: cover;
   width: 100%;
-  height:150px;
+  height:100px;
   margin: 0;
   display: block;
   z-index:1000;
-  position:relative;
-  border-bottom: inset;
+  position:fixed;
   overflow: hidden;
 }
 
 #logo_header{
-  width:300px;
+  width:150px;
 }
 
 .logo {
-  top:-50px;
+  top:-20px;
 left:1.5rem;
  position: absolute;
  z-index: 1;
@@ -74,6 +76,7 @@ left:1.5rem;
 }
 
 .menushort{
+  display: none;
   top: 0px;
   position:fixed;
   z-index:999;
@@ -82,15 +85,15 @@ left:1.5rem;
   background-size : cover;
   display: block;
   width:100%;
-  height:70px;
+  height:60px;
 }
 
 .logo2 img{
-  width:160px;
+  height:100px;
 }
 
 .logo2 {
-  top:-35px;
+  top:-20px;
 left:6rem;
  position: absolute;
  z-index: 1;
@@ -99,13 +102,13 @@ left:6rem;
 .menushort nav{
   position: absolute;
   right:4rem;;
-  top:10px;
   display: inline-block;
   z-index: 3;
 }
 
 .menushort li{
   display: inline-block;
+  margin-top: 5px;
 }
 
 .menushort input{
@@ -226,10 +229,11 @@ left:6rem;
 }
 
 .menu nav{
+  width: 100%;
+  width: 100%;
   position:absolute;
-  top:39px;
-  right:3rem;
-  margin:20px;
+  text-align: right;
+  vertical-align: middle;
 }
 
 .menu input{
@@ -238,7 +242,7 @@ left:6rem;
   border : 3px solid #ffffff;
   display: inline-block;
   outline:none;
-  width:160px;
+  width:200px;
 }
 
 .menu li a{
@@ -258,6 +262,7 @@ left:6rem;
   border-bottom: 3px solid black;
   display: inline-block;
 }
+
 
 /*FOOTER*/
 footer {
@@ -388,8 +393,6 @@ footer li{
 .popup{
   visibility:hidden;
   position:fixed;
-  top:0;
-  left:0;
   width:100%;
   height: 100%;
   z-index:4;
@@ -407,7 +410,6 @@ footer li{
   height:80%;
   box-shadow: black 0 0 10px;
   overflow:scroll;
-  position: static;
   z-index: 9999;
   background-color:rgba(98, 97, 97, 0.9);
   transition:all 0.4s linear;
@@ -644,7 +646,6 @@ background-size: cover;
   z-index: 1;
   background-color: #ffffff;
   border-radius: 0px 0px 15px 15px;
-  box-shadow: 5px 5px 5px #888888;
 }
 
 .menu_mongroupe nav {

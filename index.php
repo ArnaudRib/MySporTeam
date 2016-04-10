@@ -56,7 +56,7 @@
               <div class="div2bis">
                 <div class="Haut1" style="padding:20px; text-align:justify; font-size:20px;">
                 <p><strong>MySporteam</strong> vous permet d'intéragir avec des personnes ayant les mêmes passions que vous ! </br></br>
-                  En vous inscrivant, vous pourrez participer à des cours, des entraînements, des compétitions proche
+                  En vous inscrivant, vous pourrez participer à des cours, des entraînements, des compétitions près
                   de chez vous, et communiquer avec des passionnés du sport !</p>
                 </div><div class="Bas1">
                   <div id="bouttoninscription">

@@ -97,3 +97,219 @@ code a garder, utile pour le profil...
   border-radius: 0px 0px 15px 15px;
   box-shadow: 2px 2px 2px grey;
 }
+
+----------------------------------------------------------------
+
+menuheader {
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+  background-size: cover;
+  width: 100%;
+  height:100px;
+  margin: 0;
+  display: block;
+  z-index:1000;
+  position:fixed;
+  overflow: hidden;
+}
+
+#logo_header{
+  width:150px;
+}
+
+.logo {
+  top:-20px;
+left:1.5rem;
+ position: absolute;
+ z-index: 1;
+}
+
+#bouton_on-off {
+  width: 20px;
+}
+
+.menushort{
+  display: none;
+  top: 0px;
+  position:fixed;
+  z-index:999;
+  color:red;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+  background-size : cover;
+  display: block;
+  width:100%;
+  height:50px;
+}
+
+.logo2 img{
+  height:100px;
+}
+
+.logo2 {
+  top:-20px;
+left:6rem;
+ position: absolute;
+ z-index: 1;
+}
+
+.menushort nav{
+  position: absolute;
+  right:4rem;;
+  display: inline-block;
+  z-index: 3;
+}
+
+.menushort li{
+  display: inline-block;
+}
+
+.menushort input{
+  margin-bottom:10px;
+  padding:10px;
+  margin-right:10px;
+  border-radius: 10px;
+  outline:none;
+  width:200px;
+}
+
+
+.menushort li a{
+  font-family: Verdana;
+  color: #ffffff;
+  font-size:20px;
+  padding:10px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.menushort li a:hover{
+  color: black;
+  font-size:20px;
+  padding:10px;
+  text-decoration: none;
+  border-bottom: 3px solid black;
+  display: inline-block;
+}
+
+.menuderoulant li {
+  list-style: none;
+  width: 100%;
+  margin-bottom: 10px;
+  display: inline;
+}
+
+.menuderoulant{
+  visibility:visible;
+}
+
+.boutonmenu {
+  display:none;
+  visibility: hidden;
+}
+
+@media (max-width:1000px){
+  .menushort{
+      visibility: hidden;
+    }
+}
+
+@media (max-width:1000px){
+  .menuheader {
+    background-color: #3164f6;
+    background-size: cover;
+    width: 100%;
+    height:100px;
+    margin: 0;
+    display: block;
+    z-index:1000;
+    position:relative;
+    border-bottom: inset;
+    overflow: hidden;
+  }
+
+  #logo_header{
+    width:300px;
+  }
+
+  .logo {
+    top:-70px;
+  left:3rem;
+   position: absolute;
+   z-index: 1;
+  }
+
+  .boutonmenu {
+    font-family:"Times";
+    display:inline-block;
+    visibility: visible;
+    float:right;
+    font-size:40px;
+    margin:20px 30px 30px 30px;
+  }
+  .imageheader{
+    display:inline-block;
+    float:left;
+    width:24%;
+  }
+  .menuderoulant {
+    background-color: blue;
+    position: absolute;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 1s ease;
+    text-align: left;
+    display: block;
+  }
+
+  .visible3 {
+    max-height: 500px;
+  }
+
+  .menuderoulant li {
+    list-style: none;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  .menu {
+    width:50%;
+    float:none;
+  }
+}
+
+.menu li{
+  padding:5px;
+}
+
+.menu nav{
+  width: 100%;
+  width: 100%;
+  position:absolute;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.menu input{
+  padding:10px;
+  border-radius: 10px;
+  border : 3px solid #ffffff;
+  display: inline-block;
+  outline:none;
+  width:160px;
+}
+
+.menu li a{
+  font-family: Verdana;
+  color: #ffffff;
+  font-size:20px;
+  padding:8px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.menu li a:hover{
+  color: black;
+  font-size:20px;
+  padding:8px;
+  text-decoration: none;
+  border-bottom: 3px solid black;
+  display: inline-block;
+}

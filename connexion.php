@@ -16,7 +16,7 @@
 
   <!--Contenu de la page-->
 
-  <div id="inscription">
+  <nav id="inscription">
     <form action="connexion.php" method="post">
 
       <div class="haut_inscription">
@@ -108,7 +108,7 @@
             </fieldset>
             <?php } ?>
         </form>
-      </div>
+      </nav>
 
       <!--Footer de la page-->
       <?php include("footer.php"); ?>
