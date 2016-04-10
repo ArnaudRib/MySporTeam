@@ -5,8 +5,6 @@
   header('Location: index.php'); //A changer :(..
 endif; */?>
 
-<div class="exterieur">
-
 <div id="inscription">
   <form action="" method="post">
 
@@ -31,5 +29,3 @@ endif; */?>
       </fieldset>
     </form>
   </div>
-
-</div>

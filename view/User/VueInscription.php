@@ -1,4 +1,3 @@
-<div class="exterieur">
 
 </div>
 <nav id="inscription">
@@ -27,7 +26,7 @@
     </fieldset>
   </form>
 </nav>
-</div>
+
 
 <!--
 ANCIEN CONTENU .. A NE PAS EFFACER, SERA UTILE POUR COMPLETER MON PROFIL PROBABLEMENT.
