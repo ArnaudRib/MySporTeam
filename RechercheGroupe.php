@@ -8,7 +8,6 @@
 
   <body>
       <?php include("header.php"); ?>
-
       <div style="text-align:center">
         <h1>Nom du sport</h1>
       </div>
