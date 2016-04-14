@@ -2,6 +2,7 @@
 
 require_once('controller/AccueilController.php');
 require_once('controller/UserController.php');
+require_once('controller/GroupeController.php');
 
 class Route
 {
@@ -14,7 +15,8 @@ class Route
     session_start(); //permet de rester connecter partout ;)
     $this->ctr =[
       'Accueil' => new AccueilController,
-      'User'=> new UserController
+      'User'=> new UserController,
+      'Groupe'=> new GroupeController
     ];
   }
 
@@ -49,6 +51,10 @@ class Route
 
       case 'ajaxloadphoto':
         $this->ctr['Accueil']->loadphoto();
+        break;
+
+      case 'recherchegroupe':
+        $this->ctr['Groupe']->loadRecherche();
         break;
 
       default:

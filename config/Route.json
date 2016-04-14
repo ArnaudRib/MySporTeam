@@ -3,5 +3,6 @@
   "connexion":"connexion",
   "inscription":"inscription",
   "deconnexion":"deconnexion",
-  "ajaxloadphoto":"ajaxloadphoto"
+  "ajaxloadphoto":"ajaxloadphoto",
+  "recherchegroupe":"recherchegroupe"
 }
