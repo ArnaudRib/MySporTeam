@@ -1,9 +1,11 @@
+<?php var_dump($datagroupe); ?>
+
 <!--Menu en haut de la page-->
 <?php include("header.php"); ?>
 <div class="haut_mongroupe">
   <div class="hautdugroupe">
     <img id="image_mongroupe" src="Images/sport3.jpg"/>
-    <h1>Nom du groupe</h1>
+    <h1><?php echo $datagroupe['nom'] ?></h1>
     <div class="menu_mongroupe">
       <nav>
         <ul>
@@ -21,7 +23,8 @@
 </div>
 
 <div class="corps_mongroupe">
-  <div class="cote_gauche"</div>
+
+  <div class="cote_gauche">
     <div class="forme_case" id="nom_sport">
       <h1>#Sports</h1>
     </div>
@@ -53,7 +56,6 @@
       </div>
     </div>
   </div>
-</div>
 
 
   <div class="mur_mongroupe">

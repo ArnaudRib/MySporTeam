@@ -23,7 +23,8 @@ class GroupeController
   public function loadPageGroupe()
   {
     $vue=new Vue("PageGroupe", "Groupe", ['stylesheet.css']);
-    $vue->loadpage();
+    $datagroupe=$this->groupe->getInfoGroup()->fetch();
+    $vue->loadpage(['datagroupe'=>$datagroupe]);
   }
 
 }
