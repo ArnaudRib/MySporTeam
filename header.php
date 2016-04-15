@@ -7,7 +7,7 @@
     <nav class="menuderoulant">
         <ul>
         <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
-        <li> <a href="pagegroupe.php">Accueil</a></li>
+        <li> <a href="pagegroupe_publication.php">Accueil</a></li>
         <li> <a href="connexion.php">Forums</a></li>
         <li> <a href="Inscription.php">Connexion</a></li>
       </ul>
@@ -23,7 +23,7 @@
   <nav>
       <ul>
       <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
-      <li> <a href="pagegroupe.php">Accueil</a></li>
+      <li> <a href="pagegroupe_publication.php">Accueil</a></li>
       <li> <a href="connexion.php">Forums</a></li>
       <li> <a href="Inscription.php">Connexion</a></li>
     </ul>

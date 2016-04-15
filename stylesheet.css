@@ -596,15 +596,18 @@ label{
 
 /*PAGE MON GROUPE*/
 
-.haut_mongroupe{
+#image_de_fond{
 margin:auto;
-height:250px;
+height:220px;
 width:100%;
-background-image: url("Images/image_groupe.jpg");
-background-size: cover;
+overflow: hidden;
 }
 
-.haut_mongroupe h1{
+#image_de_fond img{
+  width:100%
+}
+
+.hautdugroupe h1{
   color:#ffffff;
   position: absolute;
   top:65px;
@@ -617,7 +620,7 @@ background-size: cover;
   margin: auto;
   width: 1100px;
   position:relative;
-  top:140px;
+  top:-110px;
 }
 
 
@@ -668,33 +671,32 @@ background-size: cover;
   color:black;
 }
 
-.menu_mongroupe nav a:focus{
-  text-decoration: none;
-  font-size: 18px;
+#selectionne{
   color:black;
-}
-
-.menu_mongroupe nav li:focus{
-  padding-top: 7px;
+  display: inline-block;
+  padding-top: 6px;
   padding-left: 18px;
   padding-right: 12px;
-  display: inline-block;
-  border-top:solid 5px black;
+  border-top:solid 6px black;
 }
 
 .menu_mongroupe nav li{
-  margin:0px;
-  padding: 12px;
-  padding-left: 18px;
   display: inline-block;
 }
 
-.menu_mongroupe nav li:hover{
+#non_selectionne:hover{
   padding-top: 6px;
   padding-left: 18px;
   padding-right: 12px;
   display: inline-block;
   border-top:solid 6px black;
+}
+
+#non_selectionne{
+  padding-top: 12px;
+  padding-left: 18px;
+  padding-right: 12px;
+  display: inline-block;
 }
 
 .bouton_inscription {
@@ -795,6 +797,10 @@ body{
   background:cover;
 }
 
+#fb-share-button{
+  padding: 5px;
+}
+
 #titre{
     background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
   background: cover;
@@ -841,6 +847,7 @@ body{
 
 #publication{
   margin: auto;
+  margin-bottom: 9px;
   border-bottom: solid 1px grey;
   display: block;
 }
@@ -849,6 +856,7 @@ body{
   margin: auto;
   border-bottom: solid 1px grey;
   display: block;
+  margin-bottom: 9px;
   background-color: #FAFAFA;
 }
 
@@ -877,64 +885,67 @@ body{
 }
 
 @media (max-width:1110px){
-  .haut_mongroupe{
+  #image_de_fond{
   margin:auto;
-  height:150px;
+  height:100px;
   width:100%;
-  background-image: url("Images/image_groupe.jpg");
-  background-size: cover;
+  overflow: hidden;
   }
 
-  .haut_mongroupe h1{
+  #image_de_fond img{
+    width:100%
+  }
+
+  .hautdugroupe h1{
     color:#ffffff;
     position: absolute;
     top:30px;
     left:40%;
     font-family: Verdana;
     display: inline-block;
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .hautdugroupe{
     margin: auto;
     width: 100%;
     position:relative;
-    top:0px;
-    border: solid 0px red;
+    top:-100px;
   }
 
 
   #image_mongroupe{
-    width:80px;
-    height: 80px;
-    margin-top: 15px;
-    margin-left: 10%;
+    width:170px;
+    height: 170px;
+    margin-top: 5px;
+    margin-left: 5rem;
     display: inline-block;
     padding:5px;
     border:solid 1px grey;
     background-color: white;
     border-radius: 4px;
-    display: inline-block;;
+    position: absolute;
     z-index: 10;
   }
 
   .menu_mongroupe {
     position: absolute;
     top:110px;
-    width:100%;
+    width:1100px;
     display: block;
     overflow: hidden;
     border-bottom: solid 1px grey;
-    height:250px;
+    height:45px;
     z-index: 1;
     background-color: #ffffff;
-    border-radius: 0px;
-    box-shadow: 0px;
+    border-radius: 0px 0px 15px 15px;
+    box-shadow: 5px 5px 5px #888888;
   }
 
   .menu_mongroupe nav {
-    display: block;
-    margin-left:30%;
+    display: inline-block;
+    margin: 0;
+    margin-left: 250px;
   }
 
   .menu_mongroupe nav a{
@@ -950,84 +961,102 @@ body{
     color:black;
   }
 
-  .menu_mongroupe nav a:focus{
-    text-decoration: none;
-    font-size: 18px;
-    color:black;
+
+  #non_selectionne{
+    padding: 6px;
+    padding-left: 0px;
+    padding-right: 0px;
+    display: block;
+    border: solid 0px;
   }
 
-  .menu_mongroupe nav li:focus{
-    padding-top: 7px;
-    padding-left: 18px;
-    padding-right: 12px;
-    display: inline-block;
-    border-top:solid 5px black;
+  #selectionne{
+    color:black;
+    display: block;
+    padding: 6px;
+    padding-left: 0px;
+    padding-right: 0x;
+    border-top: none;
+    font-weight:bold;
   }
+
+  #image_mongroupe{
+    width:80px;
+    height: 80px;
+    margin-top: 15px;
+    margin-left: 10%;
+  }
+
+  .menu_mongroupe {
+    position: absolute;
+    top:110px;
+    width:100%;
+    display: block;
+    overflow: hidden;
+    height:200px;
+    z-index: 1;
+    border-radius: 0px;
+    box-shadow: 0px;
+  }
+
+  .menu_mongroupe nav {
+    display: block;
+    margin-left:10%;
+  }
+
+  .menu_mongroupe nav a{
+    font-size: 13px;
+  }
+
+  .menu_mongroupe nav a:hover{
+    text-decoration: none;
+    font-size: 13px;
+    border: solid 0px;
+  }
+
 
   .menu_mongroupe nav li{
     margin:0px;
-    padding: 12px;
-    padding-left: 18px;
+    padding: 6px;
     display: block;
   }
 
   .menu_mongroupe nav li:hover{
-    padding-top: 6px;
-    padding-left: 18px;
-    padding-right: 12px;
-    display: inline-block;
-    border-top:solid 6px black;
+    padding: 6px;
+    display: block;
+    font-size: 13px;
   }
 
   .bouton_inscription {
     display: inline-block;
-    color:#0B610B;
     background-color: #FAFAFA;
-    font-size: 18px;
-    margin-left: 32%;
+    margin-left: 10%;
     border: outset 1px;
     border-radius: 8px;
-    padding:4px;
-    padding-left: 8px;
-    padding-right: 8px;
   }
 
   .bouton_inscription:hover{
     border-top: solid 6px #0B610B;
     background-color: #E6E6E6;
-    font-size: 18px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 2px;
-    padding-bottom: 5px;
-    font-family: Verdana, sans-serif;
+    font-size: 13px;
     text-decoration: none;
   }
 
   .bouton_inscription a{
     color:#0B610B;
     font-size: 18px;
-    font-family: Verdana, sans-serif;
-    border-top:green;
     text-decoration: none;
   }
 
   .bouton_inscription a:hover{
     font-size: 18px;
-    font-family: Verdana, sans-serif;
     text-decoration: none;
   }
 
 
-  body{
-    background-color: #E6E6E6;
-    height: 100%;
-    width: 100%;
-  }
-
   .corps_mongroupe{
     position: relative;
-    top:220px;
+    top:170px;
     width:100%;
     margin:auto;
     clear:both;
@@ -1040,115 +1069,103 @@ body{
   }
 
   .cote_droit{
-      display: block;
       width:100%;
-      vertical-align: top;
   }
 
   .cote_gauche{
-      display: block;
       width:100%;
-      vertical-align: top;
   }
 
-  .forme_case{
-    width:98%;
-    margin-top: auto;
-    display: block;
-    overflow: hidden;
-    background-color: #ffffff;
-    border-radius: 9px ;
-    box-shadow: 5px 5px 5px #888888;
-    margin-bottom: 12px;
-  }
 
   .text_apropos{
     margin-left: 6px;
     width:90%;
   }
 
-  #titre h1{
-    font-family: Verdana, sans-serif;
-    font-size: 18px;
-    padding:5px;
-    color:#ffffff;
-    font-weight: normal;
-    margin-left:4px;
-    background:cover;
-  }
-
-  #titre{
-      background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
-    background: cover;
-    width:100%;
-  }
-
-  #text_mongroupe{
-    font-family: Verdana, sans-serif;
-    font-size: 14px;
-    padding:9px;
-    color:#070719;
-    font-weight: normal;
-    text-align: justify;
-  }
-
-  #nom_sport{
-    background: linear-gradient(141deg, #FF0000 19%, #FF4000 61%, #FF8000 75%);
-    font-family:Arial black;
-  }
-
-  #nom_sport h1{
-    margin-left: 10px;
-  }
-
-  .evenements li{
-    height:100px;
-    overflow: hidden;
-    display: block;
-  }
-
-  .evenements img{
-    width:100%;
-  }
 
   .evenements h2{
     color:white;
   }
 
-  #publication{
-    margin: auto;
-    border-bottom: solid 1px grey;
+}
+
+.mongroupe_membres li{
+  padding: 4px;
+  list-style-type: none;
+}
+
+#case_membres{
+  display: inline-block;
+  width:33%;
+  border-radius: 9px ;
+  box-shadow: 5px 5px 5px #888888;
+  background-color: #ffffff;
+  padding:15px;
+}
+
+#case_membres img{
+  width:80px;
+  height:80px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#case_membres a{
+  font-family: Verdana;
+  font-size:9px;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left:10px;
+  color:#08298A;
+}
+
+#case_membres:hover{
+  background-color: grey;
+}
+
+@media (max-width:1110px){
+  #case_membres{
     display: block;
+    width:97%;
+    border-radius: 9px ;
+    margin:10px;
+    margin_left:0px;
   }
 
-  #publication:hover{
-    margin: auto;
-    border-bottom: solid 1px grey;
-    display: block;
-    background-color: #FAFAFA;
+  .mongroupe_membres li{
+    padding: 0px;
   }
 
-  #publication h1{
-    font-family: Verdana;
-    font-size: 20px;
-    margin-left: 7px;
-    display: inline;
+  #case_membres img{
+    width:40px;
+    height:40px;
   }
+}
 
-  #publication h2{
-    font-family: Verdana;
-    font-size: 10px;
-    margin-left: 7px;
-    display: inline;
-    color:#848484;
-    text-decoration: none;
-  }
 
-  #publication p{
-    padding:7px;
-    font-family: Verdana;
-    font-size: 16px;
-    margin-left: 7px;
-    margin-bottom: 8px;
-  }
+/* PAGE MON GROUPE EVENMENTS*/
+
+#case_evenement{
+  display: inline-block;
+  width:48%;
+  height:250px;
+  border-radius: 9px ;
+  box-shadow: 5px 5px 5px #888888;
+  background-color: #ffffff;
+  overflow: hidden;
+  margin:5px;
+}
+
+#case_evenement img{
+  width:100%;
+}
+
+#case_evenement a{
+  position: absolute;
+}
+
+.mongroupe_evenements li{
+  padding: 4px;
+  list-style-type: none;
 }
