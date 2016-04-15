@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="stylesheet.css"/>
+  <link rel="stylesheet" href="../asset/css/stylesheet.css"/>
   <title>Page Groupe</title>
   <meta charset="utf-8" />
 </head>

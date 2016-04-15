@@ -57,6 +57,10 @@ class Route
         $this->ctr['Groupe']->loadRecherche();
         break;
 
+        case 'pagegroupe':
+          $this->ctr['Groupe']->loadPageGroupe();
+          break;
+
       default:
         # code...
         break;

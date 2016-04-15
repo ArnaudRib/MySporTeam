@@ -4,5 +4,7 @@
   "inscription":"inscription",
   "deconnexion":"deconnexion",
   "ajaxloadphoto":"ajaxloadphoto",
-  "recherchegroupe":"recherchegroupe"
+  "recherchegroupe":"recherchegroupe",
+  "pagegroupe":"pagegroupe"
+
 }

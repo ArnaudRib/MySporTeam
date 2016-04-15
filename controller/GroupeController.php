@@ -20,4 +20,10 @@ class GroupeController
     $vue->loadpage(['groupe'=>$groupe]);
   }
 
+  public function loadPageGroupe()
+  {
+    $vue=new Vue("PageGroupe", "Groupe", ['stylesheet.css']);
+    $vue->loadpage();
+  }
+
 }
