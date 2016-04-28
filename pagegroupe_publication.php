@@ -1,3 +1,4 @@
+<<<<<<< HEAD:pagegroupe_publication.php
 <!DOCTYPE html>
 <html>
 <head>
