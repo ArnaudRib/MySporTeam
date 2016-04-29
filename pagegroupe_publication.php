@@ -1,4 +1,3 @@
-<<<<<<< HEAD:pagegroupe_publication.php
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +20,6 @@
         <nav>
           <ul>
             <a href="pagegroupe_publication.php" id="selectionne"><li>Publications</li></a>
-            <a href="pagegroupe_informations.php" id="non_selectionne"><li>#Nom du groupe</li></a>
             <a href="pagegroupe_evenements.php" id="non_selectionne"><li>Evenements</li></a>
             <a href="pagegroupe_membres.php" id="non_selectionne"><li>Abonnées</li></a>
           </ul>
@@ -71,50 +69,30 @@
 
 
     <div class="mur_mongroupe">
-      <div >
-        <ul>
-          <li id="publication" class="forme_case">
+      <div>
+        <?php for($i=0;$i<=4;$i++){ ?>
+          <div id="publication" class="forme_case">
             <h1>#nomPublication</h1>
             <h2>#datepublication</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat.</p>
-          </li>
-          <li id="publication" class="forme_case">
-            <h1>#nomPublication</h1>
-            <h2>#datepublication</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat.</p>
-          </li>
-          <li id="publication" class="forme_case">
-            <h1>#nomPublication</h1>
-            <h2>#datepublication</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat.</p>
-          </li>
-        <ul>
-    </div>
+          </div>
+          <?php  } ?>
+      </div>
     </div>
 
 
     <div class="cote_droit">
       <div class="mongroupe_evenements forme_case">
         <div id="titre">
-          <h1>Futurs évenements</h1>
+          <h1>Futurs évènements</h1>
         </div>
         <div class="evenements">
-          <ul>
-            <a href=""><li><img src="Images/evenement1.jpg"/><h2>#evenments1<h2></li></a>
-            <a href=""><li><img src="Images/evenement2.jpg"/><h2>#evenments1<h2></li></a>
-            <a href=""><li><img src="Images/evenement3.jpg"/><h2>#evenments1<h2></li></a>
-          <ul>
+          <?php for($i=0;$i<=4;$i++){ ?>
+            <li><img src="Images/evenement1.jpg"/></li>
+          <?php  } ?>
       </div>
     </div>
-    <div class="mongroupe_perticipants forme_case">
-      <div id="titre">
-        <h1>Nombre de Participants</h1>
-      </div>
-      <div id="text_mongroupe">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat. Etiam fermentum purus non gravida accumsan.</p>
-      </div>
-      </div>
-      </div>
+  </div>
 
   </body>
 

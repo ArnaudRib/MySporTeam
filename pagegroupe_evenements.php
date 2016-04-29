@@ -20,7 +20,6 @@
         <nav>
           <ul>
             <a href="pagegroupe_publication.php" id="non_selectionne"><li>Publications</li></a>
-            <a href="pagegroupe_informations.php" id="non_selectionne"><li>#Nom du groupe</li></a>
             <a href="pagegroupe_evenements.php" id="selectionne"><li>Evenements</li></a>
             <a href="pagegroupe_membres.php" id="non_selectionne"><li>Abonnées</li></a>
           </ul>
@@ -32,23 +31,15 @@
     </div>
 
   <div class="corps_mongroupe">
-    <div class="mongroupe_evenements">
-      <?php for ($i=0; $i <4 ; $i++) :?>
-          <div id="case_evenement" class="usualbackground">
-            <span class="Police1">#Nom evenement</span>
-            <div class="usualbackground" style="background-image:url('Images/evenement1.jpg');">
-            </div>
-          </div>
-      <?php endfor; ?>
-    </div>
+      <?php for ($i=0; $i <4 ; $i++) {?>
+        <div class="case_mongroupeevenement">
+          <img src="Images/evenement1.jpg"/>
+          <div class="texteevenement">
+          <h1>#Nom evenement</h1>
+          <p>Texte</p>
+          <a href="" id="">ajouter au planning</a>
+        </div>
+        </div>
+      <?php  } ?>
   </div>
   </body>
-
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.5";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>

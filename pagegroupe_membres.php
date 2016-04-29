@@ -20,7 +20,6 @@
         <nav>
           <ul>
             <a href="pagegroupe_publication.php" id="non_selectionne"><li>Publications</li></a>
-            <a href="pagegroupe_informations.php" id="non_selectionne"><li>#Nom du groupe</li></a>
             <a href="pagegroupe_evenements.php" id="non_selectionne"><li>Evenements</li></a>
             <a href="pagegroupe_membres.php" id="selectionne"><li>Abonnées</li></a>
           </ul>
@@ -32,148 +31,17 @@
     </div>
 
   <div class="corps_mongroupe">
-    <ul class="mongroupe_membres">
-      <li>
+    <?php
+     $valeur=8;
+    while($valeur!=0){ ?>
         <div id="case_membres">
           <img src="Images/sport3.jpg" />
           <a href=""><h1>#Nom de la personne</h1></a>
         </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-      </li>
-      <li>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-      </li>
-      <li>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-      </li>
-      <li>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-      </li>
-      <li>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-      </li>
-      <li>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-      </li>
-      <li>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-      </li>
-      <li>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-      </li>
-      <li>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-      </li>
-      <li>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-        <div id="case_membres">
-          <img src="Images/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
-        </div>
-      </li>
-  </div>
+        <?php
+          $valeur=$valeur-1;
+        }
+?> 
 
   </body>
 
