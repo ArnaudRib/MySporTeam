@@ -20,8 +20,8 @@
           <label>calendrier 2</label>
         </label>
       </div>
-<?php
 
+<?php
 $year = date('Y');
 for ($i=0; $i < 12; $i++) {
   $numb_of_days[$i] = cal_days_in_month(CAL_GREGORIAN, $i+1, intval($year));
