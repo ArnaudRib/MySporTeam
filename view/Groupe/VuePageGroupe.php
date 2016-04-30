@@ -1,7 +1,5 @@
 <?php var_dump($datagroupe); ?>
 
-<!--Menu en haut de la page-->
-<?php include("header.php"); ?>
 <div class="haut_mongroupe">
   <div class="hautdugroupe">
     <img id="image_mongroupe" src="Images/sport3.jpg"/>
@@ -77,8 +75,8 @@
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat.</p>
         </li>
         <ul>
-        </div>
-      </div>
+    </div>
+  </div>
 
 
       <div class="cote_droit">
@@ -89,17 +87,17 @@
           <div class="evenements">
             <ul>
               <a href=""><li><img src="Images/evenement1.jpg"/><h2>#evenments1<h2></li></a>
-                <a href=""><li><img src="Images/evenement2.jpg"/><h2>#evenments1<h2></li></a>
-                  <a href=""><li><img src="Images/evenement3.jpg"/><h2>#evenments1<h2></li></a>
-                    <ul>
-                    </div>
-                  </div>
-                  <div class="mongroupe_perticipants forme_case">
-                    <div id="titre">
-                      <h1>Nombre de Participants</h1>
-                    </div>
-                    <div id="text_mongroupe">
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat. Etiam fermentum purus non gravida accumsan.</p>
-                    </div>
-                  </div>
-                </div>
+              <a href=""><li><img src="Images/evenement2.jpg"/><h2>#evenments1<h2></li></a>
+              <a href=""><li><img src="Images/evenement3.jpg"/><h2>#evenments1<h2></li></a>
+            <ul>
+          </div>
+        </div>
+        <div class="mongroupe_perticipants forme_case">
+          <div id="titre">
+            <h1>Nombre de Participants</h1>
+          </div>
+          <div id="text_mongroupe">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat. Etiam fermentum purus non gravida accumsan.</p>
+          </div>
+        </div>
+      </div>
