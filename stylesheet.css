@@ -1124,7 +1124,7 @@ body{
     margin: auto;
     border-bottom: solid 1px grey;
     display: block;
-    background-color: #FAFAFA;
+    color: red;
   }
 
   #publication h1{
@@ -1150,4 +1150,117 @@ body{
     margin-left: 7px;
     margin-bottom: 8px;
   }
+}
+
+/* Profil */
+
+.profil {
+  margin-top: 80px;
+}
+
+.corps_profil {
+  border: 1px solid black;
+  margin-right: 15%;
+  margin-left: auto;
+  width: 60%;
+
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px #1F2A36;
+}
+
+.gauche_profil {
+  border: 1px solid black;
+  width: 10%;
+  float: left;
+  margin-left: 10%;
+  margin-right: 5%;
+
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px #1F2A36;
+}
+
+.gauche_profil h1 {
+  color: #183152;
+  font-size: 20px;
+  padding: 5px;
+  border-bottom: 1px solid #183152;
+}
+
+.gauche_profil li {
+  list-style-type: none;
+  padding: 3px;
+}
+
+#actualite {
+    margin: auto;
+    display: block;
+}
+
+#actualite h1{
+  font-family: Verdana;
+  font-size: 20px;
+  margin-left: 7px;
+  display: inline;
+}
+
+#actualite h2{
+  font-family: Verdana;
+  font-size: 10px;
+  margin-left: 7px;
+  display: inline;
+  color:#848484;
+  text-decoration: none;
+}
+
+#actualite p{
+  padding:7px;
+  font-family: Verdana;
+  font-size: 16px;
+  margin-bottom: 8px;
+  border-top: 1px solid grey;
+}
+
+#groupes_profil {
+  width: 70%;
+  margin-left: 15%;
+
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px #1F2A36;
+}
+
+#groupe h1 {
+  font-family: Verdana;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 7px;
+  display: inline;
+}
+
+#groupe h2{
+  font-family: Verdana;
+  font-size: 10px;
+  margin-left: 7px;
+  display: inline;
+  color:#848484;
+  text-decoration: none;
+}
+
+#groupe p{
+  padding:7px;
+  font-family: Verdana;
+  font-size: 16px;
+  margin-bottom: 8px;
+  border-top: 1px solid grey;
+}
+
+#groupe a{
+  text-decoration: none;
+  font-size: 14px;
+}
+
+#calendrier_profil .calendrier{
+  top: inherit;
 }

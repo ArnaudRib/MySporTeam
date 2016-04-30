@@ -87,7 +87,7 @@
             <h2>#datepublication</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat.</p>
           </li>
-        <ul>
+        </ul>
     </div>
     </div>
 
