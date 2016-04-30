@@ -2,6 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" href="stylesheet.css"/>
+  <link rel="stylesheet" href="inscription.css"/>
+
   <title>MySporTeam</title>
   <meta charset="utf-8" />
 </head>
