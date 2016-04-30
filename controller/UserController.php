@@ -70,8 +70,17 @@ class UserController
     $vue->loadpage(['message'=>$message]);
   }
 
+  public function loadProfil()
+    {
+    $vue=new Vue("Profil","User",['stylesheet.css'], ['profil.js', 'calendrier.js']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
+    $vue->loadpage();
+    }
+
+
   public function deconnexion(){
     session_unset($_SESSION['user']);
     header('Location: connexion');
   }
+
+
 }

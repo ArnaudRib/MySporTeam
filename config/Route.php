@@ -61,6 +61,10 @@ class Route
           $this->ctr['Groupe']->loadPageGroupe();
           break;
 
+        case 'profil':
+          $this->ctr['User']->loadProfil();
+          break;
+
       default:
         # code...
         break;

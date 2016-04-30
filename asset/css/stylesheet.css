@@ -1378,3 +1378,239 @@ ul {
 #boutonrecherche:active{
   border-style: inset;
 }
+
+/* Profil */
+
+.profil {
+  margin-top: 80px;
+}
+
+.corps_profil {
+  border: 1px solid black;
+  margin-right: 15%;
+  margin-left: auto;
+  width: 60%;
+
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px #1F2A36;
+}
+
+.gauche_profil {
+  border: 1px solid black;
+  width: 10%;
+  float: left;
+  margin-left: 10%;
+  margin-right: 5%;
+
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 2px 2px 5px #1F2A36;
+}
+
+.gauche_profil h1 {
+  color: #183152;
+  font-size: 20px;
+  padding: 5px;
+  border-bottom: 1px solid #183152;
+}
+
+.gauche_profil li {
+  list-style-type: none;
+  padding: 3px;
+}
+
+#actualite {
+    margin: auto;
+    display: block;
+}
+
+#actualite h1{
+  font-family: Verdana;
+  font-size: 20px;
+  margin-left: 7px;
+  display: inline;
+}
+
+#actualite h2{
+  font-family: Verdana;
+  font-size: 10px;
+  margin-left: 7px;
+  display: inline;
+  color:#848484;
+  text-decoration: none;
+}
+
+#actualite p{
+  padding:7px;
+  font-family: Verdana;
+  font-size: 16px;
+  margin-bottom: 8px;
+  border-top: 1px solid grey;
+}
+
+#groupes_profil {
+  width: 70%;
+  margin-left: 15%;
+
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px #1F2A36;
+}
+
+#groupe h1 {
+  font-family: Verdana;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 7px;
+  display: inline;
+}
+
+#groupe h2{
+  font-family: Verdana;
+  font-size: 10px;
+  margin-left: 7px;
+  display: inline;
+  color:#848484;
+  text-decoration: none;
+}
+
+#groupe p{
+  padding:7px;
+  font-family: Verdana;
+  font-size: 16px;
+  margin-bottom: 8px;
+  border-top: 1px solid grey;
+}
+
+#groupe a{
+  text-decoration: none;
+  font-size: 14px;
+}
+
+#calendrier_profil .calendrier{
+  top: inherit;
+}
+
+
+
+/* Calendrier */
+#next {
+  float: right;
+  padding-right: 10px;
+}
+
+#previous {
+  float: left;
+  padding-left: 10px;
+}
+
+.nav {
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 0px;
+  color: white;
+  background-color: rgba(255, 0, 0, 0);
+}
+
+.calendrier {
+  top: 50px;
+  position: relative;
+  margin:3px auto;
+  width: 70%;
+  box-shadow: 0px 0px 5px #000000;
+}
+
+.disabled {
+  background-color: lightgrey;
+}
+
+.calendrier h2 {
+  color: white;
+  margin-top: 20px;
+  padding-top: 5px;
+  text-align: center;
+
+  min-width: 560px;
+  font: 1.5em Verdana;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+  border: 1px solid black;
+  border-bottom: 0px;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: white;
+}
+
+td {
+  min-width: 80px;
+  padding: 5px;
+  padding-bottom: 10px;
+  border: 1px solid black;
+}
+
+.jourSemaine {
+  text-align: center;
+  font: 1.2em Verdana;
+}
+
+.chiffreSemaine {
+  float:left;
+  font: 1em Verdana;
+    font-weight: bold;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.event {
+  text-align: right;
+  width: 100%;
+  color: white;
+  font: 0.75em Verdana;
+  max-width: 100%;
+  max-height: 3ex;
+  overflow: hidden;
+  margin: 1px;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.pas_important {
+  background-color: rgba(0, 150, 0, 0.60);
+}
+
+.important {
+  background-color: rgba(150, 0, 0, 0.60);
+}
+
+.haut_calendrier {
+  width: 100%;
+  height: 250px;
+  background-image: url("Images/fond_cliff.jpg");
+  background-size: cover;
+}
+
+.titre_calendrier {
+  margin-left: 10%;
+  position: relative;
+  top: 100%;
+  width: 80%;
+  border: 1px solid grey;
+  border-top: 0px;
+  height:45px;
+  z-index: 1;
+  background-color: #ffffff;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.titre_calendrier h1 {
+  margin: 5px;
+  padding-left: 10px;
+  font-family: Verdana;
+  text-decoration: none;
+  font-size: 1.8em;
+  color: #08298A;
+}
