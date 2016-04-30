@@ -3,6 +3,7 @@
 require_once('controller/AccueilController.php');
 require_once('controller/UserController.php');
 require_once('controller/GroupeController.php');
+require_once('controller/ForumController.php');
 
 class Route
 {
@@ -16,7 +17,8 @@ class Route
     $this->ctr =[
       'Accueil' => new AccueilController,
       'User'=> new UserController,
-      'Groupe'=> new GroupeController
+      'Groupe'=> new GroupeController,
+      'Forum'=> new ForumController
     ];
   }
 
@@ -33,10 +35,16 @@ class Route
 
   function loadController($page){
     switch ($page) {
+      // Accueil.
       case 'Accueil':
         $this->ctr['Accueil']->loadVue();
         break;
 
+      case 'ajaxloadphoto':
+        $this->ctr['Accueil']->loadphoto();
+        break;
+
+      // Utilisateurs.
       case 'connexion':
         $this->ctr['User']->connexion();
         break;
@@ -49,10 +57,12 @@ class Route
         $this->ctr['User']->inscription();
         break;
 
-      case 'ajaxloadphoto':
-        $this->ctr['Accueil']->loadphoto();
+      case 'profil':
+        $this->ctr['User']->loadProfil();
         break;
 
+
+      // Groupes
       case 'recherchegroupe':
         $this->ctr['Groupe']->loadRecherche();
         break;
@@ -61,8 +71,14 @@ class Route
           $this->ctr['Groupe']->loadPageGroupe();
           break;
 
-        case 'profil':
-          $this->ctr['User']->loadProfil();
+        case 'creationgroupe':
+          $this->ctr['Groupe']->loadCreationGroupe();
+          break;
+
+
+        // Forum
+        case 'forum':
+          $this->ctr['Forum']->loadForum();
           break;
 
       default:

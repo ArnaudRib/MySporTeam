@@ -6,6 +6,7 @@
   "ajaxloadphoto":"ajaxloadphoto",
   "recherchegroupe":"recherchegroupe",
   "pagegroupe":"pagegroupe",
-  "profil":"profil"
-
+  "creationgroupe":"creationgroupe",
+  "profil":"profil",
+  "forum":"forum"
 }

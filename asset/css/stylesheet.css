@@ -722,7 +722,7 @@ form p {
 margin:auto;
 height:250px;
 width:100%;
-background-image: url("Images/image_groupe.jpg");
+background-image: url("../images/Groupes/image_groupe.jpg");
 background-size: cover;
 }
 
@@ -1004,7 +1004,7 @@ body{
   margin:auto;
   height:150px;
   width:100%;
-  background-image: url("Images/image_groupe.jpg");
+  background-image: url("../images/Groupes/image_groupe.jpg");
   background-size: cover;
   }
 
@@ -1589,7 +1589,7 @@ td {
 .haut_calendrier {
   width: 100%;
   height: 250px;
-  background-image: url("Images/fond_cliff.jpg");
+  background-image: url("../images/General/fond_cliff.jpg");
   background-size: cover;
 }
 
@@ -1613,4 +1613,86 @@ td {
   text-decoration: none;
   font-size: 1.8em;
   color: #08298A;
+}
+
+
+/* Forum */
+.bodyforum {
+	font-family: Verdana, sans-serif;
+	background-color: #e6e6e6;
+}
+
+
+.sectionForum {
+	margin-top: 50px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid white;
+	border-radius: 10px;
+	background-color: #FFFFFF;
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+}
+
+.premierHR {
+	margin-top: 0em;
+    margin-bottom: 0em;
+   	border: 0;
+   	height: 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid white;
+}
+
+a {
+	color: #000000;
+}
+
+
+/*input {
+	border: none;
+	width: 150px;
+}*/
+
+.forums {
+	display:inline-block;
+	width: 58%;
+}
+
+.barre-recherche {
+	display: inline-block;
+	border: 1px solid #000000;
+	border-radius: 10px;
+	width: 20%;
+	min-width: 200px;
+}
+
+.container-barre {
+	display: inline-block;
+	text-align: center;
+	width: 30%;
+}
+
+.container {
+}
+
+.fleche, .lien-forum {
+	display: inline-block;
+}
+
+.fleche {
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+
+.fa-arrow-circle-o-right {
+	color: #2cb6e7;
+}
+
+
+.fa-search {
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 2px;
+	margin-bottom: 2px;
 }

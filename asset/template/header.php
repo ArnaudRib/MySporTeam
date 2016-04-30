@@ -1,4 +1,15 @@
 <header>
+<span style="color:white;">Pages faites (entre temps xD):
+<a style="color:white;" href="index.php">Accueil</a>
+<a style="color:white;" href="pagegroupe">Page groupe</a>
+<a style="color:white;" href="connexion">connexion</a>
+<a style="color:white;" href="inscription">inscription</a>
+<a style="color:white;" href="recherchegroupe">recherchegroupe</a>
+<a style="color:white;" href="forum">forum</a>
+<a style="color:white;" href="creationgroupe">creationgroupe</a>
+
+</span>
+
 <div class="menuheader">
   <div class="menu">
     <div class="logo">

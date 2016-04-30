@@ -27,4 +27,10 @@ class GroupeController
     $vue->loadpage(['datagroupe'=>$datagroupe]);
   }
 
+  public function loadCreationGroupe()
+  {
+    $vue=new Vue("CreationGroupe", "Groupe", ['stylesheet.css', 'creationgroupe.css']); // CSS a unifier dans le meme fichier
+    $vue->loadpage();
+  }
+
 }
