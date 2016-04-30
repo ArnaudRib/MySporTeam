@@ -15,7 +15,7 @@ class AccueilController
 
   public function loadVue()
   {
-    $vue=new Vue("Accueil","Accueil",['stylesheet.css'], ['RechercheSport.js']);
+    $vue=new Vue("Accueil","Accueil",['stylesheet.css'], ['RechercheSport.js', 'Popup.js']);
     $vue->loadpage();
   }
 
