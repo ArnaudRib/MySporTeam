@@ -5,7 +5,10 @@
   "deconnexion":"deconnexion",
   "ajaxloadphoto":"ajaxloadphoto",
   "recherchegroupe":"recherchegroupe",
-  "pagegroupe":"pagegroupe",
+  "informationsgroupe":"groupe/([0-9]+)/informations",
+  "publicationsgroupe":"groupe/([0-9]+)/publications/([0-9]+)",
+  "evenementsgroupe":"groupe/([0-9]+)/evenements/([0-9]+)",
+  "membresgroupe":"groupe/([0-9]+)/membres",
   "creationgroupe":"creationgroupe",
   "profil":"profil",
   "forum":"forum"

@@ -10,9 +10,9 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function getInfoGroup(){
-    $sql="SELECT * FROM groupe WHERE id=1";
-    $resultat=$this->requeteSQL($sql); //,[$_GET['id_group']]
+  function getInfoGroup($id_groupe){
+    $sql="SELECT * FROM groupe WHERE id=$id_groupe";
+    $resultat=$this->requeteSQL($sql);
     return $resultat;
   }
 }

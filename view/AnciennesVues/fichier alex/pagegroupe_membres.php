@@ -12,7 +12,7 @@
   <?php include("header.php"); ?>
   <div id="image_de_fond">
   <img src="Images/image_groupe.jpg"/>
-</div>
+  </div>
     <div class="hautdugroupe">
       <img id="image_mongroupe" src="Images/sport3.jpg"/>
       <h1>Nom du groupe</h1>
@@ -41,7 +41,7 @@
         <?php
           $valeur=$valeur-1;
         }
-?> 
+?> </div>
 
   </body>
 

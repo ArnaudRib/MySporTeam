@@ -1,16 +1,21 @@
-<?php var_dump($datagroupe); ?>
+<?php // POUR AFFICHER LA REQUETE SQL
+//var_dump($datagroupe); ?>
 
 <div class="haut_mongroupe">
   <div class="hautdugroupe">
-    <img id="image_mongroupe" src="Images/sport3.jpg"/>
+    <img id="image_mongroupe" src="/Images/sport3.jpg"/>
     <h1><?php echo $datagroupe['nom'] ?></h1>
     <div class="menu_mongroupe">
       <nav>
         <ul>
-          <a href="" ><li>Publications</li></a>
-          <a href="" ><li>#Nom du bail</li></a>
-          <a href="" ><li>Evenements</li></a>
-          <a href="" ><li>Abonnées</li></a>
+           <!--channger le /1 final : mettre page simple evenements si necessaire-->
+          <a href="<?php echo goToPage('groupe/1/informations') ?>" ><li>Informations</li></a>
+          <a href="<?php echo  goToPage('groupe/1/publications/1')?>" ><li>Publications</li></a>
+          <a href="<?php echo  goToPage('groupe/1/evenements/1')?>" ><li>Evenements</li></a>
+          <a href="<?php echo  goToPage('groupe/1/membres')?>" ><li>Abonnés</li></a>
+          <!-- APRES CA DEVRA ETRE UN TRUC COMME CA
+          <a href="groupe/<?php //goToPage('groupe/$id_groupe/informations')?>/informations" ><li>Informations</li></a>
+        -->
         </ul>
       </nav>
       <div class="bouton_inscription">
@@ -86,9 +91,9 @@
           </div>
           <div class="evenements">
             <ul>
-              <a href=""><li><img src="Images/evenement1.jpg"/><h2>#evenments1<h2></li></a>
-              <a href=""><li><img src="Images/evenement2.jpg"/><h2>#evenments1<h2></li></a>
-              <a href=""><li><img src="Images/evenement3.jpg"/><h2>#evenments1<h2></li></a>
+              <a href=""><li><img src="/Images/evenement1.jpg"/><h2>#evenments1<h2></li></a>
+              <a href=""><li><img src="/Images/evenement2.jpg"/><h2>#evenments1<h2></li></a>
+              <a href=""><li><img src="/Images/evenement3.jpg"/><h2>#evenments1<h2></li></a>
             <ul>
           </div>
         </div>

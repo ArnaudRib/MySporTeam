@@ -20,25 +20,25 @@ class Vue
   }
 
   function loadcss(){ //Sous forme de tableau!
-    foreach ($this->nomcss as $nom) {
-      echo '<link rel="stylesheet" href="asset/css/'.$nom.'">';
+    foreach ($this->nomcss as $nom) { // ../../ entre temps! dans le cas où il y + que 1 parametre ds l'url
+      echo '<link rel="stylesheet" href="/asset/css/'.$nom.'">';
     }
   }
 
   function loadjs(){ //Sous forme de tableau!
     foreach ($this->nomjs as $nom) {
-      echo '<script src="asset/js/'.$nom.'"></script>';
+      echo '<script src="/asset/js/'.$nom.'"></script>';
     }
   }
 
   function loadajax($parametres=[]){
     extract($parametres);
-    require('asset/template/templatevide.php');
+    require('/asset/template/templatevide.php');
   }
+}
 
-  function dump($var){ //Sous forme de tableau!
-    echo '<pre>';
-    var_dump($var);
-    echo '</pre>';
-  }
+function dump($var){ //Sous forme de tableau!
+  echo '<pre>';
+  var_dump($var);
+  echo '</pre>';
 }

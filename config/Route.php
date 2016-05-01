@@ -28,6 +28,9 @@ class Route
     foreach ($obj as $key => $value){
       $value = "#^".$value."$#";
       if (preg_match($value, $_GET['p'], $this->params)){
+        if (count($this->params)>1) {
+          $this->params=array_slice($this->params,1);
+        }
         $this->loadController($key);
       }
     }
@@ -67,23 +70,54 @@ class Route
         $this->ctr['Groupe']->loadRecherche();
         break;
 
-        case 'pagegroupe':
-          $this->ctr['Groupe']->loadPageGroupe();
-          break;
+      case 'informationsgroupe':
+        $id_groupe=intval($this->params[0]);
+        $this->ctr['Groupe']->loadInformationsGroupe($id_groupe);
+        break;
 
-        case 'creationgroupe':
-          $this->ctr['Groupe']->loadCreationGroupe();
-          break;
+      case 'evenementsgroupe':
+        $id_groupe=intval($this->params[0]);
+        $this->ctr['Groupe']->loadEvenementsGroupe($id_groupe);
+        break;
+
+      case 'membresgroupe':
+        $id_groupe=intval($this->params[0]);
+        $this->ctr['Groupe']->loadMembresGroupe($id_groupe);
+        break;
+
+      case 'publicationsgroupe':
+        $id_groupe=intval($this->params[0]);
+        $this->ctr['Groupe']->loadPublicationsGroupe($id_groupe);
+        break;
+
+      case 'creationgroupe':
+        $this->ctr['Groupe']->loadCreationGroupe();
+        break;
 
 
-        // Forum
-        case 'forum':
-          $this->ctr['Forum']->loadForum();
-          break;
+      // Forum
+      case 'forum':
+        $this->ctr['Forum']->loadForum();
+        break;
 
       default:
         # code...
         break;
+    }
+  }
+}
+
+function goToPage($url){ // ECRIRE : <a href="<?php echo goToPage('nomVertDansLeJsonAvecLesBonsParametres') etc..
+  extract($parametres);
+  $json = file_get_contents("config/Route.json", "r");
+  $obj = json_decode($json, true);
+  foreach ($obj as $key => $value){
+    $value = "#^".$value."$#";
+    if (preg_match($value, $url, $params)){
+      if (count($params)>1) {
+        array_slice($params,1);
+      }
+      return "/".$params[0];
     }
   }
 }
