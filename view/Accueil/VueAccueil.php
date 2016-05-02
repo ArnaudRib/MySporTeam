@@ -55,4 +55,3 @@
 
   <iframe src="view/SliderFade/SliderFade.php" width="100%" height="500px"></iframe>
   <iframe src="view/SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>
-  <script src="view/PopUp.js"></script>

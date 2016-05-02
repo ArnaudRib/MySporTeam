@@ -25,19 +25,20 @@ class Route
   function getPage(){
     $json = file_get_contents("config/Route.json", "r");
     $obj = json_decode($json, true);
-    foreach ($obj as $key => $value){
-      $value=preg_replace("/{[^}]*}/", "([a-zA-Z0-9]+)", $value);
-      $value = "#^".$value."$#";
-      if(isset($_GET['p'])){
+    if(isset($_GET['p'])){
+      foreach ($obj as $key => $value) {
+        $value=preg_replace("/{[^}]*}/", "([a-zA-Z0-9]+)", $value);
+        $value = "#^".$value."$#";
         if (preg_match($value, $_GET['p'], $this->params)){
           if (count($this->params)>1) {
             $this->params=array_slice($this->params,1);
           }
-          $this->loadController($key);
+          $url = $key;
         }
-      }else{
-        $this->loadController('Accueil');
       }
+      $this->loadController($url);
+    } else {
+      $this->loadController('Accueil');
     }
   }
 

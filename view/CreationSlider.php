@@ -11,9 +11,7 @@ function CreationSlider($ListImg)
     <div class="notnavigation">
     <?php for ($i=0; $i < count($ListImg); $i++) {?>
     <div id="<?php echo $i+1 ?>" style="background-image:url('<?php echo $ListImg[$i] ?>');" class="<?php if ($i==0){echo "visible";}?>"></div>
-    <?php
-  }
-  ?>
+    <?php  }?>
     </div>
   </div>
   </br>
