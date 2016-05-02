@@ -1,6 +1,5 @@
 <?php // POUR AFFICHER LA REQUETE SQL
 //var_dump($datagroupe); ?>
-
 <div class="haut_mongroupe">
   <div class="hautdugroupe">
     <img id="image_mongroupe" src="/Images/sport3.jpg"/>
@@ -9,12 +8,13 @@
       <nav>
         <ul>
            <!--channger le /1 final : mettre page simple evenements si necessaire-->
-          <a href="<?php echo goToPage('groupe/1/informations') ?>" ><li>Informations</li></a>
-          <a href="<?php echo  goToPage('groupe/1/publications/1')?>" ><li>Publications</li></a>
-          <a href="<?php echo  goToPage('groupe/1/evenements/1')?>" ><li>Evenements</li></a>
-          <a href="<?php echo  goToPage('groupe/1/membres')?>" ><li>Abonnés</li></a>
+          <a href="<?php goToPage('informationsgroupe',['id'=>'1']); ?>" ><li>Informations</li></a>
+          <a href="<?php goToPage('publicationsgroupe',['id'=>'1', 'id_publication'=>'2'])?>" ><li>Publications</li></a>
+          <a href="<?php goToPage('evenementsgroupe',['id'=>'1', 'id_evenement'=>'2'])?>" ><li>Evenements</li></a>
+          <a href="<?php goToPage('membresgroupe',['id'=>'1'])?>" ><li>Abonnés</li></a>
+
           <!-- APRES CA DEVRA ETRE UN TRUC COMME CA
-          <a href="groupe/<?php //goToPage('groupe/$id_groupe/informations')?>/informations" ><li>Informations</li></a>
+          <a href="groupe/<?php //goToPage('membresgroupe',['id'=>$id_groupe])?>/informations" ><li>Informations</li></a>
         -->
         </ul>
       </nav>

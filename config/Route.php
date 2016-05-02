@@ -26,12 +26,17 @@ class Route
     $json = file_get_contents("config/Route.json", "r");
     $obj = json_decode($json, true);
     foreach ($obj as $key => $value){
+      $value=preg_replace("/{[^}]*}/", "([a-zA-Z0-9]+)", $value);
       $value = "#^".$value."$#";
-      if (preg_match($value, $_GET['p'], $this->params)){
-        if (count($this->params)>1) {
-          $this->params=array_slice($this->params,1);
+      if(isset($_GET['p'])){
+        if (preg_match($value, $_GET['p'], $this->params)){
+          if (count($this->params)>1) {
+            $this->params=array_slice($this->params,1);
+          }
+          $this->loadController($key);
         }
-        $this->loadController($key);
+      }else{
+        $this->loadController('Accueil');
       }
     }
   }
@@ -107,17 +112,15 @@ class Route
   }
 }
 
-function goToPage($url){ // ECRIRE : <a href="<?php echo goToPage('nomVertDansLeJsonAvecLesBonsParametres') etc..
-  extract($parametres);
+function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('nomVertDansLeJsonAvecLesBonsParametres') etc..
   $json = file_get_contents("config/Route.json", "r");
   $obj = json_decode($json, true);
-  foreach ($obj as $key => $value){
-    $value = "#^".$value."$#";
-    if (preg_match($value, $url, $params)){
-      if (count($params)>1) {
-        array_slice($params,1);
-      }
-      return "/".$params[0];
+  $url=$obj[$nom];
+  if(!empty($params)){
+    foreach ($params as $key => $value) {
+      array_slice($params,1);
+      $url=str_replace("{".$key."}", $value, $url);
     }
   }
+  echo "/".$url;
 }

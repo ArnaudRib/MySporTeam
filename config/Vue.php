@@ -20,7 +20,7 @@ class Vue
   }
 
   function loadcss(){ //Sous forme de tableau!
-    foreach ($this->nomcss as $nom) { // ../../ entre temps! dans le cas où il y + que 1 parametre ds l'url
+    foreach ($this->nomcss as $nom) { 
       echo '<link rel="stylesheet" href="/asset/css/'.$nom.'">';
     }
   }
@@ -33,7 +33,7 @@ class Vue
 
   function loadajax($parametres=[]){
     extract($parametres);
-    require('/asset/template/templatevide.php');
+    require('asset/template/templatevide.php'); //ne pas mettre de / ;_;
   }
 }
 
