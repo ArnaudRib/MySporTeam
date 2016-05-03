@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <link rel="stylesheet" href="stylesheet.css"/>
-  <title>MySporTeam</title>
-  <meta charset="utf-8" />
-
-
-</head>
-<body class="body_aide">
-  <?php include("header.php"); ?>
 
   <div class="faq">
     <h1> FAQ </h1>
@@ -57,13 +46,3 @@
       </div>
 
   </section>
-
-    <script src="aide.js"> </script>
-
-  <?php include("footer.php"); ?>
-
-</body>
-
-
-
-</html>

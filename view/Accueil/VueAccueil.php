@@ -53,5 +53,5 @@
     </aside>
   </nav>
 
-  <iframe src="/view/SliderFade/SliderFade.php" width="100%" height="500px"></iframe>
-  <iframe src="/view/SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>
+  <iframe src="/mysporteam/view/SliderFade/SliderFade.php" width="100%" height="500px"></iframe>
+  <iframe src="/mysporteam/view/SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>

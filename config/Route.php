@@ -9,7 +9,7 @@ class Route
 {
   private $ctr;
   private $page;
-  private $param;
+  private $params;
 
   function __construct()
   {
@@ -32,13 +32,14 @@ class Route
         if (preg_match($value, $_GET['p'], $this->params)){
           if (count($this->params)>1) {
             $this->params=array_slice($this->params,1);
+            $this->loadController($url);
           }
           $url = $key;
+          $this->loadController($url);
         }
       }
-      $this->loadController($url);
     } else {
-    $this->loadController('Accueil');
+      $this->loadController('Accueil');
     }
   }
 
@@ -54,6 +55,10 @@ class Route
 
       case 'ajaxloadphoto':
         $this->ctr['Accueil']->loadphoto();
+        break;
+
+      case 'aide':
+        $this->ctr['Accueil']->loadAide();
         break;
 
       // Utilisateurs.
@@ -89,6 +94,12 @@ class Route
         $this->ctr['Groupe']->loadEvenementsGroupe($id_groupe);
         break;
 
+      case 'unevenementgroupe':
+        $id_groupe=intval($this->params[0]);
+        $id_evenement=intval($this->params[1]);
+        $this->ctr['Groupe']->loadUnEvenementGroupe($id_groupe, $id_evenement);
+        break;
+
       case 'membresgroupe':
         $id_groupe=intval($this->params[0]);
         $this->ctr['Groupe']->loadMembresGroupe($id_groupe);
@@ -97,6 +108,12 @@ class Route
       case 'publicationsgroupe':
         $id_groupe=intval($this->params[0]);
         $this->ctr['Groupe']->loadPublicationsGroupe($id_groupe);
+        break;
+
+      case 'unepublicationgroupe':
+        $id_groupe=intval($this->params[0]);
+        $id_publication=intval($this->params[1]);
+        $this->ctr['Groupe']->loadUnePublicationGroupe($id_groupe, $id_publication);
         break;
 
       case 'creationgroupe':
