@@ -25,4 +25,11 @@ class AccueilController
     $vue=new Vue("AfficherPhoto","Accueil");
     $vue->loadajax(['photo'=>$photos, 'resultat'=>$_GET['resultat']]);
   }
+
+
+  public function loadAide()
+  {
+    $vue=new Vue("Aide","Accueil", ['stylesheet.css'], ['aide.js']);
+    $vue->loadpage();
+  }
 }

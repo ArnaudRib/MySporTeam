@@ -54,6 +54,10 @@ class Route
         $this->ctr['Accueil']->loadphoto();
         break;
 
+      case 'aide':
+        $this->ctr['Accueil']->loadAide();
+        break;
+
       // Utilisateurs.
       case 'connexion':
         $this->ctr['User']->connexion();
