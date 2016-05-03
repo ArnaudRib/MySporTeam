@@ -133,6 +133,7 @@ class Route
   }
 }
 
+/* Fonctions Utiles dans toutes les pages. */
 function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('nomVertDansLeJsonAvecLesBonsParametres') etc..
   $json = file_get_contents("config/Route.json", "r");
   $obj = json_decode($json, true);
@@ -144,4 +145,15 @@ function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('n
     }
   }
   echo "/".$url;
+}
+
+function isLogged(){
+  if(isset($_SESSION['user']))
+    return true;
+  return false;
+}
+
+function image($root){
+  $chemin='/asset/images/'.$root;
+  echo $chemin;
 }
