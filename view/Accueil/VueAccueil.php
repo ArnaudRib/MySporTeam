@@ -18,7 +18,11 @@
     <div onclick="popup()" class="ligne1">
       <div class="div1 usualbackground">
         <span class="Police1">Sports</span>
+<<<<<<< HEAD
         <div class="img1 usualbackground" style="background-image:url('/asset/images/sport.png');"></div>
+=======
+        <div class="img1 usualbackground" style="background-image:url('/mysporteam/asset/images/sport.png');"></div>
+>>>>>>> origin/master
       </div>
     </div>
     <div class="ligne2">
