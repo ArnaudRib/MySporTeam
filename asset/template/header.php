@@ -12,7 +12,7 @@
 <div class="menuheader">
   <div class="menu">
     <div class="logo">
-      <a href="<?php goToPage("Accueil") ?>"><img src="/mysporteam/asset/images/General/logomysporteam.png"/></a>
+      <a href="<?php goToPage("Accueil") ?>"><img src="/asset/images/General/logomysporteam.png"/></a>
     </div>
     <nav class="menuderoulant">
       <ul>
@@ -28,7 +28,7 @@
 
 <div class="menushort">
   <div class="logo2">
-    <a href="<?php goToPage("Accueil") ?>"><img src="/mysporteam/asset/images/General/logomysporteam.png"/></a>
+    <a href="<?php goToPage("Accueil") ?>"><img src="/asset/images/General/logomysporteam.png"/></a>
   </div>
   <nav>
       <ul>
