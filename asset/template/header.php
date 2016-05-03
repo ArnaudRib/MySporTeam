@@ -3,7 +3,7 @@
   <a style="color:white;" href='<?php goToPage('Accueil'); ?>'>Accueil</a>
   <a style="color:white;" href="<?php goToPage('informationsgroupe',['id'=>'1']);?>">Pages groupe</a>
   <a style="color:white;" href="<?php goToPage('connexion');?>">connexion</a>
-  <a style="color:white;" href='<?php goToPage('forum');?>'>inscription</a>
+  <a style="color:white;" href='<?php goToPage('inscription');?>'>inscription</a>
   <a style="color:white;" href='<?php goToPage('recherchegroupe');?>'>recherchegroupe</a>
   <a style="color:white;" href='<?php goToPage('forum');?>'>forum</a>
   <a style="color:white;" href='<?php goToPage('creationgroupe');?>'>creationgroupe</a>

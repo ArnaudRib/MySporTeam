@@ -38,7 +38,7 @@ class Route
       }
       $this->loadController($url);
     } else {
-      $this->loadController('Accueil');
+    $this->loadController('Accueil');
     }
   }
 
