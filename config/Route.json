@@ -1,0 +1,15 @@
+{
+  "Accueil":"",
+  "connexion":"connexion",
+  "inscription":"inscription",
+  "deconnexion":"deconnexion",
+  "ajaxloadphoto":"ajaxloadphoto",
+  "recherchegroupe":"recherchegroupe",
+  "informationsgroupe":"groupe/{id}/informations",
+  "publicationsgroupe":"groupe/{id}/publications/{id_publication}",
+  "evenementsgroupe":"groupe/{id}/evenements/{id_evenement}",
+  "membresgroupe":"groupe/{id}/membres",
+  "creationgroupe":"creationgroupe",
+  "profil":"profil",
+  "forum":"forum"
+}
