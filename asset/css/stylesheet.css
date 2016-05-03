@@ -1575,14 +1575,12 @@ td {
 
 
 .sectionForum {
-	margin-top: 50px;
 	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
 	border: 1px solid white;
 	border-radius: 10px;
 	background-color: #FFFFFF;
 	box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+  margin: 50px 10%;
 }
 
 .premierHR {

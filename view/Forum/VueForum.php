@@ -1,5 +1,4 @@
-<div class="bodyforum" style="width:100%; min-height:500px; margin:0 auto;">
-  <section class="sectionForum" style="margin:0 auto;">
+  <div class="sectionForum">
     <div class="forums">
       <h1 style="text-align: right; font-size: 50px;">Forums</h1>
     </div>
@@ -72,5 +71,4 @@
       </div>
     </div>
 
-  </section>
-</div>
+  </div>

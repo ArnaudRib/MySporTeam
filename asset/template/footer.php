@@ -1,6 +1,4 @@
-<script src="asset/js/header.js">
-
-</script>
+<script src="asset/js/header.js"></script>
 <footer>
   <div class="textfooter">
       <ul>
