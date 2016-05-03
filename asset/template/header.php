@@ -1,5 +1,5 @@
 <header>
-  <span style="color:white;">Pages faites (entre temps xD):
+  <span style="color:white;">Pages faites (TEMPORAIRE):
   <a style="color:white;" href='<?php goToPage('Accueil'); ?>'>Accueil</a>
   <a style="color:white;" href="<?php goToPage('informationsgroupe',['id'=>'1']);?>">Pages groupe</a>
   <a style="color:white;" href="<?php goToPage('connexion');?>">connexion</a>
@@ -12,7 +12,7 @@
 <div class="menuheader">
   <div class="menu">
     <div class="logo">
-      <a href="index.php"><img src="images/logomysporteam.png"/></a>
+      <a href="<?php goToPage("Accueil") ?>"><img src="/asset/images/General/logomysporteam.png"/></a>
     </div>
     <nav class="menuderoulant">
       <ul>
@@ -28,7 +28,7 @@
 
 <div class="menushort">
   <div class="logo2">
-    <a ref="index.php"><img src="Images/logomysporteam.png"/></a>
+    <a href="<?php goToPage("Accueil") ?>"><img src="/asset/images/General/logomysporteam.png"/></a>
   </div>
   <nav>
       <ul>

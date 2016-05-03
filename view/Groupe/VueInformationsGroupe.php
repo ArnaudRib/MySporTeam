@@ -1,108 +1,59 @@
-<?php // POUR AFFICHER LA REQUETE SQL
-//var_dump($datagroupe); ?>
-<div class="haut_mongroupe">
-  <div class="hautdugroupe">
-    <img id="image_mongroupe" src="/Images/sport3.jpg"/>
-    <h1><?php echo $datagroupe['nom'] ?></h1>
-    <div class="menu_mongroupe">
+<div class="fond_mongroupe">
+  <div id="image_de_fond">
+    <img src="/asset/images/Groupes/image_groupe.jpg"/>
+  </div>
+  <div id="haut_mongroupe">
+    <img src="/asset/images/Groupes/sport3.jpg"/>
+    <h1>Nom du groupe</h1>
+    <div id="menu_mongroupe">
       <nav>
         <ul>
-           <!--channger le /1 final : mettre page simple evenements si necessaire-->
-          <a href="<?php goToPage('informationsgroupe',['id'=>'1']); ?>" ><li>Informations</li></a>
-          <a href="<?php goToPage('publicationsgroupe',['id'=>'1', 'id_publication'=>'2'])?>" ><li>Publications</li></a>
-          <a href="<?php goToPage('evenementsgroupe',['id'=>'1', 'id_evenement'=>'2'])?>" ><li>Evenements</li></a>
-          <a href="<?php goToPage('membresgroupe',['id'=>'1'])?>" ><li>Abonnés</li></a>
-
-          <!-- APRES CA DEVRA ETRE UN TRUC COMME CA
-          <a href="groupe/<?php //goToPage('membresgroupe',['id'=>$id_groupe])?>/informations" ><li>Informations</li></a>
-        -->
+          <a href="#" id="selectionne"><li>Informations</li></a>
+          <a href="<?php  goToPage('publicationsgroupe',['id'=>'1', 'id_publication'=>'1'])?>" id="non_selectionne"><li>Publications</li></a>
+          <a href="<?php  goToPage('evenementsgroupe',['id'=>'1', 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Evenements</li></a>
+          <a href="<?php  goToPage('membresgroupe',['id'=>'1'])?>" id="non_selectionne"><li>Abonnés</li></a>
+          <a id="abonnement" href="" ><li>S'abonner</li></a>
         </ul>
       </nav>
-      <div class="bouton_inscription">
-        <a id="inscription" href="">S'abonner</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="corps_mongroupe">
-
-  <div class="cote_gauche">
-    <div class="forme_case" id="nom_sport">
-      <h1>#Sports</h1>
-    </div>
-
-    <div class="mongroupe_apropos forme_case">
-      <div id="titre">
-        <h1>Informations groupe</h1>
-      </div>
-      <div id="text_mongroupe">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat. Etiam fermentum purus non gravida accumsan.</p>
-      </div>
-    </div>
-
-    <div class="mongroupe_lieu forme_case">
-      <div id="titre">
-        <h1>Lieu</h1>
-      </div>
-      <div id="text_mongroupe">
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat. Etiam fermentum purus non gravida accumsan.</p>
-      </div>
-    </div>
-
-    <div class="mongroupe_Niveau forme_case">
-      <div id="titre">
-        <h1>Niveau du groupe</h1>
-      </div>
-      <div id="text_mongroupe">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat. Etiam fermentum purus non gravida accumsan.</p>
-      </div>
     </div>
   </div>
 
-
-  <div class="mur_mongroupe">
-    <div class="forme_case">
-      <ul>
-        <li id="publication">
-          <h1>#nomPublication</h1>
-          <h2>#datepublication</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat.</p>
-        </li>
-        <li id="publication">
-          <h1>#nomPublication</h1>
-          <h2>#datepublication</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat.</p>
-        </li>
-        <li id="publication">
-          <h1>#nomPublication</h1>
-          <h2>#datepublication</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat.</p>
-        </li>
-        <ul>
-    </div>
-  </div>
-
-
-      <div class="cote_droit">
-        <div class="mongroupe_evenements forme_case">
-          <div id="titre">
-            <h1>Futurs évenements</h1>
-          </div>
-          <div class="evenements">
-            <ul>
-              <a href=""><li><img src="/Images/evenement1.jpg"/><h2>#evenments1<h2></li></a>
-              <a href=""><li><img src="/Images/evenement2.jpg"/><h2>#evenments1<h2></li></a>
-              <a href=""><li><img src="/Images/evenement3.jpg"/><h2>#evenments1<h2></li></a>
-            <ul>
-          </div>
+  <div id="corps_mongroupe">
+    <div class="cote_informations">
+      <div class="radius_mongroupe forme_case" id="nom_sport">
+        <h1>#Sports</h1>
+      </div>
+      <div class="radius_mongroupe forme_case">
+        <div class="titre">
+          <h1>Informations groupe</h1>
         </div>
-        <div class="mongroupe_perticipants forme_case">
-          <div id="titre">
-            <h1>Nombre de Participants</h1>
-          </div>
-          <div id="text_mongroupe">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat. Etiam fermentum purus non gravida accumsan.</p>
-          </div>
+        <div>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat. Etiam fermentum purus non gravida accumsan.</p>
+          <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
         </div>
       </div>
+      <div class="radius_mongroupe forme_case">
+        <div class="titre">
+          <h1>Contact</h1>
+        </div>
+        <div>
+          <h2>Mail</h2>
+          <p>aaaaaaaaaaaaaaaaaa@gmail.com</p>
+          <h2>Téléphone</h2>
+          <p>03 XX XX XX XX</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cote_informations">
+      <div class="radius_mongroupe forme_case">
+        <div class="titre">
+          <h1>Lieu</h1>
+        </div>
+        <div>
+          <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:440px;width:100%;'><div id='gmap_canvas' style='height:440px;width:100%;'></div><div><small><a href="http://embedgooglemaps.com">									google maps carte
+          </a></small></div><div><small><a href="http://youtubeembedcode.com">embed youtube code</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(50.666666666,3.083333),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(50.666666666,3.083333)});infowindow = new google.maps.InfoWindow({content:'<strong>Titre</strong><br>Marcq-en-Baroeul, France<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+        </div>
+      </div>
+    </div>
+  </div>

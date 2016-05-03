@@ -1,5 +1,4 @@
 
-</div>
 <nav id="inscription">
   <form action="" method="post">
     <div class="haut_inscription">
