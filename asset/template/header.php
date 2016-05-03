@@ -20,7 +20,7 @@
         <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
         <?php if(isLogged()): ?>
         <li> <a style="color:white;" href='<?php goToPage('Accueil'); ?>'>Accueil</a></li>
-        <li> <a style="color:white;" href='<?php goToPage('kk'); ?>'>Mon profil</a></li>
+        <li> <a style="color:white;" href='<?php goToPage(''); ?>'>Mon profil</a></li>
         <li> <a style="color:white;" href='<?php goToPage('forum');?>'>Forums</a></li>
         <li> <a href="<?php goToPage('deconnexion');?>"><img src="<?php image('General/bouton_on-off.png') ?>" width="20px" height="20px"/></a></li>
         <?php else: ?>
@@ -43,7 +43,7 @@
         <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
         <?php if(isLogged()): ?>
         <li> <a style="color:white;" href='<?php goToPage('Accueil'); ?>'>Accueil</a></li>
-        <li> <a style="color:white;" href='<?php goToPage('kk'); ?>'>Mon profil</a></li>
+        <li> <a style="color:white;" href='<?php goToPage(''); ?>'>Mon profil</a></li>
         <li> <a style="color:white;" href='<?php goToPage('forum');?>'>Forums</a></li>
         <li> <a href="<?php goToPage('deconnexion');?>"><img src="<?php image('General/bouton_on-off.png') ?>" width="20px" height="20px"/></a></li>
         <?php else: ?>
