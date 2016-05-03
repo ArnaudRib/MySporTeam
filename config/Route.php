@@ -4,6 +4,7 @@ require_once('controller/AccueilController.php');
 require_once('controller/UserController.php');
 require_once('controller/GroupeController.php');
 require_once('controller/ForumController.php');
+require_once('controller/SportController.php');
 
 class Route
 {
@@ -18,7 +19,8 @@ class Route
       'Accueil' => new AccueilController,
       'User'=> new UserController,
       'Groupe'=> new GroupeController,
-      'Forum'=> new ForumController
+      'Forum'=> new ForumController,
+      'Sport'=> new SportController
     ];
   }
 
@@ -53,13 +55,16 @@ class Route
         $this->ctr['Accueil']->loadVue();
         break;
 
-      case 'ajaxloadphoto':
-        $this->ctr['Accueil']->loadphoto();
-        break;
-
       case 'aide':
         $this->ctr['Accueil']->loadAide();
         break;
+
+      //Sports
+
+      case 'ajaxloadphoto':
+        $this->ctr['Sport']->loadphoto();
+        break;
+        
 
       // Utilisateurs.
       case 'connexion':
