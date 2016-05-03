@@ -46,6 +46,9 @@ class Route
   function loadController($page){
     switch ($page) {
       // Accueil.
+      case 'aide':
+        $this->ctr['Accueil']->loadAide();
+        break;
       case 'Accueil':
         $this->ctr['Accueil']->loadVue();
         break;

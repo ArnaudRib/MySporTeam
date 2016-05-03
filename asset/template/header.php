@@ -17,9 +17,9 @@
     <nav class="menuderoulant">
       <ul>
         <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
-        <li> <a href="recherchegroupe">Accueil</a></li>
-        <li> <a href="forums.php">Forums</a></li>
-        <li> <a href="connexion">connexion</a></li>
+        <li> <a style="color:white;" href='<?php goToPage('Accueil'); ?>'>Accueil</a></li>
+        <li> <a style="color:white;" href='<?php goToPage('forum');?>'>Forums</a></li>
+        <li> <a style="color:white;" href="<?php goToPage('connexion');?>">Connexion</a></li>
       </ul>
     </nav>
   </div>
@@ -33,9 +33,9 @@
   <nav>
       <ul>
       <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
-      <li> <a href="pagegroupe.php">Accueil</a></li>
-      <li> <a href="connexion.php">Forums</a></li>
-      <li> <a href="Inscription.php">connexion</a></li>
+      <li> <a style="color:white;" href='<?php goToPage('Accueil'); ?>'>Accueil</a></li>
+      <li> <a style="color:white;" href='<?php goToPage('forum');?>'>Forums</a></li>
+      <li> <a style="color:white;" href="<?php goToPage('connexion');?>">Connexion</a> </li>
     </ul>
   </nav>
 </div>

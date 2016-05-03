@@ -1,4 +1,3 @@
-<!--Contenu de la page-->
 <nav id="creationgroupe">
   <form method="post">
     <div class="haut_creer_groupe">
@@ -39,8 +38,8 @@
 
     <input type="text" name="ville" placeholder="Ville"></br>
 
-    Public  <input type="checkbox" name="public" value="public" style="width:40%" > </input>
-    <input type="checkbox" name="prive" value="prive"> <label> Privé </label> </input>
+    <label style="display: inline-block; width: 60px; float: none;">Public</label> <input style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" name="visibilite" value="public">
+    <label style="display: inline-block; width: 60px; float: none;">Privé</label> <input type="radio" name="visibilite" value="prive" style="display: inline-block; width: 30px; height: 15px">
     <textarea name="description" rows="10" cols="50" placeholder="Description"></textarea>
     <input id="submit" type="submit" name="Envoyer" value="Valider">
   </fieldset>
