@@ -33,6 +33,12 @@ class GroupeController
     $vue->loadpage();
   }
 
+  public function loadUnEvenementGroupe($id_groupe, $id_evenement)
+  {
+    $vue=new Vue("UnEvenementGroupe", "Groupe", ['stylesheet.css']);
+    $vue->loadpage();
+  }
+
   public function loadMembresGroupe($id_groupe)
   {
     $vue=new Vue("MembresGroupe", "Groupe", ['stylesheet.css']);
@@ -42,6 +48,12 @@ class GroupeController
   public function loadPublicationsGroupe($id_groupe)
   {
     $vue=new Vue("PublicationsGroupe", "Groupe", ['stylesheet.css']);
+    $vue->loadpage();
+  }
+
+  public function loadUnePublicationsGroupe($id_groupe, $id_publication)
+  {
+    $vue=new Vue("UnePublicationGroupe", "Groupe", ['stylesheet.css']); // Créer VueUnePublicationGroupe dans view/groupe
     $vue->loadpage();
   }
 
