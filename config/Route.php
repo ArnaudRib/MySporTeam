@@ -45,6 +45,9 @@ class Route
   function loadController($page){
     switch ($page) {
       // Accueil.
+      case 'aide':
+        $this->ctr['Accueil']->loadAide();
+        break;
       case 'Accueil':
         $this->ctr['Accueil']->loadVue();
         break;
@@ -123,5 +126,5 @@ function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('n
       $url=str_replace("{".$key."}", $value, $url);
     }
   }
-  echo "/".$url;
+  echo "/mysporteam/".$url;
 }

@@ -11,5 +11,6 @@
   "membresgroupe":"groupe/{id}/membres",
   "creationgroupe":"creationgroupe",
   "profil":"profil",
-  "forum":"forum"
+  "forum":"forum",
+  "aide":"aide"
 }

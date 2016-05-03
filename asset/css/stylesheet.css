@@ -1594,10 +1594,6 @@ td {
     border-bottom: 1px solid white;
 }
 
-a {
-	color: #000000;
-}
-
 
 /*input {
 	border: none;
@@ -1646,4 +1642,8 @@ a {
 	margin-right: 5px;
 	margin-top: 2px;
 	margin-bottom: 2px;
+}
+
+a{
+  text-decoration: none;
 }
