@@ -614,11 +614,6 @@ label
 	display: block;
 }
 
-form {
-  background: #71adeb;
-  border-radius: 3px;
-}
-
 form input{
   display: inline-block;
 }
@@ -1190,6 +1185,7 @@ form p {
 	border-radius: 10px;
 	width: 20%;
 	min-width: 200px;
+  background: #71adeb;
 }
 
 .container-barre {
