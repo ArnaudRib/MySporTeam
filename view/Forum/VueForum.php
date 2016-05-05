@@ -1,5 +1,4 @@
-<div class="bodyforum" style="width:100%; min-height:500px; margin:0 auto;">
-  <section class="sectionForum" style="margin:0 auto;">
+  <div class="sectionForum">
     <div class="forums">
       <h1 style="text-align: right; font-size: 50px;">Forums</h1>
     </div>
@@ -14,7 +13,7 @@
 
     <hr class="premierHR" />
 
-    <div class="container">
+    <div class="containerforum">
       <div class="fleche">
         <i class="fa fa-arrow-circle-o-right fa-3x"></i>
       </div>
@@ -26,7 +25,7 @@
 
     <hr class="premierHR" />
 
-    <div class="container">
+    <div class="containerforum">
       <div class="fleche">
         <i class="fa fa-arrow-circle-o-right fa-3x"></i>
       </div>
@@ -38,7 +37,7 @@
 
     <hr class="premierHR" />
 
-    <div class="container">
+    <div class="containerforum">
       <div class="fleche">
         <i class="fa fa-arrow-circle-o-right fa-3x"></i>
       </div>
@@ -50,7 +49,7 @@
 
     <hr class="premierHR" />
 
-    <div class="container">
+    <div class="containerforum">
       <div class="fleche">
         <i class="fa fa-arrow-circle-o-right fa-3x"></i>
       </div>
@@ -62,7 +61,7 @@
 
     <hr class="premierHR" />
 
-    <div class="container">
+    <div class="containerforum">
       <div class="fleche">
         <i class="fa fa-arrow-circle-o-right fa-3x"></i>
       </div>
@@ -72,5 +71,4 @@
       </div>
     </div>
 
-  </section>
-</div>
+  </div>

@@ -4,6 +4,7 @@ require_once('controller/AccueilController.php');
 require_once('controller/UserController.php');
 require_once('controller/GroupeController.php');
 require_once('controller/ForumController.php');
+require_once('controller/SportController.php');
 
 class Route
 {
@@ -18,7 +19,8 @@ class Route
       'Accueil' => new AccueilController,
       'User'=> new UserController,
       'Groupe'=> new GroupeController,
-      'Forum'=> new ForumController
+      'Forum'=> new ForumController,
+      'Sport'=> new SportController
     ];
   }
 
@@ -53,17 +55,23 @@ class Route
         $this->ctr['Accueil']->loadVue();
         break;
 
-      case 'ajaxloadphoto':
-        $this->ctr['Accueil']->loadphoto();
-        break;
-
       case 'aide':
         $this->ctr['Accueil']->loadAide();
         break;
 
+
+      //Sports
+      case 'ajaxloadphoto':
+        $this->ctr['Sport']->loadphoto();
+        break;
+
+
       // Utilisateurs.
       case 'connexion':
-        $this->ctr['User']->connexion();
+        if(!isLogged())
+          $this->ctr['User']->connexion();
+        else // Si déjà connecté, redirige vers accueil.
+          $this->ctr['Accueil']->loadVue();
         break;
 
       case 'deconnexion':
@@ -126,6 +134,17 @@ class Route
         $this->ctr['Forum']->loadForum();
         break;
 
+      case 'topicforum':
+        $id_topic=intval($this->params[0]);
+        $this->ctr['Forum']->loadATopic($id_topic);
+        break;
+
+      case 'discussionforum':
+        $id_topic=intval($this->params[0]);
+        $id_discussion=intval($this->params[1]);
+        $this->ctr['Forum']->loadADiscussion($id_topic, $id_discussion);
+        break;
+
       default:
         # code...
         break;
@@ -133,6 +152,7 @@ class Route
   }
 }
 
+/* Fonctions Utiles dans toutes les pages. */
 function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('nomVertDansLeJsonAvecLesBonsParametres') etc..
   $json = file_get_contents("config/Route.json", "r");
   $obj = json_decode($json, true);
@@ -143,5 +163,16 @@ function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('n
       $url=str_replace("{".$key."}", $value, $url);
     }
   }
-  echo "/mysporteam/".$url;
+  echo "/".$url;
+}
+
+function isLogged(){
+  if(isset($_SESSION['user']))
+    return true;
+  return false;
+}
+
+function image($root){
+  $chemin='/asset/images/'.$root;
+  echo $chemin;
 }

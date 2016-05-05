@@ -10,7 +10,7 @@ class AccueilController
   function __construct()
   {
     $this->user=new UserModele();
-    $this->photo=new AccueilModele();
+    $this->accueil=new AccueilModele();
   }
 
   public function loadVue()
@@ -19,10 +19,9 @@ class AccueilController
     $vue->loadpage();
   }
 
-
   public function loadphoto()
   {
-    $photos=$this->photo->LoadSports($_GET['resultat'], 10)->fetchAll();
+    $photos=$this->accueil->LoadSports($_GET['resultat'], 10)->fetchAll();
     $vue=new Vue("AfficherPhoto","Accueil");
     $vue->loadajax(['photo'=>$photos, 'resultat'=>$_GET['resultat']]);
   }
@@ -30,7 +29,8 @@ class AccueilController
 
   public function loadAide()
   {
+    $aide=$this->accueil->getAide();
     $vue=new Vue("Aide","Accueil", ['stylesheet.css'], ['aide.js']);
-    $vue->loadpage();
+    $vue->loadpage(['aide'=>$aide]);
   }
 }
