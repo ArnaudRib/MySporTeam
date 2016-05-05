@@ -59,8 +59,8 @@ class Route
         $this->ctr['Accueil']->loadAide();
         break;
 
-      //Sports
 
+      //Sports
       case 'ajaxloadphoto':
         $this->ctr['Sport']->loadphoto();
         break;
