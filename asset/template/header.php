@@ -7,6 +7,7 @@
     <a style="color:white;" href='<?php goToPage('recherchegroupe');?>'>recherchegroupe</a>
     <a style="color:white;" href='<?php goToPage('forum');?>'>forum</a>
     <a style="color:white;" href='<?php goToPage('creationgroupe');?>'>creationgroupe</a>
+    <a style="color:white;" href='<?php goToPage('aide');?>'>aide</a>
   </span>
 
 
