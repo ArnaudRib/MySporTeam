@@ -48,6 +48,8 @@ form{
   position: relative;
 }
 
+
+
 /*HEADER*/
 .menuheader {
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
@@ -562,32 +564,6 @@ input.searchbar{
   height: 150px;
 }
 
-
-  /*Fonctionnel*/
-.centre{
-  text-align:center;
-}
-
-.memeligne{
-  display: block;
-  vertical-align:middle;
-}
-
-.usualbackground{
-  background-position:center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.Police1{
-  color:red;
-  font-size:60px;
-}
-
-.Police2{
-  color:green;
-  font-size:30px;
-}
 
 /* Inscription */
 fieldset {
@@ -1197,7 +1173,7 @@ form p {
 	width: 30%;
 }
 
-.container {
+.containerforum {
   padding:10px;
   transition:1s all ease;
 }
@@ -1222,37 +1198,39 @@ form p {
 	margin-bottom: 2px;
 }
 
-.container:hover{
+.containerforum:hover{
   background-color: rgb(156, 156, 156);
 }
 
 /* aide*/
-
 .question {
-    width: 165%;
-    margin-left: 10%;
-    margin-top: 50px;
+  width: 100%;
 }
 
 .faq {
-    margin-left: 47%;
-    margin-top: 50px;
+  width:25%;
+  margin:0 auto;
+  text-align:center;
+  margin-top: 50px;
+}
+
+.blockSection{
+  display:inline-block;
+  width: 49%;
+  text-decoration: none;
+  margin: 10px 0;
+  vertical-align: top;
+}
+
+.TitreSection{
+  color:black;
+  padding:4 0;
 }
 
 ul {
   list-style-type: none;
 }
 
-.question1 {
-  display:inline-block;
-  width: 49%;
-  text-decoration: none;
-}
-.question2 {
-  display: inline-block;
-  width:49%;
-  text-decoration: none;
-}
 
 /* Page RechercheGroupe */
 .groupe{
@@ -1616,8 +1594,6 @@ td {
 	width: 30%;
 }
 
-.container {
-}
 
 .fleche, .lien-forum {
 	display: inline-block;
@@ -1643,4 +1619,77 @@ td {
 
 a{
   text-decoration: none;
+}
+
+/* GLOBAL */
+.encadrementTitre{
+  background-color:rgb(194, 246, 229);
+}
+
+.blackborder{
+  border:1px black solid;
+}
+
+.radius{
+  border-radius:10px;
+}
+
+.light-background{
+  background-color:rgb(205, 251, 250);
+}
+
+.light-blue-background{
+  background-color:rgb(205, 251, 250);
+}
+
+.centre{
+  text-align:center;
+}
+
+.memeligne{
+  display: block;
+  vertical-align:middle;
+}
+
+.usualbackground{
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Police1{
+  color:red;
+  font-size:60px;
+}
+
+.Police2{
+  color:green;
+  font-size:30px;
+}
+
+.container {
+  margin:10px auto;
+  width:1097px;
+  padding:5px 15px;
+}
+
+.block80{
+  width:80%;
+  margin:0 auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }

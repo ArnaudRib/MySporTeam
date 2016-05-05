@@ -13,7 +13,7 @@
 
     <hr class="premierHR" />
 
-    <div class="container">
+    <div class="containerforum">
       <div class="fleche">
         <i class="fa fa-arrow-circle-o-right fa-3x"></i>
       </div>
@@ -25,7 +25,7 @@
 
     <hr class="premierHR" />
 
-    <div class="container">
+    <div class="containerforum">
       <div class="fleche">
         <i class="fa fa-arrow-circle-o-right fa-3x"></i>
       </div>
@@ -37,7 +37,7 @@
 
     <hr class="premierHR" />
 
-    <div class="container">
+    <div class="containerforum">
       <div class="fleche">
         <i class="fa fa-arrow-circle-o-right fa-3x"></i>
       </div>
@@ -49,7 +49,7 @@
 
     <hr class="premierHR" />
 
-    <div class="container">
+    <div class="containerforum">
       <div class="fleche">
         <i class="fa fa-arrow-circle-o-right fa-3x"></i>
       </div>
@@ -61,7 +61,7 @@
 
     <hr class="premierHR" />
 
-    <div class="container">
+    <div class="containerforum">
       <div class="fleche">
         <i class="fa fa-arrow-circle-o-right fa-3x"></i>
       </div>
