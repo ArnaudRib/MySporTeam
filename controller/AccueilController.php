@@ -19,11 +19,6 @@ class AccueilController
     $vue->loadpage();
   }
 
-  public function loadAide()
-  {
-    $vue=new Vue("Aide","Accueil",['stylesheet.css'],['aide.js']);
-    $vue->loadpage();
-  }
 
   public function loadphoto()
   {

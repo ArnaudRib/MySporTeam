@@ -59,8 +59,25 @@ class GroupeController
 
   public function loadCreationGroupe()
   {
-    $vue=new Vue("CreationGroupe", "Groupe", ['stylesheet.css', 'creationgroupe.css']); // CSS a unifier dans le meme fichier
-    $vue->loadpage();
-  }
 
-}
+    $message='';
+
+      if (isset($_POST['nom']) AND isset($_POST['categorie']) AND isset($_POST['nombre'])
+       AND isset($_POST['sport']) AND isset($_POST['departement']) AND isset($_POST['ville'])
+       AND isset($_POST['visibilite']) AND isset($_POST['description'])){
+            if(!empty($_POST['nom'])){
+
+           $groupe=$this->groupe->creationGroupe(); //si il y a une réponse, true + tableau de la réponse, sinon, false.
+
+           echo "reussis";
+
+          }else{
+            $message= "Tout les champs n'ont pas été remplis";
+            echo $message;
+          }
+        }
+    $vue=new Vue("creationgroupe", "Groupe", ['stylesheet.css', 'creationgroupe.css']); // CSS a unifier dans le meme fichier
+    $vue->loadpage(['message'=>$message]);
+      }
+
+  }

@@ -615,7 +615,9 @@ label
 }
 
 form {
-  background: #71adeb;
+  border: 1.5px solid;
+  display: inline-block;
+  outline: none;;
   border-radius: 3px;
 }
 
@@ -629,7 +631,7 @@ form input:selected {
 
 
 body{
-  background-image:url("../images/wallpaper.png");
+  background-image:url("/mysporteam/images/wallpaper.png");
   background-size: auto;
   height: 100%;
   width: 100%;
@@ -640,8 +642,7 @@ form h1 {
   padding-left: 10px;
   text-decoration: none;
   font-size: 1.8em;
-  color: white;
-  background-color: #2c2c2c;
+  background-color: #64ACE3;
   border-bottom: 1px solid black;
 }
 
@@ -656,7 +657,7 @@ form p {
   margin-bottom: 30px;
   border: 1px solid black;
   border-radius: 5px;
-  width: 40%;
+  width: 30%;
   margin-left: 30%;
   background-color: rgba(255, 255, 255, 0.9);
 }
@@ -726,7 +727,7 @@ form p {
 
 /*PAGE MON GROUPE*/
 .fond_mongroupe{
-  background-color: #D8D8D8;
+  background-image:url("/mysporteam/images/wallpaper.png") ;
   font-family: Verdana;
 
 }
@@ -1569,8 +1570,9 @@ td {
 
 /* Forum */
 .bodyforum {
-	font-family: Verdana, sans-serif;
-	background-color: #e6e6e6;
+    background-image:url("/mysporteam/images/wallpaper.png") ;
+    font-family: Verdana;
+
 }
 
 

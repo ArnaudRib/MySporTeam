@@ -5,6 +5,10 @@ fieldset {
   font-size: 1em;
 }
 
+.banane{
+  background-color:rgba(100, 172, 227, 0.49);;
+}
+
 label
 {
 	display: block;
@@ -23,12 +27,12 @@ form input:selected {
   background-color: lightblue;
 }
 
-form h1 {
+.titre_creation_groupe {
   padding: 5px;
   padding-left: 10px;
   font-family: Verdana;
   text-decoration: none;
-  font-size: 1.8em;
+  font-size: 1em;
   color: #08298A;
 }
 

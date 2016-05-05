@@ -12,7 +12,6 @@
 
 <!--Contenu de la page-->
 <nav id="content">
-  <h1 class="centre">Bienvenue</h1>
   <!--Partie Photographie-->
   <section>
     <div onclick="popup()" class="ligne1">
@@ -26,7 +25,7 @@
         <span class="Police2">  <a style="color:green;" href='<?php goToPage('forum');?>'>Forums</a></span>
         <div class="img2 usualbackground" style="background-image:url('/mysporteam/asset/images/sport3.jpg');"></div>
       </div><div class="div3 usualbackground">
-        <span class="Police2">Aide</span>
+        <span class="Police2"><a style="color:green;" href='<?php goToPage('aide');?>'>Aide</span>
         <div class="img2 usualbackground" style="background-image:url('/mysporteam/asset/images/sport4.jpg');"></div>
       </div>
     </div>
