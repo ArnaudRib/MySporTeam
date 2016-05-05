@@ -3,10 +3,10 @@
 </div>
 
 <div class="question">
-    <div class="container light-background">
+    <div class="container light-background OmbreContainer centre">
       <?php foreach ($aide as $type => $contenu) :?>
         <?php $hauteur=50+80*(count($contenu)); ?>
-        <div class="blockSection blackborder radius light-blue-background" style="<?php echo 'height:'.$hauteur.'px;'?>">
+        <div class="blockSection blackborder radius light-blue-background" style="<?php echo 'height:'.$hauteur.'px;'?>; text-align:left;">
           <h2 class="TitreSection centre radius">
             <?php echo $type ?>
           </h2>

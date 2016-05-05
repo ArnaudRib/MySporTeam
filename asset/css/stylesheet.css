@@ -1216,10 +1216,11 @@ form p {
 
 .blockSection{
   display:inline-block;
-  width: 49%;
+  width: 40%;
   text-decoration: none;
-  margin: 10px 0;
+  margin: 10px 15px;
   vertical-align: top;
+  border:10px;
 }
 
 .TitreSection{
@@ -1639,7 +1640,7 @@ a{
 }
 
 .light-blue-background{
-  background-color:rgb(205, 251, 250);
+  background-color:rgb(101, 174, 242);
 }
 
 .centre{
@@ -1671,6 +1672,10 @@ a{
   margin:10px auto;
   width:1097px;
   padding:5px 15px;
+}
+
+.OmbreContainer{
+  box-shadow: 0px 0 20px rgb(13, 0, 255);
 }
 
 .block80{
