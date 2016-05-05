@@ -1,6 +1,6 @@
 <div class="haut_mongroupe">
   <div class="hautdugroupe">
-    <img id="image_mongroupe" src="asset/images/sport3.jpg"/>
+    <img id="image_mongroupe" src="/asset/images/sport3.jpg"/ width='100%' height="250px;">
     <h1>Mon profil</h1>
     <div class="menu_mongroupe">
       <nav>
@@ -8,10 +8,6 @@
           <li><a href="javascript:showonlyone('informations_profil');" >Informations</li></a>
           <li><a href="javascript:showonlyone('groupes_profil');" >Groupes</li></a>
           <li><a href="javascript:showonlyone('calendrier_profil');" >Planning</li></a>
-          <!--
-          A FIXER
-          <li><a href="deconnexion.php"><img id="bouton_on-off" src="asset/images/General/bouton_on-off.png" /></li></a>
-          -->
         </ul>
       </nav>
     </div>

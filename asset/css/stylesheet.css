@@ -41,9 +41,14 @@ aside {
   /*margin-right:20px;*/
 }
 
+form{
+  background-color:rgb(145, 176, 245);
+}
 #content{
   position: relative;
 }
+
+
 
 /*HEADER*/
 .menuheader {
@@ -560,32 +565,6 @@ input.searchbar{
 }
 
 
-  /*Fonctionnel*/
-.centre{
-  text-align:center;
-}
-
-.memeligne{
-  display: block;
-  vertical-align:middle;
-}
-
-.usualbackground{
-  background-position:center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.Police1{
-  color:red;
-  font-size:60px;
-}
-
-.Police2{
-  color:green;
-  font-size:30px;
-}
-
 /* Inscription */
 fieldset {
   margin: 0.5em;
@@ -612,11 +591,6 @@ fieldset {
 label
 {
 	display: block;
-}
-
-form {
-  background: #71adeb;
-  border-radius: 3px;
 }
 
 form input{
@@ -1190,6 +1164,7 @@ form p {
 	border-radius: 10px;
 	width: 20%;
 	min-width: 200px;
+  background: #71adeb;
 }
 
 .container-barre {
@@ -1198,7 +1173,7 @@ form p {
 	width: 30%;
 }
 
-.container {
+.containerforum {
   padding:10px;
   transition:1s all ease;
 }
@@ -1223,37 +1198,40 @@ form p {
 	margin-bottom: 2px;
 }
 
-.container:hover{
+.containerforum:hover{
   background-color: rgb(156, 156, 156);
 }
 
 /* aide*/
-
 .question {
-    width: 165%;
-    margin-left: 10%;
-    margin-top: 50px;
+  width: 100%;
 }
 
 .faq {
-    margin-left: 47%;
-    margin-top: 50px;
+  width:25%;
+  margin:0 auto;
+  text-align:center;
+  margin-top: 50px;
+}
+
+.blockSection{
+  display:inline-block;
+  width: 40%;
+  text-decoration: none;
+  margin: 10px 15px;
+  vertical-align: top;
+  border:10px;
+}
+
+.TitreSection{
+  color:black;
+  padding:4 0;
 }
 
 ul {
   list-style-type: none;
 }
 
-.question1 {
-  display:inline-block;
-  width: 49%;
-  text-decoration: none;
-}
-.question2 {
-  display: inline-block;
-  width:49%;
-  text-decoration: none;
-}
 
 /* Page RechercheGroupe */
 .groupe{
@@ -1617,8 +1595,6 @@ td {
 	width: 30%;
 }
 
-.container {
-}
 
 .fleche, .lien-forum {
 	display: inline-block;
@@ -1644,4 +1620,81 @@ td {
 
 a{
   text-decoration: none;
+}
+
+/* GLOBAL */
+.encadrementTitre{
+  background-color:rgb(194, 246, 229);
+}
+
+.blackborder{
+  border:1px black solid;
+}
+
+.radius{
+  border-radius:10px;
+}
+
+.light-background{
+  background-color:rgb(205, 251, 250);
+}
+
+.light-blue-background{
+  background-color:rgb(101, 174, 242);
+}
+
+.centre{
+  text-align:center;
+}
+
+.memeligne{
+  display: block;
+  vertical-align:middle;
+}
+
+.usualbackground{
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Police1{
+  color:red;
+  font-size:60px;
+}
+
+.Police2{
+  color:green;
+  font-size:30px;
+}
+
+.container {
+  margin:10px auto;
+  width:1097px;
+  padding:5px 15px;
+}
+
+.OmbreContainer{
+  box-shadow: 0px 0 20px rgb(13, 0, 255);
+}
+
+.block80{
+  width:80%;
+  margin:0 auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
 }
