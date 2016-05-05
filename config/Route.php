@@ -64,11 +64,14 @@ class Route
       case 'ajaxloadphoto':
         $this->ctr['Sport']->loadphoto();
         break;
-        
+
 
       // Utilisateurs.
       case 'connexion':
-        $this->ctr['User']->connexion();
+        if(!isLogged())
+          $this->ctr['User']->connexion();
+        else // Si déjà connecté, redirige vers accueil.
+          $this->ctr['Accueil']->loadVue();
         break;
 
       case 'deconnexion':
@@ -129,6 +132,17 @@ class Route
       // Forum
       case 'forum':
         $this->ctr['Forum']->loadForum();
+        break;
+
+      case 'topicforum':
+        $id_topic=intval($this->params[0]);
+        $this->ctr['Forum']->loadATopic($id_topic);
+        break;
+
+      case 'discussionforum':
+        $id_topic=intval($this->params[0]);
+        $id_discussion=intval($this->params[1]);
+        $this->ctr['Forum']->loadADiscussion($id_topic, $id_discussion);
         break;
 
       default:

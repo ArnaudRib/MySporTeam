@@ -19,4 +19,15 @@ class ForumController
     $vue->loadpage();
   }
 
+  public function loadATopic($id_topic)
+  {
+    $vue=new Vue("Topic","Forum",['stylesheet.css', 'font-awesome.min.css']);
+    $vue->loadpage();
+  }
+
+  public function loadADiscussion($id_topic, $id_discussion)
+  {
+    $vue=new Vue("Discussion","Forum",['stylesheet.css', 'font-awesome.min.css']);
+    $vue->loadpage();
+  }
 }

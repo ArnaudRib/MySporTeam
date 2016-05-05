@@ -41,6 +41,9 @@ aside {
   /*margin-right:20px;*/
 }
 
+form{
+  background-color:rgb(145, 176, 245);
+}
 #content{
   position: relative;
 }
