@@ -1,5 +1,6 @@
 <?php
 
+require_once('config/generalFunctions.php');
 require_once('controller/AccueilController.php');
 require_once('controller/UserController.php');
 require_once('controller/GroupeController.php');
@@ -164,15 +165,4 @@ function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('n
     }
   }
   echo "/".$url;
-}
-
-function isLogged(){
-  if(isset($_SESSION['user']))
-    return true;
-  return false;
-}
-
-function image($root){
-  $chemin='/asset/images/'.$root;
-  echo $chemin;
 }
