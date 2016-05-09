@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php include '../CreationSlider.php'; ?>
+<?php require_once ('../../config/generalFunctions.php'); ?>
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="SliderFade.css"/>
@@ -14,7 +14,7 @@
       "/asset/images/sport2.jpg",
       "/asset/images/sport3.jpg"
       ]?>
-    <?php CreationSlider($ListImg) ?>
+    <?php GenerateSlider($ListImg) ?>
 
     <script src="SliderFade.js"></script>
 

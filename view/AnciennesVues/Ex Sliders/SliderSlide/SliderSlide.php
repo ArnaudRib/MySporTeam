@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include '../CreationSlider.php'; ?>
+<?php require_once ('../../config/generalFunctions.php'); ?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
       "/asset/images/sport2.jpg",
       "/asset/images/sport3.jpg"
       ]?>
-    <?php CreationSlider($ListImg) ?>
+    <?php GenerateSlider($ListImg) ?>
 
     <script src="SliderSlide.js"></script>
   </body>

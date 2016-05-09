@@ -59,8 +59,16 @@ class GroupeController
 
   public function loadCreationGroupe()
   {
-    $vue=new Vue("CreationGroupe", "Groupe", ['stylesheet.css', 'creationgroupe.css']); // CSS a unifier dans le meme fichier
-    $vue->loadpage();
+    if (isset($_POST['Envoyer'])){
+      if(exceptName(['imagegroupe'])){
+        $succes="Profil complété avec succès!";
+      }else{
+        $error=errorExceptInput(['imagegroupe']);
+      }
+    }
+
+    $vue=new Vue("CreationGroupe", "Groupe", ['stylesheet.css']); // CSS a unifier dans le meme fichier
+    $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
   }
 
 }
