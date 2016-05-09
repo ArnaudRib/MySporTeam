@@ -66,16 +66,23 @@ function errorExceptInput($names=[]){ // renvoie un string des erreurs des posts
   return $error;
 }
 
-/*foreach ($_POST as $key => $value) {
-if($key!='nom_responsable2' && $key!='nom_responsable3'
-&& $key!='fonction_responsable3' && $key!='fonction_responsable2'
-&& $key!='nom_personnel' && $key!='nom_personnel2' && $key!='nom_personnel3'
-&& $key!='valideprofil'
-&& $key!='etablissements'){
-if ($value=="") {
-return false;
-}
-}
-}
-return true;*/
-?>
+function CreateSlider($ListImg, $type)
+{
+  $tab=serialize($ListImg);?>
+  <iframe src="/view/Sliders/Slider.php?tab=<?php echo htmlspecialchars($tab) ?>&type=<?php echo $type ?>" width="100%" height="400px"></iframe>
+<?php }
+
+function GenerateSlider($ListImg){?>
+  <div class="slider">
+  <div class="navigation">
+    <div class="flechenext" onclick="Next()"></div>
+      <div class="flecheback rotate" onclick="Back()"></div>
+    </div>
+    <div class="notnavigation">
+    <?php for ($i=0; $i < count($ListImg); $i++) {?>
+    <div id="<?php echo $i+1 ?>" style="background-image:url('<?php echo '/asset/images/Sliders/'.$ListImg[$i] ?>');" class="<?php if ($i==0){echo "visible";}?>"></div>
+    <?php  }?>
+    </div>
+  </div>
+  </br>
+<?php }?>
