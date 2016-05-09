@@ -60,6 +60,18 @@ class GroupeController
   public function loadCreationGroupe()
   {
 
+    if (isset($_POST['Envoyer'])){
+      if(exceptName(['imagegroupe'])){
+        $succes="Profil complété avec succès!";
+      }else{
+        $error=errorExceptInput(['imagegroupe']);
+      }
+    }
+
+    $vue=new Vue("CreationGroupe", "Groupe", ['stylesheet.css']); // CSS a unifier dans le meme fichier
+    $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
+  }
+
     $message='';
 
       if (isset($_POST['nom']) AND isset($_POST['categorie']) AND isset($_POST['nombre'])

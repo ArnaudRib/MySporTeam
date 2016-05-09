@@ -1,5 +1,6 @@
 <?php
 
+require_once('config/generalFunctions.php');
 require_once('controller/AccueilController.php');
 require_once('controller/UserController.php');
 require_once('controller/GroupeController.php');
@@ -165,6 +166,7 @@ function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('n
   }
   echo "/mysporteam/".$url;
 }
+
 
 function isLogged(){
   if(isset($_SESSION['user']))

@@ -56,3 +56,6 @@
 
   <iframe src="/mysporteam/view/SliderFade/SliderFade.php" width="100%" height="500px"></iframe>
   <iframe src="/mysporteam/view/SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>
+
+  <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Fade'); ?>
+  <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'slide'); ?>

@@ -36,9 +36,3 @@ class Vue
     require('/mysporteam/asset/template/templatevide.php'); //ne pas mettre de / ;_;
   }
 }
-
-function dump($var){ //Sous forme de tableau!
-  echo '<pre>';
-  var_dump($var);
-  echo '</pre>';
-}

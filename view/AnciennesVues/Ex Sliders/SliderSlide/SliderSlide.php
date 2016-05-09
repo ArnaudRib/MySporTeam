@@ -1,23 +1,22 @@
 <!DOCTYPE html>
+<?php require_once ('../../config/generalFunctions.php'); ?>
 <html>
-<?php include '../CreationSlider.php'; ?>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="SliderFade.css"/>
+    <link rel="stylesheet" href="SliderSlide.css"/>
     <title>Test Slider</title>
   </head>
   <body>
-    <!--SLIDER FADE-->
+    <!--SLIDER Slide-->
     <?php $ListImg=[
       "/mysporteam/asset/images/chintoc.jpg",
       "/mysporteam/asset/images/sport.png",
       "/mysporteam/asset/images/sport2.jpg",
       "/mysporteam/asset/images/sport3.jpg"
       ]?>
-    <?php CreationSlider($ListImg) ?>
+    <?php GenerateSlider($ListImg) ?>
 
-    <script src="SliderFade.js"></script>
-
+    <script src="SliderSlide.js"></script>
   </body>
 
 </html>
