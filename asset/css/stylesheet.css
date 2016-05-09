@@ -236,14 +236,6 @@ left:6rem;
   margin:20px;
 }
 
-.menu input{
-  padding:10px;
-  border-radius: 10px;
-  border : 3px solid #ffffff;
-  display: inline-block;
-  outline:none;
-  width:250px;
-}
 
 .menu li a{
   font-family: Verdana;
@@ -1272,14 +1264,44 @@ ul {
 }
 
 .filtre{
-  vertical-align: top;
-  display: inline-block;
-  width: 18%;
+  margin:0 auto;
+  width:20%;
+  padding-left:5%;
   text-align: center;
+  max-height:50px;
+  overflow:hidden;
+  transition: 1s all ease;
 }
 
-.filtre p{
-  margin-top: 50%;
+
+#results{
+  padding: 7px;
+  padding-top:1px;
+  width: 70%;
+  display: none;
+  background: beige;
+  margin:0 auto;
+  overflow-x:scroll;
+  height:80px;
+  border-radius: 5px;
+  margin-bottom:10px;
+  margin-top:-10px;
+}
+
+.search li:hover, .search li.selected {
+  background: rgb(254, 219, 98);
+  cursor: pointer;
+}
+
+.search li{
+  font-size:20px;
+}
+.selected {
+  display: inline-block;
+}
+
+.search p.visible {
+  display: block !important;
 }
 
 .recherchefiltre{
@@ -1292,8 +1314,8 @@ ul {
 
 .recherchegroupe{
   display: inline-block;
-  max-width: 63%;
   margin: 0 auto;
+  text-align:center;
 }
 
 #boutonrecherche{
@@ -1309,6 +1331,47 @@ ul {
   border-style: inset;
 }
 
+.niveau{
+  margin:0 auto;
+  background-color:white;
+  border:1px black solid;
+  border-radius:10px;
+  width:70%;
+}
+.eachniveau{
+  margin:4px 9px;
+  display:inline-block;
+}
+.eachniveau input{
+  display:inline-block;
+}
+.eachniveau label{
+  display:inline-block;
+}
+
+.blockfiltretitre{
+  background-color:rgb(175, 214, 251);
+  color:black;
+  border-radius:5px;
+}
+
+.FiltreH1{
+  background-color:rgb(175, 214, 251);
+  color:black;
+  font-size:30px;
+}
+
+.sportSelect{
+  width:70%;
+  height:30px;
+  margin:10px auto;
+  text-align:center;
+  display:block;
+  font-size:15px;
+}
+.sportblock{
+  width:100%;
+}
 /* Profil */
 
 .profil {
@@ -1732,6 +1795,56 @@ a{
   border:1px black solid;
   box-shadow: 0px 0 20px rgb(167, 249, 134);
   text-align:center;
+}
+
+.barRecherche{
+  padding: 15px;
+  border-radius:8px;
+  padding-left: 40px;
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgl3aWR0aD0iMTlweCIgaGVpZ2h0PSIxOXB4IiB2aWV3Qm94PSIwIDAgMTkgMTkiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE5IDE5IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCgk8cGF0aCBmaWxsPSIjNjY2NjY2IiBkPSJNMTcuNjMyLDE2Ljk1NWwtNC43NjEtNC43NjJjMS4xMDktMS4xODgsMS43OTUtMi43NzYsMS43OTUtNC41MjdjMC0zLjY2Ny0yLjk4Mi02LjY0OS02LjY0OS02LjY0OQ0KCQljLTMuNjY3LDAtNi42NDksMi45ODItNi42NDksNi42NDhjMCwzLjY2NywyLjk4Miw2LjY0Nyw2LjY0OSw2LjY0N2MxLjM5MSwwLDIuNjgyLTAuNDMyLDMuNzUtMS4xNjRsNC44MzQsNC44MzRMMTcuNjMyLDE2Ljk1NXoNCgkJTTIuODI0LDcuNjY2YzAtMi44NjMsMi4zMy01LjE5Miw1LjE5Mi01LjE5MmMyLjg2NCwwLDUuMTkyLDIuMzI5LDUuMTkyLDUuMTkyYzAsMi44NjEtMi4zMjgsNS4xOTEtNS4xOTIsNS4xOTENCgkJQzUuMTU0LDEyLjg1NSwyLjgyNCwxMC41MjcsMi44MjQsNy42NjZ6Ii8+DQoJPC9zdmc+");
+  background-position: 12px 50%;
+  background-repeat: no-repeat;
+  background-size: 19px 19px;
+}
+
+.buttonsubmit{
+  color:white;
+  background-color:rgb(86, 31, 251);
+  width:20%;
+  height:30px;
+  margin: 10px auto;
+}
+
+.plusboutton{
+  float:right;
+  padding: 15px;
+  padding-top:16px;
+  margin-top:8px;
+  margin-right:5%;
+  background-image: url("/asset/images/General/plusboutton.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  transition:1s all ease;
+}
+
+.croixboutton{
+  float:right;
+  padding: 15px;
+  padding-top:16px;
+  margin-top:8px;
+  margin-right:5%;
+  background-image: url("/asset/images/General/plusboutton.png");
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  transition:1s all ease;
+  transform:rotate(45deg);
+}
+
+.maximize{
+  max-height:500px;
+}
+.extend{
+  width:70%;
 }
 
 @media (min-width: 768px) {

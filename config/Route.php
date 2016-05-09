@@ -92,6 +92,10 @@ class Route
         $this->ctr['Groupe']->loadRecherche();
         break;
 
+      case 'ajaxrecherchegroupe':
+        $this->ctr['Groupe']->loadAjaxRecherche();
+        break;
+
       case 'informationsgroupe':
         $id_groupe=intval($this->params[0]);
         $this->ctr['Groupe']->loadInformationsGroupe($id_groupe);

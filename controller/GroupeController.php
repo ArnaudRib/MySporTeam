@@ -11,13 +11,24 @@ class GroupeController
   {
     $this->user=new UserModele();
     $this->groupe=new GroupeModele();
+    $this->sport=new SportModele();
   }
 
   public function loadRecherche()
   {
-    $vue=new Vue("RechercheGroupe", "Groupe", ['stylesheet.css']);
+    $niveau=['Débutant', 'Intermediaire', 'Avancé', 'Professionnel'];
+    $villes=$this->groupe->getVille()->fetchAll();
+    $sports=$this->sport->getSports()->fetchAll();
+    $vue=new Vue("RechercheGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
     $groupe=$this->groupe->getGroup()->fetchAll();
-    $vue->loadpage(['groupe'=>$groupe]);
+    $vue->loadpage(['groupe'=>$groupe, 'niveau'=>$niveau, 'villes'=>$villes, 'sports'=>$sports]);
+}
+
+  public function loadAjaxRecherche()
+  {
+    $rechercheVille=$this->groupe->searchVilleName(50)->fetchAll();
+    $vue=new Vue("AfficherVille","Groupe");
+    $vue->loadajax(['rechercheVille'=>$rechercheVille, 'resultat'=>$_GET['resultat']]);
   }
 
   public function loadInformationsGroupe($id_groupe)
