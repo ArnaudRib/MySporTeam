@@ -19,7 +19,7 @@
 <div class="recherchegroupe">
   <?php foreach ($groupe as $key => $value): ?>
     <div id="<?php echo $i=count($groupe) ?>"  class="groupe">
-      <div class="imagegroupe usualbackground" style="background-image:url(asset/images/sport.png);"> </div>
+      <div class="imagegroupe usualbackground" style="background-image:url(/mysporteam/asset/images/sport.png);"> </div>
       <div class="nomgroupe">
         <h3><?php echo $value['nom'] ?></h3>
         <p style="background-color:rgb(226, 195, 34)">Sport</p>

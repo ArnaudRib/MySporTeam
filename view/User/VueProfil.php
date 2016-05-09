@@ -1,6 +1,6 @@
 <div class="haut_mongroupe">
   <div class="hautdugroupe">
-    <img id="image_mongroupe" src="/asset/images/sport3.jpg"/ width='100%' height="250px;">
+    <img id="image_mongroupe" src="/mysporteam/asset/images/sport3.jpg"/ width='100%' height="250px;">
     <h1>Mon profil</h1>
     <div class="menu_mongroupe">
       <nav>

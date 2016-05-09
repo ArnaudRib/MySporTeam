@@ -1,5 +1,5 @@
 {
-  "Accueil":"",
+  "Accueil":"mysporteam",
   "connexion":"connexion",
   "inscription":"inscription",
   "deconnexion":"deconnexion",
@@ -11,7 +11,7 @@
   "evenementsgroupe":"groupe/{id}/evenements",
   "unevenementgroupe":"groupe/{id}/evenements/{id_evenement}",
   "membresgroupe":"groupe/{id}/membres",
-  "creationgroupe":"creationgroupe",
+  "creationgroupe":"/mysporteam/creationgroupe.php",
   "profil":"profil",
   "forum":"forum",
   "topicforum":"forum/{id_topic}",

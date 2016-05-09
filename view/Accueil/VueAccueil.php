@@ -17,13 +17,13 @@
     <div onclick="popup()" class="ligne1">
       <div class="div1 usualbackground">
         <span class="Police1">Sports</span>
-        <div class="img1 usualbackground" style="background-image:url('/asset/images/sport.png');"></div>
+        <div class="img1 usualbackground" style="background-image:url('/mysporteam/asset/images/sport.png');"></div>
       </div>
     </div>
     <div class="ligne2">
       <div class="div3 usualbackground">
         <span class="Police2">  <a style="color:green;" href='<?php goToPage('forum');?>'>Forums</a></span>
-        <div class="img2 usualbackground" style="background-image:url('/asset/images/sport3.jpg');"></div>
+        <div class="img2 usualbackground" style="background-image:url('/mysporteam/asset/images/sport3.jpg');"></div>
       </div><div class="div3 usualbackground">
 
         <span class="Police2"><a style="color:green;" href='<?php goToPage('aide');?>'>Aide</span>
@@ -36,7 +36,7 @@
   <!--Partie Texte-->
   <aside>
     <div class="div2 usualbackground">
-      <div class="img3 usualbackground" style="background-image:url('/asset/images/chintoc.jpg');"></div>
+      <div class="img3 usualbackground" style="background-image:url('/mysporteam/asset/images/chintoc.jpg');"></div>
       <div class="div2bis">
         <div class="Haut1" style="padding:20px; text-align:justify; font-size:20px;">
           <p><strong>MySporteam</strong> vous permet d'intéragir avec des personnes ayant les mêmes passions que vous ! </br></br>
@@ -54,5 +54,5 @@
     </aside>
   </nav>
 
-  <iframe src="/view/SliderFade/SliderFade.php" width="100%" height="500px"></iframe>
-  <iframe src="/view/SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>
+  <iframe src="/mysporteam/view/SliderFade/SliderFade.php" width="100%" height="500px"></iframe>
+  <iframe src="/mysporteam/view/SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>

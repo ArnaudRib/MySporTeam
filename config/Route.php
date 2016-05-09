@@ -163,7 +163,7 @@ function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('n
       $url=str_replace("{".$key."}", $value, $url);
     }
   }
-  echo "/".$url;
+  echo "/mysporteam/".$url;
 }
 
 function isLogged(){
@@ -173,6 +173,6 @@ function isLogged(){
 }
 
 function image($root){
-  $chemin='/asset/images/'.$root;
+  $chemin='/mysporteam/asset/images/'.$root;
   echo $chemin;
 }
