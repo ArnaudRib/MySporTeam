@@ -15,8 +15,9 @@ class ForumController
 
   public function loadForum()
   {
+    $topic=$this->forum->getDataTopic()->fetchAll();
     $vue=new Vue("Forum","Forum",['stylesheet.css', 'font-awesome.min.css']);
-    $vue->loadpage();
+    $vue->loadpage(['topic'=>$topic]);
   }
 
   public function loadATopic($id_topic)

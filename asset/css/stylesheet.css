@@ -43,6 +43,7 @@ aside {
 
 form{
   background-color:rgb(145, 176, 245);
+  border-radius:10px;
 }
 #content{
   position: relative;
