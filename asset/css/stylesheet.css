@@ -1236,6 +1236,7 @@ ul {
   width: 47%;
   height: 250px;
   transition: 1s all ease;
+  background: rgb(145, 176, 245);
 }
 
 .groupe:hover{
@@ -1257,6 +1258,10 @@ ul {
   text-align: center;
   display: inline-block;
   vertical-align: top;
+}
+
+.titregroupe{
+  margin-bottom: 2%;
 }
 
 #descriptiongroupe{
