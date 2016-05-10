@@ -70,6 +70,8 @@ class GroupeController
 
   public function loadCreationGroupe()
   {
+    $succes='';
+    $error='';
     if (isset($_POST['Envoyer'])){
       if(exceptName(['imagegroupe'])){
         $succes="Profil complété avec succès!";
