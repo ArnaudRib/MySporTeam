@@ -6,6 +6,7 @@ require_once('controller/UserController.php');
 require_once('controller/GroupeController.php');
 require_once('controller/ForumController.php');
 require_once('controller/SportController.php');
+require_once('controller/AdminController.php');
 
 class Route
 {
@@ -21,7 +22,8 @@ class Route
       'User'=> new UserController,
       'Groupe'=> new GroupeController,
       'Forum'=> new ForumController,
-      'Sport'=> new SportController
+      'Sport'=> new SportController,
+      'Admin'=> new AdminController
     ];
   }
 
@@ -147,6 +149,11 @@ class Route
         $id_topic=intval($this->params[0]);
         $id_discussion=intval($this->params[1]);
         $this->ctr['Forum']->loadADiscussion($id_topic, $id_discussion);
+        break;
+
+      //Backoffice
+      case 'backoffice':
+        $this->ctr['Admin']->loadBackOffice();
         break;
 
       default:

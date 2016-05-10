@@ -8,6 +8,8 @@
     <a style="color:white;" href='<?php goToPage('forum');?>'>forum</a>
     <a style="color:white;" href='<?php goToPage('creationgroupe');?>'>creationgroupe</a>
     <a style="color:white;" href='<?php goToPage('aide');?>'>aide</a>
+    <a style="color:white;" href='<?php goToPage('backoffice');?>'>Admin</a>
+
   </span>
 
 

@@ -19,6 +19,12 @@ class Vue
     require('asset/template/template.php');
   }
 
+  function loadbackoffice($parametres=[]){
+    extract($parametres);
+    $titre = $this->titre;
+    require('asset/template/templatebackoffice.php');
+  }
+
   function loadcss(){ //Sous forme de tableau!
     foreach ($this->nomcss as $nom) {
       echo '<link rel="stylesheet" href="/asset/css/'.$nom.'">';

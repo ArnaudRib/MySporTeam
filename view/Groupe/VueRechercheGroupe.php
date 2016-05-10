@@ -1,5 +1,4 @@
 <div class="container">
-
   <div  id="FiltreRechercheSport" class="filtre">
     <form action="recherchegroupe" method="post">
       <div class="blockfiltretitre" style="width:100%;">
