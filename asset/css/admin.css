@@ -60,9 +60,12 @@
     min-height: 100%;
 }
 
-.navbar-default {
-    background-color: rgba(255, 255, 255, 0.96);
+.navbar-header {
+    background-color: rgba(0, 32, 110, 0.80);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding:8px;
+    padding-left:5%;
+    color:white;
 }
 
 .navbar {
@@ -117,15 +120,20 @@
     color: #FFFFFF;
     border-radius: 4px;
     text-decoration:none;
+    border-radius:10px;
 }
 
+.sidebar a{
+  color: #FFFFFF;
+  text-decoration:none;
+  border-radius:10px;
+}
 .sidebar .menu li.active{
     color: #FFFFFF;
     opacity: 1;
     background: rgb(0, 32, 110);
     box-shadow:0 0 5px rgb(255, 247, 180);
 }
-
 
 ul{
   text-decoration:none;
@@ -136,6 +144,7 @@ ul{
   margin:8px;
   padding:13px;
   background-color:rgb(104, 148, 255);
+  border-radius:10px;
 }
 .alignleft{
   text-align:left;
@@ -143,4 +152,23 @@ ul{
 
 .aligncen{
   text-align:center;
+}
+
+.navbar p{
+  font-size:20px;
+}
+
+.subtitle{
+  padding-left:2%;
+  color:rgba(255, 255, 255, 0.68);
+}
+
+.block95{
+  width:95%;
+  margin:25px auto;
+  background-color:red;
+}
+
+.hauteur80{
+  height:80%;
 }

@@ -1,45 +1,50 @@
 <div class="sidebar">
+  <a href="<?php goToPage('Accueil')?>">
   <div class="TitreSite">
     MySporTeam
   </div>
+</a>
   <ul class="menu">
-    <li class="nextline active">
-      <a href="<?php goToPage('backoffice')?>">
-        <i class="fa fa-home"></i>
-        <p>Accueil</p>
-      </a>
-    </li>
+    <a href="<?php goToPage('backoffice')?>">
+      <li class="nextline active">
+          <i class="fa fa-home"></i>
+          <p>Accueil</p>
+      </li>
+    </a>
 
-    <li class="nextline">
-      <a href="<?php goToPage('backofficegroupe')?>">
-        <i class="fa fa-wheelchair"></i>
-        <p>Groupes</p>
-      </a>
-    </li>
+    <a href="<?php goToPage('backofficegroupe')?>">
+      <li class="nextline">
+          <i class="fa fa-wheelchair"></i>
+          <p>Groupes</p>
+      </li>
+    </a>
 
-    <li class="nextline">
-      <a href="<?php goToPage('backofficeforum')?>">
-        <i class="fa fa-bed"></i>
-        <p>Forum</p>
-      </a>
-    </li>
+    <a href="<?php goToPage('backofficeforum')?>">
+      <li class="nextline">
+          <i class="fa fa-bed"></i>
+          <p>Forum</p>
+      </li>
+    </a>
 
-    <li class="nextline">
-      <a href="<?php goToPage('backofficereglage')?>">
-        <i class="fa fa-cog"></i>
-        <p>Réglages</p>
-      </a>
-    </li>
-    
+    <a href="<?php goToPage('backofficereglage')?>">
+      <li class="nextline">
+          <i class="fa fa-cog"></i>
+          <p>Réglages</p>
+      </li>
+    </a>
+
   </ul>
 </div>
 
 
 
 
-<div class="main-panel" style="background-color:blue;">
-  <div class="navbar navbar-default" style="background-color:red;">
+<div class="main-panel">
+  <div class="navbar navbar-header">
+    <p class="title">ok</p>
+    <i class="subtitle">ok</i>
+  </div>
+  <div class="block95 hauteur80">
     ok
   </div>
-  ok
 </div>
