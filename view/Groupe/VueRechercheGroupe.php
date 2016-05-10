@@ -15,8 +15,8 @@
           <h3>Niveau</h2>
             <?php foreach ($niveau as $key => $value): ?>
               <div class="eachniveau">
-                <input type="radio" name="niveau" id="niveau<?php echo $i=count($niveau)?>" value="<?php echo $i?>">
-                <label for="niveau<?php echo $i ?>"><?php echo $value ?></label>
+                <input type="radio" name="niveau" id="niveau<?php echo $i=count($niveau)? ?>" value="<?php echo $i?>">
+                <label for="niveau<?php echo $i ?>"><?php echo $value['nom'] ?></label>
               </div>
               <?php $i+=1; ?>
             <?php endforeach; ?>

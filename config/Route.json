@@ -17,5 +17,6 @@
   "forum":"forum",
   "topicforum":"forum/{id_topic}",
   "discussionforum":"forum/{id_topic}/discussion/{id_discussion}",
-  "aide":"aide"
+  "aide":"aide",
+  "backoffice":"admin/backoffice"
 }

@@ -25,6 +25,12 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function getNiveau(){
+    $sql="SELECT * FROM niveau";
+    $resultat=$this->requeteSQL($sql);
+    return $resultat;
+  }
+
   function searchVilleName($nbdisplay){
     $sql="SELECT name FROM city WHERE name LIKE ?  ORDER BY name LIMIT ?";
     $resultats=$this->connectBDD()->prepare($sql);
