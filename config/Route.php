@@ -156,6 +156,18 @@ class Route
         $this->ctr['Admin']->loadBackOffice();
         break;
 
+      case 'backofficegroupe':
+        $this->ctr['Admin']->loadBackOfficeGroupe();
+        break;
+
+      case 'backofficereglage':
+        $this->ctr['Admin']->loadBackOfficeReglage();
+        break;
+
+      case 'backofficeforum':
+        $this->ctr['Admin']->loadBackOfficeForum();
+        break;
+
       default:
         # code...
         break;

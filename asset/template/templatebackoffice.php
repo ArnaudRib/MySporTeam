@@ -9,8 +9,6 @@
 
 <body>
 <div class="General">
-  <!-- Menu side Admin panel -->
-  <?php include("view/Admin/AdminSide.php"); ?>
   <!--Contenu de la page-->
   <?php include($this->fichier); ?>
 </div>

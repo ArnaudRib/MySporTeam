@@ -33,9 +33,9 @@
         </form>
       </div>
 
-
       <div class="recherchegroupe">
         <?php foreach ($groupe as $key => $value): ?>
+          <a href="<?php goToPage('informationsgroupe', ['id'=> $value['id']])?>">
           <div id="<?php echo $i=count($groupe) ?>"  class="groupe">
             <div class="imagegroupe usualbackground" style="background-image:url(asset/images/sport.png);"> </div>
             <div class="nomgroupe">
@@ -48,6 +48,7 @@
             <div id="descriptiongroupe"> Homines enim eruditos et sobrios ut infaustos et inutiles vitant, eo quoque accedente quod et nomenclatores adsueti haec et talia venditare, mercede accepta lucris quosdam et prandiis inserunt subditicios ignobiles et obscuros.
             </div>
           </div>
+        </a>
         <?php endforeach; ?>
 
       </div>

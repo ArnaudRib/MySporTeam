@@ -695,7 +695,6 @@ form p {
 .fond_mongroupe{
   background-color: #D8D8D8;
   font-family: Verdana;
-
 }
 
 #image_de_fond{
@@ -1228,6 +1227,7 @@ ul {
 
 /* Page RechercheGroupe */
 .groupe{
+  filter: grayscale(0%);
   display: inline-block;
   border-radius: 20px;
   padding: 20px;
@@ -1242,8 +1242,7 @@ ul {
 .groupe:hover{
   display: inline-block;
   border: 1px solid black;
-  width: 48%;
-  height: 260px;
+  filter: grayscale(0%);
 }
 
 .imagegroupe{
@@ -1717,6 +1716,7 @@ td {
 
 a{
   text-decoration: none;
+  color:black;
 }
 
 /* GLOBAL */

@@ -3,12 +3,13 @@
     MySporTeam
   </div>
   <ul class="menu">
-    <li class="nextline active">
+    <li class="nextline">
       <a href="<?php goToPage('backoffice')?>">
         <i class="fa fa-home"></i>
         <p>Accueil</p>
       </a>
     </li>
+
 
     <li class="nextline">
       <a href="<?php goToPage('backofficegroupe')?>">
@@ -24,13 +25,15 @@
       </a>
     </li>
 
-    <li class="nextline">
+
+    <li class="nextline active">
       <a href="<?php goToPage('backofficereglage')?>">
         <i class="fa fa-cog"></i>
         <p>Réglages</p>
       </a>
     </li>
-    
+
+
   </ul>
 </div>
 

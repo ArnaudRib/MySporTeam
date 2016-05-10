@@ -17,7 +17,25 @@ class AdminController
 
   public function loadBackOffice()
   {
-    $vue=new Vue("BackOfficeAccueil","Admin",['admin.css']);
+    $vue=new Vue("BackOfficeAccueil","Admin",['font-awesome.css', 'admin.css']);
+    $vue->loadbackoffice();
+  }
+
+  public function loadBackOfficeGroupe()
+  {
+    $vue=new Vue("BackOfficeGroupe","Admin",['font-awesome.css', 'admin.css']);
+    $vue->loadbackoffice();
+  }
+
+  public function loadBackOfficeReglage()
+  {
+    $vue=new Vue("BackOfficeReglage","Admin",['font-awesome.css', 'admin.css']);
+    $vue->loadbackoffice();
+  }
+
+  public function loadBackOfficeForum()
+  {
+    $vue=new Vue("BackOfficeForum","Admin",['font-awesome.css', 'admin.css']);
     $vue->loadbackoffice();
   }
 }

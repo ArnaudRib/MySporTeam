@@ -47,8 +47,17 @@
   font-weight: 200;
   background-size: cover;
   background-position: center center;
-  background-color:rgb(96, 116, 255);
+  background-color:rgba(28, 1, 194, 0.9);
   border:1px grey solid;
+}
+
+.main-panel {
+    background: rgba(203, 203, 210, 0.15);
+    position: relative;
+    z-index: 2;
+    float: right;
+    width: calc(100% - 260px);
+    min-height: 100%;
 }
 
 .navbar-default {
@@ -62,15 +71,16 @@
     border-radius: 0;
 }
 
+
 /*Contenu Side bar*/
 .TitreSite{
   text-align:center;
-  padding:10px;
-  margin:10px;
+  font-size:25px;
+  padding:15px;
   opacity:0.9;
-  background-color:rgb(11, 63, 162);
-  border:1px black solid;
-  margin:10 auto;
+  background-color:rgb(25, 105, 255);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom:30px;
 }
 
 .menu{
@@ -79,7 +89,58 @@
   text-align:center;
 }
 
+.menu > li {
+  position: relative;
+  display: block;
+  border-radius:10px;
+  box-shadow: 0 0 1px rgb(255, 255, 255);
+}
+
+.sidebar .menu p {
+    margin: 0;
+    line-height: 35px;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.sidebar .menu i {
+    font-size: 28px;
+    float: left;
+    line-height: 30px;
+    width: 30px;
+    text-align: center;
+}
+
+
+.sidebar .menu li > a {
+    color: #FFFFFF;
+    border-radius: 4px;
+    text-decoration:none;
+}
+
+.sidebar .menu li.active{
+    color: #FFFFFF;
+    opacity: 1;
+    background: rgb(0, 32, 110);
+    box-shadow:0 0 5px rgb(255, 247, 180);
+}
+
+
 ul{
   text-decoration:none;
   list-style-type: none;
+}
+
+.nextline{
+  margin:8px;
+  padding:13px;
+  background-color:rgb(104, 148, 255);
+}
+.alignleft{
+  text-align:left;
+}
+
+.aligncen{
+  text-align:center;
 }
