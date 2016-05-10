@@ -16,7 +16,7 @@ class GroupeController
 
   public function loadRecherche()
   {
-    $niveau=['Débutant', 'Intermediaire', 'Avancé', 'Professionnel'];
+    $niveau=$this->groupe->getNiveau()->fetchAll();
     $villes=$this->groupe->getVille()->fetchAll();
     $sports=$this->sport->getSports()->fetchAll();
     $vue=new Vue("RechercheGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
