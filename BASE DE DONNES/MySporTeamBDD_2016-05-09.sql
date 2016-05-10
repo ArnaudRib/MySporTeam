@@ -7,7 +7,7 @@
 #
 # Hôte: localhost (MySQL 5.6.28)
 # Base de données: MySporTeamBDD
-# Temps de génération: 2016-04-09 21:31:53 +0000
+# Temps de génération: 2016-05-09 09:26:10 +0000
 # ************************************************************
 
 
@@ -20,13 +20,42 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
+# Affichage de la table aide
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `aide`;
+
+CREATE TABLE `aide` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `type` char(100) DEFAULT NULL,
+  `question` varchar(10000) DEFAULT NULL,
+  `reponse` varchar(10000) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `aide` WRITE;
+/*!40000 ALTER TABLE `aide` DISABLE KEYS */;
+
+INSERT INTO `aide` (`id`, `type`, `question`, `reponse`)
+VALUES
+	(1,'Groupe','J\'ai eu des problèmes avec un cours. Comment vous le signalez ?','Vous pouvez nous contacter à l\'adresse suivante : admin@mysporteam.com. '),
+	(2,'Contact','Comment puis-je vous contacter? ',NULL),
+	(3,'Compte','J’ai oublié mon mot de passe, comment faire pour le récupérer ? ',NULL),
+	(4,'Paiement','Existe-t-il des frais quant à l’utilisation de ce site ?',NULL),
+	(5,'Groupe','Puis-je créer un nouveau sport ? ','Oui. Cliquez <a href=\"creationgroupe\">ici</a>'),
+	(6,'Groupe','Test','ok');
+
+/*!40000 ALTER TABLE `aide` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Affichage de la table commentaire
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `commentaire`;
 
 CREATE TABLE `commentaire` (
-  `id` int(11) NOT NULL DEFAULT '0',
+  `id` int(11) unsigned NOT NULL DEFAULT '0',
   `titre` char(150) DEFAULT NULL,
   `texte` text,
   `creation_date` date DEFAULT NULL,
@@ -85,18 +114,33 @@ CREATE TABLE `discussion_groupe` (
 DROP TABLE IF EXISTS `groupe`;
 
 CREATE TABLE `groupe` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `description` varchar(10000) DEFAULT NULL,
-  `nom_leader` varchar(30) DEFAULT NULL,
-  `localisation` varchar(30) DEFAULT NULL,
-  `public` tinyint(1) unsigned DEFAULT NULL,
-  `nbmax_sportifs` int(11) unsigned DEFAULT NULL,
-  `date_creation` date DEFAULT NULL,
-  `id_sport` int(11) unsigned DEFAULT NULL,
+ `id` int(11) unsigned NOT NULL,
+ `nom` varchar(1000) DEFAULT NULL,
+ `description` varchar(10000) DEFAULT NULL,
+ `public` tinyint(1) unsigned DEFAULT NULL,
+ `nbmax_sportifs` int(11) unsigned DEFAULT NULL,
+ `date_creation` date DEFAULT NULL,
+ `id_sport` int(11) unsigned DEFAULT NULL,
+ `id_ville` int(11) unsigned DEFAULT NULL,
+ `categorie` varchar(255) NOT NULL,
+ `localisation` varchar(30) DEFAULT NULL,
+ `nom_leader` varchar(30) DEFAULT NULL
   PRIMARY KEY (`id`),
-  CONSTRAINT `groupe_ibfk_1` FOREIGN KEY (`id`) REFERENCES `sports` (`id`)
+  KEY `id_ville` (`id_ville`),
+  CONSTRAINT `groupe_ibfk_1` FOREIGN KEY (`id_sport`) REFERENCES `sports` (`id`),
+  CONSTRAINT `groupe_ibfk_2` FOREIGN KEY (`id_ville`) REFERENCES `ville` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `groupe` WRITE;
+/*!40000 ALTER TABLE `groupe` DISABLE KEYS */;
+
+INSERT INTO `groupe` (`id`, `nom`, `description`, `nom_leader`, `localisation`, `public`, `nbmax_sportifs`, `date_creation`, `id_sport`, `id_ville`)
+VALUES
+	(1,'Groupe des génies',NULL,NULL,NULL,NULL,NULL,NULL,1,NULL),
+	(2,'Les coréens',NULL,NULL,NULL,NULL,NULL,NULL,1,NULL);
+
+/*!40000 ALTER TABLE `groupe` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Affichage de la table message
@@ -126,7 +170,7 @@ DROP TABLE IF EXISTS `message_de_groupe`;
 
 CREATE TABLE `message_de_groupe` (
   `id` int(11) unsigned NOT NULL DEFAULT '0',
-  `date_creation` int(11) DEFAULT NULL,
+  `date_creation` int(11) unsigned DEFAULT NULL,
   `texte` text,
   `id_discussion` int(11) unsigned DEFAULT NULL,
   `id_utlisateur` int(11) unsigned DEFAULT NULL,
@@ -181,7 +225,7 @@ DROP TABLE IF EXISTS `planning`;
 
 CREATE TABLE `planning` (
   `id` int(11) unsigned NOT NULL DEFAULT '0',
-  `nom_evenement` int(11) DEFAULT NULL,
+  `nom_evenement` int(11) unsigned DEFAULT NULL,
   `date_evenement` date DEFAULT NULL,
   `heure_debut` datetime DEFAULT NULL,
   `heure_fin` datetime DEFAULT NULL,
@@ -267,10 +311,10 @@ CREATE TABLE `utilisateur` (
   `sexe` char(1) DEFAULT NULL,
   `mot_de_passe` varchar(10000) DEFAULT NULL,
   `adresse` varchar(1000) DEFAULT NULL,
-  `numero_telephone` int(10) DEFAULT NULL,
+  `numero_telephone` int(10) unsigned DEFAULT NULL,
   `naissance` date DEFAULT NULL,
   `pseudo` char(254) DEFAULT NULL,
-  `admin_util` tinyint(1) DEFAULT NULL,
+  `admin_util` tinyint(1) unsigned DEFAULT NULL,
   `id_photo` int(11) unsigned DEFAULT NULL,
   `id_ville` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -289,7 +333,9 @@ VALUES
 	(2,NULL,NULL,'test','H','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',NULL,NULL,'2016-00-01','lapin',NULL,NULL,NULL),
 	(3,NULL,NULL,'test','H','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',NULL,NULL,'2011-03-03','test',NULL,NULL,NULL),
 	(6,NULL,NULL,'a','H','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8',NULL,NULL,'2016-00-01','aa',NULL,NULL,NULL),
-	(7,NULL,NULL,'a','H','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8',NULL,NULL,'2016-00-01','a',NULL,NULL,NULL);
+	(7,NULL,NULL,'a','H','86f7e437faa5a7fce15d1ddcb9eaeaea377667b8',NULL,NULL,'2016-00-01','a',NULL,NULL,NULL),
+	(8,NULL,NULL,'b',NULL,'e9d71f5ee7c92d6dc9e92ffdad17b8bd49418f98',NULL,NULL,'0000-00-00','b',NULL,NULL,NULL),
+	(9,NULL,NULL,'c',NULL,'84a516841ba77a5b4648de2cd0dfcb30ea46dbb4',NULL,NULL,'0000-00-00','c',NULL,NULL,NULL);
 
 /*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -320,7 +366,7 @@ DROP TABLE IF EXISTS `utilisateur_sport`;
 CREATE TABLE `utilisateur_sport` (
   `id_utilisateur` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `id_sport` int(11) unsigned DEFAULT NULL,
-  `niveau` int(11) DEFAULT NULL,
+  `niveau` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id_utilisateur`),
   KEY `id_sport` (`id_sport`),
   CONSTRAINT `utilisateur_sport_ibfk_1` FOREIGN KEY (`id_utilisateur`) REFERENCES `utilisateur` (`id`),
@@ -337,7 +383,7 @@ DROP TABLE IF EXISTS `ville`;
 CREATE TABLE `ville` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) DEFAULT NULL,
-  `departement` int(5) DEFAULT NULL,
+  `departement` int(5) unsigned DEFAULT NULL,
   `id_groupe` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `ville_ibfk_1` FOREIGN KEY (`id`) REFERENCES `groupe` (`id`)

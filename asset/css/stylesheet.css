@@ -1756,3 +1756,13 @@ a{
     width: 1170px;
   }
 }
+
+/* Création de groupe */
+
+h2.titre_niveau{
+  margin-left: 32%;
+  font-size: x-large;
+  margin-top: 3%;
+  height: 2%;
+
+}

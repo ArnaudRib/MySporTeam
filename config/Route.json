@@ -11,7 +11,7 @@
   "evenementsgroupe":"groupe/{id}/evenements",
   "unevenementgroupe":"groupe/{id}/evenements/{id_evenement}",
   "membresgroupe":"groupe/{id}/membres",
-  "creationgroupe":"/mysporteam/creationgroupe.php",
+  "creationgroupe":"creationgroupe",
   "profil":"profil",
   "forum":"forum",
   "topicforum":"forum/{id_topic}",

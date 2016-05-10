@@ -67,3 +67,11 @@ form input:selected {
   background-color: rgba(0, 200, 250, 0);
   color: black;
 }
+
+.titre_niveau{
+  margin-left: 32%;
+  font-size: x-large;
+  margin-top: 3%;
+  height: 2%;
+  font-family: Verdana;
+}

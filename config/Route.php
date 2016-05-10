@@ -126,6 +126,8 @@ class Route
         break;
 
       case 'creationgroupe':
+      echo 'e';
+
         $this->ctr['Groupe']->loadCreationGroupe();
         break;
 
@@ -165,16 +167,4 @@ function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('n
     }
   }
   echo "/mysporteam/".$url;
-}
-
-
-function isLogged(){
-  if(isset($_SESSION['user']))
-    return true;
-  return false;
-}
-
-function image($root){
-  $chemin='/mysporteam/asset/images/'.$root;
-  echo $chemin;
 }

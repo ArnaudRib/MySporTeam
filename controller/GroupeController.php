@@ -61,9 +61,28 @@ class GroupeController
   {
 
     if (isset($_POST['Envoyer'])){
+
       if(exceptName(['imagegroupe'])){
         $succes="Profil complété avec succès!";
-      }else{
+
+        if(isset($_FILES['imagegroupe'])&&!empty($_FILES['imagegroupe']['name'])){
+			$extensions_ok = array('png', 'jpg', 'jpeg', 'JPG','bmp');
+			$extension = pathinfo($_FILES['imagegroupe']['name'], PATHINFO_EXTENSION);
+			if(in_array($extension, $extensions_ok)){
+				if(move_uploaded_file($_FILES['imagegroupe']['tmp_name'] , 'images/image_groupe/'.$_SESSION['user']['id'].'.png')) {
+
+				}
+
+			}
+
+		}
+		if(is_file('images/image_groupe/'.$_SESSION['user']['id'].'.png')){
+      $imagegroupe = $_SESSION['user']['id'].'.png';
+      $groupe=$this->groupe->creationGroupe($imagegroupe);
+      
+      //echo "'<img src = images/image_groupe/$imagegroupe>";
+        }
+     }else{
         $error=errorExceptInput(['imagegroupe']);
       }
     }
@@ -72,24 +91,5 @@ class GroupeController
     $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
   }
 
-    $message='';
-
-      if (isset($_POST['nom']) AND isset($_POST['categorie']) AND isset($_POST['nombre'])
-       AND isset($_POST['sport']) AND isset($_POST['departement']) AND isset($_POST['ville'])
-       AND isset($_POST['visibilite']) AND isset($_POST['description'])){
-            if(!empty($_POST['nom'])){
-
-           $groupe=$this->groupe->creationGroupe(); //si il y a une réponse, true + tableau de la réponse, sinon, false.
-
-           echo "reussis";
-
-          }else{
-            $message= "Tout les champs n'ont pas été remplis";
-            echo $message;
-          }
-        }
-    $vue=new Vue("creationgroupe", "Groupe", ['stylesheet.css', 'creationgroupe.css']); // CSS a unifier dans le meme fichier
-    $vue->loadpage(['message'=>$message]);
-      }
 
   }

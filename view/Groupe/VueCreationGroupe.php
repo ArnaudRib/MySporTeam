@@ -1,35 +1,3 @@
-<nav id="creationgroupe">
-  <form action=" <?php goTopage('creationgroupe')?>" method="post" >
-
-
-        <div class= "titre_creation_groupe"><h1> Créer votre Groupe </h1></div>
-
-  <fieldset>
-    <input type="text" name="nom" placeholder="Nom du Groupe">
-
-    <input type="file" name="imagegroupe">
-
-    <select name="categorie">
-        <option disabled selected> --- Catégorie --- </option>
-        <option value="competition"> Compétition </option>
-        <option value="cours"> Cours </option>
-        <option value="entrainement"> Entrainement </option>
-    </select>
-
-    <input type="number" placeholder="Nombre de membres : 45max" name="nombre">
-    <?php if(isset($_POST['nbr_max'])){
-          if ($_POST ['nbr_max'] >= 45 or $_POST ['nbr_max'] < 0){
-          echo "Perdu";}
-          else {echo "Gagné";}} ?>
-
-
-    <select name="departement">
-        <option disabled selected> --- Département --- </option>
-    <?php for ($i=0; $i <100 ; $i++) :?>
-      <option value = <?php echo $i ?> > <?php echo $i ?> </option>
-    <?php endfor;  ?>
-
-    </select>
 
 
 <?php if(isset($error)):?>
@@ -39,7 +7,7 @@
 <?php endif; ?>
 
 <nav id="inscription"> <!-- remettre <nav id="creationgroupe"> si tu veux pas noir-->
-  <form action="<?php goTopage('creationgroupe')?>" method="post" >
+  <form action="<?php goTopage('creationgroupe')?>" method="post" enctype="multipart/form-data">
     <h1 class=""> Créer votre Groupe </h1>
     <?php if(isset($succes)): ?>
       <div class="successbox blackborder radius" style='margin:20px auto; margin-bottom:0px'>
@@ -51,7 +19,7 @@
         <label for="nom"><img src="asset/images/Users/icone_utilisateur.png" /></label>
         <input type="text" name="nom" placeholder="Nom du Groupe">
       </div>
-      <input type="file" name="imagegroupe">
+      <input type="file" name="imagegroupe" style="margin-right:12%">
 
       <select name="categorie" require>
         <option selected value=""> --- Catégorie --- </option>
@@ -60,7 +28,7 @@
         <option value="Entrainement"> Entrainement </option>
       </select>
 
-      <input type="number" placeholder="Nombre de membres : 45max" name="nombre" min="0" max="45"/>
+      <input type="number" placeholder="Nombre de membres : 45max" name="nbmax_sportifs" min="0" max="45"/>
       <?php /*if(isset($_POST['nbr_max'])){
         if ($_POST ['nbr_max'] >= 45 or $_POST ['nbr_max'] < 0){
         echo "Perdu";}
@@ -69,21 +37,28 @@
       }
     } A METTRE DANS LE CONTROLLER SI VRAIMENT NECESSAIRE*/?>
 
-    <select name="sport">
+    <select name="id_sport">
       <option value="" selected> --- Sport --- </option>
       <option value="1"> Football </option>
       <option value="2"> Rugby </option>
     </select>
 
-    <input type="text" name="ville" placeholder="Ville"></br>
+    <input type="number" name="id_ville" placeholder="Ville"></br>
 
-    <label style="display: inline-block; width: 60px; float: none;">Public</label> <input style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" name="visibilite" value="public">
-    <label style="display: inline-block; width: 60px; float: none;">Privé</label> <input type="radio" name="visibilite" value="prive" style="display: inline-block; width: 30px; height: 15px">
+    <label style="display: inline-block; width: 60px; float: none;">Public</label> <input style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" name="public" value="public">
+    <label style="display: inline-block; width: 60px; float: none;">Privé</label> <input type="radio" name="public" value="prive" style="display: inline-block; width: 30px; height: 15px">
+
+
+      <h2 class="titre_niveau"> Niveau </h3>
+
+    <label style="display: inline-block; width: 80px; float: none;">Débutant</label> <input style="display: inline-block; width: 20px; padding: 0; margin: 0; height:15px" type="radio" name="niveau" value="debutant">
+    <label style="display: inline-block; width: 114px; float: none;">Intermediaire</label> <input type="radio" name="niveau" value="intermediaire" style="display: inline-block; width: 20px; height: 15px">
+    <label style="display: inline-block; width: 80px; float: none;">Avancé</label> <input style="display: inline-block; width: 20px; padding: 0; margin: 0; height:15px" type="radio" name="niveau" value="avance">
+    <label style="display: inline-block; width: 114px; float: none;">Professionnel</label> <input type="radio" name="niveau" value="professionnel" style="display: inline-block; width: 20px; height: 15px">
 
     <textarea name="description" rows="10" cols="50" placeholder="Description"></textarea>
 
     <input id="submit" type="submit" name="Envoyer" value="Valider">
-    <?php dump ($_POST);?>
   </fieldset>
   </form>
 
