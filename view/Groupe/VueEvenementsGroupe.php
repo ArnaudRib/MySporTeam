@@ -18,8 +18,10 @@
     </div>
   </div>
 
-  <div id="corps_mongroupe">
-      <?php for ($i=1; $i <5 ; $i++) {?>
+  <?php $evenement=10; ?>
+  <?php $hauteur=30+310*($evenement); ?> <!-- REMPLACER $EVENEMNT PAR COUNT($EVENEMENT) plus tard qd requete. permet de setup la hauteur de la page. Evite pb ac footer -->
+  <div id="corps_mongroupe" style="height:<?php echo $hauteur?>px">
+      <?php for ($i=0; $i <$evenement ; $i++) {?>
         <div class="case_mongroupeevenement radius_mongroupe forme_case">
           <img src="/asset/images/Groupes/Evenements/evenement1.jpg"/>
           <div class="texteevenement">

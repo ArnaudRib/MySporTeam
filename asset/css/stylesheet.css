@@ -838,11 +838,11 @@ form p {
 
 /* MON GROUPE PUBLCIATION*/
 #corps_mongroupe{
-  position: relative;
   top:62px;
   width:1107px;
   margin:auto;
   clear: both;
+  margin-top:80px;
 }
 
 .radius_mongroupe{
