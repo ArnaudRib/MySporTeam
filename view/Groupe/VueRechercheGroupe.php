@@ -1,6 +1,4 @@
 <div class="container">
->>>>>>> e31cbff4eaebd4cc318e6d872c4a761ee9485dfc
-
   <div  id="FiltreRechercheSport" class="filtre">
     <form action="recherchegroupe" method="post">
       <div class="blockfiltretitre" style="width:100%;">
