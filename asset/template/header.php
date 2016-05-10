@@ -18,7 +18,6 @@
     </div>
     <nav class="menuderoulant">
       <ul>
-        <li> <input type="searchbar" placeholder="Entrez votre recherche" name="Recherche"/></li>
         <?php if(isLogged()): ?>
         <li> <a style="color:white;" href='<?php goToPage('Accueil'); ?>'>Accueil</a></li>
         <li> <a style="color:white;" href='<?php goToPage('profil'); ?>'>Mon profil</a></li>
@@ -29,6 +28,8 @@
           <li> <a style="color:white;" href='<?php goToPage('forum');?>'>Forums</a></li>
           <li> <a style="color:white;" href="<?php goToPage('connexion');?>">Connexion</a></li>
         <?php endif; ?>
+        <li>
+          <input type="text" class="barRecherche" placeholder="Entrez votre recherche" name="Recherche"/></li>
       </ul>
     </nav>
   </div>

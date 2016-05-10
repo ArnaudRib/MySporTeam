@@ -13,4 +13,10 @@ class SportModele extends BaseDeDonnes
     $resultats->execute();
     return $resultats;
   }
+
+  function getSports(){
+    $sql="SELECT * FROM sports";
+    $resultat=$this->requeteSQL($sql);
+    return $resultat;
+  }
 }

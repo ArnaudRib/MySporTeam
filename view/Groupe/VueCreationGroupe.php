@@ -40,7 +40,7 @@
       <option value="1"> Football </option>
       <option value="2"> Rugby </option>
     </select>
-        
+
     <input type="text" name="ville" placeholder="Ville"></br>
 
     <label style="display: inline-block; width: 60px; float: none;">Public</label> <input style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" name="visibilite" value="public">

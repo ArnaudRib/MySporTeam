@@ -14,4 +14,24 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql);
     return $resultat;
   }
+
+  function getVille(){
+    $sql="SELECT city.name as ville, departement.name as departement
+          FROM city
+          JOIN departement
+          ON city.departement_code=departement.departement_code
+          ORDER BY city.name ASC";
+    $resultat=$this->requeteSQL($sql);
+    return $resultat;
+  }
+
+  function searchVilleName($nbdisplay){
+    $sql="SELECT name FROM city WHERE name LIKE ?  ORDER BY name LIMIT ?";
+    $resultats=$this->connectBDD()->prepare($sql);
+    $text="%" . $_GET['resultat'] . "%";
+    $resultats->bindParam(1, $text, PDO::PARAM_STR);
+    $resultats->bindParam(2, $nbdisplay, PDO::PARAM_INT);
+    $resultats->execute();
+    return $resultats;
+  }
 }
