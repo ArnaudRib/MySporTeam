@@ -35,7 +35,6 @@ class Route
         if (preg_match($value, $_GET['p'], $this->params)){
           if (count($this->params)>1) {
             $this->params=array_slice($this->params,1);
-            $this->loadController($url);
           }
           $url = $key;
           $this->loadController($url);
@@ -91,6 +90,10 @@ class Route
       // Groupes
       case 'recherchegroupe':
         $this->ctr['Groupe']->loadRecherche();
+        break;
+
+      case 'ajaxrecherchegroupe':
+        $this->ctr['Groupe']->loadAjaxRecherche();
         break;
 
       case 'informationsgroupe':

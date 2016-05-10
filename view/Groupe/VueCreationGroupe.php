@@ -1,6 +1,5 @@
-
-
 <?php if(isset($error)):?>
+
   <div class="errorbox blackborder radius">
     <?php echo $error;?>
   </div>
@@ -9,7 +8,7 @@
 <nav id="inscription"> <!-- remettre <nav id="creationgroupe"> si tu veux pas noir-->
   <form action="<?php goTopage('creationgroupe')?>" method="post" enctype="multipart/form-data">
     <h1 class=""> Créer votre Groupe </h1>
-    <?php if(isset($succes)): ?>
+    <?php if($succes!=''): ?>
       <div class="successbox blackborder radius" style='margin:20px auto; margin-bottom:0px'>
         <?php echo $succes;?>
       </div>
@@ -42,6 +41,7 @@
       <option value="1"> Football </option>
       <option value="2"> Rugby </option>
     </select>
+
 
     <input type="number" name="id_ville" placeholder="Ville"></br>
 

@@ -5,6 +5,7 @@
   "deconnexion":"deconnexion",
   "ajaxloadphoto":"ajaxloadphoto",
   "recherchegroupe":"recherchegroupe",
+  "ajaxrecherchegroupe":"ajaxrecherchegroupe",
   "informationsgroupe":"groupe/{id}/informations",
   "publicationsgroupe":"groupe/{id}/publications",
   "unepublicationgroupe":"groupe/{id}/publications/{id_publication}",
