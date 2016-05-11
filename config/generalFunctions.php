@@ -66,10 +66,10 @@ function errorExceptInput($names=[]){ // renvoie un string des erreurs des posts
   return $error;
 }
 
-function CreateSlider($ListImg, $type)
+function CreateSlider($ListImg, $type, $width='100%', $height='400px')
 {
   $tab=serialize($ListImg);?>
-  <iframe src="/view/Sliders/Slider.php?tab=<?php echo htmlspecialchars($tab) ?>&type=<?php echo $type ?>" width="100%" height="400px"></iframe>
+  <iframe src="/view/Sliders/Slider.php?tab=<?php echo htmlspecialchars($tab) ?>&type=<?php echo $type ?>" width="<?php echo $width ?>" height="<?php echo $height?>"></iframe>
 <?php }
 
 function GenerateSlider($ListImg){?>

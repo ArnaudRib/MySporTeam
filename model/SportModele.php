@@ -19,4 +19,18 @@ class SportModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql);
     return $resultat;
   }
+
+  function getSport($id_sport){ //Récupère toutes les données importantes relatives à 1 sport.
+    $sql="SELECT *, types_sports.id as id_type, types_sports.titre FROM sports JOIN types_sports ON sports.id_type=types_sports.id WHERE sports.id=?";
+    $resultat=$this->requeteSQL($sql, [$id_sport]);
+    return $resultat;
+  }
+
+  function getPhotoSport($id_sport){
+    $sql = "SELECT photo.chemin as photo FROM photo JOIN sports ON photo.id_sports=sports.id WHERE sports.id=?";
+    $resultat=$this->requeteSQL($sql, [$id_sport]);
+    return $resultat;
+  }
+
+
 }

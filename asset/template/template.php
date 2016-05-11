@@ -9,7 +9,9 @@
 
 <body>
 <!--Menu en haut de la page-->
-<?php include("header.php"); ?>
+<div class="bodybackground">
+  <?php include("header.php"); ?>
+</div>
 <!--Contenu de la page-->
 <?php include($this->fichier); ?>
 <!--Menu en bas de la page-->

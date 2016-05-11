@@ -79,9 +79,15 @@ class GroupeController
         $error=errorExceptInput(['imagegroupe']);
       }
     }
-
-    $vue=new Vue("CreationGroupe", "Groupe", ['stylesheet.css']); // CSS a unifier dans le meme fichier
+    $vue=new Vue("CreationGroupe", "Groupe", ['stylesheet.css']);
     $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
   }
 
+
+  public function loadGroupeSport($id_sport){ //Load les groupes d'un sport. Permet aussi d'accéder à la recherche avancée.
+    $photo=$this->sport->getPhotoSport($id_sport)->fetch();
+    $sport=$this->sport->getSport($id_sport)->fetch();
+    $vue=new Vue("GroupeSport", "Groupe", ['stylesheet.css']);
+    $vue->loadpage(['sport'=>$sport, 'photo'=>$photo]);
+  }
 }

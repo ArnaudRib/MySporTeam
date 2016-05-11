@@ -1,15 +1,15 @@
 <header>
   <span style="color:white;">Pages faites (TEMPORAIRE):
-    <a style="color:white;" href='<?php goToPage('Accueil'); ?>'>Accueil</a>
-    <a style="color:white;" href="<?php goToPage('informationsgroupe',['id'=>'1']);?>">Pages groupe</a>
-    <a style="color:white;" href="<?php goToPage('connexion');?>">connexion</a>
-    <a style="color:white;" href='<?php goToPage('inscription');?>'>inscription</a>
-    <a style="color:white;" href='<?php goToPage('recherchegroupe');?>'>recherchegroupe</a>
-    <a style="color:white;" href='<?php goToPage('forum');?>'>forum</a>
-    <a style="color:white;" href='<?php goToPage('creationgroupe');?>'>creationgroupe</a>
-    <a style="color:white;" href='<?php goToPage('aide');?>'>aide</a>
-    <a style="color:white;" href='<?php goToPage('backoffice');?>'>Admin</a>
-
+    <a style="color:white; margin: 0px 20px;" href='<?php goToPage('Accueil'); ?>'>Accueil</a>
+    <a style="color:white;margin: 0px 20px;" href="<?php goToPage('informationsgroupe',['id'=>'1']);?>">Pages groupe</a>
+    <a style="color:white;margin: 0px 20px;" href="<?php goToPage('connexion');?>">connexion</a>
+    <a style="color:white;margin: 0px 20px;" href='<?php goToPage('inscription');?>'>inscription</a>
+    <a style="color:white;margin: 0px 20px;" href='<?php goToPage('recherchegroupe');?>'>recherchegroupe</a>
+    <a style="color:white;margin: 0px 20px;" href='<?php goToPage('forum');?>'>forum</a>
+    <a style="color:white;margin: 0px 20px;" href='<?php goToPage('creationgroupe');?>'>creationgroupe</a>
+    <a style="color:white;margin: 0px 20px;" href='<?php goToPage('aide');?>'>aide</a>
+    <a style="color:white;margin: 0px 20px;" href='<?php goToPage('backoffice');?>'>Admin</a>
+    <a style="color:white;margin: 0px 20px;" href="<?php goToPage('sportgroupe',['id_sport'=>'1']);?>">Sport groupe(accessible depuis page principale sur photo)</a>
   </span>
 
 

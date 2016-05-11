@@ -53,5 +53,5 @@
     </aside>
   </nav>
 
-  <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Fade'); ?>
-  <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'slide'); ?>
+  <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Fade', '100%', '400px'); ?>
+  <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Slide', '100%', '400px'); ?>

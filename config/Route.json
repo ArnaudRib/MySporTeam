@@ -4,6 +4,7 @@
   "inscription":"inscription",
   "deconnexion":"deconnexion",
   "ajaxloadphoto":"ajaxloadphoto",
+  "sportgroupe":"groupe/sport/{id_sport}",
   "recherchegroupe":"recherchegroupe",
   "ajaxrecherchegroupe":"ajaxrecherchegroupe",
   "informationsgroupe":"groupe/{id}/informations",

@@ -134,6 +134,10 @@ class Route
         $this->ctr['Groupe']->loadCreationGroupe();
         break;
 
+      case 'sportgroupe':
+        $id_sport=intval($this->params[0]);
+        $this->ctr['Groupe']->loadGroupeSport($id_sport);
+        break;
 
       // Forum
       case 'forum':

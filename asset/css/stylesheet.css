@@ -61,7 +61,7 @@ form{
   display: block;
   z-index:6;
   position:relative;
-  border-bottom: inset;
+  border-bottom: 1px inset;
   overflow: hidden;
 }
 
@@ -596,10 +596,12 @@ form input:selected {
 
 
 body{
-  background-image:url("../images/wallpaper.png");
-  background-size: auto;
   height: 100%;
   width: 100%;
+}
+
+.bodybackground{
+  background-image:url("../images/wallpaper.png");
 }
 
 form h1 {
@@ -1199,11 +1201,14 @@ form p {
   width: 100%;
 }
 
+.blockaide{
+  padding: 20px 0;
+}
+
 .faq {
   width:25%;
   margin:0 auto;
   text-align:center;
-  margin-top: 50px;
 }
 
 .blockSection{
@@ -1376,8 +1381,9 @@ ul {
 .sportblock{
   width:100%;
 }
-/* Profil */
 
+
+/* Profil */
 .profil {
   margin-top: 80px;
 }
@@ -1653,6 +1659,9 @@ td {
 	background-color: #e6e6e6;
 }
 
+.blockforum{
+  padding:50px 0px;
+}
 
 .sectionForum {
 	width: 80%;
@@ -1660,7 +1669,7 @@ td {
 	border-radius: 10px;
 	background-color: #FFFFFF;
 	box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
-  margin: 50px 10%;
+  margin:0 auto;
 }
 
 .premierHR {
@@ -1718,6 +1727,15 @@ a{
   text-decoration: none;
   color:black;
 }
+
+/* Sport Groupe */
+.backgroundimage{
+  width:100%;
+  margin-top:-10px;
+  min-height:700px;
+  background-size:cover;
+}
+
 
 /* GLOBAL */
 .encadrementTitre{
