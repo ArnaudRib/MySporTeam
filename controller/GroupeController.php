@@ -19,7 +19,7 @@ class GroupeController
     $niveau=$this->groupe->getNiveau()->fetchAll();
     $villes=$this->groupe->getVille()->fetchAll();
     $sports=$this->sport->getSports()->fetchAll();
-    $vue=new Vue("RechercheGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
+    $vue=new Vue("RechercheGroupe", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['RechercheGroupe.js']);
     $groupe=$this->groupe->getGroup()->fetchAll();
     $vue->loadpage(['groupe'=>$groupe, 'niveau'=>$niveau, 'villes'=>$villes, 'sports'=>$sports]);
 }
@@ -47,6 +47,11 @@ class GroupeController
   public function loadUnEvenementGroupe($id_groupe, $id_evenement)
   {
     $vue=new Vue("UnEvenementGroupe", "Groupe", ['stylesheet.css']);
+    $vue->loadpage();
+  }
+
+  public function loadUnePublicationGroupe($id_groupe, $id_publication){
+    $vue=new Vue("UnePublicationGroupe", "Groupe", ['stylesheet.css']);
     $vue->loadpage();
   }
 

@@ -1282,6 +1282,10 @@ ul {
   transition: 1s all ease;
 }
 
+.blockrecherchegroupe{
+  padding: 30px 0px !important;
+  min-height:500px;
+}
 
 #results{
   padding: 7px;
@@ -1736,7 +1740,18 @@ a{
   background-size:cover;
 }
 
+.backgroundimage span{ /*Text Sport**/
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  text-align: center; /*centre au milieu*/
+  z-index:2;
+  overflow: hidden;
+}
 
+.backgroundimage .image{
+  filter:blur(2px) grayscale(60%);;
+}
 /* GLOBAL */
 .encadrementTitre{
   background-color:rgb(194, 246, 229);
@@ -1840,26 +1855,22 @@ a{
 
 .plusboutton{
   float:right;
-  padding: 15px;
-  padding-top:16px;
-  margin-top:8px;
   margin-right:5%;
-  background-image: url("/asset/images/General/plusboutton.png");
-  background-repeat: no-repeat;
-  background-size: 30px 30px;
+  padding-top: 10px;
   transition:1s all ease;
+  font-size:30px;
+  color:green;
+  cursor:pointer;
 }
 
 .croixboutton{
   float:right;
-  padding: 15px;
-  padding-top:16px;
-  margin-top:8px;
   margin-right:5%;
-  background-image: url("/asset/images/General/plusboutton.png");
-  background-repeat: no-repeat;
-  background-size: 30px 30px;
+  padding-top: 10px;
   transition:1s all ease;
+  font-size:30px;
+  color:red;
+  cursor:pointer;
   transform:rotate(45deg);
 }
 

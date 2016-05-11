@@ -8,10 +8,10 @@
       <div id="menu_mongroupe">
         <nav>
           <ul>
-            <a href="pagegroupe_publication.php" id="non_selectionne"><li>Publications</li></a>
-            <a href="pagegroupe_informations.php" id="non_selectionne" ><li>A propos</li></a>
-            <a href="pagegroupe_evenements.php" id="selectionne"><li>Evenements</li></a>
-            <a href="pagegroupe_membres.php" id="non_selectionne"><li>Abonnées</li></a>
+            <a href="<?php goToPage('informationsgroupe',['id'=>'1']) ?>" id="non_selectionne"><li>Informations</li></a>
+            <a href="<?php  goToPage('publicationsgroupe',['id'=>'1', 'id_publication'=>'1'])?>" id="selectionne"><li>Publications</li></a>
+            <a href="<?php  goToPage('evenementsgroupe',['id'=>'1', 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Evenements</li></a>
+            <a href="<?php  goToPage('membresgroupe',['id'=>'1'])?>" id="non_selectionne"><li>Abonnés</li></a>
             <a id="abonnement" href="" ><li>S'abonner</li></a>
           </ul>
         </nav>
