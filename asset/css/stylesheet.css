@@ -572,6 +572,9 @@ fieldset input{
   padding: 0.5em;
 }
 
+.blockinscription{
+  padding:20px;
+}
 
 /*connexion*/
 fieldset {
@@ -621,7 +624,7 @@ form p {
 
 
 #inscription {
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 30px;
   border: 1px solid black;
   border-radius: 5px;
@@ -1750,7 +1753,7 @@ a{
 }
 
 .backgroundimage .image{
-  filter:blur(2px) grayscale(60%);;
+  filter: grayscale(70%);
 }
 /* GLOBAL */
 .encadrementTitre{
