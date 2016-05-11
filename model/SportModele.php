@@ -14,14 +14,18 @@ class SportModele extends BaseDeDonnes
     return $resultats;
   }
 
-  function getSports(){
-    $sql="SELECT * FROM sports";
-    $resultat=$this->requeteSQL($sql);
+  function getSports($nbsport=1000){
+    $nbsport+=1;
+    $sql="SELECT * FROM sports LIMIT ?";
+    $resultat=$this->requeteSQL($sql, [$nbsport]);
+    $resultat=$this->connectBDD()->prepare($sql);
+    $resultat->bindParam(1, $nbsport, PDO::PARAM_INT);
+    $resultat->execute();
     return $resultat;
   }
 
   function getSport($id_sport){ //Récupère toutes les données importantes relatives à 1 sport.
-    $sql="SELECT *, types_sports.id as id_type, types_sports.titre FROM sports JOIN types_sports ON sports.id_type=types_sports.id WHERE sports.id=?";
+    $sql="SELECT *, sports.id as id, types_sports.id as id_type, types_sports.titre FROM sports JOIN types_sports ON sports.id_type=types_sports.id WHERE sports.id=?";
     $resultat=$this->requeteSQL($sql, [$id_sport]);
     return $resultat;
   }

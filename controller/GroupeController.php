@@ -92,7 +92,8 @@ class GroupeController
   public function loadGroupeSport($id_sport){ //Load les groupes d'un sport. Permet aussi d'accéder à la recherche avancée.
     $photo=$this->sport->getPhotoSport($id_sport)->fetch();
     $sport=$this->sport->getSport($id_sport)->fetch();
-    $vue=new Vue("GroupeSport", "Groupe", ['stylesheet.css']);
-    $vue->loadpage(['sport'=>$sport, 'photo'=>$photo]);
+    $sports=$this->sport->getSports(10)->fetchAll();
+    $vue=new Vue("GroupeSport", "Groupe", ['stylesheet.css'], ['GroupeSport.js']);
+    $vue->loadpage(['sport'=>$sport, 'sports'=>$sports, 'photo'=>$photo]);
   }
 }
