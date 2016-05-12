@@ -88,6 +88,10 @@ class Route
         $this->ctr['User']->loadProfil();
         break;
 
+      case 'profilUnUtilisateur':
+        $pseudo_user=$this->params[0];
+        $this->ctr['User']->LoadAUser($pseudo_user);
+        break;
 
       // Groupes
       case 'recherchegroupe':

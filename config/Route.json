@@ -15,6 +15,7 @@
   "membresgroupe":"groupe/{id}/membres",
   "creationgroupe":"creationgroupe",
   "profil":"profil",
+  "profilUnUtilisateur":"profil/{pseudo}",
   "forum":"forum",
   "topicforum":"forum/{id_topic}",
   "discussionforum":"forum/{id_topic}/discussion/{id_discussion}",

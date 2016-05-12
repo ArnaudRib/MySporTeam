@@ -77,6 +77,12 @@ class UserController
     }
 
 
+    public function LoadAUser($pseudo_user){
+      $dataUser=$this->user->getDataUser($pseudo_user)->fetch();
+      $vue=new Vue("ProfilUnUtilisateur","User",['stylesheet.css']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
+      $vue->loadpage(['dataUser'=>$dataUser]);
+    }
+
   public function deconnexion(){
     session_unset($_SESSION['user']);
     header('Location: connexion');

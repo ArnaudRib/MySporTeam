@@ -3,6 +3,18 @@ require_once 'config/connectBDD.php';
 
 class UserModele extends BaseDeDonnes
 {
+  function getDataUsers(){
+    $sql="SELECT * FROM utilisateur";
+    $resultat=$this->requeteSQL($sql);
+    return $resultat;
+  }
+
+  function getDataUser($pseudo){
+    $sql="SELECT * FROM utilisateur WHERE pseudo=?";
+    $resultat=$this->requeteSQL($sql, [$pseudo]);
+    return $resultat;
+  }
+  
   function CheckUser(){
     $sql="SELECT * FROM utilisateur WHERE pseudo=? and mot_de_passe=?";
     $resultat=$this->requeteSQL($sql,[$_POST['pseudo'], sha1($_POST['mot_de_passe'])]);
