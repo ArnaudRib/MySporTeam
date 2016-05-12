@@ -23,5 +23,6 @@
   "backoffice":"admin/accueil",
   "backofficegroupe":"admin/groupes",
   "backofficereglage":"admin/reglages",
-  "backofficeforum":"admin/forum"
+  "backofficeforum":"admin/forum",
+  "backofficesport":"admin/sports"
 }

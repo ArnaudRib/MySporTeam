@@ -38,4 +38,10 @@ class AdminController
     $vue=new Vue("BackOfficeForum","Admin",['font-awesome.css', 'admin.css']);
     $vue->loadbackoffice();
   }
+
+  public function loadBackOfficeSport()
+  {
+    $vue=new Vue("BackOfficeSport","Admin",['font-awesome.css', 'admin.css']);
+    $vue->loadbackoffice();
+  }
 }

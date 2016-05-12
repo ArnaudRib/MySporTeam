@@ -19,6 +19,13 @@
       </li>
     </a>
 
+    <a href="<?php goToPage('backofficesport')?>">
+      <li class="nextline">
+          <i class="fa fa-heart"></i>
+          <p>Sports</p>
+      </li>
+    </a>
+
     <a href="<?php goToPage('backofficeforum')?>">
       <li class="nextline">
           <i class="fa fa-bed"></i>
