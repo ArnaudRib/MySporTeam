@@ -9,16 +9,16 @@
         <fieldset>
 
           <br />
-          <div><label for="pseudo"><img src="asset/images/Users/icone_utilisateur.png" /></label>
+          <div><label for="pseudo"><img src="<?php image('Users/icone_utilisateur.png')?>" /></label>
           <input type="text" name="pseudo" placeholder="Identifiant" required></div> <br />
 
-          <div><label for="email" class="email"><img src="asset/images/Users/icone_email.png" /></label>
+          <div><label for="email" class="email"><img src="<?php image('Users/icone_email.png')?>" /></label>
           <input type="text" name="email" placeholder="Email" required></div> <br />
 
-          <div><label for="password"><img src="asset/images/Users/icone_lock.png" /></label>
+          <div><label for="password"><img src="<?php image('Users/icone_lock.png')?>" /></label>
           <input id="mdp" type="password" name="mot_de_passe" placeholder="Mot de passe" oninput="Verification()" required></div> <br />
 
-          <div><label for="check_psswd"><img src="asset/images/Users/icone_lock.png" /></label>
+          <div><label for="check_psswd"><img src="<?php image('Users/icone_lock.png')?>" /></label>
           <input id="mdp_verification" type="password" name="mot_de_passe_confirmation" placeholder="Confirmation du mdp" oninput="Verification()" required></div> <br />
 
           <input id="submit" type="submit" name="Envoyer" value="S'inscrire"> <br />

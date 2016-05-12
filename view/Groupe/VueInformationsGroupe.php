@@ -1,9 +1,9 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-    <img src="/asset/images/Groupes/image_groupe.jpg"/>
+  <img src="<?php image('Groupes/image_groupe.jpg')?>"/>
   </div>
-  <div id="haut_mongroupe">
-    <img src="/asset/images/Groupes/sport3.jpg"/>
+    <div id="haut_mongroupe">
+      <img src="<?php image('Groupes/sport3.jpg')?>"/>
     <h1>Nom du groupe</h1>
     <div id="menu_mongroupe">
       <nav>

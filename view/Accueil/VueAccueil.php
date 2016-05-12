@@ -12,7 +12,6 @@
 
 <!--Contenu de la page-->
 <nav id="content">
-  <h1 class="centre">Bienvenue</h1>
   <!--Partie Photographie-->
   <section>
     <div onclick="popup()" class="ligne1">
