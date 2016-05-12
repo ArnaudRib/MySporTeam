@@ -39,7 +39,7 @@ class UserController
       }
     }
 
-    $vue=new Vue("connexion","User",['stylesheet.css']);
+    $vue=new Vue("Connexion","User",['stylesheet.css']);
     $vue->loadpage(['message'=>$message]);
   }
 
