@@ -12,6 +12,8 @@ class AdminController
   {
     $this->user=new UserModele();
     $this->accueil=new AccueilModele();
+    $this->groupe=new GroupeModele();
+    $this->sport=new SportModele();
     $this->admin=new AdminModele();
   }
 
@@ -41,7 +43,10 @@ class AdminController
 
   public function loadBackOfficeSport()
   {
+    $sports=$this->sport->getSports()->fetchAll();
+    $types=$this->sport->getTypes()->fetchAll();
+    $nbgroupe=$this->groupe->getNbGroupeSport($sports);
     $vue=new Vue("BackOfficeSport","Admin",['font-awesome.css', 'admin.css']);
-    $vue->loadbackoffice();
+    $vue->loadbackoffice(['sports'=>$sports, 'nbgroupe'=>$nbgroupe, 'types'=>$types]);
   }
 }

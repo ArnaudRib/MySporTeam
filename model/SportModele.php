@@ -30,11 +30,16 @@ class SportModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function getTypes(){ //pour utiliser $stockage[$id_type-1]['titre']
+    $sql="SELECT * FROM types_sports";
+    $resultat=$this->requeteSQL($sql);
+    return $resultat;
+  }
+
   function getPhotoSport($id_sport){
     $sql = "SELECT photo.chemin as photo FROM photo JOIN sports ON photo.id_sports=sports.id WHERE sports.id=?";
     $resultat=$this->requeteSQL($sql, [$id_sport]);
     return $resultat;
   }
-
 
 }

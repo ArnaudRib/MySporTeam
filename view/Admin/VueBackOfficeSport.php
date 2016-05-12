@@ -12,7 +12,6 @@
       </li>
     </a>
 
-
     <a href="<?php goToPage('backofficegroupe')?>">
       <li class="nextline">
           <i class="fa fa-users"></i>
@@ -45,13 +44,27 @@
 </div>
 
 
-
 <div class="main-panel">
   <div class="navbar navbar-header">
-    <p class="title">ok</p>
-    <i class="subtitle">ok</i>
+    <p class="title">Sports</p>
+    <i class="subtitle">Edition des sports.</i>
   </div>
   <div class="block95 hauteur80">
-    ok
+    <table>
+      <tr>
+        <th>Nom</th>
+        <th>Nombre de groupes associés</th>
+        <th>Description</th>
+        <th>Type</th>
+      </tr>
+      <?php foreach ($sports as $key => $value): ?>
+        <tr>
+          <td><?php echo ucfirst($value['nom']) ?></td>
+          <td class="centre"><?php echo $nbgroupe[$value['id']][0]['nbGroupe'] ?></td>
+          <td><?php echo $value['description'] ?></td>
+          <td><?php echo $types[$value['id_type']-1]['titre'] ?></td>
+        </tr>
+      <?php endforeach; ?>
+    </table>
   </div>
 </div>

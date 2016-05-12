@@ -5,6 +5,9 @@
   box-sizing:border-box;
 }
 
+.centre{
+  text-align:center;
+}
 /* Disposition blocks*/
 .General {
     position: relative;
@@ -171,4 +174,20 @@ ul{
 
 .hauteur80{
   height:80%;
+}
+
+/*Tableau*/
+table, td, th {
+    border: 1px solid black;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+  text-align:center;
+  padding: 15px;
 }
