@@ -492,6 +492,7 @@ th, td {
 .hidden{
   padding:0;
   margin:0;
+  border:0;
   max-height:0px;
   overflow:hidden;
   transition: 0.5s;
