@@ -44,17 +44,27 @@ class AdminController
   /*Sport*/
   public function loadBackOfficeSport()
   {
-    uploadPhoto($_POST['nom'].'.jpg', 'photo','Sports');
-    uploadPhoto($_POST['nom'].'.svg', 'icone','Sports');
+    $error="";
     if(exceptName(['Envoyer'])){
+      if(!empty($_FILES['photo']['name']) && !empty($_FILES['icone']['name'])){
+        //Upload Files
+        $error=uploadPhoto(strtolower($_POST['nom']).'.jpg', 'Sports', 'photo');
+        $error.=uploadPhoto(strtolower($_POST['nom']).'.svg', 'svg', 'icone');
+        //Add BDD
+        $fileURLphoto='Sports/'.$_POST["nom"].'.jpg';
+        $this->admin->addSport($fileURLphoto);
+      }else{
+        $error.= 'Veuillez joindre les deux images.';
+      }
     }else{
-      $error=errorExceptInput();
+      $error.=errorExceptInput(['imagegroupe']);
     }
+
     $sports=$this->sport->getSports()->fetchAll();
     $types=$this->sport->getTypes()->fetchAll();
     $nbgroupe=$this->groupe->getNbGroupeSport($sports);
     $vue=new Vue("BackOfficeSport","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
-    $vue->loadbackoffice(['sports'=>$sports, 'nbgroupe'=>$nbgroupe, 'types'=>$types]);
+    $vue->loadbackoffice(['sports'=>$sports, 'nbgroupe'=>$nbgroupe, 'types'=>$types, 'error'=>$error]);
   }
 
   public function loadBackOfficeASport($id_sport)

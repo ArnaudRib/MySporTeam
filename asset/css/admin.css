@@ -514,6 +514,31 @@ th, td {
   width:80%;
 }
 
+.boutonInputFile{
+  font-family:Arial;
+  font-style: normal;
+  cursor:pointer;
+  color:rgba(6, 31, 255, 0.7);
+  font-size:15px;
+  display:inline-block;
+  border:3px rgba(6, 31, 255, 0.7) solid;
+  border-radius:10px;
+  padding:5px 10px;
+  margin:10px;
+  transition:1s all ease;
+}
+
+.boutonInputFile:hover{
+  background-color:rgba(176, 253, 255, 0.81);
+}
+
+.PoliceInputFile{
+  display:inline-block;
+  font-size:16px;
+  font-style:normal;
+  padding:0px 4%;
+}
+
 /*GENERAL*/
 .block50{
   width:50%;
@@ -543,17 +568,21 @@ fieldset textarea{
   max-height:100px;
 }
 
-fieldset option{
-
-}
-
 fieldset select{
+  text-align:center;
   display:block;
+  font-size:14px;
   margin:0.5em;
   padding: 0.5em;
   border:1px black solid;
   border-radius:5px;
   width:80%;
+}
+
+fieldset option{
+  display:block;
+  margin:4px;
+  padding:4px;
 }
 
 .inputfieldset{
@@ -566,7 +595,7 @@ fieldset select{
   border:1px black solid;
 }
 
-form label {
+form label.textlabel{
   text-align: center;
   float: left;
   width: auto;
@@ -591,4 +620,46 @@ form input {
   margin-left: 0px;
   background: #ffffff;
   border-radius: 0px 5px 5px 0px;
+}
+
+.UploadedImage{
+  margin:0 auto;
+  width:inherit;
+  box-shadow:0px 0px 10px black;
+}
+
+.infobox, .successbox, .warningbox, .errorbox, .validationbox {
+  border-radius:5px;
+  width:80%;
+  border: 1px solid;
+  margin: 10px 3%;
+  padding: 15px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+
+.infobox {
+  color: #00529B;
+  background-color: #BDE5F8;
+}
+.successbox {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+}
+.warningbox {
+  color: #9F6000;
+  background-color: #FEEFB3;
+}
+.errorbox{
+  color: #D8000C;
+  background-color: #FFBABA;
+}
+.validationbox{
+  color: #D63301;
+  background-color: #FFCCBA;
+}
+
+.fa::before{
+  display:inline-block;
+  vertical-align:top;
 }

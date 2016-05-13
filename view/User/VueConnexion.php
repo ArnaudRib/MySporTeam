@@ -16,11 +16,11 @@ endif; */?>
 
         <fieldset>
           <div>
-            <label for="login"><img src="<?php image('Users/icone_utilisateur.png')?>" /></label>
+            <label for="login"><img src="<?php echo image('Users/icone_utilisateur.png')?>" /></label>
             <input type="text" name="pseudo" placeholder="Email ou Pseudo" required>
           </div> <br />
 
-          <div><label for="mdp"><img src="<?php image('Users/icone_lock.png')?>" /></label>
+          <div><label for="mdp"><img src="<?php echo image('Users/icone_lock.png')?>" /></label>
             <input id="mdp" type="password" name="mot_de_passe" placeholder="Mot de passe" oninput="Verification()" required></div> <br />
             <p><a href=""> Mot de passe oublié ? </a>|<a href="inscription"> Pas inscrit ?</a></p>
 

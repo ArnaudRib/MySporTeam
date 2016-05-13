@@ -20,7 +20,7 @@ function isAdmin(){
 
 function image($root){
   $chemin='/asset/images/'.$root;
-  echo $chemin;
+  return $chemin;
 }
 
 function exceptName($names=[]){ // renvoie true si tous les posts dont les names ne sont pas présents en parametre sont remplis
@@ -90,9 +90,37 @@ function GenerateSlider($ListImg)
   <?php
 }
 
-function uploadPhoto($name, $input, $directory){
+function uploadPhoto($name, $directory, $input){
+  $error="";
   $name=str_replace(" ","-", $name);
-  $fileURL='asset/images/'.$directory.'/'.$name;
+  $url=$directory.'/'.$name;
+  $fileURL= substr(image($url),1);
+  $uploadOk = 1;
+  $imageFileType=pathinfo($fileURL, PATHINFO_EXTENSION);
 
-  move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL);
+  if($imageFileType!='svg'){
+    $check = getimagesize($_FILES[$input]["tmp_name"]);
+    if ($check !== false || $check=='svg') {
+      $uploadOk = 1;
+    } else {
+      $error.= "Le fichier importé pour le champ {$input} n'est pas une image.</br>";
+      $uploadOk = 0;
+    }
+  }
+  // Vérifie si le fichier n'existe pas déjà.
+  if (file_exists($fileURL)) {
+    $error.= "Désolé, le fichier pour le champ {$input} existe déjà.</br>";
+    $uploadOk = 0;
+  }
+
+  // Check file size octets
+  if ($_FILES[$input]["size"] > 5000000) {
+    $error.= "Désolé, le fichier pour le champ {$input} est trop lourd.</br>";
+    $uploadOk = 0;
+  }
+
+  if(!move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL) && $uploadOk!=1){
+    $error.= "Une erreur s'est produite pour le champ {$input}. Veuillez réessayer plus tard, ou contacter l'administrateur.</br>";
+  }
+  return $error;
 }

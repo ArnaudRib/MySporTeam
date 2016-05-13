@@ -8,14 +8,14 @@
           <div>
             <?php if($sport['id']!=$value['id']): ?>
             <a href="<?php goToPage('sportgroupe', ['id_sport'=>$value['id']])?>">
-              <img id="imageicone" class="" value="<?php echo $value['id']?>" src="<?php image("svg/{$value['nom']}.svg")?>" alt="" title="<?php echo $value['nom']?>" style="right:<?php echo $right?>"/>
+              <img id="imageicone" class="" value="<?php echo $value['id']?>" src="<?php echo image("svg/{$value['nom']}.svg")?>" alt="" title="<?php echo $value['nom']?>" style="right:<?php echo $right?>"/>
             </a>
             <?php $i+=1; ?>
             <?php endif; ?>
           </div>
         <?php endforeach; ?>
       </div>
-      <img class="iconesport fixedicone" src="<?php image("svg/{$sport['nom']}.svg")?>" alt="" title="<?php echo $sport['nom']?>" onclick="displayIcones2()" />
+      <img class="iconesport fixedicone" src="<?php echo image("svg/{$sport['nom']}.svg")?>" alt="" title="<?php echo $sport['nom']?>" onclick="displayIcones2()" />
     </div>
 
     <div class="container centre" style="margin:30px auto;">
@@ -30,5 +30,5 @@
       </a>
     </div>
   </span>
-  <div class="backgroundimage image usualbackground" style="background-image:url(<?php image($photo['photo'])?>);"></div>
+  <div class="backgroundimage image usualbackground" style="background-image:url(<?php echo image($photo['photo'])?>);"></div>
 </div>

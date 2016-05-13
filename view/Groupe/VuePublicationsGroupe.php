@@ -1,9 +1,9 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-  <img src="<?php image('Groupes/image_groupe.jpg')?>"/>
+  <img src="<?php echo image('Groupes/image_groupe.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
-      <img src="<?php image('Groupes/sport3.jpg')?>"/>
+      <img src="<?php echo image('Groupes/sport3.jpg')?>"/>
       <h1>Nom du groupe</h1>
       <div id="menu_mongroupe">
         <nav>
@@ -67,7 +67,7 @@
           <h1>Futurs évènements</h1>
         </div>
           <?php for($i=0;$i<=4;$i++){ ?>
-            <div class="evenenement"><img src="<?php image('Groupes/Evenements/evenement1.jpg')?>"/></div>
+            <div class="evenenement"><img src="<?php echo image('Groupes/Evenements/evenement1.jpg')?>"/></div>
           <?php  } ?>
     </div>
   </div>

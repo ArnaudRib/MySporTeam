@@ -16,7 +16,7 @@
         <?php endif; ?>
         <fieldset>
           <div>
-            <label for="nom"><img src="<?php image('Users/icone_utilisateur.png')?>" /></label>
+            <label for="nom"><img src="<?php echo image('Users/icone_utilisateur.png')?>" /></label>
             <input type="text" name="nom" placeholder="Nom du Groupe">
           </div>
           <input type="file" name="imagegroupe">

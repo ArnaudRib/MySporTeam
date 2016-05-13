@@ -5,7 +5,7 @@ class SportModele extends BaseDeDonnes
 {
   function LoadSports($resultat='', $displayphoto=10)
   {
-    $sql = "SELECT photo.id as id, sports.nom as nom, chemin FROM photo JOIN sports ON photo.id_sports=sports.id WHERE sports.nom LIKE ? LIMIT ? ";
+    $sql = "SELECT photo.id as id, sports.nom as nom, chemin FROM photo JOIN sports ON photo.id_sport=sports.id WHERE sports.nom LIKE ? LIMIT ? ";
     $resultats=$this->connectBDD()->prepare($sql);
     $text="%" . $resultat . "%";
     $resultats->bindParam(1, $text, PDO::PARAM_STR);
@@ -37,7 +37,7 @@ class SportModele extends BaseDeDonnes
   }
 
   function getPhotoSport($id_sport){
-    $sql = "SELECT photo.chemin as photo FROM photo JOIN sports ON photo.id_sports=sports.id WHERE sports.id=?";
+    $sql = "SELECT photo.chemin as photo FROM photo JOIN sports ON photo.id_sport=sports.id WHERE sports.id=?";
     $resultat=$this->requeteSQL($sql, [$id_sport]);
     return $resultat;
   }

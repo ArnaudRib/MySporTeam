@@ -1,6 +1,6 @@
 <div class="haut_mongroupe">
   <div class="hautdugroupe">
-    <img id="image_mongroupe" src="<?php image('Groupes/image_groupe.jpg')?>"/ width='100%' height="250px;">
+    <img id="image_mongroupe" src="<?php echo image('Groupes/image_groupe.jpg')?>"/ width='100%' height="250px;">
     <h1>Mon profil</h1>
     <div class="menu_mongroupe">
       <nav>

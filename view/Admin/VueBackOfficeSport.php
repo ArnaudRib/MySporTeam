@@ -50,6 +50,19 @@
     <p class="title">Sports</p>
     <i class="subtitle">Edition des sports.</i>
   </div>
+
+  <?php if(isset($_POST['Envoyer'])):
+     if(empty($error)):?>
+      <div class="successbox fa fa-check">
+        <div style="margin-left:20px; display:inline-block;">Les fichiers ont été importés avec succès!</div>
+      </div>
+    <?php else:?>
+      <div class="errorbox fa fa-times-circle">
+        <div style="margin-left:20px; display:inline-block;"><?php echo $error;?></div>
+      </div>
+    <?php endif; ?>
+  <?php endif; ?>
+
   <div class="block95 card">
     <div class="header">
       <h4 class="title">Liste des sports</h4>
@@ -86,7 +99,7 @@
     </button>
   </div>
 
-  <!-- <div id="Add" class="hiddensize"> -->
+  <div id="Add" class="hiddensize">
     <div class="block95 card">
       <div class="header">
         <h4 class="title">Ajouter un sport</h4>
@@ -95,11 +108,11 @@
         </p>
       </div>
       <div class="block80">
-        <form class="" action="#" method="post" enctype="multipart/form-data">
+        <form class="" action="" method="post" enctype="multipart/form-data">
           <fieldset>
-            <label for="nom">Nom du sport</label>
-            <input type="text" class="inputfieldset" name="nom" placeholder="Email ou Pseudo" required >
-            <textarea name="description" rows="3" cols="75" maxlength="30" placeholder="Description du sport (MAX : 30 caractères)."></textarea>
+            <label class="textlabel" for="nom">Nom du sport</label>
+            <input type="text" value="<?php echo $_POST['nom'] ?>" class="inputfieldset" name="nom" placeholder="Ex : football" required >
+            <textarea name="description" value="<?php echo $_POST['description'] ?>" rows="3" cols="75" maxlength="30" placeholder="Description du sport (MAX : 30 caractères)."></textarea>
 
             <select class="" name="id_type" style="display:block;">
               <option selected value=""> --- Type --- </option>
@@ -109,12 +122,16 @@
             </select>
 
             <div class="import">
-              Importer une photo du sport (.jpg):
-              <input type="file" name="photo">
+              <p class="PoliceInputFile">Importer une photo du sport (.jpg):</p>
+              <label for="photo" class="boutonInputFile">Importer un fichier</label>
+              <input id="photo" class="files" type="file" name="photo" style="display:none;">
+              <img class="UploadedImage" />
             </div>
             <div class="import">
-              Importer une icone du sport (.svg):
-              <input type="file" name="icone">
+              <p class="PoliceInputFile">Importer une icone du sport (<a href="http://www.freepik.com/free-icons/sports" target="_blank">.svg</a>) :</p>
+              <label for="icone" class="boutonInputFile">Importer un fichier</label>
+              <input id="icone" class="files" type="file" name="icone" style="display:none;">
+              <img class="UploadedImage" />
             </div>
             <input type="submit" name="Envoyer" value="Ajouter un sport" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:8px;">
           </fieldset>
