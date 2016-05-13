@@ -38,7 +38,7 @@
         </div>
         <div>
           <h2>Mail</h2>
-          <p>aaaaaaaaaaaaaaaaaa@gmail.com</p>
+          <p>aaaaaaaagggaaaaaaaaaa@gmail.com</p>
           <h2>Téléphone</h2>
           <p>03 XX XX XX XX</p>
         </div>

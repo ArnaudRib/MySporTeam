@@ -17,7 +17,7 @@ class GroupeController
   public function loadRecherche()
   {
     $niveau=$this->groupe->getNiveau()->fetchAll();
-    $villes=$this->groupe->getVille()->fetchAll();
+    $villes=$this->groupe->getVilles()->fetchAll();
     $sports=$this->sport->getSports()->fetchAll();
     $vue=new Vue("RechercheGroupe", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['RechercheGroupe.js']);
     $groupe=$this->groupe->getGroup()->fetchAll();
@@ -35,7 +35,8 @@ class GroupeController
   {
     $vue=new Vue("InformationsGroupe", "Groupe", ['stylesheet.css']);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
-    $vue->loadpage(['datagroupe'=>$datagroupe]);
+    $ville=$this->groupe->getVille($datagroupe['id_ville'])->fetch();
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville]);
   }
 
   public function loadEvenementsGroupe($id_groupe)

@@ -28,5 +28,5 @@
       </a>
     </div>
   </span>
-  <div class="backgroundimage image usualbackground" style="background-image:url(<?php echo $photo['photo']?>);"></div>
+  <div class="backgroundimage image usualbackground" style="background-image:url(<?php image($photo['photo'])?>);"></div>
 </div>

@@ -70,9 +70,11 @@ function CreateSlider($ListImg, $type, $width='100%', $height='400px')
 {
   $tab=serialize($ListImg);?>
   <iframe src="/view/Sliders/Slider.php?tab=<?php echo htmlspecialchars($tab) ?>&type=<?php echo $type ?>" width="<?php echo $width ?>" height="<?php echo $height?>"></iframe>
-<?php }
+<?php
+}
 
-function GenerateSlider($ListImg){?>
+function GenerateSlider($ListImg)
+{?>
   <div class="slider">
   <div class="navigation">
     <div class="flechenext" onclick="Next()"></div>
@@ -85,4 +87,12 @@ function GenerateSlider($ListImg){?>
     </div>
   </div>
   </br>
-  <?php }
+  <?php
+}
+
+function uploadPhoto($name, $input, $directory){
+  $name=str_replace(" ","-", $name);
+  $fileURL='asset/images/'.$directory.'/'.$name;
+
+  var_dump(move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL));
+}

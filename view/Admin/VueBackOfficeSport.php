@@ -86,7 +86,7 @@
     </button>
   </div>
 
-  <div id="Add" class="hiddensize">
+  <!-- <div id="Add" class="hiddensize"> -->
     <div class="block95 card">
       <div class="header">
         <h4 class="title">Ajouter un sport</h4>
@@ -95,20 +95,28 @@
         </p>
       </div>
       <div class="block80">
-        <form class="" action="#" method="post">
+        <form class="" action="#" method="post" enctype="multipart/form-data">
           <fieldset>
-            <label for="pseudo">Nom du sport</label>
-            <input type="text" class="inputfieldset" name="pseudo" placeholder="Email ou Pseudo" required >
-            <textarea name="description" rows="3" cols="75" placeholder="Description du sport"></textarea>
+            <label for="nom">Nom du sport</label>
+            <input type="text" class="inputfieldset" name="nom" placeholder="Email ou Pseudo" required >
+            <textarea name="description" rows="3" cols="75" maxlength="30" placeholder="Description du sport (MAX : 30 caractères)."></textarea>
 
             <select class="" name="id_type" style="display:block;">
-              <option selected value=""> --- Types --- </option>
+              <option selected value=""> --- Type --- </option>
               <?php foreach ($types as $key => $value): ?>
-                <option value="<?php echo $i?>"> <?php echo $value['titre'] ?></option>
+                <option value="<?php echo $value['id']?>"> <?php echo $value['titre'] ?></option>
               <?php endforeach; ?>
             </select>
 
-            <input type="submit" name="Envoyer" value="Se connecter" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:8px;">
+            <div class="import">
+              Importer une photo du sport :
+              <input type="file" name="photo">
+            </div>
+            <div class="import">
+              Importer une icone du sport :
+              <input type="file" name="icone">
+            </div>
+            <input type="submit" name="Envoyer" value="Ajouter un sport" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:8px;">
           </fieldset>
         </form>
       </div>

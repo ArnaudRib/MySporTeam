@@ -8,6 +8,7 @@
 .centre{
   text-align:center;
 }
+
 /* Disposition blocks*/
 .General {
     position: relative;
@@ -504,6 +505,15 @@ th, td {
   overflow:hidden;
 }
 
+.import{
+  display:block;
+  border:1px black solid;
+  border-radius:10px;
+  margin:10px;
+  padding: 0px 10px;
+  width:80%;
+}
+
 /*GENERAL*/
 .block50{
   width:50%;
@@ -525,7 +535,16 @@ fieldset textarea{
   margin:0.5em;
   padding: 0.5em;
   border:1px black solid;
+  width:80%;
+  min-width:80%;
   max-width:80%;
+  height:100px;
+  min-height:100px;
+  max-height:100px;
+}
+
+fieldset option{
+
 }
 
 fieldset select{
@@ -558,7 +577,7 @@ form label {
   border: 1px solid black;
   border-right: 0px;
   border-radius: 5px 0px 0px 5px;
-  background: linear-gradient(to bottom, #007eff, #0062c7);
+  background: linear-gradient(to bottom, #8fc1f5, #5ea2e8);
   font-size:15px !important;
 }
 

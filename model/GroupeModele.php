@@ -10,12 +10,17 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function getInfoGroup($id_groupe){
-    $sql="SELECT * FROM groupe WHERE id=$id_groupe";
-    $resultat=$this->requeteSQL($sql);
+    $sql="SELECT * FROM groupe WHERE id=?";
+    $resultat=$this->requeteSQL($sql,[$id_groupe]);
     return $resultat;
   }
 
-  function getVille(){
+  function getVille($id_ville){
+    $sql="SELECT * FROM city WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$id_ville]);
+    return $resultat;
+  }
+  function getVilles(){
     $sql="SELECT city.name as ville, departement.name as departement
           FROM city
           JOIN departement

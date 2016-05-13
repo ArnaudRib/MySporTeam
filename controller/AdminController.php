@@ -44,6 +44,11 @@ class AdminController
   /*Sport*/
   public function loadBackOfficeSport()
   {
+    uploadPhoto($_POST['nom'].'.png', 'photo','Groupes');
+    if(exceptName(['Envoyer'])){
+    }else{
+      $error=errorExceptInput();
+    }
     $sports=$this->sport->getSports()->fetchAll();
     $types=$this->sport->getTypes()->fetchAll();
     $nbgroupe=$this->groupe->getNbGroupeSport($sports);
