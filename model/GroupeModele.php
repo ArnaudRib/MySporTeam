@@ -41,11 +41,11 @@ class GroupeModele extends BaseDeDonnes
     return $resultats;
   }
 
-  function getNbGroupeSport($sports){ // pour utiliser, $stockage[$id_sport][0]['nbGroupe']
+  function getNbGroupeSport($sports){ // renvoie [idsport=>nbgroupe]
     foreach ($sports as $key => $value) {
       $sql = "SELECT COUNT(*) as nbGroupe FROM groupe WHERE id_sport=?";
       $resultat=$this->requeteSQL($sql, [$value['id']])->fetchAll();
-      $allresults[$value['id']]=$resultat;
+      $allresults[$value['id']]=$resultat[0]['nbGroupe'];
     }
     return $allresults;
   }

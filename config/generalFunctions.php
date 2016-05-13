@@ -85,4 +85,4 @@ function GenerateSlider($ListImg){?>
     </div>
   </div>
   </br>
-<?php }?>
+  <?php }

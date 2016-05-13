@@ -24,5 +24,6 @@
   "backofficegroupe":"admin/groupes",
   "backofficereglage":"admin/reglages",
   "backofficeforum":"admin/forum",
-  "backofficesport":"admin/sports"
+  "backofficesport":"admin/sports",
+  "backofficeAsport":"admin/sports/{id_sport}"
 }

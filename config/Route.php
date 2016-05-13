@@ -180,6 +180,11 @@ class Route
         $this->ctr['Admin']->loadBackOfficeSport();
         break;
 
+      case 'backofficeAsport':
+        $id_sport=intval($this->params[0]);
+        $this->ctr['Admin']->loadBackOfficeASport($id_sport);
+        break;
+
       default:
         # code...
         break;

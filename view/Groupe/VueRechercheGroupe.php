@@ -28,7 +28,7 @@
             <div class="sportblock">
               <select class="sportSelect" name="sport">
                 <option selected value=""> --- Sport --- </option>
-                <?php foreach ($sports as $key => $value): ?>
+                <?php foreach ($types as $key => $value): ?>
                   <option value="<?php echo $i?>"> <?php echo $value['nom'] ?></option>
                 <?php endforeach; ?>
               </select>
