@@ -48,10 +48,10 @@ class AdminController
     if(exceptName(['Envoyer'])){
       if(!empty($_FILES['photo']['name']) && !empty($_FILES['icone']['name'])){
         //Upload Files
-        $error=uploadPhoto(strtolower($_POST['nom']).'.jpg', 'Sports', 'photo');
-        $error.=uploadPhoto(strtolower($_POST['nom']).'.svg', 'svg', 'icone');
+        $error=uploadPhoto(minNoSpace($_POST['nom']).'.jpg', 'Sports', 'photo');
+        $error.=uploadPhoto(minNoSpace($_POST['nom']).'.svg', 'svg', 'icone');
         //Add BDD
-        $fileURLphoto='Sports/'.$_POST["nom"].'.jpg';
+        $fileURLphoto='Sports/'.minNoSpace($_POST["nom"]).'.jpg';
         $this->admin->addSport($fileURLphoto);
       }else{
         $error.= 'Veuillez joindre les deux images.';

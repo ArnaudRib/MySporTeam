@@ -20,7 +20,7 @@
 
     <div class="container centre" style="margin:30px auto;">
       <div class="backgroundcontainer block30 OmbreContainer">
-        <h1><?php echo ucfirst($sport['nom']) ?></h1>
+        <h1><?php echo ucfirst(str_replace("-"," ", $sport['nom'])) ?></h1>
         <h3><i><?php echo ucfirst($sport['description']) ?></i></h3>
       </div>
     </div>

@@ -50,7 +50,6 @@ form{
 }
 
 
-
 /*HEADER*/
 .menuheader {
   background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
@@ -59,7 +58,7 @@ form{
   height:150px;
   margin: 0;
   display: block;
-  z-index:6;
+  z-index:2;
   position:relative;
   border-bottom: 1px inset;
   overflow: hidden;

@@ -23,6 +23,10 @@ function image($root){
   return $chemin;
 }
 
+function minNoSpace($root){
+  return htmlspecialchars(strtolower(str_replace(" ","-", $root)));
+}
+
 function exceptName($names=[]){ // renvoie true si tous les posts dont les names ne sont pas présents en parametre sont remplis
   $end=true;
   if(!empty($names)){
@@ -92,7 +96,6 @@ function GenerateSlider($ListImg)
 
 function uploadPhoto($name, $directory, $input){
   $error="";
-  $name=str_replace(" ","-", $name);
   $url=$directory.'/'.$name;
   $fileURL= substr(image($url),1);
   $uploadOk = 1;
