@@ -109,11 +109,11 @@
             </select>
 
             <div class="import">
-              Importer une photo du sport :
+              Importer une photo du sport (.jpg):
               <input type="file" name="photo">
             </div>
             <div class="import">
-              Importer une icone du sport :
+              Importer une icone du sport (.svg):
               <input type="file" name="icone">
             </div>
             <input type="submit" name="Envoyer" value="Ajouter un sport" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:8px;">

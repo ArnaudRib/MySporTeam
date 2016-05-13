@@ -1761,15 +1761,53 @@ a{
   border-radius:50px;
 }
 
-.fixedicone{
-  position:fixed;
-  margin-left:40%;
-  margin-top:28%;
-}
 
 #listeicones{
+  position:fixed;
+  right:0;
+  bottom:0;
   transition:1s ease;
 }
+
+#listeicones img{
+  width:60px;
+  height:60px;
+  border-radius: 20px;
+  padding: 10px;
+  margin:4px;
+  position:relative;
+  background-color:rgb(236, 255, 140);
+  transition:1s all ease;
+}
+
+#listeicones img:hover{
+  background-color:rgb(255, 172, 11);
+  transition:1s ease;
+}
+
+#displayicones{
+  visibility:hidden;
+  opacity:0;
+  transition:1s all ease;
+}
+
+.showimage #displayicones{
+  visibility:visible;
+  opacity:1;
+  transition:1s all ease;
+}
+
+.showimage #imageicone {
+  animation: motion 1s;
+}
+
+@keyframes motion {
+  from{
+    transform:translateY(100px);
+    right:0;
+  }
+}
+
 /* GLOBAL */
 .encadrementTitre{
   background-color:rgb(194, 246, 229);
@@ -1909,26 +1947,7 @@ a{
   width:70%;
 }
 
-.iconesport{
-  width:120px;
-  height:120px;
-  border-radius:40px;
-  padding:15px;
-  transform:scale(0.5);
-  background-color:rgb(236, 255, 140);
-  cursor:pointer;
-  transition:1.5s ease;
-}
 
-.iconesport:hover{
-  background-color:rgb(255, 172, 11);
-}
-
-.display{
-  transition:1s all ease;
-  visibility:hidden;
-  opacity:0;
-}
 
 @media (min-width: 768px) {
   .container {

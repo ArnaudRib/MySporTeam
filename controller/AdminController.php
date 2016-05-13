@@ -44,7 +44,8 @@ class AdminController
   /*Sport*/
   public function loadBackOfficeSport()
   {
-    uploadPhoto($_POST['nom'].'.png', 'photo','Groupes');
+    uploadPhoto($_POST['nom'].'.jpg', 'photo','Sports');
+    uploadPhoto($_POST['nom'].'.svg', 'icone','Sports');
     if(exceptName(['Envoyer'])){
     }else{
       $error=errorExceptInput();

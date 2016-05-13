@@ -1,21 +1,23 @@
 <div class="backgroundimage usualbackground">
   <span>
     <?php $i=1; ?>
-    <img class="iconesport fixedicone" src="/asset/svg/<?php echo $sport['nom']?>.svg" alt="" title="<?php echo $sport['nom']?>" onclick="displayIcones2()" />
-    <div id="listeicones" class="display">
-      <?php foreach ($sports as $key => $value): ?>
-        <?php $marginleft=40 - (pow($i,2))*0.15 ."%";?>
-        <?php $margintop=28 - 5 * $i ."%";?>
-        <div>
-          <?php if($sport['id']!=$value['id']): ?>
-          <a href="<?php goToPage('sportgroupe', ['id_sport'=>$value['id']])?>">
-            <img id="imageicone" class="iconesport fixedicone" value="<?php echo $value['id']?>" src="/asset/svg/<?php echo $value['nom']?>.svg" alt="" title="<?php echo $value['nom']?>" style="margin-left:<?php echo $marginleft?>; margin-top:<?php echo $margintop?>;"/>
-          </a>
-          <?php $i+=1; ?>
-          <?php endif; ?>
-        </div>
-      <?php endforeach; ?>
+    <div id="listeicones">
+       <div id="displayicones" class="display">
+        <?php foreach ($sports as $key => $value): ?>
+          <?php $right= 15-(log($i)*10)."px";?>
+          <div>
+            <?php if($sport['id']!=$value['id']): ?>
+            <a href="<?php goToPage('sportgroupe', ['id_sport'=>$value['id']])?>">
+              <img id="imageicone" class="" value="<?php echo $value['id']?>" src="<?php image("svg/{$value['nom']}.svg")?>" alt="" title="<?php echo $value['nom']?>" style="right:<?php echo $right?>"/>
+            </a>
+            <?php $i+=1; ?>
+            <?php endif; ?>
+          </div>
+        <?php endforeach; ?>
+      </div>
+      <img class="iconesport fixedicone" src="<?php image("svg/{$sport['nom']}.svg")?>" alt="" title="<?php echo $sport['nom']?>" onclick="displayIcones2()" />
     </div>
+
     <div class="container centre" style="margin:30px auto;">
       <div class="backgroundcontainer block30 OmbreContainer">
         <h1><?php echo ucfirst($sport['nom']) ?></h1>

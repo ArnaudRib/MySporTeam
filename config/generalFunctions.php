@@ -94,5 +94,5 @@ function uploadPhoto($name, $input, $directory){
   $name=str_replace(" ","-", $name);
   $fileURL='asset/images/'.$directory.'/'.$name;
 
-  var_dump(move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL));
+  move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL);
 }
