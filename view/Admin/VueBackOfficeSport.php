@@ -50,7 +50,8 @@
     <i class="subtitle">Edition des sports.</i>
   </div>
 
-  <?php if(isset($_POST['Envoyer'])):     if(empty($error)):?>
+  <?php if(isset($_POST['Envoyer'])):
+    if(empty($error)):?>
       <div class="successbox fa fa-check">
         <div style="margin-left:20px; display:inline-block;">Les fichiers ont été importés avec succès!</div>
       </div>

@@ -12,27 +12,26 @@ Class Verification
   function notEmpty($name, $message){
     if(empty($this->post[$name])){
       $this->error.=$message.'</br>';
+      return false;// a verifier
     }
   }
 
-  function PhotoOk($name, $futurnomimage, $directory, $message="Veuillez remplir le champ photo.</br>"){
+  function PhotoOk($name, $futurnomimage, $directory, $skipAlreadyUploaded=true){
     $url=$directory.'/'.$futurnomimage;
     $fileURL= substr(image($url),1);
     $imageFileType=pathinfo($fileURL, PATHINFO_EXTENSION);
 
-    if (empty($this->post[$name]['name'])) {
-      $this->error.= $message.'</br>';
-    }
-
-    if($imageFileType!='svg'){
-      $check = getimagesize($this->post[$name]["tmp_name"]);
-      if ($check == false) {
-        $this->error.= "Le fichier n'est pas du bon format.</br>";
+    if($skipAlreadyUploaded){
+      if($imageFileType!='svg'){
+        $check = getimagesize($this->post[$name]["tmp_name"]);
+        if ($check == false) {
+          $this->error.= "Le fichier n'est pas du bon format.</br>";
+        }
       }
-    }
 
-    if (file_exists($fileURL)) {
-      $this->error.= "L'image existe déjà. </br>";
+      if (file_exists($fileURL)) {
+        $this->error.= "L'image existe déjà. </br>";
+      }
     }
 
     if ($this->post[$name]["size"] > 5000000) {
@@ -154,42 +153,24 @@ function uploadPhoto($name, $directory, $input){
   $url=$directory.'/'.$name;
   $fileURL= substr(image($url),1);
 
-  if(!move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL) && $uploadOk!=1){
-    $error= "Une erreur s'est produite pour le champ {$input}. Veuillez réessayer plus tard, ou contacter l'administrateur.</br>";
+  if(!empty($_FILES[$input]['name'])){
+    if(!move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL) && $uploadOk!=1){
+      $error= "Une erreur s'est produite pour le champ {$input}. Veuillez réessayer plus tard, ou contacter l'administrateur.</br>";
+    }
   }
+
   return $error;
 }
 
-function deletePhoto($name, $directory, $input){
+function deletePhoto($name, $directory, $message){
   $error="";
   $url=$directory.'/'.$name;
   $fileURL= substr(image($url),1);
-  $uploadOk = 1;
-  $imageFileType=pathinfo($fileURL, PATHINFO_EXTENSION);
 
-  if($imageFileType!='svg'){
-    $check = getimagesize($_FILES[$input]["tmp_name"]);
-    if ($check !== false || $check=='svg') {
-      $uploadOk = 1;
-    } else {
-      $error.= "Le fichier importé pour le champ {$input} n'est pas une image.</br>";
-      $uploadOk = 0;
+  if(file_exists($fileURL)){
+    if(!unlink($fileURL)){
+      $error.= $message.'</br>';
     }
-  }
-  // Vérifie si le fichier n'existe pas déjà.
-  if (file_exists($fileURL)) {
-    $error.= "Désolé, le fichier pour le champ {$input} existe déjà.</br>";
-    $uploadOk = 0;
-  }
-
-  // Check file size octets
-  if ($_FILES[$input]["size"] > 5000000) {
-    $error.= "Désolé, le fichier pour le champ {$input} est trop lourd.</br>";
-    $uploadOk = 0;
-  }
-
-  if(!move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL) && $uploadOk!=1){
-    $error.= "Une erreur s'est produite pour le champ {$input}. Veuillez réessayer plus tard, ou contacter l'administrateur.</br>";
   }
   return $error;
 }

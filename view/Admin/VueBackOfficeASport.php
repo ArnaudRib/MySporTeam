@@ -48,6 +48,19 @@
     <p class="title">Sports</p>
     <i class="subtitle">Edition des sports.</i>
   </div>
+
+  <?php if(isset($_POST['Envoyer'])):
+    if(empty($error)):?>
+      <div class="successbox fa fa-check">
+        <div style="margin-left:20px; display:inline-block;">Modifications effectuées avec succès!</div>
+      </div>
+    <?php else:?>
+      <div class="errorbox fa fa-times-circle">
+        <div style="margin-left:20px; display:inline-block;"><?php echo $error;?></div>
+      </div>
+    <?php endif; ?>
+  <?php endif; ?>
+
   <div class="block95 card">
     <div class="header">
       <div style="display:inline-block;">
@@ -64,14 +77,14 @@
         <fieldset style="margin:0 auto;">
           <div style="display:block; width:80%;">
             <label for="description">Modifier la description : </label>
-            <textarea name="description" value="<?php echo $_POST['description'] ?>" rows="3" cols="75" maxlength="30" placeholder="Description du sport (MAX : 30 caractères)."></textarea>
+            <textarea name="description" value="<?php echo $sport['description'] ?>" rows="3" cols="75" maxlength="30" placeholder="Description du sport (MAX : 30 caractères)."><?php echo $sport['description'] ?></textarea>
           </div>
           <div style="display:block; width:80%;">
             <label for="id_type">Modifier le type du sport : </label>
             <select class="" name="id_type" style="display:block;">
               <option value=""> --- Type --- </option>
               <?php foreach ($types as $key => $value): ?>
-                <option value="<?php echo $value['id']?>" <?php if($sport['id_type']==$value['id']) echo selected;?> > <?php echo $value['titre'] ?></option>
+                <option value="<?php echo $value['id']?>" <?php if($sport['id_type']==$value['id']) {echo 'selected';} ?> > <?php echo $value['titre'] ?></option>
               <?php endforeach; ?>
             </select>
           </div>
