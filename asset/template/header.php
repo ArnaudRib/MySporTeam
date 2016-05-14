@@ -9,7 +9,7 @@
     <a style="color:white;margin: 0px 20px;" href='<?php goToPage('creationgroupe');?>'>creationgroupe</a>
     <a style="color:white;margin: 0px 20px;" href='<?php goToPage('aide');?>'>aide</a>
     <a style="color:white;margin: 0px 20px;" href='<?php goToPage('backoffice');?>'>Admin</a>
-    <a style="color:white;margin: 0px 20px;" href="<?php goToPage('sportgroupe',['id_sport'=>'1']);?>">Sport groupe(accessible depuis page principale sur photo)</a>
+    <a style="color:white;margin: 0px 20px;" href="<?php goToPage('sportgroupe',['id_sport'=>'1']);?>">groupe/Sport(accessible depuis page principale sur photo)</a>
   </span>
 
 
