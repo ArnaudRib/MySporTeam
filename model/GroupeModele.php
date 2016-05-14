@@ -46,12 +46,18 @@ class GroupeModele extends BaseDeDonnes
     return $resultats;
   }
 
-  function getNbGroupeSport($sports){ // renvoie [idsport=>nbgroupe]
+  function getNbGroupeSports($sports){ // renvoie [idsport=>nbgroupe]
     foreach ($sports as $key => $value) {
       $sql = "SELECT COUNT(*) as nbGroupe FROM groupe WHERE id_sport=?";
       $resultat=$this->requeteSQL($sql, [$value['id']])->fetchAll();
       $allresults[$value['id']]=$resultat[0]['nbGroupe'];
     }
     return $allresults;
+  }
+
+  function getNbGroupeEachSport($id_sport){ // renvoie [idsport=>nbgroupe]
+    $sql = "SELECT COUNT(*) as nbGroupe FROM groupe WHERE id_sport=?";
+    $resultat=$this->requeteSQL($sql, [$id_sport])->fetch();
+    return $resultat;
   }
 }

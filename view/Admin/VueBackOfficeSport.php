@@ -1,4 +1,3 @@
-
 <div class="sidebar">
   <a href="<?php goToPage('Accueil')?>">
     <div class="TitreSite">
@@ -51,8 +50,7 @@
     <i class="subtitle">Edition des sports.</i>
   </div>
 
-  <?php if(isset($_POST['Envoyer'])):
-     if(empty($error)):?>
+  <?php if(isset($_POST['Envoyer'])):     if(empty($error)):?>
       <div class="successbox fa fa-check">
         <div style="margin-left:20px; display:inline-block;">Les fichiers ont été importés avec succès!</div>
       </div>
@@ -70,9 +68,9 @@
         <i> Cliquez sur une ligne pour modifier. </p>
       </p>
     </div>
-    <div class="content">
+    <div class="content_tableau">
       <table>
-        <tr>
+        <tr class="header_tableau">
           <th>Nom</th>
           <th>Nombre de groupes associés</th>
           <th>Description</th>

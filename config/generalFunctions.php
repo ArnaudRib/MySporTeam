@@ -1,9 +1,15 @@
 <?php
 
+/* Utilitaire */
 function dump($var){ //Sous forme de tableau!
   echo '<pre>';
   var_dump($var);
   echo '</pre>';
+}
+
+function image($root){
+  $chemin='/asset/images/'.$root;
+  return $chemin;
 }
 
 function isLogged(){
@@ -18,14 +24,14 @@ function isAdmin(){
   return false;
 }
 
-function image($root){
-  $chemin='/asset/images/'.$root;
-  return $chemin;
-}
-
+/* Remise en forme */
 function minNoSpace($root){
   return htmlspecialchars(strtolower(str_replace(" ","-", $root)));
 }
+
+/* Exceptions*/
+/*
+Inutiles maintenant vu que class Verification existe.
 
 function exceptName($names=[]){ // renvoie true si tous les posts dont les names ne sont pas présents en parametre sont remplis
   $end=true;
@@ -68,8 +74,9 @@ function errorExceptInput($names=[]){ // renvoie un string des erreurs des posts
     }
   }
   return $error;
-}
+}*/
 
+/* Sliders */
 function CreateSlider($ListImg, $type, $width='100%', $height='400px')
 {
   $tab=serialize($ListImg);?>
@@ -94,7 +101,20 @@ function GenerateSlider($ListImg)
   <?php
 }
 
+
+/* Photo */
 function uploadPhoto($name, $directory, $input){
+  $error="";
+  $url=$directory.'/'.$name;
+  $fileURL= substr(image($url),1);
+
+  if(!move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL) && $uploadOk!=1){
+    $error= "Une erreur s'est produite pour le champ {$input}. Veuillez réessayer plus tard, ou contacter l'administrateur.</br>";
+  }
+  return $error;
+}
+
+function deletePhoto($name, $directory, $input){
   $error="";
   $url=$directory.'/'.$name;
   $fileURL= substr(image($url),1);
