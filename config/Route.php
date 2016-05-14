@@ -3,9 +3,6 @@
 /*Fonctions*/
 require_once('config/generalFunctions.php');
 
-/*Classes*/
-require_once('config/Class/Verification.php');
-
 /*Controllers*/
 require_once('controller/AccueilController.php');
 require_once('controller/UserController.php');
