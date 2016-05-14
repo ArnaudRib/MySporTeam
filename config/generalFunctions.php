@@ -21,14 +21,14 @@ Class Verification
     $fileURL= substr(image($url),1);
     $imageFileType=pathinfo($fileURL, PATHINFO_EXTENSION);
 
-    if($skipAlreadyUploaded){
       if($imageFileType!='svg'){
         $check = getimagesize($this->post[$name]["tmp_name"]);
         if ($check == false) {
-          $this->error.= "Le fichier n'est pas du bon format.</br>";
+          $this->error.= "Le fichier {$name} n'est pas du bon format.</br>";
         }
       }
 
+    if($skipAlreadyUploaded){
       if (file_exists($fileURL)) {
         $this->error.= "L'image existe déjà. </br>";
       }

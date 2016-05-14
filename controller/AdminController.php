@@ -93,14 +93,15 @@ class AdminController
       $verificationPhoto = new Verification($_FILES);
       $verification->notEmpty('description', "Veuillez remplir la description du groupe.");
       $verification->notEmpty('id_type', "N'oubliez pas de choisir un type.");
-      $verificationPhoto->PhotoOk('photo', $sport['nom'].'.jpg','Sports', false);
-      $verificationPhoto->PhotoOk('icone', $sport['nom'].'.svg','Sports', false);
+      if(!empty($_FILES['photo']['name']))
+        $verificationPhoto->PhotoOk('photo', $sport['nom'].'.jpg','Sports', false);
+      if(!empty($_FILES['icone']['name']))
+        $verificationPhoto->PhotoOk('icone', $sport['nom'].'.svg','Sports', false);
       $error=$verification->error;
       $error.=$verificationPhoto->error;
 
       if($verification->isValid() && $verificationPhoto->isValid()){
          /*delete images*/
-
         if(!empty($_FILES['photo']['name']))
            deletePhoto($sport['nom'].'.jpg', 'Sports', 'photo');
         if(!empty($_FILES['icone']['name']))
