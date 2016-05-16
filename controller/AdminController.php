@@ -41,6 +41,13 @@ class AdminController
     $vue->loadbackoffice();
   }
 
+  public function loadBackOfficeType()
+  {
+    $types=$this->sport->getTypes()->fetchAll();
+    $vue=new Vue("BackOfficeType", "Admin", ['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
+    $vue->loadbackoffice(['types'=>$types]);
+  }
+
   /*Sport*/
   public function loadBackOfficeSport()
   {
@@ -85,7 +92,6 @@ class AdminController
     $sport=$this->sport->getSport($id_sport)->fetch(); //type stocké dedans.
     $nbgroupe=$this->groupe->getNbGroupeEachSport($id_sport);
     $types=$this->sport->getTypes()->fetchAll();
-
 
     $error="";
     if(!empty($_POST)){

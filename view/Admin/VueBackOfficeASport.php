@@ -19,6 +19,13 @@
       </li>
     </a>
 
+    <a href="<?php goToPage('backofficetype')?>">
+      <li class="nextline">
+          <i class="fa fa-wrench"></i>
+          <p>Types</p>
+      </li>
+    </a>
+    
     <a href="<?php goToPage('backofficesport')?>">
       <li class="nextline active">
           <i class="fa fa-heart"></i>

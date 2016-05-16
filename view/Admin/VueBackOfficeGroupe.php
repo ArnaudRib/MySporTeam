@@ -14,8 +14,15 @@
 
     <a href="<?php goToPage('backofficegroupe')?>">
       <li class="nextline active">
-          <i class="fa fa-wheelchair"></i>
+          <i class="fa fa-users"></i>
           <p>Groupes</p>
+      </li>
+    </a>
+
+    <a href="<?php goToPage('backofficetype')?>">
+      <li class="nextline">
+          <i class="fa fa-wrench"></i>
+          <p>Types</p>
       </li>
     </a>
 

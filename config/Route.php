@@ -179,6 +179,10 @@ class Route
         $this->ctr['Admin']->loadBackOfficeForum();
         break;
 
+      case 'backofficetype':
+        $this->ctr['Admin']->loadBackOfficeType();
+        break;
+
       case 'backofficesport':
         $this->ctr['Admin']->loadBackOfficeSport();
         break;

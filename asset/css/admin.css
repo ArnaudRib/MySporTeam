@@ -260,6 +260,55 @@ th, td {
   background-color: rgb(62, 103, 254);
 }
 
+/*Types */
+
+.typesport{
+  display:block;
+  margin:20px 10px;
+  font-style:normal;
+  font-size:17px;
+  border:1px black solid;
+  padding:15px;
+  border-radius:10px;
+  background-color:rgb(228, 253, 255);
+  transition:1s all ease;
+}
+
+
+.titretype{
+  display:inline-block;
+}
+.bouttons{
+  display:inline-block;
+  float:right;
+}
+
+.BoutonType{
+  padding:10px;
+  margin-top:-10px;
+  border-radius:10px;
+  line-height:10px;
+  cursor:pointer;
+  width:100px;
+}
+
+.modifyboutton{
+  border: 2px rgb(255, 156, 8) solid;
+  transition:1s all ease;
+}
+
+.modifyboutton:hover{
+  background-color:rgba(255, 156, 8, 0.67);
+}
+
+.deleteboutton{
+  border: 2px rgb(255, 8, 8) solid;
+  transition:1s all ease;
+}
+
+.deleteboutton:hover{
+  background-color:rgba(255, 0, 0, 0.67);
+}
 /*Bouton*/
 .bg-1 {
 	background: #ECEFF1;
@@ -507,13 +556,13 @@ th, td {
   padding:0;
   margin:0;
   border:0;
-  max-height:0px;
-  overflow:hidden;
+  opacity:0;
   transition: 0.5s;
 }
 
 .hiddensize{
   transition: 1s all ease;
+  opacity:0;
   max-height:0px;
   overflow:hidden;
 }
