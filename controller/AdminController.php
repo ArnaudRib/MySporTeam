@@ -64,7 +64,6 @@ class AdminController
           }
         }
         if(isset($_POST['Delete']))
-          echo 'ok';
           $this->admin->DeleteType();
         $succes="";
         $succes='Modifications effectuées avec succès!';
