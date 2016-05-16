@@ -44,8 +44,37 @@ class AdminController
   public function loadBackOfficeType()
   {
     $types=$this->sport->getTypes()->fetchAll();
+    $error="";
+    $verification = new Verification($_POST);
+    $verification->notEmpty('type', "Veuillez indiquer le nom du nouveau type.");
+    if(!empty($_POST)){
+      if($verification->isValid()){
+        if(isset($_POST['Add'])){
+          if(!$this->admin->UsedType($_POST['type'])){
+              $this->admin->addType();
+          }else{
+            $error.="Ce type existe déjà.";
+          }
+        }
+        if(isset($_POST['Modify'])){
+          if(!$this->admin->UsedType($_POST['type'])){
+            $this->admin->ModifyType();
+          }else{
+            $error.="Ce type existe déjà.";
+          }
+        }
+        if(isset($_POST['Delete']))
+          echo 'ok';
+          $this->admin->DeleteType();
+        $succes="";
+        $succes='Modifications effectuées avec succès!';
+      }else{
+        $error.=$verification->error;
+      }
+    }
+    $types=$this->sport->getTypes()->fetchAll();
     $vue=new Vue("BackOfficeType", "Admin", ['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
-    $vue->loadbackoffice(['types'=>$types]);
+    $vue->loadbackoffice(['types'=>$types, 'error'=>$error, 'succes'=>$succes]);
   }
 
   /*Sport*/

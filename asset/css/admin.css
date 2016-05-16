@@ -277,6 +277,7 @@ th, td {
 
 .titretype{
   display:inline-block;
+  width:50%;
 }
 .bouttons{
   display:inline-block;
@@ -284,8 +285,8 @@ th, td {
 }
 
 .BoutonType{
+  font-size:15px;
   padding:10px;
-  margin-top:-10px;
   border-radius:10px;
   line-height:10px;
   cursor:pointer;

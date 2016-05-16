@@ -25,7 +25,7 @@
           <p>Types</p>
       </li>
     </a>
-    
+
     <a href="<?php goToPage('backofficesport')?>">
       <li class="nextline active">
           <i class="fa fa-heart"></i>
@@ -60,7 +60,7 @@
   <?php if(isset($_POST['Envoyer'])):
     if(empty($error)):?>
       <div class="successbox fa fa-check">
-        <div style="margin-left:20px; display:inline-block;">Les fichiers ont été importés avec succès!</div>
+        <div style="margin-left:20px; display:inline-block;"><?php echo $succes;?></div>
       </div>
     <?php else:?>
       <div class="errorbox fa fa-times-circle">
