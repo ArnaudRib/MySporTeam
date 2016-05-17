@@ -1,6 +1,9 @@
 <?php
 
+/*Fonctions*/
 require_once('config/generalFunctions.php');
+
+/*Controllers*/
 require_once('controller/AccueilController.php');
 require_once('controller/UserController.php');
 require_once('controller/GroupeController.php');
@@ -174,6 +177,10 @@ class Route
 
       case 'backofficeforum':
         $this->ctr['Admin']->loadBackOfficeForum();
+        break;
+
+      case 'backofficetype':
+        $this->ctr['Admin']->loadBackOfficeType();
         break;
 
       case 'backofficesport':

@@ -21,3 +21,38 @@ for (var i = 0; i < file.length; i++) {
     };
   })(img);
 }
+
+
+function modalinfo(e){
+  var i=e.id;
+  var modal=document.querySelector('#modalinfo'+i);
+  var insidemodal=document.querySelector('#insideModalInfo'+i);
+
+  modal.classList.toggle("visiblegrey");
+  insidemodal.classList.toggle("visible");
+}
+
+
+function closeModal(e){
+  var i=e.id;
+  var modal=document.querySelector('#modalinfo'+i);
+  var insidemodal=document.querySelector('#insideModalInfo'+i);
+  modal.classList.toggle("visiblegrey");
+  insidemodal.classList.toggle("visible");
+}
+
+
+function ClickOutside(e){
+  var modal=document.querySelector('#modalinfo'+i);
+  var insidemodal=document.querySelector('#insideModalInfo'+i);
+  if (e.target==modal){
+    modal.classList.toggle("visiblegrey");
+    insidemodal.classList.toggle("visible");
+  }
+}
+
+document.onclick = ClickOutside;
+
+function modaldelete(e){
+
+}

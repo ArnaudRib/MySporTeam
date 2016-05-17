@@ -180,7 +180,12 @@ ul{
   padding:10px;
 }
 
-.content{
+.block80{
+  width:80%;
+  padding:10px;
+}
+
+.content_tableau{
   background-color:rgba(201, 201, 201, 1);
   box-shadow: 0px 0px 10px rgba(76, 232, 249, 0.51);
 }
@@ -215,6 +220,9 @@ ul{
   padding-left:10px;
 }
 
+.centered-content{
+}
+
 h4, .h4 {
     font-size: 18px;
     line-height: 30px;
@@ -230,6 +238,7 @@ table, td, th {
 table {
     border-collapse: collapse;
     width: 100%;
+    font-style:normal;
 }
 
 tr{
@@ -238,13 +247,121 @@ tr{
 }
 
 .lignesport:hover{
-  cursor:pointer;
   background-color:rgb(107, 139, 255);
 }
 
 th, td {
   text-align:center;
   padding: 15px;
+}
+
+.header_tableau{
+  background-color: rgb(62, 103, 254);
+}
+
+/*Types */
+
+.typesport{
+  display:block;
+  margin:20px 10px;
+  font-style:normal;
+  font-size:17px;
+  border:1px black solid;
+  padding:15px;
+  border-radius:10px;
+  background-color:rgb(228, 253, 255);
+  transition:1s all ease;
+}
+
+
+.titretype{
+  text-align:center;
+  display:inline-block;
+  width:50%;
+}
+
+.bouttons{
+  display:inline-block;
+  float:right;
+}
+
+.typesform input:focus{
+  transition:1s all ease;
+  border:1px black solid;
+}
+
+
+.BoutonType{
+  font-size:15px;
+  padding:10px;
+  border-radius:10px;
+  line-height:10px;
+  cursor:pointer;
+  width:100px;
+}
+
+.modifyboutton{
+  border: 2px rgb(255, 156, 8) solid;
+  transition:1s all ease;
+}
+
+.modifyboutton:hover{
+  background-color:rgba(255, 156, 8, 0.67);
+}
+
+.infoboutton{
+  width:auto;
+  border: 2px rgb(117, 185, 255) solid;
+  cursor:pointer;
+}
+
+.deleteboutton{
+  border: 2px rgb(255, 8, 8) solid;
+  transition:1s all ease;
+}
+
+.deleteboutton:hover{
+  background-color:rgba(255, 0, 0, 0.67);
+}
+
+.whitehover:hover{
+  background-color:rgb(236, 236, 236);
+}
+
+td .closeButton{
+  font-family:Arial;
+  font-style:normal;
+  font-size:35px;
+  color:red;
+  transition:all 0.4s ease;
+  cursor:pointer;
+}
+
+td .plusButton{
+  font-family:Arial;
+  font-style:normal;
+  font-size:35px;
+  color:green;
+  transition:all 0.4s ease;
+  cursor:pointer;
+}
+
+.infoCell{
+  transition:2s all ease;
+}
+
+.infoCell:hover{
+  transition: 2s all ease;
+  background-color:rgb(191, 255, 126);
+}
+
+.supprCell{
+  transition:1s all ease;
+}
+
+.supprCell:hover{
+  transition: 1s all ease;
+  background-color:rgb(255, 246, 126);
 }
 
 /*Bouton*/
@@ -494,13 +611,13 @@ th, td {
   padding:0;
   margin:0;
   border:0;
-  max-height:0px;
-  overflow:hidden;
+  opacity:0;
   transition: 0.5s;
 }
 
 .hiddensize{
   transition: 1s all ease;
+  opacity:0;
   max-height:0px;
   overflow:hidden;
 }
@@ -512,6 +629,15 @@ th, td {
   margin:10px;
   padding: 0px 10px;
   width:80%;
+}
+
+.ChangePictureSport{
+  vertical-align:middle;
+  display:inline-block;
+  width:49%;
+  border-radius:10px;
+  margin:30px auto;
+  text-align:center;
 }
 
 .boutonInputFile{
@@ -587,7 +713,6 @@ fieldset option{
 
 .inputfieldset{
   border: 1px black solid;
-  padding: 0.5em;
   position: relative;
   width: 65%;
   font-family: Verdana;
@@ -624,8 +749,9 @@ form input {
 
 .UploadedImage{
   margin:0 auto;
-  width:inherit;
   box-shadow:0px 0px 10px black;
+  width:80%;
+  display:block;
 }
 
 .infobox, .successbox, .warningbox, .errorbox, .validationbox {
@@ -662,4 +788,47 @@ form input {
 .fa::before{
   display:inline-block;
   vertical-align:top;
+}
+
+/* MODAL */
+.modalinfo{
+  visibility:hidden;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  z-index:7;
+  background-color: rgba(0, 0, 0, 0);
+  transition:all 0.4s linear;
+}
+
+.insideModalInfo{
+  margin:5% auto;
+  width:80%;
+  height:80%;
+  box-shadow: black 0 0 10px;
+  overflow:scroll;
+  position: static;
+  z-index: 8;
+  background-color:rgba(255, 255, 255, 0.9);
+  transition:all 0.4s linear;
+  text-align: center;
+}
+
+.visible{
+  visibility:visible:
+}
+.visiblegrey{
+  visibility:visible;
+  background-color:rgba(0, 0, 0, 0.70);
+}
+
+.closeButtonModal{
+  top:70px;
+  float:right;
+  margin-right:20px;
+  color:red;
+  font-size:60px;
+  cursor:pointer;
 }

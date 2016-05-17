@@ -1,4 +1,3 @@
-
 <div class="sidebar">
   <a href="<?php goToPage('Accueil')?>">
     <div class="TitreSite">
@@ -17,6 +16,13 @@
       <li class="nextline">
           <i class="fa fa-users"></i>
           <p>Groupes</p>
+      </li>
+    </a>
+
+    <a href="<?php goToPage('backofficetype')?>">
+      <li class="nextline">
+          <i class="fa fa-wrench"></i>
+          <p>Types</p>
       </li>
     </a>
 
@@ -52,9 +58,9 @@
   </div>
 
   <?php if(isset($_POST['Envoyer'])):
-     if(empty($error)):?>
+    if(empty($error)):?>
       <div class="successbox fa fa-check">
-        <div style="margin-left:20px; display:inline-block;">Les fichiers ont été importés avec succès!</div>
+        <div style="margin-left:20px; display:inline-block;"><?php echo $succes;?></div>
       </div>
     <?php else:?>
       <div class="errorbox fa fa-times-circle">
@@ -70,16 +76,16 @@
         <i> Cliquez sur une ligne pour modifier. </p>
       </p>
     </div>
-    <div class="content">
+    <div class="content_tableau">
       <table>
-        <tr>
+        <tr class="header_tableau">
           <th>Nom</th>
           <th>Nombre de groupes associés</th>
           <th>Description</th>
           <th>Type</th>
         </tr>
         <?php foreach ($sports as $key => $value): ?>
-            <tr class="lignesport" onclick="location.href='<?php goToPage('backofficeAsport', ['id_sport'=>$value['id']]) ?>'">
+            <tr class="lignesport" style="cursor:pointer;" onclick="location.href='<?php goToPage('backofficeAsport', ['id_sport'=>$value['id']]) ?>'">
               <td><?php echo ucfirst($value['nom']) ?></td>
               <td class="centre"><?php echo $nbgroupe[$value['id']]?></td>
               <td><?php echo $value['description'] ?></td>
