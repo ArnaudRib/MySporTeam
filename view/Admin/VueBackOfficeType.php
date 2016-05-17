@@ -79,7 +79,7 @@
     <div class="" style='margin:0 auto;'>
       <?php $i=1;?>
       <?php foreach ($types as $key => $value): ?>
-        <form class="" action="" method="post">
+        <form class="typesform" action="" method="post">
           <div class="typesport">
             <div class="titretype">
               <div style="display:inline-block;">Type n°<?php echo $i?> :</div>

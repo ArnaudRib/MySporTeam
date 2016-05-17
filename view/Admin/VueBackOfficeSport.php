@@ -85,7 +85,7 @@
           <th>Type</th>
         </tr>
         <?php foreach ($sports as $key => $value): ?>
-            <tr class="lignesport" onclick="location.href='<?php goToPage('backofficeAsport', ['id_sport'=>$value['id']]) ?>'">
+            <tr class="lignesport" style="cursor:pointer;" onclick="location.href='<?php goToPage('backofficeAsport', ['id_sport'=>$value['id']]) ?>'">
               <td><?php echo ucfirst($value['nom']) ?></td>
               <td class="centre"><?php echo $nbgroupe[$value['id']]?></td>
               <td><?php echo $value['description'] ?></td>

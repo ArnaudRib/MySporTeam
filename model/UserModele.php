@@ -14,7 +14,7 @@ class UserModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$pseudo]);
     return $resultat;
   }
-  
+
   function CheckUser(){
     $sql="SELECT * FROM utilisateur WHERE pseudo=? and mot_de_passe=?";
     $resultat=$this->requeteSQL($sql,[$_POST['pseudo'], sha1($_POST['mot_de_passe'])]);
@@ -34,4 +34,15 @@ class UserModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql,[$_POST['sexe'], $_POST['pseudo'], $_POST['email'],sha1($_POST['mot_de_passe']), $naissance]);
     return $resultat;
   }
+
+
+  function getNbMembreGroupe($groupes){ // renvoie [idsport=>nbgroupe]
+    foreach ($groupes as $key => $value) {
+      $sql = "SELECT COUNT(*) as nbMembres FROM utilisateur_groupe WHERE id_groupe=?";
+      $resultat=$this->requeteSQL($sql, [$value['id']])->fetchAll();
+      $allresults[$value['id']]=$resultat[0]['nbMembres'];
+    }
+    return $allresults;
+  }
+
 }

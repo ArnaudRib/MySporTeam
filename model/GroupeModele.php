@@ -55,6 +55,7 @@ class GroupeModele extends BaseDeDonnes
     return $allresults;
   }
 
+
   function getNbGroupeEachSport($id_sport){ // renvoie [idsport=>nbgroupe]
     $sql = "SELECT COUNT(*) as nbGroupe FROM groupe WHERE id_sport=?";
     $resultat=$this->requeteSQL($sql, [$id_sport])->fetch();
