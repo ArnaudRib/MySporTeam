@@ -26,11 +26,11 @@
         <div id="<?php echo $i=count($evenement) ?>" class="case_mongroupeevenement radius_mongroupe forme_case">
           <img src="<?php echo image('Groupes/Evenements/evenement1.jpg')?>"/>
           <div class="texteevenement">
-          <h1><?php echo $value['nom']?></h1>
-          <p><?php echo $value['description']?></p>
-          <a href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id_evenement']])?>" >Plus d'info</a>
-          <a href="" >ajouter au planning</a>
-        </div>
+            <h1><?php echo $value['nom']?></h1>
+            <p><?php echo $value['description']?></p>
+            <a href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id']])?>" >Plus d'info</a>
+            <a href="" >ajouter au planning</a>
+          </div>
         </div>
       <?php  endforeach;
     else:?>

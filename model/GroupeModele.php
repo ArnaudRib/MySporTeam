@@ -34,7 +34,7 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function getEvenement($id_evenement){
-    $sql="SELECT * FROM evenement WHERE id_evenement=?";
+    $sql="SELECT * FROM evenement WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$id_evenement]);
     return $resultat;
   }

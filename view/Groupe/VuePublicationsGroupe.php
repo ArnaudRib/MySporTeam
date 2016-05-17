@@ -53,7 +53,7 @@
         <?php if ($publication!=NULL):
           foreach ($publication as $key => $value):?>
           <div id="<?php echo $i=count($publication) ?>" class="publication forme_case radius_mongroupe">
-            <h1><?php echo $value['Titre']?></h1>
+            <h1><?php echo $value['titre']?></h1>
             <h2><?php echo $value['date']?></h2>
             <p><?php echo $value['texte']?></p>
           </div>
