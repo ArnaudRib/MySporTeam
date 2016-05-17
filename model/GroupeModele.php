@@ -20,6 +20,37 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_ville]);
     return $resultat;
   }
+
+  function getSport($id_sport){
+    $sql="SELECT * FROM sports WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$id_sport]);
+    return $resultat;
+  }
+
+  function getEvenements($id_groupe){
+    $sql="SELECT * FROM evenement WHERE id_groupe=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe]);
+    return $resultat;
+  }
+
+  function getEvenement($id_evenement){
+    $sql="SELECT * FROM evenement WHERE id_evenement=?";
+    $resultat=$this->requeteSQL($sql, [$id_evenement]);
+    return $resultat;
+  }
+
+  function getPublications($id_groupe){
+    $sql="SELECT * FROM groupe_publication WHERE id_groupe=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe]);
+    return $resultat;
+  }
+
+  function getMembres($id_groupe){
+    $sql="SELECT * FROM utilisateur INNER JOIN utilisateur_groupe ON id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe]);
+    return $resultat;
+  }
+
   function getVilles(){
     $sql="SELECT city.name as ville, departement.name as departement
           FROM city

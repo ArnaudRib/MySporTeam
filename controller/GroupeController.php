@@ -36,36 +36,52 @@ class GroupeController
     $vue=new Vue("InformationsGroupe", "Groupe", ['stylesheet.css']);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $ville=$this->groupe->getVille($datagroupe['id_ville'])->fetch();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville]);
+    $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'sport'=>$sport]);
   }
 
   public function loadEvenementsGroupe($id_groupe)
   {
     $vue=new Vue("EvenementsGroupe", "Groupe", ['stylesheet.css']);
-    $vue->loadpage();
+    $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
+    $ville=$this->groupe->getVille($datagroupe['id_ville'])->fetch();
+    $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
+    $evenement=$this->groupe->getEvenements($id_groupe)->fetchAll();
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'sport'=>$sport, 'evenement'=>$evenement]);
   }
 
   public function loadUnEvenementGroupe($id_groupe, $id_evenement)
   {
     $vue=new Vue("UnEvenementGroupe", "Groupe", ['stylesheet.css']);
-    $vue->loadpage();
+    $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
+    $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
+    $evenement=$this->groupe->getEvenement($id_evenement)->fetch();
+    $ville=$this->groupe->getVille($evenement['id_ville'])->fetch();
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'sport'=>$sport, 'evenement'=>$evenement]);
   }
 
   public function loadUnePublicationGroupe($id_groupe, $id_publication){
     $vue=new Vue("UnePublicationGroupe", "Groupe", ['stylesheet.css']);
-    $vue->loadpage();
+    $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
+    $vue->loadpage(['datagroupe'=>$datagroupe]);
   }
 
   public function loadMembresGroupe($id_groupe)
   {
     $vue=new Vue("MembresGroupe", "Groupe", ['stylesheet.css']);
-    $vue->loadpage();
+    $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
+    $membre=$this->groupe->getMembres($id_groupe)->fetchAll();
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'membre'=>$membre]);
   }
 
   public function loadPublicationsGroupe($id_groupe)
   {
     $vue=new Vue("PublicationsGroupe", "Groupe", ['stylesheet.css']);
-    $vue->loadpage();
+    $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
+    $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
+    $ville=$this->groupe->getVille($datagroupe['id_ville'])->fetch();
+    $publication=$this->groupe->getPublications($id_groupe)->fetchAll();
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'sport'=>$sport, 'ville'=>$ville, 'publication'=>$publication]);
   }
 
   public function loadUnePublicationsGroupe($id_groupe, $id_publication)
