@@ -1103,6 +1103,7 @@ form p {
   border-style: inset;
 }
 
+
 /* Forum */
 .AllForum {
 	font-family: Verdana, sans-serif;
@@ -1159,7 +1160,6 @@ form p {
 	border-radius: 10px;
 	width: 20%;
 	min-width: 200px;
-  background: #71adeb;
 }
 
 .container-barre {
@@ -1168,9 +1168,8 @@ form p {
 	width: 30%;
 }
 
-.containerforum {
+.container {
   padding:10px;
-  transition:1s all ease;
 }
 
 .fleche, .lien-forum {
@@ -1193,9 +1192,153 @@ form p {
 	margin-bottom: 2px;
 }
 
-.containerforum:hover{
-  background-color: rgb(156, 156, 156);
+
+.rouge {
+  color: red;
 }
+
+.dark {
+  background-color: #e4e4e4;
+}
+
+.nombre-reponses {
+  display: inline-block;
+  width: 15%;
+}
+
+.dernier-message {
+  display: inline-block;
+/
+}
+
+.lien-forum {
+  width: 55%;
+}
+
+.bleu {
+  background-color: #08184f;
+  color: #ffffff;
+}
+
+.sous-topic a {
+  text-decoration: none;
+}
+
+.titre {
+  display: inline-block;
+  width: 55%;
+}
+
+.vide {
+  display: inline-block;
+  width: 10%;
+}
+
+.forum h2 {
+  margin: 10px 0 10px 10px;
+}
+
+.pages {
+  margin: 10px 0 10px 10px;
+}
+
+
+.post {
+  background-color: #f4f4f4;
+  margin: 5px;
+}
+
+.conv-pseudo {
+  display: inline-block;
+  width: 20%;
+  padding: 10px;
+}
+
+.conv-contenu {
+  display: inline-block;
+  width: 77%;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.pseudo {
+  font-weight: bold;
+}
+
+.avatar {
+  width: 75px;
+  height: 75px;
+  display: block;
+  margin: 10px 0 10px 0;
+}
+
+.nombre-message {
+  font-size: 0.7em;
+  font-style: italic;
+}
+
+.titre-post {
+  font-size: 0.9em;
+  margin: 0 0 0 0 !important;
+}
+
+.date-post {
+  font-size: 0.8em;
+}
+.modification {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.hr-post {
+  margin-top: 5px;
+    margin-bottom: 10px;
+    border: 0;
+    height: 0;
+    /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
+    /*border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
+    border-top: 1px solid grey  ;
+    border-bottom: 1px solid none;
+}
+
+.gras {
+  font-weight: bold;
+}
+
+.post-auteur {
+  width: 20%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.post-sujet {
+  width: 77%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.form-text {
+  width: 90%;
+  height: 200px;
+  border: solid 1px black;
+  margin: 20px 50px 10px 50px;
+  font-size: 1em;
+  padding: 5px;
+}
+
+.bouton-poster {
+  margin: 10px 50px 20px 50px;
+  height: 40px;
+  width: 130px;
+  border: solid 1px #e4e4e4;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+
+
 
 /* aide*/
 .question {

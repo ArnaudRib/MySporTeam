@@ -8,4 +8,15 @@ class ForumModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql);
     return $resultat;
   }
+
+  function getTopic($id_topic){
+    $sql="SELECT * FROM topic WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$id_topic]);
+    return $resultat;
+  }
+  function getDiscussions($id_topic){
+    $sql="SELECT * FROM discussion WHERE id_topic=?";
+    $resultat=$this->requeteSQL($sql, [$id_topic]);
+    return $resultat;
+  }
 }
