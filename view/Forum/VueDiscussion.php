@@ -1,4 +1,3 @@
-
 <body class="AllForum">
   <div class="forum">
     <h2 class="forums">Chemin > ### > ### </h2>
@@ -87,7 +86,7 @@
     <!-- <hr class="HR1"> -->
 
     <div class="repondre">
-      <form id="form-reponse">
+      <form id="form-reponse" action="" method="post">
         <textarea class="form-text" form="form-reponse" name="reponse" placeholder="Veuillez insérer votre réponse ici"></textarea>
         <input class="bouton-poster bleu" type="submit" value="Poster">
       </form>

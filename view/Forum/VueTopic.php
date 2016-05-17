@@ -1,4 +1,4 @@
-<a href="<?php goToPage('discussionforum', ['id_topic'=>'1', 'id_discussion'=>'1'])?>">click</a>
+<body class="AllForum">
 
 <div class="forum">
   <h2 class="forums"><?php echo $topic['titre'] ?></h2>
@@ -28,28 +28,29 @@
     </div>
   </div>
   <hr class="HR1">
-
   <?php foreach ($discussions as $key => $value): ?>
     <hr class="HR1">
-    <div class="padding10 dark">
-      <div class="fleche">
-        <i class="fa fa-arrow-circle-o-right fa-3x rouge"></i>
-      </div>
-      <div class="lien-forum sous-topic">
-        <h3><a href=""><?php echo $value['titre'] ?></a></h3>
+    <a href="<?php goToPage('discussionforum', ['id_topic'=> $topic['id'], 'id_discussion'=>$value['id']])?>">
+      <div class="padding10 dark">
+        <div class="fleche">
+          <i class="fa fa-arrow-circle-o-right fa-3x rouge"></i>
+        </div>
+        <div class="lien-forum sous-topic">
+          <h3><?php echo $value['titre'] ?></h3>
 
-        <p>Démarré par ####### << 1 2 3 4 >></p>
+          <p>Démarré par ####### << 1 2 3 4 >></p>
+        </div>
+        <div class="nombre-reponses">
+          0 Réponse<br>2322 Vues
+        </div>
+        <div class="dernier-message">
+          <?php echo $value['creation_date']?>,<br>13:40:23<br>par #######
+        </div>
       </div>
-      <div class="nombre-reponses">
-        0 Réponse<br>2322 Vues
-      </div>
-      <div class="dernier-message">
-        <?php echo $value['creation_date']?>,<br>13:40:23<br>par #######
-      </div>
-    </div>
-
+    </a>
 
   <?php endforeach; ?>
+</div>
   <!--
 
 <div class="padding10 dark">
@@ -120,5 +121,3 @@
       jeudi 28 avril 2016,<br>13:40:23<br>par #######
     </div>
   </div> -->
-
-</div>

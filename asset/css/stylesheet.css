@@ -1119,6 +1119,10 @@ form p {
 	font-size: 50px;
 }
 
+.containerforum{
+  padding:10px 0;  
+}
+
 .lien-forum p {
 	font-style: italic;
 }
