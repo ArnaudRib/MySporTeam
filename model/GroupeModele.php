@@ -15,6 +15,13 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
+
+  function getInfoGroupSport($id_sport){
+    $sql="SELECT * FROM groupe WHERE id_sport=?";
+    $resultat=$this->requeteSQL($sql,[$id_sport]);
+    return $resultat;
+  }
+
   function getVille($id_ville){
     $sql="SELECT * FROM city WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$id_ville]);
@@ -77,6 +84,7 @@ class GroupeModele extends BaseDeDonnes
     return $resultats;
   }
 
+  /* Fonctions count.*/
   function getNbGroupeSports($sports){ // renvoie [idsport=>nbgroupe]
     foreach ($sports as $key => $value) {
       $sql = "SELECT COUNT(*) as nbGroupe FROM groupe WHERE id_sport=?";
@@ -86,10 +94,18 @@ class GroupeModele extends BaseDeDonnes
     return $allresults;
   }
 
-
   function getNbGroupeEachSport($id_sport){ // renvoie [idsport=>nbgroupe]
     $sql = "SELECT COUNT(*) as nbGroupe FROM groupe WHERE id_sport=?";
     $resultat=$this->requeteSQL($sql, [$id_sport])->fetch();
     return $resultat;
+  }
+
+  function getNbMembresGroupe($groupes){ // renvoie [idsport=>nbgroupe]
+    foreach ($groupes as $key => $value) {
+      $sql = "SELECT COUNT(*) as nbMembres FROM utilisateur_groupe WHERE id_groupe=?";
+      $resultat=$this->requeteSQL($sql, [$value['id']])->fetchAll();
+      $allresults[$value['id']]=$resultat[0]['nbMembres'];
+    }
+    return $allresults;
   }
 }

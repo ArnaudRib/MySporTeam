@@ -3,7 +3,7 @@
 
   <div class="container" style="margin:0 auto;">
     <div  id="FiltreRechercheSport" class="filtre">
-      <form action="recherchegroupe" method="post">
+      <form class="filtreGroupeForm" action="recherchegroupe" method="post">
         <div class="blockfiltretitre" style="width:100%;">
           <h2 class="FiltreH1" style="display:inline-block;">Filtrer</h1>
             <span id="bouttonfiltre" class="plusboutton fa fa-plus" style="display:inline-block;" onclick="displayFiltre()"></span>

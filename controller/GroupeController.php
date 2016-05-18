@@ -111,7 +111,10 @@ class GroupeController
     $sport=$this->sport->getSport($id_sport)->fetch();
     $sports=$this->sport->getSports(4)->fetchAll();
     $Allsports=$this->sport->getSports()->fetchAll();
+    $groupes=$this->groupe->getInfoGroupSport($id_sport)->fetchAll();
+    $nbmembre=$this->groupe->getNbMembresGroupe($groupes);
+
     $vue=new Vue("GroupeSport", "Groupe", ['stylesheet.css'], ['GroupeSport.js']);
-    $vue->loadpage(['sport'=>$sport, 'sports'=>$sports, 'photo'=>$photo, 'Allsports'=>$Allsports]);
+    $vue->loadpage(['sport'=>$sport, 'sports'=>$sports, 'photo'=>$photo, 'Allsports'=>$Allsports, 'groupes'=>$groupes, 'nbmembre'=>$nbmembre]);
   }
 }
