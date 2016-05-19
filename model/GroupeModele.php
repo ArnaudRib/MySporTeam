@@ -108,4 +108,13 @@ class GroupeModele extends BaseDeDonnes
     }
     return $allresults;
   }
+
+  function isLeader($id_user, $id_groupe){
+    $sql = "SELECT leader_groupe FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe])->fetch();
+    if(!empty($resultat))
+      if($resultat['leader_groupe']==1)
+        return true;
+    return false;
+  }
 }

@@ -34,6 +34,7 @@ class GroupeController
   public function loadInformationsGroupe($id_groupe)
   {
     $vue=new Vue("InformationsGroupe", "Groupe", ['stylesheet.css']);
+    $leader=$this->groupe->isLeader($_SESSION['user']['id'],$id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $ville=$this->groupe->getVille($datagroupe['id_ville'])->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();

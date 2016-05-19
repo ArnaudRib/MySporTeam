@@ -65,9 +65,10 @@ function isLogged(){
 
 function isAdmin(){
   if($_SESSION['user']['admin_util']==1)
-  return true;
+    return true;
   return false;
 }
+
 
 /* Remise en forme */
 function minNoSpace($root){
