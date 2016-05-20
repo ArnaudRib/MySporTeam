@@ -3,7 +3,8 @@
   <div id="modalinfo<?php echo $value['id']?>" class="modalinfo">
     <div id="insideModalInfo<?php echo $value['id']?>" class="insideModalInfo">
       <p id="<?php echo $value['id']?>" class="closeButtonModal" onclick="closeModal(this)" style="">&#10006;</p>
-      <p style="position:absolute;font-color:red;"><?php  echo $value['id'] ?></p>
+      <p style="color:red;"><?php  echo $value['id'] ?></p>
+      <img class='imggroupe' src="<?php echo image('Groupes/Profil/'.$value['id'].'.jpg')?>" alt=""/>
     </div>
   </div>
 <?php endforeach; ?>
