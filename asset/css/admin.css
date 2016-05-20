@@ -665,6 +665,12 @@ td .plusButton{
   padding:0px 4%;
 }
 
+/* Groupe */
+.imggroupe{
+  width:100px;
+  height:100px;
+}
+
 /*GENERAL*/
 .block50{
   width:50%;
@@ -811,12 +817,14 @@ form input {
   overflow:scroll;
   position: static;
   z-index: 8;
+  opacity:0;
   background-color:rgba(255, 255, 255, 0.9);
   transition:all 0.4s linear;
   text-align: center;
 }
 
 .visible{
+  opacity:1;
   visibility:visible:
 }
 .visiblegrey{
