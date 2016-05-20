@@ -17,7 +17,7 @@
   <div class="padding10 bleu">
     <div class="vide">
     </div>
-    <div class="titre">
+    <div class="titreforum">
       Titre/Démarré par
     </div>
     <div class="nombre-reponses">
