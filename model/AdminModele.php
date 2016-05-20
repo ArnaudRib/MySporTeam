@@ -48,4 +48,8 @@ class AdminModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$_POST['id_type']]);
   }
 
+  function deleteGroupe(){
+    $sql="DELETE FROM groupe WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$_POST['id_groupe']]);
+  }
 }
