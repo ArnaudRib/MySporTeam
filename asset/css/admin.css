@@ -347,6 +347,7 @@ td .plusButton{
 }
 
 .infoCell{
+  background-color:rgb(171, 255, 189);
   transition:2s all ease;
 }
 
@@ -356,6 +357,7 @@ td .plusButton{
 }
 
 .supprCell{
+  background-color:rgba(255, 237, 0, 0.77);
   transition:1s all ease;
 }
 

@@ -25,8 +25,11 @@ class AdminController
 
   public function loadBackOfficeUser()
   {
+    $users=$this->user->getDataUsers()->fetchAll();
+    $nbGroupeUsers=$this->user->getNbGroupeUsers($users);
+    $nbPostUsers=$this->user->getNbPostUsers($users);
     $vue=new Vue("BackOfficeUtilisateur","Admin",['font-awesome.css', 'admin.css']);
-    $vue->loadbackoffice();
+    $vue->loadbackoffice(['users'=>$users, 'nbGroupeUsers'=>$nbGroupeUsers, 'nbPostUsers'=>$nbPostUsers]);
   }
 
   public function loadBackOfficeGroupe()

@@ -75,17 +75,19 @@
     <div class="content_tableau">
       <table>
         <tr class="header_tableau">
-          <th>Nom</th>
-          <th>Nombre de groupes associés</th>
-          <th>Description</th>
-          <th>Type</th>
+          <th>Pseudo</th>
+          <th>Adresse email</th>
+          <th>Nombre de groupes</th>
+          <th>Nombres de posts sur le forum</th>
+          <th style="background-color:rgb(85, 182, 244);">Plus d'informations</th>
         </tr>
-        <?php foreach ($sports as $key => $value): ?>
-            <tr class="lignesport" style="cursor:pointer;" onclick="location.href='<?php goToPage('backofficeAsport', ['id_sport'=>$value['id']]) ?>'">
-              <td><?php echo ucfirst($value['nom']) ?></td>
-              <td class="centre"><?php echo $nbgroupe[$value['id']]?></td>
-              <td><?php echo $value['description'] ?></td>
-              <td><?php echo $types[$value['id_type']-1]['titre'] ?></td>
+        <?php foreach ($users as $key => $value): ?>
+            <tr>
+              <td><?php echo ucfirst($value['pseudo']) ?></td>
+              <td class="centre"><?php echo $value['email'] ?></td>
+              <td><?php echo $nbGroupeUsers[$value['id']] ?></td>
+              <td><?php echo $nbPostUsers[$value['id']] ?></td>
+              <td id="<?php echo $value['id']?>" class="infoCell" onclick="modalinfo(this)"><p class="plusButton" style="top:65px;">+</p></td>
             </tr>
         <?php endforeach; ?>
       </table>

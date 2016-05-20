@@ -73,7 +73,7 @@
           <p>Utilisateurs</p>
       </li>
     </a>
-    
+
     <a href="<?php goToPage('backofficegroupe')?>">
       <li class="nextline active">
           <i class="fa fa-users"></i>
@@ -150,7 +150,7 @@
           <th style='background-color:rgb(255, 61, 61);'>Supprimer</th>
         </tr>
         <?php foreach ($groupes as $key => $value): ?>
-            <tr class="">
+            <tr class="lignesport">
               <td><?php echo ucfirst($value['nom']) ?></td>
               <td class="centre"><?php echo $nbmembres[$value['id']]?></td>
               <td id="<?php echo $value['id']?>" class="infoCell" onclick="modalinfo(this)" ><p class="plusButton" style="top:65px;">+</p></td>
