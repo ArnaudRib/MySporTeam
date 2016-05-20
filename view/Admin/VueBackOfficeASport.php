@@ -25,7 +25,7 @@
           <p>Types</p>
       </li>
     </a>
-    
+
     <a href="<?php goToPage('backofficesport')?>">
       <li class="nextline active">
           <i class="fa fa-heart"></i>
@@ -97,12 +97,12 @@
           </div>
           <div class="block80">
             <div class="ChangePictureSport">
-              <img class="UploadedImage" src="<?php echo image('Sports/'.$sport['nom'].'.jpg')?>" style="margin-bottom:20px;"/>
+              <img class="UploadedImage classImage" src="<?php echo image('Sports/'.$sport['nom'].'.jpg')?>" style="margin-bottom:20px;"/>
               <label for="photo" class="boutonInputFile">Modifier l'image du sport.</label>
               <input id="photo" class="files" type="file" name="photo" style="display:none;">
             </div>
             <div class="ChangePictureSport">
-              <img class="UploadedImage" style="box-shadow:0px 0px 0px;" src="<?php echo image('svg/'.$sport['nom'].'.svg')?>"/>
+              <img class="UploadedImage classImage" style="box-shadow:0px 0px 0px;" src="<?php echo image('svg/'.$sport['nom'].'.svg')?>"/>
               <label for="icone" class="boutonInputFile">Modifier l'icone du sport.</label>
               <input id="icone" class="files" type="file" name="icone" style="display:none;">
             </div>

@@ -167,7 +167,6 @@ function deletePhoto($name, $directory, $message){
   $error="";
   $url=$directory.'/'.$name;
   $fileURL= substr(image($url),1);
-
   if(file_exists($fileURL)){
     if(!unlink($fileURL)){
       $error.= $message.'</br>';

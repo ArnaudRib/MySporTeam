@@ -46,17 +46,19 @@
       </div>
       <div class="blocksportgroupe">
         <?php foreach ($groupes as $key => $value): ?>
-          <div class="groupesport">
-            <div class="groupesport-image">
-              <img class="imageprofilfiltre" src="<?php echo image('Groupes/Profil/'.$value["id"].'.jpg')?>" alt="" />
+          <a href="<?php goToPage('informationsgroupe', ['id'=>$value['id']])?>">
+            <div class="groupesport">
+              <div class="groupesport-image">
+                <img class="imageprofilfiltre" src="<?php echo image('Groupes/Profil/'.$value["id"].'.jpg')?>" alt="" />
+              </div>
+              <div class="groupesport-titre">
+                <?php echo $value['nom'] ?>
+              </div>
+              <div class="groupesport-chiffre">
+                <span style="position:relative; bottom:15px;"><?php echo $nbmembre[$value['id']] ?></span><span style="font-size:35px;">/</span><span style="position:relative; bottom:-10px;"><?php echo $value['nbmax_sportifs'] ?></span>
+              </div>
             </div>
-            <div class="groupesport-titre">
-              <?php echo $value['nom'] ?>
-            </div>
-            <div class="groupesport-chiffre">
-              <span style="position:relative; bottom:15px;"><?php echo $nbmembre[$value['id']] ?></span><span style="font-size:35px;">/</span><span style="position:relative; bottom:-10px;"><?php echo $value['nbmax_sportifs'] ?></span>
-            </div>
-          </div>
+          </a>
         <?php endforeach; ?>
         <?php if(empty($groupes)): //à changer xd?>
           <p style="color:red; font-size:25px; margin-top:20px;" >Aucun groupe n'a été trouvé.</p>
@@ -65,7 +67,7 @@
     </div>
     <div class="centre">
       <a href="<?php goToPage('recherchegroupe')?>">
-        <h1 style="color:red;">Accéder à la recherche avancée de groupes.</h1>
+        <h1 class="blockrechercheavancee">Accéder à la recherche avancée de groupes.</h1>
       </a>
     </div>
   </div>

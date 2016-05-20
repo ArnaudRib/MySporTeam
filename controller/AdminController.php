@@ -25,6 +25,32 @@ class AdminController
 
   public function loadBackOfficeGroupe()
   {
+    if(!empty($_POST)){
+      if(isset($_POST['modifiergroupe'])){
+        if(!empty($_FILES['photo']['name']))
+          $error.="Veuillez selectionner une photo pour le sport.";
+        $verification = new Verification($_POST);
+        $verificationPhoto = new Verification($_FILES);
+        if(!empty($_FILES['photo']['name']))
+          $verificationPhoto->PhotoOk('photo', $sport['nom'].'.jpg','Sports', false);
+        $verification->notEmpty('description', "Veuillez remplir la description du groupe.");
+        /*Rajouter les autres vérifications ici*/
+        $error=$verification->error;
+        $error.=$verificationPhoto->error;
+        if($verification->isValid() && $verificationPhoto->isValid()){
+          if(!empty($_FILES['photo']['name']))
+             $error.=deletePhoto($_POST['id_groupe'].'.jpg', 'Groupes/Profil', 'Erreur de suppression du champ photo.');
+          $error.=uploadPhoto(minNoSpace($_POST['id_groupe']).'.jpg', 'Groupes/Profil', 'photo');
+
+          if(empty($error)){
+            $this->admin->updateGroupe($_POST['id_groupe']);
+          }
+        }
+      }
+      if(isset($_POST['supprimer'])){
+        //supprimer groupe ici.
+      }
+    }
     $groupes=$this->groupe->getGroup()->fetchAll();
     $nbmembres=$this->user->getNbMembreGroupe($groupes);
     $vue=new Vue("BackOfficeGroupe","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);

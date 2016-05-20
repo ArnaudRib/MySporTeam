@@ -3,8 +3,31 @@
   <div id="modalinfo<?php echo $value['id']?>" class="modalinfo">
     <div id="insideModalInfo<?php echo $value['id']?>" class="insideModalInfo">
       <p id="<?php echo $value['id']?>" class="closeButtonModal" onclick="closeModal(this)" style="">&#10006;</p>
-      <p style="color:red;"><?php  echo $value['id'] ?></p>
-      <img class='imggroupe' src="<?php echo image('Groupes/Profil/'.$value['id'].'.jpg')?>" alt=""/>
+      <div class="block95 card" style="margin-top:50px;">
+        <div class="header">
+          <h4 class="title" style="margin-left:10px; text-align:left;">Modifications des informations du groupe.</h4>
+          <p class="sousheader" style="text-align:left;">
+            <i>Effectuez vos changements.</p>
+          </p>
+        </div>
+        <form class="" action="" method="post" enctype="multipart/form-data">
+          <div class="card">
+            <input type="hidden" name="id_groupe" value="<?php echo $value['id']?>">
+            <div class="content-imggroupe">
+              <h4 class="title" style="margin-left:10px;">Image du groupe</h4>
+              <img class='classImage imggroupe' src="<?php echo image('Groupes/Profil/'.$value['id'].'.jpg')?>" alt=""/>
+              <label for="photo" class="boutonInputFile modifgroupeimg">Modifier</label>
+              <input id="photo" class="files" type="file" name="photo" style="display:none;">
+            </div>
+            <div class="content-descriptiongroupe">
+              <label for="description" style="display:block;">Modifier la description : </label>
+              <textarea name="description" style="display:block; border:1px black solid; margin:10px auto; border-radius:10px; padding:5px;" rows="3" cols="75" maxlength="30" placeholder="Description du sport (MAX : 30 caractères)."><?php echo $value['description'] ?></textarea>
+            </div>
+            <!-- RAJOTUER ICI LA SUITE DES TRUCS DU GROUPE.-->
+          </div>
+          <input type="submit" name="modifiergroupe" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:0px; width:100%; margin-top:20px;" value="Enregistrer les modifications">
+        </form>
+      </div>
     </div>
   </div>
 <?php endforeach; ?>

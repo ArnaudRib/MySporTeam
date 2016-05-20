@@ -10,7 +10,7 @@ function displayAdd(){
 /* pour les sports */
 var file=document.querySelectorAll(".files");
 for (var i = 0; i < file.length; i++) {
-  var img=document.querySelectorAll(".UploadedImage")[i];
+  var img=document.querySelectorAll(".classImage")[i];
   (function (img){ //WTF ?!?!
     file[i].onchange = function () {
       var reader = new FileReader();

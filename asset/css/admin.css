@@ -671,6 +671,21 @@ td .plusButton{
   height:100px;
 }
 
+.modifgroupeimg{
+display: block;
+margin: 0 auto;
+width: 20%;
+}
+
+.content-imggroupe{
+  width:80%;
+  margin:0 auto;
+}
+
+.content-descriptiongroupe{
+  margin:40px auto;
+}
+
 /*GENERAL*/
 .block50{
   width:50%;

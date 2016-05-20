@@ -131,13 +131,13 @@
               <p class="PoliceInputFile">Importer une photo du sport (.jpg):</p>
               <label for="photo" class="boutonInputFile">Importer un fichier</label>
               <input id="photo" class="files" type="file" name="photo" style="display:none;">
-              <img class="UploadedImage" />
+              <img class="UploadedImage classImage" />
             </div>
             <div class="import">
               <p class="PoliceInputFile">Importer une icone du sport (<a href="http://www.freepik.com/free-icons/sports" target="_blank">.svg</a>) :</p>
               <label for="icone" class="boutonInputFile">Importer un fichier</label>
               <input id="icone" class="files" type="file" name="icone" style="display:none;">
-              <img class="UploadedImage" />
+              <img class="UploadedImage classImage" />
             </div>
             <input type="submit" name="Envoyer" value="Ajouter un sport" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:8px;">
           </fieldset>

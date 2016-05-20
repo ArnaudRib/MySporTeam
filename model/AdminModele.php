@@ -20,6 +20,12 @@ class AdminModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$description, $id_type, $id_sport]);
   }
 
+  function updateGroupe($id_groupe){
+    $description=$_POST['description'];
+    $sql="UPDATE groupe SET description=? WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$description, $id_groupe]);
+  }
+
   function UsedType($type){
     $sql="SELECT titre FROM types_sports WHERE titre=?";
     $resultat=$this->requeteSQL($sql,[$type]);
