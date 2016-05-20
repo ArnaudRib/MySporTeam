@@ -37,6 +37,16 @@
   <div id="modalsuppr<?php echo $value['id']?>" class="modalsuppr">
     <div id="insideModalSuppr<?php echo $value['id']?>" class="insideModalSuppr">
       <p id="<?php echo $value['id']?>" class="closeButtonModal" onclick="closeModalSuppr(this)">&#10006;</p>
+      <p class="errorbox" style="font-style:normal; font-size:16px; margin:80px auto;">
+        Êtes-vous sûrs de vouloir supprimer ce groupe?</br>
+        <i style="font-size:13px;">Supprimer le groupe effacera toutes les données qui lui sont relatives. Changements définitifs.</i>
+      </p>
+      <div style='text-align:center; margin:40px auto; width:80%;'>
+        <form class="" action="" method="post" style='display:inline-block; width:49%;'>
+          <input type="submit" name="Suppr" value="Oui" class="btn btn-4 btn-4a" style='margin:0; width:100%; height:50px; text-align:center;'>
+        </form>
+        <button id="<?php echo $value['id']?>" type="button" name="button" style='display:inline-block; width:49%; text-align:center; margin:0;' class="btn btn-4 btn-4a" onclick="closeModalSuppr(this)">Non</button>
+      </div>
     </div>
   </div>
 <?php endforeach; ?>
