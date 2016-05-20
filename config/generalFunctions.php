@@ -53,7 +53,7 @@ function dump($var){ //Sous forme de tableau!
 }
 
 function image($root){
-  $chemin='/asset/images/'.$root;
+  $chemin='/mysporteam/asset/images/'.$root;
   return $chemin;
 }
 
