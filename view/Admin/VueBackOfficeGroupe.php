@@ -1,8 +1,8 @@
-<!--Partie Popup-->
+<!--Partie Modal Modification-->
 <?php foreach ($groupes as $key => $value): ?>
   <div id="modalinfo<?php echo $value['id']?>" class="modalinfo">
     <div id="insideModalInfo<?php echo $value['id']?>" class="insideModalInfo">
-      <p id="<?php echo $value['id']?>" class="closeButtonModal" onclick="closeModal(this)" style="">&#10006;</p>
+      <p id="<?php echo $value['id']?>" class="closeButtonModal" onclick="closeModalInfo(this)">&#10006;</p>
       <div class="block95 card" style="margin-top:50px;">
         <div class="header">
           <h4 class="title" style="margin-left:10px; text-align:left;">Modifications des informations du groupe.</h4>
@@ -28,6 +28,15 @@
           <input type="submit" name="modifiergroupe" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:0px; width:100%; margin-top:20px;" value="Enregistrer les modifications">
         </form>
       </div>
+    </div>
+  </div>
+<?php endforeach; ?>
+
+<!--Partie Modal Suppression-->
+<?php foreach ($groupes as $key => $value): ?>
+  <div id="modalsuppr<?php echo $value['id']?>" class="modalsuppr">
+    <div id="insideModalSuppr<?php echo $value['id']?>" class="insideModalSuppr">
+      <p id="<?php echo $value['id']?>" class="closeButtonModal" onclick="closeModalSuppr(this)">&#10006;</p>
     </div>
   </div>
 <?php endforeach; ?>
@@ -114,7 +123,7 @@
               <td><?php echo ucfirst($value['nom']) ?></td>
               <td class="centre"><?php echo $nbmembres[$value['id']]?></td>
               <td id="<?php echo $value['id']?>" class="infoCell" onclick="modalinfo(this)" ><p class="plusButton" style="top:65px;">+</p></td>
-              <td id="<?php echo $value['id']?>" class="supprCell" onclick="modaldelete(this)"><p class="closeButton"  style="top:65px;">&#10006;</p></td>
+              <td id="<?php echo $value['id']?>" class="supprCell" onclick="modalSuppr(this)"><p class="closeButton"  style="top:65px;">&#10006;</p></td>
             </tr>
         <?php endforeach; ?>
       </table>

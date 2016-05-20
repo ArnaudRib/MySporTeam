@@ -33,7 +33,7 @@ function modalinfo(e){
 }
 
 
-function closeModal(e){
+function closeModalInfo(e){
   var i=e.id;
   var modal=document.querySelector('#modalinfo'+i);
   var insidemodal=document.querySelector('#insideModalInfo'+i);
@@ -41,17 +41,23 @@ function closeModal(e){
   insidemodal.classList.toggle("visible");
 }
 
+function modalSuppr(e){
+  var i=e.id;
+  var modal=document.querySelector('#modalsuppr'+i);
+  var insidemodal=document.querySelector('#insideModalSuppr'+i);
 
-function ClickOutside(e){
-  var modal=document.querySelector('#modalinfo'+i);
-  var insidemodal=document.querySelector('#insideModalInfo'+i);
-  if (e.target==modal){
-    modal.classList.toggle("visiblegrey");
-    insidemodal.classList.toggle("visible");
-  }
+  modal.classList.toggle("visiblegrey");
+  insidemodal.classList.toggle("visible");
 }
 
-document.onclick = ClickOutside;
+
+function closeModalSuppr(e){
+  var i=e.id;
+  var modal=document.querySelector('#modalsuppr'+i);
+  var insidemodal=document.querySelector('#insideModalSuppr'+i);
+  modal.classList.toggle("visiblegrey");
+  insidemodal.classList.toggle("visible");
+}
 
 function modaldelete(e){
 
