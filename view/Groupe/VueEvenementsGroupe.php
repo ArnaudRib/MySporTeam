@@ -10,7 +10,7 @@
           <ul>
             <a href="<?php  goToPage('informationsgroupe',['id'=>$datagroupe['id']]) ?>" id="non_selectionne"><li>Informations</li></a>
             <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li>Publications</li></a>
-            <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id']])?>" id="selectionne"><li>Evénements</li></a>
+            <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id']])?>" id="selectionne"><li>Evènements</li></a>
             <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li>Abonnés</li></a>
             <a id="abonnement" href="" ><li>Rejoindre</li></a>
           </ul>
@@ -26,11 +26,11 @@
         <div id="<?php echo $i=count($evenement) ?>" class="case_mongroupeevenement radius_mongroupe forme_case">
           <img src="<?php echo image('Groupes/Evenements/evenement1.jpg')?>"/>
           <div class="texteevenement">
-          <h1><?php echo $value['nom']?></h1>
-          <p><?php echo $value['description']?></p>
-          <a href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id_evenement']])?>" >Plus d'info</a>
-          <a href="" >ajouter au planning</a>
-        </div>
+            <h1><?php echo $value['nom']?></h1>
+            <p><?php echo $value['description']?></p>
+            <a href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id']])?>" >Plus d'info</a>
+            <a href="" >ajouter au planning</a>
+          </div>
         </div>
       <?php  endforeach;
     else:?>

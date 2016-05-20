@@ -10,7 +10,7 @@
           <ul>
             <a href="<?php goToPage('informationsgroupe',['id'=>$datagroupe['id']]) ?>" id="non_selectionne"><li>Informations</li></a>
             <a href="<?php goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="selectionne"><li>Publications</li></a>
-            <a href="<?php goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Evénements</li></a>
+            <a href="<?php goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Evènements</li></a>
             <a href="<?php goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li>Abonnés</li></a>
             <a id="abonnement" href="" ><li>Rejoindre</li></a>
           </ul>
@@ -53,7 +53,7 @@
         <?php if ($publication!=NULL):
           foreach ($publication as $key => $value):?>
           <div id="<?php echo $i=count($publication) ?>" class="publication forme_case radius_mongroupe">
-            <h1><?php echo $value['Titre']?></h1>
+            <h1><?php echo $value['titre']?></h1>
             <h2><?php echo $value['date']?></h2>
             <p><?php echo $value['texte']?></p>
           </div>

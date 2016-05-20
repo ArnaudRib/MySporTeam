@@ -96,6 +96,15 @@ class Route
         $this->ctr['User']->LoadAUser($pseudo_user);
         break;
 
+      case 'planningUtilisateur':
+        $this->ctr['User']->LoadPlanningUser();
+        break;
+
+      case 'groupesUtilisateur':
+        $this->ctr['User']->LoadGroupesUser();
+        break;
+
+
       // Groupes
       case 'recherchegroupe':
         $this->ctr['Groupe']->loadRecherche();
