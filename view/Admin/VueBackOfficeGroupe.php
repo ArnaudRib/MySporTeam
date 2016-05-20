@@ -7,7 +7,7 @@
         <div class="header">
           <h4 class="title" style="margin-left:10px; text-align:left;">Modifications des informations du groupe.</h4>
           <p class="sousheader" style="text-align:left;">
-            <i>Effectuez vos changements.</p>
+            <i>Effectuez vos changements.</i>
           </p>
         </div>
         <form class="" action="" method="post" enctype="multipart/form-data">
@@ -53,7 +53,6 @@
 <?php endforeach; ?>
 
 
-
 <div class="sidebar">
   <a href="<?php goToPage('Accueil')?>">
   <div class="TitreSite">
@@ -68,6 +67,13 @@
       </li>
     </a>
 
+    <a href="<?php goToPage('backofficeuser')?>">
+      <li class="nextline">
+          <i class="fa fa-user"></i>
+          <p>Utilisateurs</p>
+      </li>
+    </a>
+    
     <a href="<?php goToPage('backofficegroupe')?>">
       <li class="nextline active">
           <i class="fa fa-users"></i>

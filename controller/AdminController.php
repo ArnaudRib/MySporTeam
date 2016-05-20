@@ -23,6 +23,12 @@ class AdminController
     $vue->loadbackoffice();
   }
 
+  public function loadBackOfficeUser()
+  {
+    $vue=new Vue("BackOfficeUtilisateur","Admin",['font-awesome.css', 'admin.css']);
+    $vue->loadbackoffice();
+  }
+
   public function loadBackOfficeGroupe()
   {
     if(!empty($_POST)){
@@ -57,18 +63,6 @@ class AdminController
     $nbmembres=$this->user->getNbMembreGroupe($groupes);
     $vue=new Vue("BackOfficeGroupe","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
     $vue->loadbackoffice(['groupes'=>$groupes, 'nbmembres'=>$nbmembres, 'error'=>$error, 'succes'=>$succes]);
-  }
-
-  public function loadBackOfficeReglage()
-  {
-    $vue=new Vue("BackOfficeReglage","Admin",['font-awesome.css', 'admin.css']);
-    $vue->loadbackoffice();
-  }
-
-  public function loadBackOfficeForum()
-  {
-    $vue=new Vue("BackOfficeForum","Admin",['font-awesome.css', 'admin.css']);
-    $vue->loadbackoffice();
   }
 
   public function loadBackOfficeType()
@@ -185,4 +179,18 @@ class AdminController
     $vue=new Vue("BackOfficeASport","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
     $vue->loadbackoffice(['sport'=>$sport, 'nbgroupe'=>$nbgroupe, 'types'=>$types, 'error'=>$error]);
   }
+
+  public function loadBackOfficeReglage()
+  {
+    $vue=new Vue("BackOfficeReglage","Admin",['font-awesome.css', 'admin.css']);
+    $vue->loadbackoffice();
+  }
+
+  public function loadBackOfficeForum()
+  {
+    $vue=new Vue("BackOfficeForum","Admin",['font-awesome.css', 'admin.css']);
+    $vue->loadbackoffice();
+  }
+
+
 }
