@@ -17,8 +17,8 @@ class GroupeModele extends BaseDeDonnes
 
 
     function creationGroupe($image){
-      $sql="INSERT INTO groupe(nom, description, public, nbmax_sportifs, id_sport, id_ville, categorie, image_groupe) VALUES (?,?,?,?,?,?,?,?)";
-      $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['public'], $_POST['nbmax_sportifs'], $_POST['id_sport'], $_POST['id_ville'], $_POST['categorie'], $image_groupe]);
+      $sql="INSERT INTO groupe(nom, description, public, nbmax_sportifs, id_sport, id_ville, categorie, image_groupe, id_niveau) VALUES (?,?,?,?,?,?,?,?,?)";
+      $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['public'], $_POST['nbmax_sportifs'], $_POST['id_sport'], $_POST['id_ville'], $_POST['categorie'], $image_groupe, $_POST['id_niveau']]);
       echo "reussi";
       return $resultat;
     }

@@ -16,7 +16,7 @@ class GroupeController
 
   public function loadRecherche()
   {
-    $niveau=$this->groupe->getNiveau()->fetchAll();
+    //$niveau=$this->groupe->getNiveau()->fetchAll();
     $villes=$this->groupe->getVille()->fetchAll();
     $sports=$this->sport->getSports()->fetchAll();
     $vue=new Vue("RechercheGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
@@ -74,7 +74,7 @@ class GroupeController
     $error='';
 
     if (isset($_POST['Envoyer'])){
-
+      var_dump($_POST);
       if(exceptName(['imagegroupe'])){
         $succes="Profil complété avec succès!";
 
@@ -92,7 +92,7 @@ class GroupeController
 		if(is_file('images/image_groupe/'.$_SESSION['user']['id'].'.png')){
       $imagegroupe = $_SESSION['user']['id'].'.png';
       $groupe=$this->groupe->creationGroupe($imagegroupe);
-
+      echo $imagegroupe;
       //echo "'<img src = images/image_groupe/$imagegroupe>";
         }
      }else{

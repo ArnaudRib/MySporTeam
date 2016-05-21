@@ -33,6 +33,6 @@ class Vue
 
   function loadajax($parametres=[]){
     extract($parametres);
-    require('/mysporteam/asset/template/templatevide.php'); //ne pas mettre de / ;_;
+    require('asset/template/templatevide.php'); //ne pas mettre de / ;_;
   }
 }

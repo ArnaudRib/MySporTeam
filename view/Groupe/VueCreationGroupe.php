@@ -1,4 +1,5 @@
-<?php if(isset($error)):?>
+
+<?php if($error!=''):?>
 
   <div class="errorbox blackborder radius">
     <?php echo $error;?>
@@ -45,16 +46,17 @@
 
     <input type="number" name="id_ville" placeholder="Ville"></br>
 
+
     <label style="display: inline-block; width: 60px; float: none;">Public</label> <input style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" name="public" value="public">
     <label style="display: inline-block; width: 60px; float: none;">Privé</label> <input type="radio" name="public" value="prive" style="display: inline-block; width: 30px; height: 15px">
 
 
       <h2 class="titre_niveau"> Niveau </h3>
 
-    <label style="display: inline-block; width: 80px; float: none;">Débutant</label> <input style="display: inline-block; width: 20px; padding: 0; margin: 0; height:15px" type="radio" name="niveau" value="debutant">
-    <label style="display: inline-block; width: 114px; float: none;">Intermediaire</label> <input type="radio" name="niveau" value="intermediaire" style="display: inline-block; width: 20px; height: 15px">
-    <label style="display: inline-block; width: 80px; float: none;">Avancé</label> <input style="display: inline-block; width: 20px; padding: 0; margin: 0; height:15px" type="radio" name="niveau" value="avance">
-    <label style="display: inline-block; width: 114px; float: none;">Professionnel</label> <input type="radio" name="niveau" value="professionnel" style="display: inline-block; width: 20px; height: 15px">
+    <label style="display: inline-block; width: 80px; float: none;">Débutant</label> <input style="display: inline-block; width: 20px; padding: 0; margin: 0; height:15px" type="radio" name="niveau" value=1>
+    <label style="display: inline-block; width: 114px; float: none;">Intermediaire</label> <input type="radio" name="niveau" value=2 style="display: inline-block; width: 20px; height: 15px">
+    <label style="display: inline-block; width: 80px; float: none;">Avancé</label> <input style="display: inline-block; width: 20px; padding: 0; margin: 0; height:15px" type="radio" name="niveau" value=3>
+    <label style="display: inline-block; width: 114px; float: none;">Professionnel</label> <input type="radio" name="niveau" value=4 style="display: inline-block; width: 20px; height: 15px">
 
     <textarea name="description" rows="10" cols="50" placeholder="Description"></textarea>
 

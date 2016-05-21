@@ -26,7 +26,7 @@
         <?php else: ?>
           <li> <a style="color:white;" href='<?php goToPage('Accueil'); ?>'>Accueil</a></li>
           <li> <a style="color:white;" href='<?php goToPage('forum');?>'>Forums</a></li>
-          <li> <a style="color:white;" href="<?php goToPage('/mysporteam/connexion');?>">Connexion</a></li>
+          <li> <a style="color:white;" href="<?php goToPage('connexion');?>">Connexion</a></li>
         <?php endif; ?>
         <li>
           <input type="text" class="barRecherche" placeholder="Entrez votre recherche" name="Recherche"/></li>

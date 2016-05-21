@@ -19,7 +19,7 @@ function isAdmin(){
 }
 
 function image($root){
-  $chemin='/asset/images/'.$root;
+  $chemin='/mysporteam/asset/images/'.$root;
   echo $chemin;
 }
 
