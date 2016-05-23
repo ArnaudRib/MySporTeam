@@ -1,11 +1,15 @@
 <?php
 
+/*Fonctions*/
 require_once('config/generalFunctions.php');
+
+/*Controllers*/
 require_once('controller/AccueilController.php');
 require_once('controller/UserController.php');
 require_once('controller/GroupeController.php');
 require_once('controller/ForumController.php');
 require_once('controller/SportController.php');
+require_once('controller/AdminController.php');
 
 class Route
 {
@@ -21,7 +25,8 @@ class Route
       'User'=> new UserController,
       'Groupe'=> new GroupeController,
       'Forum'=> new ForumController,
-      'Sport'=> new SportController
+      'Sport'=> new SportController,
+      'Admin'=> new AdminController
     ];
   }
 
@@ -86,6 +91,19 @@ class Route
         $this->ctr['User']->loadProfil();
         break;
 
+      case 'profilUnUtilisateur':
+        $pseudo_user=$this->params[0];
+        $this->ctr['User']->LoadAUser($pseudo_user);
+        break;
+
+      case 'planningUtilisateur':
+        $this->ctr['User']->LoadPlanningUser();
+        break;
+
+      case 'groupesUtilisateur':
+        $this->ctr['User']->LoadGroupesUser();
+        break;
+
 
       // Groupes
       case 'recherchegroupe':
@@ -134,6 +152,10 @@ class Route
         $this->ctr['Groupe']->loadCreationGroupe();
         break;
 
+      case 'sportgroupe':
+        $id_sport=intval($this->params[0]);
+        $this->ctr['Groupe']->loadGroupeSport($id_sport);
+        break;
 
       // Forum
       case 'forum':
@@ -149,6 +171,40 @@ class Route
         $id_topic=intval($this->params[0]);
         $id_discussion=intval($this->params[1]);
         $this->ctr['Forum']->loadADiscussion($id_topic, $id_discussion);
+        break;
+
+      //Backoffice
+      case 'backoffice':
+        $this->ctr['Admin']->loadBackOffice();
+        break;
+
+      case 'backofficegroupe':
+        $this->ctr['Admin']->loadBackOfficeGroupe();
+        break;
+
+      case 'backofficereglage':
+        $this->ctr['Admin']->loadBackOfficeReglage();
+        break;
+
+      case 'backofficeforum':
+        $this->ctr['Admin']->loadBackOfficeForum();
+        break;
+
+      case 'backofficetype':
+        $this->ctr['Admin']->loadBackOfficeType();
+        break;
+
+      case 'backofficesport':
+        $this->ctr['Admin']->loadBackOfficeSport();
+        break;
+
+      case 'backofficeAsport':
+        $id_sport=intval($this->params[0]);
+        $this->ctr['Admin']->loadBackOfficeASport($id_sport);
+        break;
+
+      case 'backofficeuser':
+        $this->ctr['Admin']->loadBackOfficeUser();
         break;
 
       default:

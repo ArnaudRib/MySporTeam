@@ -1,10 +1,61 @@
 <?php
+Class Verification
+{
+  private $post;
+  public $error;
 
+  function __construct($post)
+  {
+    $this->post=$post;
+  }
+
+  function notEmpty($name, $message){
+    if(empty($this->post[$name])){
+      $this->error.=$message.'</br>';
+      return false;// a verifier
+    }
+  }
+
+  function PhotoOk($name, $futurnomimage, $directory, $skipAlreadyUploaded=true){
+    $url=$directory.'/'.$futurnomimage;
+    $fileURL= substr(image($url),1);
+    $imageFileType=pathinfo($fileURL, PATHINFO_EXTENSION);
+
+      if($imageFileType!='svg'){
+        $check = getimagesize($this->post[$name]["tmp_name"]);
+        if ($check == false) {
+          $this->error.= "Le fichier {$name} n'est pas du bon format.</br>";
+        }
+      }
+
+    if($skipAlreadyUploaded){
+      if (file_exists($fileURL)) {
+        $this->error.= "L'image existe déjà. </br>";
+      }
+    }
+
+    if ($this->post[$name]["size"] > 5000000) {
+      $this->error.= "Désolé, le fichier importé est trop lourd.</br>";
+    }
+  }
+
+  public function isValid()
+  {
+    return empty($this->error);
+  }
+}
+
+/* Utilitaire */
 function dump($var){ //Sous forme de tableau!
   echo '<pre>';
   var_dump($var);
   echo '</pre>';
 }
+
+/*function image($root){
+  $chemin='/asset/images/'.$root;
+  return $chemin;
+}*/
 
 function isLogged(){
   if(isset($_SESSION['user']))
@@ -14,14 +65,23 @@ function isLogged(){
 
 function isAdmin(){
   if($_SESSION['user']['admin_util']==1)
-  return true;
+    return true;
   return false;
 }
+
 
 function image($root){
   $chemin='/mysporteam/asset/images/'.$root;
   echo $chemin;
 }
+/* Remise en forme */
+function minNoSpace($root){
+  return htmlspecialchars(strtolower(str_replace(" ","-", $root)));
+}
+
+/* Exceptions*/
+/*
+Inutiles maintenant vu que class Verification existe.
 
 function exceptName($names=[]){ // renvoie true si tous les posts dont les names ne sont pas présents en parametre sont remplis
   $end=true;
@@ -64,15 +124,18 @@ function errorExceptInput($names=[]){ // renvoie un string des erreurs des posts
     }
   }
   return $error;
-}
+}*/
 
-function CreateSlider($ListImg, $type)
+/* Sliders */
+function CreateSlider($ListImg, $type, $width='100%', $height='400px')
 {
   $tab=serialize($ListImg);?>
-  <iframe src="/view/Sliders/Slider.php?tab=<?php echo htmlspecialchars($tab) ?>&type=<?php echo $type ?>" width="100%" height="400px"></iframe>
-<?php }
+  <iframe src="/view/Sliders/Slider.php?tab=<?php echo htmlspecialchars($tab) ?>&type=<?php echo $type ?>" width="<?php echo $width ?>" height="<?php echo $height?>"></iframe>
+<?php
+}
 
-function GenerateSlider($ListImg){?>
+function GenerateSlider($ListImg)
+{?>
   <div class="slider">
   <div class="navigation">
     <div class="flechenext" onclick="Next()"></div>
@@ -85,4 +148,33 @@ function GenerateSlider($ListImg){?>
     </div>
   </div>
   </br>
-<?php }?>
+  <?php
+}
+
+
+/* Photo */
+function uploadPhoto($name, $directory, $input){
+  $error="";
+  $url=$directory.'/'.$name;
+  $fileURL= substr(image($url),1);
+
+  if(!empty($_FILES[$input]['name'])){
+    if(!move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL) && $uploadOk!=1){
+      $error= "Une erreur s'est produite pour le champ {$input}. Veuillez réessayer plus tard, ou contacter l'administrateur.</br>";
+    }
+  }
+
+  return $error;
+}
+
+function deletePhoto($name, $directory, $message){
+  $error="";
+  $url=$directory.'/'.$name;
+  $fileURL= substr(image($url),1);
+  if(file_exists($fileURL)){
+    if(!unlink($fileURL)){
+      $error.= $message.'</br>';
+    }
+  }
+  return $error;
+}

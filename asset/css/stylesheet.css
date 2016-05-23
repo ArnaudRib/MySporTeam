@@ -42,36 +42,37 @@ aside {
 }
 
 form{
-  background-color:rgb(145, 176, 245);
   border-radius:10px;
 }
+
 #content{
   position: relative;
 }
 
 
-
 /*HEADER*/
+
 .menuheader {
-  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+  background: linear-gradient(141deg, #045FB4 30%, #084B8A 61%, #084B8A 75%);
   background-size: cover;
   width: 100%;
-  height:150px;
+  height:80px;
   margin: 0;
   display: block;
-  z-index:6;
+  z-index:2;
   position:relative;
-  border-bottom: inset;
+  border-bottom: 1px inset;
   overflow: hidden;
+  padding: 0px;
 }
 
 .logo img{
-  width:500px;
+  width:280px;
 }
 
 .logo {
-  top:-130px;
-left:3rem;
+  top:-70px;
+left:6rem;
  position: absolute;
  z-index: 1;
 }
@@ -231,7 +232,7 @@ left:6rem;
 
 .menu nav{
   position:absolute;
-  top:39px;
+  top:-2px;
   right:3rem;
   margin:20px;
 }
@@ -437,23 +438,13 @@ footer li{
   box-shadow: black 0 0 10px;
   overflow:scroll;
   position: static;
-  z-index: 9999;
+  z-index: 8;
   background-color:rgba(98, 97, 97, 0.9);
   transition:all 0.4s linear;
   transform: rotate(80deg)scale(0.0000001);
   text-align: center;
 }
 
-
-.visible{
-  visibility:visible;
-  background-color: rgba(0, 0, 0, 0.9); /*Noircit les extérieurs du pop up*/
-}
-
-.visible2{
-  visibility:visible;
-  transform: rotate(0deg)scale(1);
-}
 
 .division1 div{
   display:inline-block;
@@ -572,6 +563,9 @@ fieldset input{
   padding: 0.5em;
 }
 
+.blockinscription{
+  padding:20px;
+}
 
 /*connexion*/
 fieldset {
@@ -604,10 +598,12 @@ form input:selected {
 
 
 body{
-  background-image:url("/mysporteam/images/wallpaper.png");
-  background-size: auto;
   height: 100%;
   width: 100%;
+}
+
+.bodybackground{
+  background-image:url("../images/wallpaper.png");
 }
 
 form h1 {
@@ -626,7 +622,7 @@ form p {
 
 
 #inscription {
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 30px;
   border: 1px solid black;
   border-radius: 5px;
@@ -700,9 +696,8 @@ form p {
 
 /*PAGE MON GROUPE*/
 .fond_mongroupe{
-  background-image:url("/mysporteam/images/wallpaper.png") ;
+  background-color: #E6E6E6;
   font-family: Verdana;
-
 }
 
 #image_de_fond{
@@ -786,9 +781,9 @@ form p {
 #abonnement{
   margin-left:160px;
   color:#0B610B;
-  background-color: #FAFAFA;
-  border: outset 1px;
-  border-radius: 8px;
+  background-color: #F2F2F2;
+  border: solid 1px #E6E6E6;
+  border-radius: 6px;
   padding:4px;
   vertical-align: top;
   margin-top: 6px;
@@ -846,15 +841,16 @@ form p {
 
 /* MON GROUPE PUBLCIATION*/
 #corps_mongroupe{
-  position: relative;
   top:62px;
   width:1107px;
   margin:auto;
   clear: both;
+  margin-top:80px;
+  padding-bottom: 60px;
 }
 
 .radius_mongroupe{
-  border-radius:10px;
+  border-radius:4px;
 }
 
 .cote{
@@ -884,14 +880,17 @@ form p {
 
 #nom_sport{
   padding:4px;
-  background: linear-gradient(141deg, #FF0000 19%, #FF4000 61%, #FF8000 75%)
+  padding-left: 10px;
+  background: linear-gradient(141deg, #B40404 19%, #8A0808 61%, #610B0B 75%);
+  color:white;
 }
 
 .titre{
-  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 61%, #2cb5e8 75%);
+  background: linear-gradient(141deg, #045FB4 30%, #084B8A 61%, #084B8A 75%);
   background: cover;
   width:100%;
   color:white;
+  padding-left: 5px;
 }
 
 .titre h1 {
@@ -905,12 +904,13 @@ form p {
   margin-left: 5px;
 }
 
-#publication h1{
+.publication h1{
   padding:5px;
   display: inline-block;
+  font-size: 20px;
 }
 
-#publication h2{
+.publication h2{
   display: inline-block;
   font-size: 14px;
   color:grey;
@@ -944,21 +944,21 @@ form p {
 }
 
 /*MON GROUPE MEMBRES*/
-#case_membre{
+.case_membre{
   display: inline-block;
   width:32%;
   padding:10px;
   margin:4px;
 }
 
-#case_membre img{
+.case_membre img{
   width:80px;
   height:80px;
   display: inline-block;
   vertical-align: middle;
 }
 
-#case_membre a{
+.case_membre a{
   margin:5px;
   display: inline-block;
   text-decoration: none;
@@ -966,7 +966,7 @@ form p {
 }
 
 @media(max-width:1100px){
-  #case_membre{
+  .case_membre{
     display: block;
     width:100%;
   }
@@ -1072,9 +1072,9 @@ form p {
 
   /*PAGE EVENEMENT MON GROUPE*/
   .participation a{
-    background-color: #2E2EFE;
-    border-radius: 10px;
-    padding:10px;
+    background: linear-gradient(141deg, #045FB4 30%, #084B8A 61%, #084B8A 75%);
+    border-radius: 5px;
+    padding:11px;
     margin:8px;
     text-decoration: none;
     margin-bottom: 4px;
@@ -1083,6 +1083,8 @@ form p {
     margin-top: 0px;
     color:white;
     display: block;
+    text-align: center;
+    font-size: 20px;
     border:solid 1px #BDBDBD;
   }
 
@@ -1091,7 +1093,7 @@ form p {
   }
 
   .participation a:hover{
-    background-color: #585858;
+    background: linear-gradient(141deg, green 19%, green 61%, green 75%);
     color:#ffffff;
   }
 
@@ -1108,6 +1110,7 @@ form p {
   border-style: inset;
 }
 
+
 /* Forum */
 .AllForum {
 	font-family: Verdana, sans-serif;
@@ -1121,6 +1124,10 @@ form p {
 .PoliceForum {
 	text-align: right;
 	font-size: 50px;
+}
+
+.containerforum{
+  padding:10px 0;
 }
 
 .lien-forum p {
@@ -1164,7 +1171,6 @@ form p {
 	border-radius: 10px;
 	width: 20%;
 	min-width: 200px;
-  background: #71adeb;
 }
 
 .container-barre {
@@ -1173,9 +1179,8 @@ form p {
 	width: 30%;
 }
 
-.containerforum {
+.container {
   padding:10px;
-  transition:1s all ease;
 }
 
 .fleche, .lien-forum {
@@ -1198,20 +1203,167 @@ form p {
 	margin-bottom: 2px;
 }
 
-.containerforum:hover{
-  background-color: rgb(156, 156, 156);
+
+.rouge {
+  color: red;
 }
+
+.dark {
+  background-color: #e4e4e4;
+}
+
+.nombre-reponses {
+  display: inline-block;
+  width: 15%;
+}
+
+.dernier-message {
+  display: inline-block;
+/
+}
+
+.lien-forum {
+  width: 55%;
+}
+
+.bleu {
+  background-color: #08184f;
+  color: #ffffff;
+}
+
+.sous-topic a {
+  text-decoration: none;
+}
+
+.titreforum {
+  display: inline-block;
+  width: 55%;
+}
+
+.vide {
+  display: inline-block;
+  width: 10%;
+}
+
+.forum h2 {
+  margin: 10px 0 10px 10px;
+}
+
+.pages {
+  margin: 10px 0 10px 10px;
+}
+
+
+.post {
+  background-color: #f4f4f4;
+  margin: 5px;
+}
+
+.conv-pseudo {
+  display: inline-block;
+  width: 20%;
+  padding: 10px;
+}
+
+.conv-contenu {
+  display: inline-block;
+  width: 77%;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.pseudo {
+  font-weight: bold;
+}
+
+.avatar {
+  width: 75px;
+  height: 75px;
+  display: block;
+  margin: 10px 0 10px 0;
+}
+
+.nombre-message {
+  font-size: 0.7em;
+  font-style: italic;
+}
+
+.titre-post {
+  font-size: 0.9em;
+  margin: 0 0 0 0 !important;
+}
+
+.date-post {
+  font-size: 0.8em;
+}
+.modification {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.hr-post {
+  margin-top: 5px;
+    margin-bottom: 10px;
+    border: 0;
+    height: 0;
+    /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
+    /*border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
+    border-top: 1px solid grey  ;
+    border-bottom: 1px solid none;
+}
+
+.gras {
+  font-weight: bold;
+}
+
+.post-auteur {
+  width: 20%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.post-sujet {
+  width: 77%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.form-text {
+  width: 90%;
+  height: 200px;
+  border: solid 1px black;
+  margin: 20px 50px 10px 50px;
+  font-size: 1em;
+  padding: 5px;
+}
+
+.bouton-poster {
+  margin: 10px 50px 20px 50px;
+  height: 40px;
+  width: 130px;
+  border: solid 1px #e4e4e4;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+
+
 
 /* aide*/
 .question {
   width: 100%;
 }
 
+.blockaide{
+  padding: 20px 0;
+}
+
 .faq {
   width:25%;
   margin:0 auto;
   text-align:center;
-  margin-top: 50px;
 }
 
 .blockSection{
@@ -1235,6 +1387,7 @@ ul {
 
 /* Page RechercheGroupe */
 .groupe{
+  filter: grayscale(0%);
   display: inline-block;
   border-radius: 20px;
   padding: 20px;
@@ -1243,13 +1396,17 @@ ul {
   width: 47%;
   height: 250px;
   transition: 1s all ease;
+  background: rgb(145, 176, 245);
 }
 
 .groupe:hover{
   display: inline-block;
   border: 1px solid black;
-  width: 48%;
-  height: 260px;
+  filter: grayscale(0%);
+}
+
+.filtreGroupeForm{
+  background-color:rgb(115, 157, 243);
 }
 
 .imagegroupe{
@@ -1266,6 +1423,10 @@ ul {
   vertical-align: top;
 }
 
+.titregroupe{
+  margin-bottom: 2%;
+}
+
 #descriptiongroupe{
   font-size: 80%;
 }
@@ -1280,6 +1441,10 @@ ul {
   transition: 1s all ease;
 }
 
+.blockrecherchegroupe{
+  padding: 30px 0px !important;
+  min-height:500px;
+}
 
 #results{
   padding: 7px;
@@ -1379,8 +1544,10 @@ ul {
 .sportblock{
   width:100%;
 }
-/* Profil */
 
+
+
+/* Profil */
 .profil {
   margin-top: 80px;
 }
@@ -1657,6 +1824,9 @@ td {
 
 }
 
+.blockforum{
+  padding:50px 0px;
+}
 
 .sectionForum {
 	width: 80%;
@@ -1664,7 +1834,7 @@ td {
 	border-radius: 10px;
 	background-color: #FFFFFF;
 	box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
-  margin: 50px 10%;
+  margin:0 auto;
 }
 
 .premierHR {
@@ -1720,8 +1890,179 @@ td {
 
 a{
   text-decoration: none;
+  color:black;
 }
 
+/* Sport Groupe */
+.backgroundimage{
+  width:100%;
+  margin-top:-10px;
+  min-height:700px;
+  background-size:cover;
+}
+
+.backgroundimage .content-groupesport{ /*Text Sport**/
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  text-align: center; /*centre au milieu*/
+  z-index:2;
+  overflow: scroll;
+}
+
+.styleback{
+  background-color:rgba(177, 255, 255, 0.47);
+  border-radius:5px;
+  box-shadow: 0px -2px 10px rgb(91, 134, 244);
+  padding:30px 0px !important;
+}
+
+.backgroundimage .image{
+  filter: grayscale(70%);
+}
+
+.backgroundcontainer{
+  background-color:rgb(136, 244, 255);
+  border-radius:50px;
+}
+
+
+#listeicones{
+  position:fixed;
+  right:0;
+  bottom:0;
+  transition:1s ease;
+}
+
+#listeicones img{
+  width:60px;
+  height:60px;
+  border-radius: 20px;
+  padding: 10px;
+  margin:4px;
+  position:relative;
+  background-color:rgb(236, 255, 140);
+  transition:1s all ease;
+}
+
+#listeicones img:hover{
+  background-color:rgb(255, 172, 11);
+  transition:1s ease;
+}
+
+#displayicones{
+  visibility:hidden;
+  opacity:0;
+  transition:1s all ease;
+}
+
+.showimage #displayicones{
+  visibility:visible;
+  opacity:1;
+  transition:1s all ease;
+}
+
+.showimage #imageicone {
+  animation: motion 1s;
+}
+
+@keyframes motion {
+  from{
+    transform:translateY(100px);
+    right:0;
+  }
+}
+
+.plusicone{
+  background-color:rgba(0, 255, 217, 0.25) !important;
+  border: 2px black solid;
+}
+
+.plusicone:hover{
+  box-shadow:0px 0px 5px black;
+  background-color:rgba(82, 255, 255, 0.40) !important;
+  cursor:pointer;
+}
+
+#FirstdivPopUp .iconeblock img{
+  display:inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 30px;
+  margin:30px;
+  margin-top:60px;
+  margin-bottom:5px;
+  padding: 10px;
+  position: relative;
+  background-color:rgb(246, 255, 140);
+  transition: 1s all ease;
+}
+
+.iconeblockeachsport{
+  display:inline-block;
+  width:18%;
+}
+
+#FirstdivPopUp .iconeblock img:hover{
+  background-color:rgba(159, 250, 236, 1);
+}
+
+.NameUnderIcon{
+  display:block;
+  color:red;
+  width:auto;
+}
+
+.blocksportgroupe{
+  width:90%;
+  margin:0 auto;
+}
+
+.groupesport{
+  width:44%;
+  padding:10px 0 12px 0;
+  margin: 30px 1%;
+  display:inline-flex;
+  align-items:center;
+  background-color:rgb(31, 154, 255);
+  border-radius:4px;
+}
+
+.groupesport-image{
+  display:inline-block;
+  width:19%;
+  float:left;
+  padding-left:10px;
+}
+
+.groupesport-titre{
+  display:inline-block;
+  width:50%;
+  font-size:22px;
+}
+
+.groupesport-chiffre{
+  display:inline-block;
+  width:29%;
+  font-size:30px;
+}
+
+.imageprofilfiltre{
+  width:100%;
+  height:100%;
+}
+
+.blockrechercheavancee{
+  margin:0 auto;
+  background-color: rgba(7, 219, 213, 0.60);
+  border-radius:10px;
+  width:80%;
+  transition:1s all ease;
+}
+
+.blockrechercheavancee:hover{
+  background-color: rgba(7, 219, 213, 0.9);
+}
 /* GLOBAL */
 .encadrementTitre{
   background-color:rgb(194, 246, 229);
@@ -1778,12 +2119,26 @@ a{
   box-shadow: 0px 0 20px rgb(13, 0, 255);
 }
 
+.block50{
+  width:50%;
+  margin:0 auto;
+}
+.block30{
+  width:30%;
+  margin: 0 auto;
+}
+
+.block50{
+  width:50%;
+  margin: 0 auto;
+}
+
 .block80{
   width:80%;
   margin:0 auto;
 }
 
-.errorbox{
+.errorbox{ /* A changer comme dans admin.css*/
   width:80%;
   background-color:rgba(252, 120, 120, 0.99);
   margin-left:5%;
@@ -1792,6 +2147,7 @@ a{
   border:1px black solid;
   box-shadow: 0px 0 20px rgb(255, 149, 149);
   padding:10px;
+  cursor:help;
 }
 
 .successbox{
@@ -1803,6 +2159,7 @@ a{
   border:1px black solid;
   box-shadow: 0px 0 20px rgb(167, 249, 134);
   text-align:center;
+  cursor:help;
 }
 
 .barRecherche{
@@ -1825,26 +2182,22 @@ a{
 
 .plusboutton{
   float:right;
-  padding: 15px;
-  padding-top:16px;
-  margin-top:8px;
   margin-right:5%;
-  background-image: url("/asset/images/General/plusboutton.png");
-  background-repeat: no-repeat;
-  background-size: 30px 30px;
+  padding-top: 10px;
   transition:1s all ease;
+  font-size:30px;
+  color:green;
+  cursor:pointer;
 }
 
 .croixboutton{
   float:right;
-  padding: 15px;
-  padding-top:16px;
-  margin-top:8px;
   margin-right:5%;
-  background-image: url("/asset/images/General/plusboutton.png");
-  background-repeat: no-repeat;
-  background-size: 30px 30px;
+  padding-top: 10px;
   transition:1s all ease;
+  font-size:30px;
+  color:red;
+  cursor:pointer;
   transform:rotate(45deg);
 }
 
@@ -1854,6 +2207,8 @@ a{
 .extend{
   width:70%;
 }
+
+
 
 @media (min-width: 768px) {
   .container {
@@ -1879,4 +2234,51 @@ h2.titre_niveau{
   margin-top: 3%;
   height: 2%;
 
+/*Generate PopUp*/
+.GeneralPopUp{
+  visibility:hidden;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  z-index:7;
+  background-color: rgba(0, 0, 0, 0);
+  transition:all 0.4s ease;
+}
+
+.FirstdivPopUp{
+  overflow:scroll;
+  position: static;
+  z-index: 8;
+  transition:all 0.4s ease;
+  transform: scale(0.1);
+  text-align: center;
+}
+
+.closeButtonPopup{
+  font-family:Arial;
+  font-style:normal;
+  right:80px;
+  top:30px;
+  font-size:50px;
+  color:red;
+  position:fixed;
+  z-index:10;
+  transition:all 0.4s ease;
+  cursor:pointer;
+}
+
+.closeButtonPopup:hover{
+  color:rgb(247, 121, 121);
+}
+
+.visible{
+  visibility:visible;
+  background-color: rgba(0, 0, 0, 0.9); /*Noircit les extérieurs du pop up*/
+}
+
+.visible2{
+  visibility:visible;
+  transform: rotate(0deg)scale(1);
 }

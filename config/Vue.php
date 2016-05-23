@@ -19,6 +19,17 @@ class Vue
     require('asset/template/template.php');
   }
 
+  function loadbackoffice($parametres=[]){
+    extract($parametres);
+    $titre = $this->titre;
+    require('asset/template/templatebackoffice.php');
+  }
+
+  function loadajax($parametres=[]){
+    extract($parametres);
+    require('asset/template/templatevide.php'); //ne pas mettre de / ;_;
+  }
+
   function loadcss(){ //Sous forme de tableau!
     foreach ($this->nomcss as $nom) {
       echo '<link rel="stylesheet" href="/mysporteam/asset/css/'.$nom.'">';
@@ -29,10 +40,5 @@ class Vue
     foreach ($this->nomjs as $nom) {
       echo '<script src="/mysporteam/asset/js/'.$nom.'"></script>';
     }
-  }
-
-  function loadajax($parametres=[]){
-    extract($parametres);
-    require('asset/template/templatevide.php'); //ne pas mettre de / ;_;
   }
 }

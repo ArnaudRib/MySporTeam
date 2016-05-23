@@ -1,6 +1,7 @@
 <!--Partie Popup-->
 <div id="popup" class="popup">
-  <div id="division1" class="division1">
+  <p class="closeButtonPopup" onclick="closePopUp()" style="top:65px;">&#10006;</p>
+  <div id="division1" class="division1" style="width:90%; height:90%;">
     <div class="Recherche">
       <h2 style="margin-left:10%; margin-right:10%; text-align:left; font-size:1.8em; display:inline-block;">Sports</h2>
       <input id="search" type="text" name="search" class="searchbar" placeholder="Recherche..." onkeyup="getresults(this.value)"  autocomplete="off" spellcheck="false"/>
@@ -21,14 +22,15 @@
       </div>
     </div>
     <div class="ligne2">
-      <div class="div3 usualbackground">
-        <span class="Police2">  <a style="color:green;" href='<?php goToPage('forum');?>'>Forums</a></span>
-        <div class="img2 usualbackground" style="background-image:url('/mysporteam/asset/images/sport3.jpg');"></div>
-      </div><div class="div3 usualbackground">
 
-        <span class="Police2"><a style="color:green;" href='<?php goToPage('aide');?>'>Aide</span>
-        <div class="img2 usualbackground" style="background-image:url('/mysporteam/asset/images/sport4.jpg');"></div>
-
+      <a style="color:green;" href='<?php goToPage('forum');?>'>
+        <div class="div3 usualbackground">
+          <span class="Police2"> Forums</a></span>
+        <div class="img2 usualbackground" style="background-image:url('<?php echo image('sport2.jpg')?>');"></div>
+      </div></a><a style="color:green;" href='<?php goToPage('aide');?>'><div class="div3 usualbackground">
+        <span class="Police2">Aide</span>
+        <div class="img2 usualbackground" style="background-image:url('<?php echo image('sport4.jpg')?>');"></div>
+      </a>
       </div>
     </div>
   </section>
@@ -44,7 +46,7 @@
             de chez vous, et communiquer avec des passionnés du sport !</p>
           </div><div class="Bas1">
             <div id="bouttoninscription">
-              <a href="inscription.php">
+              <a href="<?php goToPage('inscription')?>">
                 <button class="button">Première visite?</br><span style="font-size:15px;">Inscrivez vous!</span></button>
               </a>
             </div>
@@ -54,8 +56,6 @@
     </aside>
   </nav>
 
-  <iframe src="/mysporteam/view/SliderFade/SliderFade.php" width="100%" height="500px"></iframe>
-  <iframe src="/mysporteam/view/SliderSlide/SliderSlide.php" width="100%" height="500px"></iframe>
 
-  <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Fade'); ?>
-  <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'slide'); ?>
+  <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Fade', '100%', '400px'); ?>
+  <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Slide', '100%', '400px'); ?>

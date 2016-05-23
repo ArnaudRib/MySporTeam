@@ -22,8 +22,10 @@ class ForumController
 
   public function loadATopic($id_topic)
   {
+    $topic=$this->forum->getTopic($id_topic)->fetch();
+    $discussions=$this->forum->getDiscussions($id_topic)->fetchAll();
     $vue=new Vue("Topic","Forum",['stylesheet.css', 'font-awesome.min.css']);
-    $vue->loadpage();
+    $vue->loadpage(['discussions'=>$discussions, 'topic'=>$topic]);
   }
 
   public function loadADiscussion($id_topic, $id_discussion)

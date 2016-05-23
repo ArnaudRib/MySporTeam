@@ -39,7 +39,7 @@ class UserController
       }
     }
 
-    $vue=new Vue("connexion","User",['stylesheet.css']);
+    $vue=new Vue("Connexion","User",['stylesheet.css']);
     $vue->loadpage(['message'=>$message]);
   }
 
@@ -70,12 +70,27 @@ class UserController
     $vue->loadpage(['message'=>$message]);
   }
 
-  public function loadProfil()
-    {
+  public function loadProfil() //Mon profil
+  {
     $vue=new Vue("Profil","User",['stylesheet.css'], ['profil.js', 'calendrier.js']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
     $vue->loadpage();
-    }
+  }
 
+  public function LoadPlanningUser(){ // Mon planning
+    $vue=new Vue("Planning","User",['stylesheet.css'], ['profil.js', 'calendrier.js']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
+    $vue->loadpage();
+  }
+
+  public function LoadGroupesUser(){
+    $vue=new Vue("Groupes","User",['stylesheet.css']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
+    $vue->loadpage();
+  }
+
+  public function LoadAUser($pseudo_user){ //Profil des autres
+    $dataUser=$this->user->getDataUser($pseudo_user)->fetch();
+    $vue=new Vue("ProfilUnUtilisateur","User",['stylesheet.css']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
+    $vue->loadpage(['dataUser'=>$dataUser]);
+  }
 
   public function deconnexion(){
     session_unset($_SESSION['user']);
