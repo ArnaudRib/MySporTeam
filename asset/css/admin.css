@@ -347,6 +347,7 @@ td .plusButton{
 }
 
 .infoCell{
+  background-color:rgb(171, 255, 189);
   transition:2s all ease;
 }
 
@@ -356,6 +357,7 @@ td .plusButton{
 }
 
 .supprCell{
+  background-color:rgba(255, 237, 0, 0.77);
   transition:1s all ease;
 }
 
@@ -671,6 +673,21 @@ td .plusButton{
   height:100px;
 }
 
+.modifgroupeimg{
+display: block;
+margin: 0 auto;
+width: 20%;
+}
+
+.content-imggroupe{
+  width:80%;
+  margin:0 auto;
+}
+
+.content-descriptiongroupe{
+  margin:40px auto;
+}
+
 /*GENERAL*/
 .block50{
   width:50%;
@@ -810,6 +827,32 @@ form input {
 }
 
 .insideModalInfo{
+  margin:5% auto;
+  width:80%;
+  height:80%;
+  box-shadow: black 0 0 10px;
+  overflow:scroll;
+  position: static;
+  z-index: 8;
+  opacity:0;
+  background-color:rgba(255, 255, 255, 0.9);
+  transition:all 0.4s linear;
+  text-align: center;
+}
+
+.modalsuppr{
+  visibility:hidden;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  z-index:7;
+  background-color: rgba(0, 0, 0, 0);
+  transition:all 0.4s linear;
+}
+
+.insideModalSuppr{
   margin:5% auto;
   width:80%;
   height:80%;

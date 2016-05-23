@@ -1,3 +1,4 @@
+<?php dump($isMembre); ?>
 <div class="fond_mongroupe">
   <div id="image_de_fond">
   <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
@@ -12,16 +13,23 @@
             <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li>Publications</li></a>
             <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Evènements</li></a>
             <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="selectionne"><li>Membres</li></a>
-            <?php if(empty($isMembre)):?>
+            <?php if($isMembre==false):?>
             <li id="abonnement" style="margin-top:-10px;">
               <form class="" action="" method="post">
                 <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
               </form>
             </li>
+          <?php elseif($isLeader==true): ?>
+            <li id="abonnement" style="margin-top:-10px; margin-left:50px; padding:4px;">
+            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Modif</a>
+            </li>
+            <li id="abonnement" style="margin-top:-10px; margin-left:10px; padding:4px;">
+            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Créer un événement</a>
+            </li>
             <?php else: ?>
               <li id="desabonnement" style="margin-top:-10px;">
               <form class="" action="" method="post">
-                <input type="submit" name="desabonnement" value="Désinscrire" style='cursor:pointer;'>
+                <input type="submit" name="abonnement" value="Désinscrire" style='cursor:pointer;'>
               </form>
               </li>
             <?php endif;?>

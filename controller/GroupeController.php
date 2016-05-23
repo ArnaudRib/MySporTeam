@@ -91,16 +91,22 @@ class GroupeController
   public function loadMembresGroupe($id_groupe)
   {
     $vue=new Vue("MembresGroupe", "Groupe", ['stylesheet.css']);
+    dump($_POST);
+    $rejoindre="Rejoindre";
     if(!empty($_POST)){
-      if(isset($_POST['abonnement']))
+      if(($_POST['abonnement']=="Rejoindre")){
+        echo "Rejoindre";
         $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
-      if(isset($_POST['desabonnement']))
+      }if($_POST['abonnement']=="Désinscrire"){
+      echo "Désinscrire";
         $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
     }
+  }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
+    $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $membre=$this->groupe->getMembres($id_groupe)->fetchAll();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'membre'=>$membre, 'isMembre'=>$isMembre]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'membre'=>$membre, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader]);
   }
 
   public function loadPublicationsGroupe($id_groupe)

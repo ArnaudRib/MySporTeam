@@ -28,5 +28,6 @@
   "backofficeforum":"admin/forum",
   "backofficetype":"admin/types",
   "backofficesport":"admin/sports",
-  "backofficeAsport":"admin/sports/{id_sport}"
+  "backofficeAsport":"admin/sports/{id_sport}",
+  "backofficeuser":"admin/user"
 }

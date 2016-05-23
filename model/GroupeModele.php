@@ -126,13 +126,16 @@ class GroupeModele extends BaseDeDonnes
     return false;
   }
 
-  function joinGroupe($id_user ,$id_groupe){
+  function joinGroupe($id_user, $id_groupe){
+    echo "fucking not work";
+    echo $id_groupe;
     $sql="INSERT INTO utilisateur_groupe(id_utilisateur, id_groupe) VALUES (?,?)";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
     return $resultat;
   }
 
-  function quitGroupe($id_user ,$id_groupe){
+  function quitGroupe($id_user, $id_groupe){
+    echo "fucking not work2";
     $sql="DELETE FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
   }

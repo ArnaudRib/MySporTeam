@@ -2091,6 +2091,17 @@ a{
   height:100%;
 }
 
+.blockrechercheavancee{
+  margin:0 auto;
+  background-color: rgba(7, 219, 213, 0.60);
+  border-radius:10px;
+  width:80%;
+  transition:1s all ease;
+}
+
+.blockrechercheavancee:hover{
+  background-color: rgba(7, 219, 213, 0.9);
+}
 /* GLOBAL */
 .encadrementTitre{
   background-color:rgb(194, 246, 229);
