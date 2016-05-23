@@ -117,4 +117,24 @@ class GroupeModele extends BaseDeDonnes
         return true;
     return false;
   }
+
+  function isMembre($id_user, $id_groupe){
+    $sql = "SELECT * FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe])->fetch();
+    if($resultat)
+        return true;
+    return false;
+  }
+
+  function joinGroupe($id_user ,$id_groupe){
+    $sql="INSERT INTO utilisateur_groupe(id_utilisateur, id_groupe) VALUES (?,?)";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
+    return $resultat;
+  }
+
+  function quitGroupe($id_user ,$id_groupe){
+    $sql="DELETE FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
+  }
+
 }

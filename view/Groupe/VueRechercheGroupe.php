@@ -37,11 +37,11 @@
           </form>
         </div>
 
-        <div class="recherchegroupe">
+        <div class="recherchegroupe" id="corps_mongroupe">
           <?php foreach ($groupe as $key => $value): ?>
             <a href="<?php goToPage('informationsgroupe', ['id'=> $value['id']])?>">
               <div id="<?php echo $i=count($groupe) ?>"  class="groupe">
-                <div class="imagegroupe usualbackground" style="background-image:url(asset/images/sport.png);"> </div>
+                <div class="imagegroupe usualbackground" style="background-image:url(<?php echo image('Groupes/Profil/'.$value['id'].'.jpg')?>);"> </div>
                 <div class="nomgroupe">
                   <h3 class="titregroupe"><?php echo $value['nom'] ?></h3>
                   <p style="background-color:rgb(226, 195, 34)">Sport</p>
@@ -49,7 +49,7 @@
                   <p><?php echo $value['localisation'] ?></p>
                   <p>Niveau</p>
                 </div>
-                <div id="descriptiongroupe"> Homines enim eruditos et sobrios ut infaustos et inutiles vitant, eo quoque accedente quod et nomenclatores adsueti haec et talia venditare, mercede accepta lucris quosdam et prandiis inserunt subditicios ignobiles et obscuros.
+                <div id="descriptiongroupe"> <?php echo $value['description']?>
                 </div>
               </div>
             </a>
