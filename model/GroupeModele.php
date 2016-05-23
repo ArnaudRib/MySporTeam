@@ -53,7 +53,7 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function getMembres($id_groupe){
-    $sql="SELECT * FROM utilisateur INNER JOIN utilisateur_groupe ON id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe=?";
+    $sql="SELECT * FROM utilisateur INNER JOIN utilisateur_groupe ON utilisateur.id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
   }
@@ -127,15 +127,12 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function joinGroupe($id_user, $id_groupe){
-    echo "fucking not work";
-    echo $id_groupe;
     $sql="INSERT INTO utilisateur_groupe(id_utilisateur, id_groupe) VALUES (?,?)";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
     return $resultat;
   }
 
   function quitGroupe($id_user, $id_groupe){
-    echo "fucking not work2";
     $sql="DELETE FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
   }

@@ -91,14 +91,10 @@ class GroupeController
   public function loadMembresGroupe($id_groupe)
   {
     $vue=new Vue("MembresGroupe", "Groupe", ['stylesheet.css']);
-    dump($_POST);
-    $rejoindre="Rejoindre";
     if(!empty($_POST)){
       if(($_POST['abonnement']=="Rejoindre")){
-        echo "Rejoindre";
         $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
       }if($_POST['abonnement']=="Désinscrire"){
-      echo "Désinscrire";
         $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
     }
   }
