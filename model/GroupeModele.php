@@ -53,7 +53,7 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function getMembres($id_groupe){
-    $sql="SELECT * FROM utilisateur INNER JOIN utilisateur_groupe ON utilisateur.id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe=?";
+    $sql="SELECT * FROM utilisateur JOIN utilisateur_groupe ON utilisateur.id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
   }
@@ -70,6 +70,12 @@ class GroupeModele extends BaseDeDonnes
 
   function getNiveau(){
     $sql="SELECT * FROM niveau";
+    $resultat=$this->requeteSQL($sql);
+    return $resultat;
+  }
+
+  function getCategory(){
+    $sql="SELECT * FROM categorie";
     $resultat=$this->requeteSQL($sql);
     return $resultat;
   }
@@ -137,4 +143,11 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
   }
 
+  function addGroupe(){
+  //  $sql="INSERT INTO groupe(nom, description, public, nbmax_sportifs, id_sport, id_ville, categorie, id_niveau) VALUES (?,?,?,?,?,?,?,?)";
+  //  $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['public'], $_POST['nbmax_sportifs'], $_POST['id_sport'], $_POST['id_ville'], $_POST['categorie'], $_POST['id_niveau']]);
+
+    $sql="INSERT INTO groupe(nom, description) VALUES (?,?)";
+    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description']]);
+  }
 }

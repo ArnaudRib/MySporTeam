@@ -141,7 +141,7 @@ class GroupeController
       $verification = new Verification($_POST);
       $verificationPhoto = new Verification($_FILES);
       $verification->notEmpty('nom', "Veuillez spécifier un nom à votre groupe.");
-      $verificationPhoto->PhotoOk('imagegroupe', $_POST['id'].'.jpg','Groupes/Profil');
+      //$verificationPhoto->PhotoOk('imagegroupe', $_POST['id'].'.jpg','Groupes/Profil');
       $verification->notEmpty('categorie', "Veuillez séléctionner une catégorie.");
       $verification->notEmpty('nombre', "Indiquez le nombre maximal de membres.");
       $verification->notEmpty('sport', "Choississez un sport.");
@@ -151,9 +151,9 @@ class GroupeController
       $error=$verification->error;
       $error.=$verificationPhoto->error;
 
-      if($verification->isValid() && $verificationPhoto->isValid()){
+      if($verification->isValid()){// && $verificationPhoto->isValid()){
         /*upload images*/
-        $error.=uploadPhoto($_POST['id'].'.jpg', 'Groupes/Profil', 'imagegroupe');
+        //$error.=uploadPhoto($_POST['id'].'.jpg', 'Groupes/Profil', 'imagegroupe');
         //Add BDD
         if(empty($error)){
           $this->groupe->addGroupe();
@@ -182,9 +182,10 @@ class GroupeController
     //     $error=errorExceptInput(['imagegroupe']);
     //   }
     // }
-
+    $categorie=$this->groupe->getCategory()->fetchAll();
+    $sports=$this->sport->getSports()->fetchAll();
     $vue=new Vue("CreationGroupe", "Groupe", ['stylesheet.css']); // CSS a unifier dans le meme fichier
-    $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
+    $vue->loadpage(['sports'=>$sports, 'categorie'=>$categorie, 'error'=>$error, 'succes'=>$succes]);
   }
 
 
