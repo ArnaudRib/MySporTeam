@@ -41,6 +41,7 @@ class Vue
     foreach ($this->nomjs as $nom) {
       echo '<script src="/mysporteam/asset/js/'.$nom.'"></script>';
 
+
     }
 
   }
