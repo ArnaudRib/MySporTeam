@@ -8,8 +8,14 @@
   <?php endif; ?>
 
     <nav id="creationgroupe"> <!-- remettre <nav id="creationgroupe"> si tu veux pas noir-->
+
       <form action="<?php goTopage('creationgroupe')?>" method="post" >
         <h1 class=""> Créer votre Groupe </h1>
+        <?php if($error!=''):?>
+          <div class="errorbox blackborder radius">
+            <?php echo $error;?>
+          </div>
+        <?php endif; ?>
         <?php if($succes!=''): ?>
           <div class="successbox blackborder radius" style='margin:20px auto; margin-bottom:0px'>
             <?php echo $succes;?>
@@ -24,9 +30,9 @@
 
           <select name="categorie" require>
             <option selected value=""> --- Catégorie --- </option>
-            <option value="Compétition"> Compétition </option>
-            <option value="Cours"> Cours </option>
-            <option value="Entrainement"> Entrainement </option>
+            <?php foreach ($categorie as $key => $value): ?>
+              <option value="<?php echo $value['id']?>"><?php echo $value['nom']?></option>
+            <?php endforeach; ?>
           </select>
 
           <input type="number" placeholder="Nombre de membres : 45max" name="nombre" min="0" max="45"/>
@@ -40,8 +46,9 @@
 
         <select name="sport">
           <option value="" selected> --- Sport --- </option>
-          <option value="1"> Football </option>
-          <option value="2"> Rugby </option>
+          <?php foreach ($sports as $key => $value): ?>
+            <option value="<?php echo $value['id']?>"> <?php echo ucfirst($value['nom'])?> </option>
+          <?php endforeach; ?>
         </select>
         <input type="text" name="ville" placeholder="Ville"></br>
 

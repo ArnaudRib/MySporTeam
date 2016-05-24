@@ -34,11 +34,14 @@ class Vue
     foreach ($this->nomcss as $nom) {
       echo '<link rel="stylesheet" href="/mysporteam/asset/css/'.$nom.'">';
     }
-  }
+    }
+
 
   function loadjs(){ //Sous forme de tableau!
     foreach ($this->nomjs as $nom) {
       echo '<script src="/mysporteam/asset/js/'.$nom.'"></script>';
+
     }
+
   }
-}
+  }

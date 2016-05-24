@@ -29,8 +29,8 @@ class UserModele extends BaseDeDonnes
   }
 
   function InscriptionUser(){
-    $sql="INSERT INTO utilisateur(pseudo, email, mot_de_passe) VALUES (?,?,?)";
-    $resultat=$this->requeteSQL($sql,[$_POST['pseudo'], $_POST['email'],sha1($_POST['mot_de_passe'])]);
+    $sql="INSERT INTO utilisateur( pseudo, email, mot_de_passe) VALUES (?,?,?)";
+    $resultat=$this->requeteSQL($sql, [$_POST['pseudo'], $_POST['email'],sha1($_POST['mot_de_passe'])]);
     return $resultat;
   }
 
