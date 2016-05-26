@@ -174,3 +174,52 @@ function deletePhoto($name, $directory, $message){
   }
   return $error;
 }
+
+function diffDate($date){
+  date_default_timezone_set("Europe/Paris");
+  if(!ctype_digit($date))
+    $date = strtotime($date);
+  if(date('Ymd', $date) == date('Ymd')){
+    $diff = time()-$date;
+  if($diff < 60) /* moins de 60 secondes */
+   return 'Il y a '.$diff.' sec';
+  else if($diff < 3600) /* moins d'une heure */
+   return 'Il y a '.round($diff/60, 0).' min';
+  else if($diff < 10800) /* moins de 3 heures */
+   return 'Il y a '.round($diff/3600, 0).' heures';
+  else /*  plus de 3 heures ont affiche ajourd'hui à HH:MM:SS */
+   return 'Aujourd\'hui à '.date('H:i:s', $date);
+  }
+  else if(date('Ymd', $date) == date('Ymd', strtotime('- 1 DAY')))
+  return 'Hier à '.date('H:i:s', $date);
+  else if(date('Ymd', $date) == date('Ymd', strtotime('- 2 DAY')))
+  return 'Il y a 2 jours à '.date('H:i:s', $date);
+  else
+  return 'Le '.date('d/m/Y à H:i:s', $date);
+}
+
+function test($iTime, $expression) {
+        $iTimeDifference = time() - $iTime ;
+        if( $iTimeDifference<0 ) { return; }
+        $iSeconds       = $iTimeDifference ;
+        $iMinutes       = round( $iTimeDifference/60 );
+        $iHours         = round( $iTimeDifference/3600 );
+        $iDays          = round( $iTimeDifference/86400 );
+        $iWeeks         = round( $iTimeDifference/604800 );
+        $iMonths        = round( $iTimeDifference/2419200 );
+        $iYears         = round( $iTimeDifference/29030400 );
+        if( $iSeconds<60 )
+                return "less than a minute";
+        elseif( $iMinutes<60 )
+                return sprintf($expression, $iMinutes . ' minute' . ( $iMinutes>1 ? 's' : '' ));
+        elseif( $iHours<24 )
+                return sprintf($expression, $iHours . ' hour' . ( $iHours>1 ? 's' : '' ));
+        elseif( $iDays<7 )
+                return sprintf($expression, $iDays . ' day' . ( $iDays>1 ? 's' : '' ));
+        elseif( $iWeeks <4 )
+                return sprintf($expression, $iWeeks . ' week' . ( $iWeeks>1 ? 's' : '' ));
+        elseif( $iMonths<12 )
+                return sprintf($expression, $iMonths . ' month' . ( $iMonths>1 ? 's' : '' ));
+        else
+                return sprintf($expression, $iYears . ' year' . ( $iYears>1 ? 's' : '' ));
+}

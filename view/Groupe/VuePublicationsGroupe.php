@@ -39,7 +39,6 @@
       <div class="radius_mongroupe forme_case" id="nom_sport">
         <h1><?php echo ucfirst($sport['nom'])?></h1>
       </div>
-
       <div class="radius_mongroupe forme_case">
         <div class="titre">
           <h1>Informations groupe</h1>
@@ -49,18 +48,13 @@
           <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
         </div>
       </div>
-
-
-
       <div class="radius_mongroupe mongroupe_lieu forme_case">
         <div class="titre">
           <h1>Lieu</h1>
         </div>
-        <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:200px;width:100%;'><div id='gmap_canvas' style='height:200px;width:100%;'></div><div><small><a href="http://embedgooglemaps.com">									google maps carte
+        <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:200px;width:100%;'><div id='gmap_canvas' style='height:200px;width:100%;'></div><div><small><a href="http://embedgooglemaps.com">
         </a></small></div><div><small><a href="http://youtubeembedcode.com">embed youtube code</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(<?php echo $ville['longitude']?>,<?php echo $ville['latitude']?>),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(<?php echo $ville['longitude']?>,<?php echo $ville['latitude']?>)});infowindow = new google.maps.InfoWindow({content:'<strong>Localisation</strong><br><?php echo $ville['name']?><br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
       </div>
-
-
     </div>
 
 
@@ -83,14 +77,9 @@
       <div>
         <?php if ($publication!=NULL):
           foreach ($publication as $key => $value):?>
-          <?php
-          $AnMoisJour=explode('-',$value['date']);
-          $HeurMinSec=explode(':', (explode(' ', $AnMoisJour[2])[1]));
-          setlocale(LC_ALL, 'fr_FR');
-          ?>
           <div id="<?php echo $i=count($publication) ?>" class="publication forme_case radius_mongroupe">
             <h1><?php echo $value['titre']?></h1>
-            <h2><?php echo 'Le '.strftime("%A %e %B %Y, à %H:%M:%S ", mktime($HeurMinSec[0],$HeurMinSec[1],$HeurMinSec[2],$AnMoisJour[1],$AnMoisJour[2],$AnMoisJour[0]));?></h2>
+            <h2><?php echo diffDate($value['date']);?></h2>
             <p><?php echo $value['texte']?></p>
           </div>
         <?php  endforeach;
@@ -114,11 +103,11 @@
             <div class="evenenement"><img src="<?php echo image('Groupes/Evenements/'.$value['id'].'.jpg')?>"/></div>
           <?php endforeach;
           else:?>
-              <div  class="publication forme_case radius_mongroupe">
-                <h1> Aucun événement</h1>
-              </div>
-              <?php
-            endif; ?>
+            <div  class="publication forme_case radius_mongroupe">
+              <h1> Aucun événement</h1>
+            </div>
+            <?php
+          endif; ?>
     </div>
   </div>
 
