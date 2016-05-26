@@ -74,12 +74,10 @@ class UserController
   public function loadProfil()
   {
     $vue=new Vue("Profil","User",['stylesheet.css'], ['profil.js', 'calendrier.js', 'modifier_profil.js']);
-
     $this->user->modifier_profil();
     $pseudo=$_SESSION['user']['pseudo'];
     $_SESSION['user']=$this->user->getDataUser($pseudo)->fetch(); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
-
-
+    $vue->loadpage();
   }
 
   public function LoadPlanningUser(){ // Mon planning

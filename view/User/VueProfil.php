@@ -9,10 +9,10 @@
 
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-    <img src="<?php image('Groupes/image_groupe.jpg')?>"/>
+    <img src="<?php echo image('Groupes/image_groupe.jpg')?>"/>
   </div>
   <div id="haut_mongroupe">
-    <img src="<?php image('Groupes/sport3.jpg')?>"/>
+    <img src="<?php echo image('Groupes/sport3.jpg')?>"/>
     <h1>Profil</h1>
     <div id="menu_mongroupe">
       <nav>
@@ -43,7 +43,7 @@
           <li>Téléphone :  <span class="modifier_profil"><?php showProfil('numero_telephone');?> </span></li>
           <li>Lieu de naissance : <span class="modifier_profil"><?php showProfil('naissance');?> </span></li>
           <li>Ville : <span class="modifier_profil"><?php showProfil('id_ville');?></span></li>
-          <li><span class="modifier_profil_submit"><img src="<?php image('Users/icone_modifier.png')?>" onclick="modifier_profil()"/></span></li>
+          <li><span class="modifier_profil_submit"><img src="<?php echo image('Users/icone_modifier.png')?>" onclick="modifier_profil()"/></span></li>
         </ul>
       </form>
       </div>
