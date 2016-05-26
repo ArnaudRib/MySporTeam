@@ -25,20 +25,22 @@ class Vue
     require('asset/template/templatebackoffice.php');
   }
 
+  function loadajax($parametres=[]){
+    extract($parametres);
+    require('asset/template/templatevide.php'); //ne pas mettre de / ;_;
+  }
+
   function loadcss(){ //Sous forme de tableau!
     foreach ($this->nomcss as $nom) {
       echo '<link rel="stylesheet" href="/asset/css/'.$nom.'">';
     }
-  }
+    }
+
 
   function loadjs(){ //Sous forme de tableau!
     foreach ($this->nomjs as $nom) {
       echo '<script src="/asset/js/'.$nom.'"></script>';
     }
-  }
 
-  function loadajax($parametres=[]){
-    extract($parametres);
-    require('asset/template/templatevide.php'); //ne pas mettre de / ;_;
   }
-}
+  }

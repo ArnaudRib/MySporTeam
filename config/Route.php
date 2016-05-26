@@ -1,6 +1,9 @@
 <?php
 
+/*Fonctions*/
 require_once('config/generalFunctions.php');
+
+/*Controllers*/
 require_once('controller/AccueilController.php');
 require_once('controller/UserController.php');
 require_once('controller/GroupeController.php');
@@ -93,6 +96,15 @@ class Route
         $this->ctr['User']->LoadAUser($pseudo_user);
         break;
 
+      case 'planningUtilisateur':
+        $this->ctr['User']->LoadPlanningUser();
+        break;
+
+      case 'groupesUtilisateur':
+        $this->ctr['User']->LoadGroupesUser();
+        break;
+
+
       // Groupes
       case 'recherchegroupe':
         $this->ctr['Groupe']->loadRecherche();
@@ -138,6 +150,11 @@ class Route
         $this->ctr['Groupe']->loadCreationGroupe();
         break;
 
+      case 'clubinfo':
+        $id_club=intval($this->params[0]);
+        $this->ctr['Groupe']->loadClub($id_club);
+        break;
+
       case 'sportgroupe':
         $id_sport=intval($this->params[0]);
         $this->ctr['Groupe']->loadGroupeSport($id_sport);
@@ -174,6 +191,23 @@ class Route
 
       case 'backofficeforum':
         $this->ctr['Admin']->loadBackOfficeForum();
+        break;
+
+      case 'backofficetype':
+        $this->ctr['Admin']->loadBackOfficeType();
+        break;
+
+      case 'backofficesport':
+        $this->ctr['Admin']->loadBackOfficeSport();
+        break;
+
+      case 'backofficeAsport':
+        $id_sport=intval($this->params[0]);
+        $this->ctr['Admin']->loadBackOfficeASport($id_sport);
+        break;
+
+      case 'backofficeuser':
+        $this->ctr['Admin']->loadBackOfficeUser();
         break;
 
       default:

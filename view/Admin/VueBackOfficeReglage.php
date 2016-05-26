@@ -12,11 +12,31 @@
       </li>
     </a>
 
-
+    <a href="<?php goToPage('backofficeuser')?>">
+      <li class="nextline">
+          <i class="fa fa-user"></i>
+          <p>Utilisateurs</p>
+      </li>
+    </a>
+    
     <a href="<?php goToPage('backofficegroupe')?>">
       <li class="nextline">
-          <i class="fa fa-wheelchair"></i>
+          <i class="fa fa-users"></i>
           <p>Groupes</p>
+      </li>
+    </a>
+
+    <a href="<?php goToPage('backofficetype')?>">
+      <li class="nextline">
+          <i class="fa fa-wrench"></i>
+          <p>Types</p>
+      </li>
+    </a>
+
+    <a href="<?php goToPage('backofficesport')?>">
+      <li class="nextline">
+          <i class="fa fa-heart"></i>
+          <p>Sports</p>
       </li>
     </a>
 

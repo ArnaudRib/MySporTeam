@@ -1,34 +1,51 @@
+<?php dump($membre)?>
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-  <img src="<?php image('Groupes/image_groupe.jpg')?>"/>
+  <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
-      <img src="<?php image('Groupes/sport3.jpg')?>"/>
-      <h1>Nom du groupe</h1>
+      <img src="<?php echo image('Groupes/Profil/'.$datagroupe['id'].'.jpg')?>"/>
+      <h1><?php echo $datagroupe['nom']?></h1>
       <div id="menu_mongroupe">
         <nav>
-          <ul>
-            <a href="<?php goToPage('informationsgroupe',['id'=>'1']) ?>" id="non_selectionne"><li>Informations</li></a>
-            <a href="<?php  goToPage('publicationsgroupe',['id'=>'1', 'id_publication'=>'1'])?>" id="non_selectionne"><li>Publications</li></a>
-            <a href="<?php  goToPage('evenementsgroupe',['id'=>'1', 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Evenements</li></a>
-            <a href="<?php  goToPage('membresgroupe',['id'=>'1'])?>" id="selectionne"><li>Abonnés</li></a>
-            <a id="abonnement" href="" ><li>S'abonner</li></a>
+          <ul style='margin-top:15px;'>
+            <a href="<?php  goToPage('informationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li>Informations</li></a>
+            <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li>Publications</li></a>
+            <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Evènements</li></a>
+            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="selectionne"><li>Membres</li></a>
+            <?php if($isMembre==false):?>
+            <li id="abonnement" style="margin-top:-10px;">
+              <form class="" action="" method="post">
+                <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
+              </form>
+            </li>
+          <?php elseif($isLeader==true): ?>
+            <li id="abonnement" style="margin-top:-10px; margin-left:50px; padding:4px;">
+            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Modif</a>
+            </li>
+            <li id="abonnement" style="margin-top:-10px; margin-left:10px; padding:4px;">
+            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Créer un événement</a>
+            </li>
+            <?php else: ?>
+              <li id="desabonnement" style="margin-top:-10px;">
+              <form class="" action="" method="post">
+                <input type="submit" name="abonnement" value="Désinscrire" style='cursor:pointer;'>
+              </form>
+              </li>
+            <?php endif;?>
           </ul>
         </nav>
-    </div>
+      </div>
   </div>
 
   <div id="corps_mongroupe">
-    <?php
-     $valeur=8;
-    while($valeur!=0){ ?>
-        <div id="case_membre" class="radius_mongroupe forme_case">
-          <img src="/asset/images/Groupes/sport3.jpg" />
-          <a href=""><h1>#Nom de la personne</h1></a>
+    <?php foreach ($membre as $key => $value):?>
+        <div id="<?php echo $i=count($membre) ?>" class="case_membre radius_mongroupe forme_case">
+          <img src="<?php echo image('Groupes/sport3.jpg')?>" />
+          <a href=""><h1><?php echo $value['pseudo']?></h1></a>
         </div>
         <?php
-          $valeur=$valeur-1;
-        }
+      endforeach;
         ?>
 
   </div>
