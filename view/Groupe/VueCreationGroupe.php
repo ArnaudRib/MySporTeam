@@ -22,9 +22,9 @@
 
           <select name="categorie" require>
             <option selected value=""> --- Catégorie --- </option>
-            <option value="Compétition"> Compétition </option>
-            <option value="Cours"> Cours </option>
-            <option value="Entrainement"> Entrainement </option>
+            <?php foreach ($categorie as $key => $value): ?>
+              <option value="<?php echo $value['id']?>"><?php echo $value['nom']?></option>
+            <?php endforeach; ?>
           </select>
 
           <input type="number" placeholder="Nombre de membres : 45max" name="nombre" min="0" max="45"/>
@@ -38,8 +38,9 @@
 
         <select name="sport">
           <option value="" selected> --- Sport --- </option>
-          <option value="1"> Football </option>
-          <option value="2"> Rugby </option>
+          <?php foreach ($sports as $key => $value): ?>
+            <option value="<?php echo $value['id']?>"> <?php echo ucfirst($value['nom'])?> </option>
+          <?php endforeach; ?>
         </select>
         <input type="text" name="ville" placeholder="Ville"></br>
 

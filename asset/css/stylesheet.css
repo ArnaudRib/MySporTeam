@@ -730,7 +730,7 @@ form p {
   margin-left: 280px;
   top: 65px;
   position: absolute;
-}
+text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -1px;}
 
 #menu_mongroupe{
   display: block;
@@ -744,10 +744,13 @@ form p {
 }
 
 #menu_mongroupe a{
+  font-size: 18px;
+}
+
+#menu_mongroupe li{
   display: inline-block;
   text-decoration: none;
   list-style-type:none;
-  font-size: 18px;
 }
 
 #non_selectionne{
@@ -777,13 +780,57 @@ form p {
   background-color: #F2F2F2;
   border: solid 1px #E6E6E6;
   border-radius: 6px;
-  padding:4px;
+  padding:0px;
   vertical-align: top;
   margin-top: 6px;
+  display: inline-block;
+}
+
+#abonnement input{
+  color:#0B610B;
+  background: none;
+  font-size: 18px;
+  padding:5px;
+  font-family: Verdana;
+
+}
+
+#abonnement input:hover{
+  color:#ffffff;
 }
 
 #abonnement:hover{
   background-color: green;
+  color:white;
+}
+
+#desabonnement{
+  margin-left:160px;
+  color:#0B610B;
+  background-color: #F2F2F2;
+  border: solid 1px #E6E6E6;
+  border-radius: 6px;
+  padding:0px;
+  vertical-align: top;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+#desabonnement input{
+  color:#DF0101;
+  background: none;
+  font-size: 18px;
+  padding:5px;
+  font-family: Verdana;
+
+}
+
+#desabonnement input:hover{
+  color:#ffffff;
+}
+
+#desabonnement:hover{
+  background-color: #DF0101;
   color:white;
 }
 
@@ -1380,22 +1427,20 @@ ul {
 
 /* Page RechercheGroupe */
 .groupe{
-  filter: grayscale(0%);
   display: inline-block;
   border-radius: 20px;
   padding: 20px;
   border: 1px solid black;
   margin: 1%;
   width: 47%;
-  height: 250px;
   transition: 1s all ease;
+  height: auto;
+  vertical-align: top;
   background: rgb(145, 176, 245);
 }
 
 .groupe:hover{
-  display: inline-block;
-  border: 1px solid black;
-  filter: grayscale(0%);
+  filter: grayscale(50%);
 }
 
 .filtreGroupeForm{
@@ -1403,25 +1448,22 @@ ul {
 }
 
 .imagegroupe{
-  display: inline-block;
-  vertical-align: top;
+  display:inline-block;
   width: 50%;
-  height: 65%;
+  height: 100px;
 }
 
 .nomgroupe{
   margin-left: 10px;
   text-align: center;
   display: inline-block;
-  vertical-align: top;
 }
 
-.titregroupe{
-  margin-bottom: 2%;
-}
-
-#descriptiongroupe{
-  font-size: 80%;
+.descriptiongroupe{
+  font-size: 15px;
+  width:100%;
+  display:block;
+  word-wrap: break-word;
 }
 
 .filtre{
@@ -1479,8 +1521,9 @@ ul {
 
 .recherchegroupe{
   display: inline-block;
-  margin: 0 auto;
+  margin: 20 auto;
   text-align:center;
+  width: 100%;
 }
 
 #boutonrecherche{
@@ -2041,7 +2084,7 @@ a{
 
 .imageprofilfiltre{
   width:100%;
-  height:100%;
+  height:80px;
 }
 
 .blockrechercheavancee{

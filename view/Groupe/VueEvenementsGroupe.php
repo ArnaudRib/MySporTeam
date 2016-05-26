@@ -1,21 +1,33 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-  <img src="<?php echo image('Groupes/image_groupe.jpg')?>"/>
+  <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
-      <img src="<?php echo image('Groupes/sport3.jpg')?>"/>
+      <img src="<?php echo image('Groupes/Profil/'.$datagroupe['id'].'.jpg')?>"/>
       <h1><?php echo $datagroupe['nom']?></h1>
       <div id="menu_mongroupe">
         <nav>
-          <ul>
-            <a href="<?php  goToPage('informationsgroupe',['id'=>$datagroupe['id']]) ?>" id="non_selectionne"><li>Informations</li></a>
+          <ul style='margin-top:15px;'>
+            <a href="<?php  goToPage('informationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li>Informations</li></a>
             <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li>Publications</li></a>
-            <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id']])?>" id="selectionne"><li>Evènements</li></a>
-            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li>Abonnés</li></a>
-            <a id="abonnement" href="" ><li>Rejoindre</li></a>
+            <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="selectionne"><li>Evènements</li></a>
+            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li>Membres</li></a>
+            <?php if(empty($isMembre)):?>
+            <li id="abonnement" style="margin-top:-10px;">
+              <form class="" action="" method="post">
+                <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
+              </form>
+            </li>
+            <?php else: ?>
+              <li id="desabonnement" style="margin-top:-10px;">
+              <form class="" action="" method="post">
+                <input type="submit" name="desabonnement" value="Désinscrire" style='cursor:pointer;'>
+              </form>
+              </li>
+            <?php endif;?>
           </ul>
         </nav>
-    </div>
+      </div>
   </div>
 
   <?php /*$taille=10; ?>
@@ -24,7 +36,7 @@
   <?php if ($evenement!=NULL):
       foreach ($evenement as $key => $value):?>
         <div id="<?php echo $i=count($evenement) ?>" class="case_mongroupeevenement radius_mongroupe forme_case">
-          <img src="<?php echo image('Groupes/Evenements/evenement1.jpg')?>"/>
+          <img src="<?php echo image('Groupes/Evenements/'.$value['id'].'.jpg')?>"/>
           <div class="texteevenement">
             <h1><?php echo $value['nom']?></h1>
             <p><?php echo $value['description']?></p>
