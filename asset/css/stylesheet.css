@@ -42,7 +42,6 @@ aside {
 }
 
 form{
-  background-color:rgb(145, 176, 245);
   border-radius:10px;
 }
 #content{
@@ -633,6 +632,10 @@ form p {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+#inscription form {
+    background-color:rgb(145, 176, 245);
+}
+
 #inscription label {
   text-align: center;
   float: left;
@@ -728,7 +731,7 @@ form p {
   display: inline-block;
   border:solid 1px grey;
   background-color: white;
-  border-radius:4px;
+  border-radius:5px;
   z-index:2;
   position: absolute;
 }
@@ -785,7 +788,7 @@ form p {
   color:#0B610B;
   background-color: #FAFAFA;
   border: outset 1px;
-  border-radius: 8px;
+  border-radius: 5px;
   padding:4px;
   vertical-align: top;
   margin-top: 6px;
@@ -837,6 +840,10 @@ form p {
   }
 
   #abonnement{
+    margin-left:0px;
+  }
+
+  #creergroupe{
     margin-left:0px;
   }
 }
@@ -1391,119 +1398,63 @@ ul {
 
 
 /* Profil */
-.profil {
-  margin-top: 80px;
-}
-
-.corps_profil {
-  border: 1px solid black;
-  margin-right: 15%;
-  margin-left: auto;
-  width: 60%;
-
-  background-color: white;
-  border-radius: 7px;
-  box-shadow: 2px 2px 5px #1F2A36;
-}
-
-.gauche_profil {
-  border: 1px solid black;
-  width: 10%;
-  float: left;
-  margin-left: 10%;
-  margin-right: 5%;
-
-  background-color: white;
-  border-radius: 7px;
-  box-shadow: 2px 2px 5px #1F2A36;
-}
-
-.gauche_profil h1 {
-  color: #183152;
-  font-size: 20px;
-  padding: 5px;
-  border-bottom: 1px solid #183152;
-}
 
 .gauche_profil li {
   list-style-type: none;
   padding: 3px;
 }
 
-#actualite {
-    margin: auto;
-    display: block;
-}
-
-#actualite h1{
-  font-family: Verdana;
-  font-size: 20px;
-  margin-left: 7px;
-  display: inline;
-}
-
-#actualite h2{
-  font-family: Verdana;
-  font-size: 10px;
-  margin-left: 7px;
-  display: inline;
-  color:#848484;
-  text-decoration: none;
-}
-
-#actualite p{
-  padding:7px;
-  font-family: Verdana;
-  font-size: 16px;
-  margin-bottom: 8px;
-  border-top: 1px solid grey;
-}
-
-#groupes_profil {
-  width: 70%;
-  margin-left: 15%;
-
-  background-color: white;
+#creergroupe{
+  margin-left:100px;
+  color:#0B610B;
+  background-color: #FAFAFA;
+  border: outset 1px;
   border-radius: 8px;
-  box-shadow: 2px 2px 5px #1F2A36;
+  padding:4px;
+  vertical-align: top;
+  margin-top: 6px;
 }
 
-#groupe h1 {
-  font-family: Verdana;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-left: 7px;
-  display: inline;
+#creergroupe:hover{
+  background-color: green;
+  color:white;
 }
 
-#groupe h2{
-  font-family: Verdana;
-  font-size: 10px;
-  margin-left: 7px;
-  display: inline;
-  color:#848484;
-  text-decoration: none;
+.profil {
+  margin-top: 100px;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 
-#groupe p{
-  padding:7px;
-  font-family: Verdana;
+.profil img{
+  display: inline-block;
+  height: 26px;
+  float: right;
+  padding-bottom: 10px;
+}
+
+.profil li {
+  width: 100%;
+  padding: 5px;
+}
+
+.profil input {
   font-size: 16px;
-  margin-bottom: 8px;
-  border-top: 1px solid grey;
+  width: auto;
+  border: inherit;
+  border: 1px #0056af solid;
+  border-radius: 5px;
 }
 
-#groupe a{
-  text-decoration: none;
-  font-size: 14px;
+.infos_profil {
+  width: 60%;
+  margin-left: 20%;
+  background-color: white;
 }
 
-#calendrier_profil .calendrier{
-  top: inherit;
+.infos {
+  padding: 10px;
 }
-
-
-
 /* Calendrier */
 #next {
   float: right;
