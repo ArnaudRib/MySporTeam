@@ -201,7 +201,7 @@ class GroupeController
     // }
     $categorie=$this->groupe->getCategory()->fetchAll();
     $sports=$this->sport->getSports()->fetchAll();
-    $vue=new Vue("CreationGroupe", "Groupe", ['stylesheet.css']); // CSS a unifier dans le meme fichier
+    $vue=new Vue("CreationGroupe", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['showphoto.js']); // CSS a unifier dans le meme fichier
     $vue->loadpage(['sports'=>$sports, 'categorie'=>$categorie, 'error'=>$error, 'succes'=>$succes]);
   }
 

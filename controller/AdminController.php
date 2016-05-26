@@ -195,5 +195,4 @@ class AdminController
     $vue->loadbackoffice();
   }
 
-
 }

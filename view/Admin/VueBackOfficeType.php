@@ -18,7 +18,7 @@
           <p>Utilisateurs</p>
       </li>
     </a>
-    
+
     <a href="<?php goToPage('backofficegroupe')?>">
       <li class="nextline">
           <i class="fa fa-users"></i>
