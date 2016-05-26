@@ -57,6 +57,7 @@
   </div>
 <?php endforeach; ?>
 
+
 <div class="sidebar">
   <a href="<?php goToPage('Accueil')?>">
   <div class="TitreSite">
