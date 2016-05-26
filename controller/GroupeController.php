@@ -43,7 +43,7 @@ class GroupeController
         }
       }
       if(!empty($_POST['enregistrement'])){
-        $this->groupe->modifDataGroupe($id_groupe, $_POST['informations'], $_POST['ville'], $_POST['mail'], $_POST['telephone']);
+        $this->groupe->modifDataGroupe($id_groupe);
       }
     }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);

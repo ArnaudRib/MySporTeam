@@ -68,17 +68,17 @@
         </div>
         <?php if(!empty($_POST['modif'])):?>
           <h2>Mail</h2>
-          <input style="border:solid 1px black;width:90%;margin-bottom:2px;margin-left:5%;height:22px;" type="text" name="mail" value="<?php echo $datagroupe['mail_groupe']?>" id="pseudo" required/>
+          <input style="border:solid 1px black;width:90%;margin-bottom:2px;margin-left:5%;height:22px;" type="text" name="mail" value="<?php echo $datagroupe['mail']?>" id="pseudo" required/>
           <h2>Téléphone</h2>
-          <input style="border:solid 1px black;width:90%;margin-bottom:2px;margin-left:5%;height:22px;" type="text" name="telephone" value="<?php echo $datagroupe['telephone_groupe']?>" id="pseudo" required/>
+          <input style="border:solid 1px black;width:90%;margin-bottom:2px;margin-left:5%;height:22px;" type="text" name="telephone" value="<?php echo $datagroupe['telephone']?>" id="pseudo" required/>
           <h2>Ville</h2>
           <input style="border:solid 1px black;width:90%;margin-bottom:2px;margin-left:5%;height:22px;" type="text" name="ville" value="<?php echo $ville['name']?>" id="pseudo" required/>
         <?php else:?>
         <div>
           <h2>Mail</h2>
-          <p><?php echo $datagroupe['mail_groupe']?></p>
+          <p><?php echo $datagroupe['mail']?></p>
           <h2>Téléphone</h2>
-          <p><?php echo $datagroupe['telephone_groupe']?></p>
+          <p><?php echo $datagroupe['telephone']?></p>
         </div>
       <?php endif;?>
       </div>
