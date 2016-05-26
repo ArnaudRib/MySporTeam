@@ -1919,13 +1919,14 @@ td {
 .boutonInputFile{
   border-radius:6px;
   border:2px rgb(82, 172, 255) solid;
-  width:250px;
+  width:auto;
   padding:5px;
   background-color:white;
   text-align:center;
   transition:1s all ease;
-  margin-left:70px;
+  margin:0 auto;
 }
+
 
 .boutonInputFile:hover{
   background-color:rgba(164, 244, 255, 0.81);

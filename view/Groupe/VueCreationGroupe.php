@@ -59,9 +59,10 @@
           <input id='prive' type="radio" name="visibilite" value="prive" style="display: inline-block; width: 30px; height: 15px">
         </div>
 
-        <div class="ChangePicture">
+        <div class="ChangePictureSport">
           <label for="icone" class="boutonInputFile">Modifier l'icone du sport.</label>
           <input id="icone" class="files" type="file" name="icone" style="display:none;">
+          <img class="UploadedImage classImage" />
         </div>
 
         <textarea class="areacreation" name="description" rows="10" cols="50" placeholder="Description"></textarea>
