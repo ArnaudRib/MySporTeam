@@ -21,7 +21,7 @@
               <input id="photo" class="files" type="file" name="photo" style="display:none;">
             </div>
             <div class="infouser">
-              <h3 style='margin-bottom:10px;'>Informations :</h3> 
+              <h3 style='margin-bottom:10px;'>Informations :</h3>
               <div class="content-input">
                 <label class="textlabel" for="pseudo">Pseudo</label>
                 <input id="pseudo" type="text" name="pseudo" value="<?php echo $value['pseudo']?>" >
@@ -45,9 +45,12 @@
                 </div>
               </div>
             </div>
+            <div style="text-align:center;">
+              <button type="submit" class="BoutonType deleteboutton" style="width:80%;" name="deleteuser">Supprimer l'utilisateur.</button>
+            </div>
             <!-- RAJOTUER ICI LA SUITE DES TRUCS DU USER.-->
           </div>
-          <input type="submit" name="modifiergroupe" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:0px; width:100%; margin-top:20px;" value="Enregistrer les modifications">
+          <input type="submit" name="modifieruser" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:0px; width:100%; margin-top:20px;" value="Enregistrer les modifications">
         </form>
       </div>
     </div>
