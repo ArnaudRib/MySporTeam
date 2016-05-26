@@ -14,6 +14,7 @@ endif; */?>
           <h1>Connexion</h1>
         </div>
 
+
         <fieldset>
           <div>
             <label for="login"><img src="<?php echo image('Users/icone_utilisateur.png')?>" /></label>

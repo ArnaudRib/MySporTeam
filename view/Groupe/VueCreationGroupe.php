@@ -1,6 +1,14 @@
+
 <div class="bodybackground">
   <div class="blockinscription">
-    <nav id="inscription"> <!-- remettre <nav id="creationgroupe"> si tu veux pas noir-->
+  <?php if($error!=''):?>
+    <div class="errorbox blackborder radius">
+      <?php echo $error;?>
+    </div>
+  <?php endif; ?>
+
+    <nav id="creationgroupe"> <!-- remettre <nav id="creationgroupe"> si tu veux pas noir-->
+
       <form action="<?php goTopage('creationgroupe')?>" method="post" >
         <h1 class=""> Créer votre Groupe </h1>
         <?php if($error!=''):?>

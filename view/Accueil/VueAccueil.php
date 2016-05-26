@@ -18,10 +18,11 @@
     <div onclick="popup()" class="ligne1">
       <div class="div1 usualbackground">
         <span class="Police1">Sports</span>
-        <div class="img1 usualbackground" style="background-image:url('/asset/images/sport.png');"></div>
+        <div class="img1 usualbackground" style="background-image:url('/mysporteam/asset/images/sport.png');"></div>
       </div>
     </div>
     <div class="ligne2">
+
       <a style="color:green;" href='<?php goToPage('forum');?>'>
         <div class="div3 usualbackground">
           <span class="Police2"> Forums</a></span>
@@ -37,7 +38,7 @@
   <!--Partie Texte-->
   <aside>
     <div class="div2 usualbackground">
-      <div class="img3 usualbackground" style="background-image:url('/asset/images/chintoc.jpg');"></div>
+      <div class="img3 usualbackground" style="background-image:url('/mysporteam/asset/images/chintoc.jpg');"></div>
       <div class="div2bis">
         <div class="Haut1" style="padding:20px; text-align:justify; font-size:20px;">
           <p><strong>MySporteam</strong> vous permet d'intéragir avec des personnes ayant les mêmes passions que vous ! </br></br>
@@ -54,6 +55,7 @@
       </div>
     </aside>
   </nav>
+
 
   <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Fade', '100%', '400px'); ?>
   <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Slide', '100%', '400px'); ?>

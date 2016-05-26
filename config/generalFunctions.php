@@ -52,10 +52,10 @@ function dump($var){ //Sous forme de tableau!
   echo '</pre>';
 }
 
-function image($root){
+/*function image($root){
   $chemin='/asset/images/'.$root;
   return $chemin;
-}
+}*/
 
 function isLogged(){
   if(isset($_SESSION['user']))
@@ -70,6 +70,10 @@ function isAdmin(){
 }
 
 
+function image($root){
+  $chemin='/mysporteam/asset/images/'.$root;
+  echo $chemin;
+}
 /* Remise en forme */
 function minNoSpace($root){
   return htmlspecialchars(strtolower(str_replace(" ","-", $root)));

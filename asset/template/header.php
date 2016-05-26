@@ -40,7 +40,9 @@
 
 <div class="menushort">
   <div class="logo2">
+
     <a href="<?php goToPage("Accueil") ?>"><img src="<?php echo image('General/Logomysporteam.png')?>"/></a>
+
   </div>
   <nav>
       <ul>

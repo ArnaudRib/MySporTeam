@@ -19,6 +19,6 @@
 </body>
 
 <?php $this->loadjs();?>
-<script type="text/javascript" src="asset/js/header.js"/>
+<script type="text/javascript" src="/mysporteam/asset/js/header.js"/>
 
 </html>

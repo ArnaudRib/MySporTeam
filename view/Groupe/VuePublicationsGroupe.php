@@ -1,5 +1,6 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
+
   <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
@@ -85,6 +86,7 @@
         <div class="titre">
           <h1>Futurs évènements</h1>
         </div>
+
         <?php if ($evenement!=NULL):
             foreach ($evenement as $key => $value):?>
             <div class="evenenement"><img src="<?php echo image('Groupes/Evenements/'.$value['id'].'.jpg')?>"/></div>

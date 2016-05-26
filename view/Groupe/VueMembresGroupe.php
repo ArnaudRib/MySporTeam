@@ -1,6 +1,7 @@
 <?php dump($isMembre); ?>
 <div class="fond_mongroupe">
   <div id="image_de_fond">
+
   <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
@@ -39,6 +40,7 @@
   </div>
 
   <div id="corps_mongroupe">
+
     <?php foreach ($membre as $key => $value):?>
         <div id="<?php echo $i=count($membre) ?>" class="case_membre radius_mongroupe forme_case">
           <img src="<?php echo image('Groupes/sport3.jpg')?>" />

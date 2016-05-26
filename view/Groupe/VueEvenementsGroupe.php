@@ -1,5 +1,6 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
+
   <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
@@ -29,6 +30,7 @@
         </nav>
       </div>
   </div>
+
 
   <?php /*$taille=10; ?>
   <?php $hauteur=30+310*($taille); */?> <!-- REMPLACER $EVENEMNT PAR COUNT($EVENEMENT) plus tard qd requete. permet de setup la hauteur de la page. Evite pb ac footer -->
