@@ -67,22 +67,30 @@
     <div id="mur_mongroupe">
       <?php if($isLeader==true): ?>
         <form class="" action="" method="post">
-   <p>
-     <p style="width:100%;padding:4px;background-color:white;margin-bottom:10px;font-size:20px;" class="radius_mongroupe">Poster une nouvelle publication<p>
-       <label for="titre"></label>
-       <input style="width:100%;margin-bottom:2px;height:22px;" type="text" name="titre" value="" id="pseudo" placeholder="Titre" required/>
-       <label for="publication"></label><br />
-       <textarea style="width:100%;margin-bottom:10px; height:70px;" name="publication" value="" placeholder="Publication" required></textarea>
-   </p>
-   <input style="padding:9px;border-radius:5px; background-color:white;margin-bottom:20px;" type="submit" name="Poster" value="Poster">
-</form>
+           <div class="PostPublication">
+             <p class="headerPostPub titre">Poster une nouvelle publication<p>
+             <label for="titre"></label>
+             <input class="inputinfogroupe" type="text" name="titre" value="" id="pseudo" placeholder="Titre" required/>
+             <label for="publication"></label><br />
+             <textarea class="areagroupinfo" name="publication" value="" placeholder="Publication" required></textarea>
+             <div style="text-align:center;">
+               <input class="buttonPostPub" type="submit" name="Poster" value="Poster">
+             </div>
+           </div>
+        </form>
+
       <?php endif?>
       <div>
         <?php if ($publication!=NULL):
           foreach ($publication as $key => $value):?>
+          <?php
+          $AnMoisJour=explode('-',$value['date']);
+          $HeurMinSec=explode(':', (explode(' ', $AnMoisJour[2])[1]));
+          setlocale(LC_ALL, 'fr_FR');
+          ?>
           <div id="<?php echo $i=count($publication) ?>" class="publication forme_case radius_mongroupe">
             <h1><?php echo $value['titre']?></h1>
-            <h2><?php echo $value['date']?></h2>
+            <h2><?php echo 'Le '.strftime("%A %e %B %Y, à %H:%M:%S ", mktime($HeurMinSec[0],$HeurMinSec[1],$HeurMinSec[2],$AnMoisJour[1],$AnMoisJour[2],$AnMoisJour[0]));?></h2>
             <p><?php echo $value['texte']?></p>
           </div>
         <?php  endforeach;

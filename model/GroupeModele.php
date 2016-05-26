@@ -167,7 +167,7 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function publication($titre, $publication, $id_groupe){
-    $sql="INSERT INTO groupe_publication(titre, texte, date, id_groupe) VALUES (?,?,CURDATE(),?)";
+    $sql="INSERT INTO groupe_publication(titre, texte, date, id_groupe) VALUES (?,?,NOW(),?)";
     $resultat=$this->requeteSQL($sql, [$titre, $publication,$id_groupe]);
     return $resultat;
   }

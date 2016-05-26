@@ -879,6 +879,42 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   }
 }
 
+.buttonmodif{
+  padding:5px;
+  text-align:center;
+  background-color:rgba(64, 159, 247, 0.8);
+  border-radius:6px;
+  border:1px black solid;
+  width:100%;
+  font-size:15px;
+  transition:1s all ease;
+}
+
+.buttonmodif:hover{
+  background-color:rgb(170, 178, 255);
+  cursor:pointer;
+}
+
+.inputinfogroupe{
+  border:solid 1px black;
+  width:90%;
+  margin-bottom:2px;
+  margin-left:5%;
+  padding:10px 15px;
+  font-size:15px;
+}
+
+.areagroupinfo{
+  border:solid 1px black;
+  margin-left:5%;
+  width:90%;
+  font-size:15px;
+  margin-bottom:10px;
+  padding:8px;
+  height:70px;
+}
+
+
 /* MON GROUPE PUBLCIATION*/
 #corps_mongroupe{
   top:62px;
@@ -954,6 +990,40 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   display: inline-block;
   font-size: 14px;
   color:grey;
+}
+
+.PostPublication{
+  background-color:rgba(172, 224, 255, 0.55);
+  border:1px black solid;
+  border-radius:5px;
+  box-shadow: 0px 0px 5px rgba(4, 14, 255, 0.66);
+  margin:10px;
+  margin-top:0px;
+}
+
+.buttonPostPub{
+  width:90%;
+  background-color:rgb(148, 191, 255);
+  cursor:pointer;
+  padding:5px;
+  border:1px black solid;
+  border-radius:4px;
+  margin:5px;
+  transition:1s all ease;
+  font-size:15px;
+}
+
+.buttonPostPub:hover{
+  background-color:rgba(88, 235, 255, 0.68);
+}
+
+.headerPostPub{
+  width:100%;
+  padding:4px;
+  background-color:white;
+  margin-bottom:10px;
+  font-size:20px;
+  text-align:center;
 }
 
 .evenenement{
