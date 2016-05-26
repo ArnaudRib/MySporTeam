@@ -150,6 +150,11 @@ class Route
         $this->ctr['Groupe']->loadCreationGroupe();
         break;
 
+      case 'clubinfo':
+        $id_club=intval($this->params[0]);
+        $this->ctr['Groupe']->loadClub($id_club);
+        break;
+
       case 'sportgroupe':
         $id_sport=intval($this->params[0]);
         $this->ctr['Groupe']->loadGroupeSport($id_sport);
@@ -223,5 +228,5 @@ function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('n
       $url=str_replace("{".$key."}", $value, $url);
     }
   }
-  echo "/".$url;
+  echo "/mysporteam/".$url;
 }
