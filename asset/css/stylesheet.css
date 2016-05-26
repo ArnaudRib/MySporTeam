@@ -1833,6 +1833,12 @@ td {
   margin:5px;
 }
 
+.classImage{
+  width:500px;
+  height:auto;
+  padding:10px 0px;
+}
+
 .creationgroupe_select{
   font-size: 90%;
     color: white;
@@ -1843,7 +1849,6 @@ td {
     margin-left: 20%;
     background: #414141;
     border-radius: 5px 5px 5px 5px;
-
 }
 
 .validegroupe {
@@ -1873,6 +1878,7 @@ td {
 
 
 .boutonInputFile:hover{
+  cursor:pointer;
   background-color:rgba(164, 244, 255, 0.81);
 }
 

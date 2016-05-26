@@ -60,8 +60,8 @@
         </div>
 
         <div class="ChangePictureSport">
-          <label for="icone" class="boutonInputFile">Modifier l'icone du sport.</label>
-          <input id="icone" class="files" type="file" name="icone" style="display:none;">
+          <label for="photo" class="boutonInputFile">Ajouter une photo de groupe.</label>
+          <input id="photo" class="files" type="file" name="photogroupe" style="display:none;">
           <img class="UploadedImage classImage" />
         </div>
 

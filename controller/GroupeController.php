@@ -158,7 +158,7 @@ class GroupeController
       $verification = new Verification($_POST);
       $verificationPhoto = new Verification($_FILES);
       $verification->notEmpty('nom', "Veuillez spécifier un nom à votre groupe.");
-      //$verificationPhoto->PhotoOk('imagegroupe', $_POST['id'].'.jpg','Groupes/Profil');
+      $verificationPhoto->PhotoOk('photogroupe', $_POST['id'].'.jpg','Groupes/Profil');
       $verification->notEmpty('categorie', "Veuillez séléctionner une catégorie.");
       $verification->notEmpty('nombre', "Indiquez le nombre maximal de membres.");
       $verification->notEmpty('sport', "Choississez un sport.");
@@ -170,7 +170,7 @@ class GroupeController
 
       if($verification->isValid()){// && $verificationPhoto->isValid()){
         /*upload images*/
-        //$error.=uploadPhoto($_POST['id'].'.jpg', 'Groupes/Profil', 'imagegroupe');
+        $error.=uploadPhoto($_POST['id'].'.jpg', 'Groupes/Profil', 'photogroupe');
         //Add BDD
         if(empty($error)){
           $this->groupe->addGroupe();
@@ -178,27 +178,6 @@ class GroupeController
       }
     }
 
-    //
-    // if (isset($_POST['Envoyer'])){
-    //   if(exceptName(['imagegroupe'])){
-    //     $succes="Profil complété avec succès!";
-    //
-    //     if(isset($_FILES['imagegroupe'])&&!empty($_FILES['imagegroupe']['name'])){
-    //       $extensions_ok = array('png', 'jpg', 'jpeg', 'JPG','bmp');
-    //       $extension = pathinfo($_FILES['imagegroupe']['name'], PATHINFO_EXTENSION);
-    //       if(in_array($extension, $extensions_ok)){
-    //         if(move_uploaded_file($_FILES['imagegroupe']['tmp_name'] , 'images/image_groupe/'.$_SESSION['user']['id'].'.png')) {
-    //     }
-    //   }
-    // }
-    // if(is_file('images/image_groupe/'.$_SESSION['user']['id'].'.png')){
-    //   $imagegroupe = $_SESSION['user']['id'].'.png';
-    //   $groupe=$this->groupe->creationGroupe($imagegroupe);
-    //     }
-    //  }else{
-    //     $error=errorExceptInput(['imagegroupe']);
-    //   }
-    // }
     $categorie=$this->groupe->getCategory()->fetchAll();
     $sports=$this->sport->getSports()->fetchAll();
     $vue=new Vue("CreationGroupe", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['showphoto.js']); // CSS a unifier dans le meme fichier
