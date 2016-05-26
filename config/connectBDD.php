@@ -4,7 +4,7 @@ class BaseDeDonnes
 {
   private $servername = "localhost";
   private $username = "root";
-  private $password = "root";
+  private $password = "";
   private $dbname = "MySporTeamBDD";
   private $db;
 

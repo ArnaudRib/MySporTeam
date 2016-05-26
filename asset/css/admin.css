@@ -688,49 +688,6 @@ width: 20%;
   margin:40px auto;
 }
 
-.content-input input{
-  border:1px black solid;
-}
-
-.inputtextuser{
-  text-align: center;
-  float: left;
-  width: auto;
-  height: 35px;
-  margin: 1%;
-  padding: 8px 10px;
-  margin-right: 0px;
-  border: 1px solid black;
-  border-right: 0px;
-  background: linear-gradient(to bottom, #8fc1f5, #5ea2e8);
-  font-size:15px !important;
-}
-
-.infouser{
-  width:90%;
-  text-align:left;
-  margin: 50px auto;
-  padding:20px;
-  border-radius:8px;
-  border-radius: 4px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
-
-}
-
-.imguser{
-  width:auto;
-  height:100px;
-}
-
-.content-box{
-}
-
-.radiobox{
-  display:inline-block;
-  width:100px;
-  margin:20px 15px;
-}
-
 /*GENERAL*/
 .block50{
   width:50%;

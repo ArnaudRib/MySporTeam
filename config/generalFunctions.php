@@ -71,7 +71,7 @@ function isAdmin(){
 
 
 function image($root){
-  $chemin='/mysporteam/asset/images/'.$root;
+  $chemin='/asset/images/'.$root;
   echo $chemin;
 }
 /* Remise en forme */
