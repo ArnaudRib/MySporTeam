@@ -126,8 +126,14 @@ class GroupeController
         }if($_POST['abonnement']=="Désinscrire"){
           $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
         }
-      }if(!empty($_POST['titre']) and !empty($_POST['publication'])){
+      }
+      $verification = new Verification($_POST);
+      $verification->notEmpty('titre', "Veuillez spécifier un titre à votre publication.");
+      $verification->notEmpty('publication', "Complétez le champ publication.");
+      $error=$verification->error;
+      if($verification->isValid()){
         $this->groupe->publication($_POST['titre'], $_POST['publication'], $id_groupe);
+        $succes="Publication ajoutée!";
       }
     }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
@@ -137,7 +143,7 @@ class GroupeController
     $ville=$this->groupe->getVille($datagroupe['id_ville'])->fetch();
     $publication=$this->groupe->getPublications($id_groupe)->fetchAll();
     $evenement=$this->groupe->getEvenements($id_groupe)->fetchAll();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'sport'=>$sport, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader, 'ville'=>$ville, 'publication'=>$publication,  'evenement'=>$evenement]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'sport'=>$sport, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader, 'ville'=>$ville, 'publication'=>$publication,  'evenement'=>$evenement, 'error'=>$error, 'succes'=>$succes]);
   }
 
   public function loadUnePublicationsGroupe($id_groupe, $id_publication)

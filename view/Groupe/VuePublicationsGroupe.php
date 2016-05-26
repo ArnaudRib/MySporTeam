@@ -64,12 +64,24 @@
            <div class="PostPublication">
              <p class="headerPostPub titre">Poster une nouvelle publication<p>
              <label for="titre"></label>
-             <input class="inputinfogroupe" type="text" name="titre" value="" id="pseudo" placeholder="Titre" required/>
+             <input class="inputinfogroupe" type="text" name="titre" value="" id="pseudo" placeholder="Titre"/>
              <label for="publication"></label><br />
-             <textarea class="areagroupinfo" name="publication" value="" placeholder="Publication" required></textarea>
+             <textarea class="areagroupinfo" name="publication" value="" placeholder="Publication"></textarea>
              <div style="text-align:center;">
                <input class="buttonPostPub" type="submit" name="Poster" value="Poster">
              </div>
+
+             <?php if($error!=''):?>
+               <div class="errorbox blackborder radius" style="font-size:15px; margin: 20px auto; ">
+                 <?php echo $error;?>
+               </div>
+             <?php endif; ?>
+             <?php if($succes!=''): ?>
+               <div class="successbox blackborder radius" style='margin:20px auto;'>
+                 <?php echo $succes;?>
+               </div>
+             <?php endif; ?>
+             
            </div>
         </form>
 
