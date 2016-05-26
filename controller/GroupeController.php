@@ -199,4 +199,15 @@ class GroupeController
     $vue=new Vue("GroupeSport", "Groupe", ['stylesheet.css'], ['GroupeSport.js']);
     $vue->loadpage(['sport'=>$sport, 'sports'=>$sports, 'photo'=>$photo, 'Allsports'=>$Allsports, 'groupes'=>$groupes, 'nbmembre'=>$nbmembre]);
   }
+
+  public function loadClub($id_club)
+  {
+    $dataclub=$this->groupe->getClub($id_club)->fetch();
+    // $email=$this->groupe->getEmailClub($dataclub['email'])->fetch();
+    // $tel=$this->groupe->getTelClub($dataclub['telephone'])->fetch();
+    // $adresse=$this->groupe->getAdresse($dataclub['adresse'])->fetch();
+    // $ville=$this->groupe->getVille($dataclub['id_ville'])->fetch();
+    $vue=new Vue("Club", "Groupe", ['stylesheet.css']);
+    $vue->loadpage(['dataclub'=>$dataclub]);
+  }
 }

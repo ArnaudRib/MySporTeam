@@ -14,6 +14,7 @@
   "unevenementgroupe":"groupe/{id}/evenements/{id_evenement}",
   "membresgroupe":"groupe/{id}/membres",
   "creationgroupe":"creationgroupe",
+  "clubinfo":"club/{id_club}",
   "profil":"myprofil",
   "planningUtilisateur":"myprofil/planning",
   "groupesUtilisateur":"myprofil/groupes",

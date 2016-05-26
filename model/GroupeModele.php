@@ -80,6 +80,12 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function getClub($id_club){
+    $sql="SELECT * FROM club WHERE id=?";
+    $resultat=$this->requeteSQL($sql,[$id_club]);
+    return $resultat;
+  }
+
   function searchVilleName($nbdisplay){
     $sql="SELECT name FROM city WHERE name LIKE ?  ORDER BY name LIMIT ?";
     $resultats=$this->connectBDD()->prepare($sql);
