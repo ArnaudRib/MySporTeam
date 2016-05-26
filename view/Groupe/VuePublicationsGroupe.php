@@ -12,16 +12,20 @@
             <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="selectionne"><li>Publications</li></a>
             <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Evènements</li></a>
             <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li>Membres</li></a>
-            <?php if(empty($isMembre)):?>
+            <?php if($isMembre==false):?>
             <li id="abonnement" style="margin-top:-10px;">
               <form class="" action="" method="post">
                 <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
               </form>
             </li>
+          <?php elseif($isLeader==true): ?>
+            <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
+            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Créer un événement</a>
+            </li>
             <?php else: ?>
               <li id="desabonnement" style="margin-top:-10px;">
               <form class="" action="" method="post">
-                <input type="submit" name="desabonnement" value="Désinscrire" style='cursor:pointer;'>
+                <input type="submit" name="abonnement" value="Désinscrire" style='cursor:pointer;'>
               </form>
               </li>
             <?php endif;?>
@@ -61,6 +65,18 @@
 
 
     <div id="mur_mongroupe">
+      <?php if($isLeader==true): ?>
+        <form class="" action="" method="post">
+   <p>
+     <p style="width:100%;padding:4px;background-color:white;margin-bottom:10px;font-size:20px;" class="radius_mongroupe">Poster une nouvelle publication<p>
+       <label for="titre"></label>
+       <input style="width:100%;margin-bottom:2px;height:22px;" type="text" name="titre" value="" id="pseudo" placeholder="Titre" required/>
+       <label for="publication"></label><br />
+       <textarea style="width:100%;margin-bottom:10px; height:70px;" name="publication" value="" placeholder="Publication" required></textarea>
+   </p>
+   <input style="padding:9px;border-radius:5px; background-color:white;margin-bottom:20px;" type="submit" name="Poster" value="Poster">
+</form>
+      <?php endif?>
       <div>
         <?php if ($publication!=NULL):
           foreach ($publication as $key => $value):?>

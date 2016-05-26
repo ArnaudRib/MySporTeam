@@ -28,6 +28,12 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function getIdVille($ville){
+    $sql="SELECT * FROM city WHERE name=?";
+    $resultat=$this->requeteSQL($sql, [$ville]);
+    return $resultat;
+  }
+
   function getSport($id_sport){
     $sql="SELECT * FROM sports WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$id_sport]);
@@ -47,13 +53,21 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function getPublications($id_groupe){
-    $sql="SELECT * FROM groupe_publication WHERE id_groupe=?";
+    $sql="SELECT * FROM groupe_publication WHERE id_groupe=? ORDER BY date DESC";
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
   }
 
   function getMembres($id_groupe){
+    echo "demarrere";
+    echo $id_groupe;
     $sql="SELECT * FROM utilisateur INNER JOIN utilisateur_groupe ON id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe]);
+    return $resultat;
+  }
+
+  function getInfoLeader($id_groupe){
+    $sql="SELECT * FROM utilisateur INNER JOIN utilisateur_groupe ON id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe=? AND leader_groupe=1";
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
   }
@@ -127,15 +141,27 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function joinGroupe($id_user, $id_groupe){
-    echo "fucking not work";
-    echo $id_groupe;
     $sql="INSERT INTO utilisateur_groupe(id_utilisateur, id_groupe) VALUES (?,?)";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
     return $resultat;
   }
 
+  function modifDataGroupe($id_groupe, $info, $ville_groupe, $mail_groupe, $telephone_groupe){
+    echo "PD";
+    echo $telephone_groupe;
+    $ville=2;
+    $sql="UPDATE groupe SET description=$info, id_ville=$ville, telephone_groupe=$telephone_groupe, mail_groupe=$mail_groupe WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe]);
+    return $resultat;
+  }
+
+  function publication($titre, $publication, $id_groupe){
+    $sql="INSERT INTO groupe_publication(titre, texte, date, id_groupe) VALUES (?,?,CURDATE(),?)";
+    $resultat=$this->requeteSQL($sql, [$titre, $publication,$id_groupe]);
+    return $resultat;
+  }
+
   function quitGroupe($id_user, $id_groupe){
-    echo "fucking not work2";
     $sql="DELETE FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
   }

@@ -1,4 +1,4 @@
-<?php dump($isMembre); ?>
+<?php dump($membre)?>
 <div class="fond_mongroupe">
   <div id="image_de_fond">
   <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>

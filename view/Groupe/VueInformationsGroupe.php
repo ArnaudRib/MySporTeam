@@ -1,3 +1,4 @@
+<?php dump($_POST)?>
 <div class="fond_mongroupe">
   <div id="image_de_fond">
   <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
@@ -12,16 +13,27 @@
           <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li>Publications</li></a>
           <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Evènements</li></a>
           <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li>Membres</li></a>
-          <?php if(empty($isMembre)):?>
+          <?php if($isMembre==false):?>
           <li id="abonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
               <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
             </form>
           </li>
+        <?php elseif($isLeader==true):
+          if(empty($_POST['modif'])):?>
+          <li id="abonnement" style="margin-top:-10px;margin-left:10px;display:inline-block;">
+            <form class="" action="" method="post">
+              <input  type="submit" name="modif" value="Modif" style='cursor:pointer;'>
+            </form>
+          </li>
+        <?php endif;?>
+          <li id="abonnement" style="margin-top:-10px; margin-left:10px; padding:5px;">
+          <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Créer un événement</a>
+          </li>
           <?php else: ?>
             <li id="desabonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
-              <input type="submit" name="desabonnement" value="Désinscrire" style='cursor:pointer;'>
+              <input type="submit" name="abonnement" value="Désinscrire" style='cursor:pointer;'>
             </form>
             </li>
           <?php endif;?>
@@ -39,22 +51,46 @@
         <div class="titre">
           <h1>Informations groupe</h1>
         </div>
+        <?php if(!empty($_POST['modif'])):?>
+          <form class="" action="" method="post">
+            <label for="publication"></label><br />
+            <textarea style="border:solid 1px black;margin-left:5%;width:90%;margin-bottom:10px; height:70px;" name="informations" value="" required><?php echo $datagroupe['description']?></textarea>
+        <?php else:?>
         <div>
           <p><?php echo $datagroupe['description']?></p>
           <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
         </div>
+        <?php endif;?>
       </div>
       <div class="radius_mongroupe forme_case">
         <div class="titre">
           <h1>Contact</h1>
         </div>
+        <?php if(!empty($_POST['modif'])):?>
+          <h2>Mail</h2>
+          <input style="border:solid 1px black;width:90%;margin-bottom:2px;margin-left:5%;height:22px;" type="text" name="mail" value="<?php echo $datagroupe['mail_groupe']?>" id="pseudo" required/>
+          <h2>Téléphone</h2>
+          <input style="border:solid 1px black;width:90%;margin-bottom:2px;margin-left:5%;height:22px;" type="text" name="telephone" value="<?php echo $datagroupe['telephone_groupe']?>" id="pseudo" required/>
+          <h2>Ville</h2>
+          <input style="border:solid 1px black;width:90%;margin-bottom:2px;margin-left:5%;height:22px;" type="text" name="ville" value="<?php echo $ville['name']?>" id="pseudo" required/>
+        <?php else:?>
         <div>
           <h2>Mail</h2>
-          <p>aaaaaaaagggaaaaaaaaaa@gmail.com</p>
+          <p><?php echo $datagroupe['mail_groupe']?></p>
           <h2>Téléphone</h2>
-          <p>03 XX XX XX XX</p>
+          <p><?php echo $datagroupe['telephone_groupe']?></p>
         </div>
+      <?php endif;?>
       </div>
+      <?php if(!empty($_POST['modif'])):?>
+      <input style="padding:9px;border-radius:5px; background-color:white;margin-top:20px;" type="submit" name="enregistrement" value="Enregistrer Modification">
+      <?php
+    endif;
+      if(!empty($_POST['enregistrement'])){
+        $_POST['modif']=NULL;
+      }
+      ?>
+    </form>
     </div>
 
     <div class="cote_informations">
