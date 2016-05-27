@@ -1,9 +1,10 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-  <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
+    <?php $nomgroupe=str_replace(' ', '-', $datagroupe['nom']);?>
+  <img src="<?php echo image('Groupes/Banière/'.$nomgroupe.'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
-      <img src="<?php echo image('Groupes/Profil/'.$datagroupe['id'].'.jpg')?>"/>
+      <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>
       <h1><?php echo $datagroupe['nom']?></h1>
       <div id="menu_mongroupe">
         <nav>
@@ -39,59 +40,76 @@
       <div class="radius_mongroupe forme_case" id="nom_sport">
         <h1><?php echo ucfirst($sport['nom'])?></h1>
       </div>
-
       <div class="radius_mongroupe forme_case">
         <div class="titre">
           <h1>Informations groupe</h1>
         </div>
         <div>
-          <p><?php echo $datagroupe['description']?></p>
+          <p style="width: 425px;"><?php echo $datagroupe['description']?></p>
           <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
         </div>
       </div>
-
-
-
       <div class="radius_mongroupe mongroupe_lieu forme_case">
         <div class="titre">
           <h1>Lieu</h1>
         </div>
-        <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:200px;width:100%;'><div id='gmap_canvas' style='height:200px;width:100%;'></div><div><small><a href="http://embedgooglemaps.com">									google maps carte
+        <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:200px;width:100%;'><div id='gmap_canvas' style='height:200px;width:100%;'></div><div><small><a href="http://embedgooglemaps.com">
         </a></small></div><div><small><a href="http://youtubeembedcode.com">embed youtube code</a></small></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type='text/javascript'>function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(<?php echo $ville['longitude']?>,<?php echo $ville['latitude']?>),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(<?php echo $ville['longitude']?>,<?php echo $ville['latitude']?>)});infowindow = new google.maps.InfoWindow({content:'<strong>Localisation</strong><br><?php echo $ville['name']?><br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
       </div>
-
-
     </div>
 
 
     <div id="mur_mongroupe">
       <?php if($isLeader==true): ?>
         <form class="" action="" method="post">
-   <p>
-     <p style="width:100%;padding:4px;background-color:white;margin-bottom:10px;font-size:20px;" class="radius_mongroupe">Poster une nouvelle publication<p>
-       <label for="titre"></label>
-       <input style="width:100%;margin-bottom:2px;height:22px;" type="text" name="titre" value="" id="pseudo" placeholder="Titre" required/>
-       <label for="publication"></label><br />
-       <textarea style="width:100%;margin-bottom:10px; height:70px;" name="publication" value="" placeholder="Publication" required></textarea>
-   </p>
-   <input style="padding:9px;border-radius:5px; background-color:white;margin-bottom:20px;" type="submit" name="Poster" value="Poster">
-</form>
+           <div class="PostPublication">
+             <p class="headerPostPub titre">Poster une nouvelle publication<p>
+             <label for="titre"></label>
+             <input class="inputinfogroupe" type="text" name="titre" value="" id="pseudo" placeholder="Titre"/>
+             <label for="publication"></label><br />
+             <textarea class="areagroupinfo" name="publication" value="" placeholder="Publication"></textarea>
+             <div style="text-align:center;">
+               <input class="buttonPostPub" type="submit" name="Poster" value="Poster">
+             </div>
+           </div>
+        </form>
+
+        <?php if($error!=''):?>
+          <div class="errorbox blackborder radius" style="font-size:15px; margin: 20px auto; ">
+            <?php echo $error;?>
+          </div>
+        <?php endif; ?>
+        <?php if($succes!=''): ?>
+          <div class="successbox blackborder radius" style='margin:20px auto;padding:20px;'>
+            <?php echo $succes;?>
+          </div>
+        <?php endif; ?>
+
       <?php endif?>
       <div>
         <?php if ($publication!=NULL):
           foreach ($publication as $key => $value):?>
           <div id="<?php echo $i=count($publication) ?>" class="publication forme_case radius_mongroupe">
+            <?php if($isLeader):?>
+              <form class="" action="" method="post">
+                <label for="deletebutton" class="deletebutton">&#10006;</label>
+                <input type="hidden" name="id_publication" value="<?php echo $value['id']?>">
+                <input id="deletebutton" type="submit" name="deletePub" value="delete" style="display:none;">
+              </form>
+            <?php endif?>
             <h1><?php echo $value['titre']?></h1>
-            <h2><?php echo $value['date']?></h2>
+            <h2><?php echo diffDate($value['date']);?></h2>
             <p><?php echo $value['texte']?></p>
+            <h5 class="posteurPub">Publié par : <span><?php echo $user[$value['id']]?> </span></h5>
           </div>
         <?php  endforeach;
-      else:?>
-        <div  class="publication forme_case radius_mongroupe">
-          <h1> Aucune Publication</h1>
-        </div>
-        <?php
-      endif; ?>
+
+          else:?>
+            <div  class="publication forme_case radius_mongroupe">
+              <h1> Aucune Publication</h1>
+            </div>
+            <?php
+          endif; ?>
       </div>
     </div>
 
@@ -103,14 +121,16 @@
         </div>
         <?php if ($evenement!=NULL):
             foreach ($evenement as $key => $value):?>
+            <a href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id']])?>">
             <div class="evenenement"><img src="<?php echo image('Groupes/Evenements/'.$value['id'].'.jpg')?>"/></div>
+            </a>
           <?php endforeach;
           else:?>
-              <div  class="publication forme_case radius_mongroupe">
-                <h1> Aucun événement</h1>
-              </div>
-              <?php
-            endif; ?>
+            <div  class="publication forme_case radius_mongroupe">
+              <h1> Aucun événement</h1>
+            </div>
+            <?php
+          endif; ?>
     </div>
   </div>
 

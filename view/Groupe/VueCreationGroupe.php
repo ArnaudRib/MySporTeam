@@ -1,14 +1,8 @@
 <div class="bodybackground">
   <div class="blockinscription">
-  <?php if($error!=''):?>
-    <div class="errorbox blackborder radius">
-      <?php echo $error;?>
-    </div>
-  <?php endif; ?>
-
     <nav id="creationgroupe"> <!-- remettre <nav id="creationgroupe"> si tu veux pas noir-->
 
-      <form action="<?php goTopage('creationgroupe')?>" method="post" >
+      <form action="<?php goTopage('creationgroupe')?>" method="post" enctype="multipart/form-data" >
         <h1 class=""> Créer votre Groupe </h1>
         <?php if($error!=''):?>
           <div class="errorbox blackborder radius">
@@ -20,43 +14,59 @@
             <?php echo $succes;?>
           </div>
         <?php endif; ?>
-        <fieldset>
-          <div>
-            <label for="nom"><img src="<?php echo image('Users/icone_utilisateur.png')?>" /></label>
-            <input type="text" name="nom" placeholder="Nom du Groupe">
-          </div>
-          <input type="file" name="imagegroupe">
 
-          <select name="categorie" require>
+        <fieldset>
+          <div style="display:block; margin-left:20px;">
+            <label for="nom" class="fa fa-group labelnom"></label>
+            <input id="nom" type="text" name="nom" placeholder="Nom du Groupe"/></div>
+          <div style="display:block;margin-left:20px;">
+            <label for="number" class="fa fa-line-chart labelnom"></label>
+            <input id="number" type="number" placeholder="Nombre de membres : 45max" name="nombre" min="0" max="45"/>
+          </div>
+          <div style="display:block;margin-left:20px;">
+            <label for="ville" class="fa fa-home labelnom"></label>
+            <input id='ville' type="text" name="ville" placeholder="Ville"/></br>
+          </div>
+
+        <div style="text-align:center; margin-right:-20px;margin-right: 4px; margin-left: -37px;">
+          <select name="categorie" class="selectcreation"  require >
             <option selected value=""> --- Catégorie --- </option>
             <?php foreach ($categorie as $key => $value): ?>
               <option value="<?php echo $value['id']?>"><?php echo $value['nom']?></option>
             <?php endforeach; ?>
           </select>
+          <select  class="selectcreation" name="sport">
+            <option value="" selected> --- Sport --- </option>
+            <?php foreach ($sports as $key => $value): ?>
+              <option value="<?php echo $value['id']?>"> <?php echo ucfirst($value['nom'])?> </option>
+            <?php endforeach; ?>
+          </select>
+        </div>
 
-          <input type="number" placeholder="Nombre de membres : 45max" name="nombre" min="0" max="45"/>
-          <?php /*if(isset($_POST['nbr_max'])){
-            if ($_POST ['nbr_max'] >= 45 or $_POST ['nbr_max'] < 0){
-            echo "Perdu";}
-            else {
-            echo "Gagné";
-          }
-        } A METTRE DANS LE CONTROLLER SI VRAIMENT NECESSAIRE*/?>
+        <div style="text-align:center;">
+          <label for='public' style="display: inline-block; width: 60px; float: none;">Public</label>
+          <input id='public' style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" name="visibilite" value="public">
+          <label for='prive' style="display: inline-block; width: 60px; float: none;">Privé</label>
+          <input id='prive' type="radio" name="visibilite" value="prive" style="display: inline-block; width: 30px; height: 15px">
+        </div>
 
-        <select name="sport">
-          <option value="" selected> --- Sport --- </option>
-          <?php foreach ($sports as $key => $value): ?>
-            <option value="<?php echo $value['id']?>"> <?php echo ucfirst($value['nom'])?> </option>
-          <?php endforeach; ?>
-        </select>
-        <input type="text" name="ville" placeholder="Ville"></br>
+        <div class="ChangePictureSport">
+          <label for="photo" class="boutonInputFile">Ajouter une photo de groupe.</label>
+          <input id="photo" class="files" type="file" name="photogroupe" style="display:none;">
+          <img class="UploadedImage classImage" />
+        </div>
 
-        <label style="display: inline-block; width: 60px; float: none;">Public</label> <input style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" name="visibilite" value="public">
-        <label style="display: inline-block; width: 60px; float: none;">Privé</label> <input type="radio" name="visibilite" value="prive" style="display: inline-block; width: 30px; height: 15px">
+        <div class="ChangePictureSport">
+          <label for="baniere" class="boutonInputFile">Ajouter une photo banière de groupe.</label>
+          <input id="baniere" class="files" type="file" name="baniere" style="display:none;">
+          <img class="UploadedImage classImage" />
+        </div>
+        
+        <textarea class="areacreation" name="description" rows="10" cols="50" placeholder="Description"></textarea>
 
-        <textarea name="description" rows="10" cols="50" placeholder="Description"></textarea>
-
-        <input id="submit" type="submit" name="Envoyer" value="Valider">
+        <div style="text-align:center;">
+          <input class="subboutton" id="submit" type="submit" name="Envoyer" value="Valider">
+        </div>
       </fieldset>
     </form>
 

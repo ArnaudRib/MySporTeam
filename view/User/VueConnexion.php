@@ -22,8 +22,11 @@ endif; */?>
 
           <div><label for="mdp"><img src="<?php echo image('Users/icone_lock.png')?>" /></label>
             <input id="mdp" type="password" name="mot_de_passe" placeholder="Mot de passe" oninput="Verification()" required></div> <br />
-            <p><a href=""> Mot de passe oublié ? </a>|<a href="inscription"> Pas inscrit ?</a></p>
-
+            <div style="margin-top:-15px;">
+              <a style="text-decoration:none !important;" href=""> <p class="textunderconnexion">Mot de passe oublié ?</p> </a>
+              |
+              <a style="text-decoration:none !important;" href="inscription"> <p class="textunderconnexion">Pas inscrit ?</p></a>
+            </div>
             <?php echo $message; ?>
           </br>
           <input id="submit" type="submit" name="Envoyer" value="Se connecter"> <br />

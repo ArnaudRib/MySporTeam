@@ -408,7 +408,7 @@ footer li{
 }
 
 .button:hover{
-  background-color: red;
+  background-color: rgba(107, 131, 255, 0.86);
   box-shadow: 0px 0px 10px #EDF5A5;
 }
 
@@ -491,7 +491,6 @@ input.searchbar{
 @keyframes boxes{
   0%{
     opacity: 0;
-    transform:scale(0.00001);
   }
   100%{
     opacity: 1;
@@ -525,9 +524,9 @@ input.searchbar{
 .Haut1{
   margin:5% 10% 2% 10%;
   display:inline-block;
-  background-color: red;
+  background-color: rgba(93, 173, 231, 0.8);
   width: 80%;
-  height: 70%;
+  height: auto;
   z-index: 2;
 }
 
@@ -594,6 +593,16 @@ body{
   width: 100%;
 }
 
+.textunderconnexion{
+  font-size:13px;
+  color:grey;
+  display:inline-block;
+  transition:1s all ease;
+}
+
+.textunderconnexion:hover{
+  color:black;
+}
 .bodybackground{
   background-image:url("../images/wallpaper.png");
 }
@@ -606,11 +615,6 @@ form h1 {
   color: white;
   background-color: #2c2c2c;
   border-bottom: 1px solid black;
-}
-
-form p {
-    color: black;
-    font-size: 0.6em;
 }
 
 
@@ -879,6 +883,42 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   }
 }
 
+.buttonmodif{
+  padding:5px;
+  text-align:center;
+  background-color:rgba(64, 159, 247, 0.8);
+  border-radius:6px;
+  border:1px black solid;
+  width:100%;
+  font-size:15px;
+  transition:1s all ease;
+}
+
+.buttonmodif:hover{
+  background-color:rgb(170, 178, 255);
+  cursor:pointer;
+}
+
+.inputinfogroupe{
+  border:solid 1px black;
+  width:90%;
+  margin-bottom:2px;
+  margin-left:5%;
+  padding:10px 15px;
+  font-size:15px;
+}
+
+.areagroupinfo{
+  border:solid 1px black;
+  margin-left:5%;
+  width:90%;
+  font-size:15px;
+  margin-bottom:10px;
+  padding:8px;
+  height:70px;
+}
+
+
 /* MON GROUPE PUBLCIATION*/
 #corps_mongroupe{
   top:62px;
@@ -946,14 +986,78 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 
 .publication h1{
   padding:5px;
+  padding-left:40px;
   display: inline-block;
   font-size: 20px;
+  width: 350px;
 }
 
 .publication h2{
   display: inline-block;
-  font-size: 14px;
+  font-size: 13px;
+  font-style:italic;
+  float:right;
+  padding:5px;
+  padding-right:10px;
   color:grey;
+}
+
+.deletebutton{
+  position:absolute;
+  font-size:25px;
+  padding-top:-10px;
+  padding-left:12px;
+  cursor:pointer;
+  color:red;
+  transition:1s all ease;
+}
+.deletebutton:hover{
+  color:orange;
+}
+
+.posteurPub{
+  font-size:8px;
+  color:grey;
+  float:right;
+  padding:5px;
+}
+
+.posteurPub span{
+  color:red;
+}
+
+.PostPublication{
+  background-color:rgba(172, 224, 255, 0.55);
+  border:1px black solid;
+  border-radius:5px;
+  box-shadow: 0px 0px 5px rgba(4, 14, 255, 0.66);
+  margin:10px;
+  margin-top:0px;
+}
+
+.buttonPostPub{
+  width:90%;
+  background-color:rgb(148, 191, 255);
+  cursor:pointer;
+  padding:5px;
+  border:1px black solid;
+  border-radius:4px;
+  margin:5px;
+  transition:1s all ease;
+  font-size:15px;
+}
+
+.buttonPostPub:hover{
+  background-color:rgba(88, 235, 255, 0.68);
+}
+
+.headerPostPub{
+  width:100%;
+  padding:4px;
+  background-color:white;
+  margin-bottom:10px;
+  font-size:20px;
+  text-align:center;
 }
 
 .evenenement{
@@ -1111,7 +1215,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   }
 
   /*PAGE EVENEMENT MON GROUPE*/
-  .participation a{
+  .participation{
     background: linear-gradient(141deg, #045FB4 30%, #084B8A 61%, #084B8A 75%);
     border-radius: 5px;
     padding:11px;
@@ -1450,13 +1554,14 @@ ul {
 .imagegroupe{
   display:inline-block;
   width: 50%;
-  height: 100px;
+  height: 150px;
 }
 
 .nomgroupe{
   margin-left: 10px;
   text-align: center;
   display: inline-block;
+  vertical-align: top;
 }
 
 .descriptiongroupe{
@@ -1584,119 +1689,63 @@ ul {
 
 
 /* Profil */
-.profil {
-  margin-top: 80px;
-}
-
-.corps_profil {
-  border: 1px solid black;
-  margin-right: 15%;
-  margin-left: auto;
-  width: 60%;
-
-  background-color: white;
-  border-radius: 7px;
-  box-shadow: 2px 2px 5px #1F2A36;
-}
-
-.gauche_profil {
-  border: 1px solid black;
-  width: 10%;
-  float: left;
-  margin-left: 10%;
-  margin-right: 5%;
-
-  background-color: white;
-  border-radius: 7px;
-  box-shadow: 2px 2px 5px #1F2A36;
-}
-
-.gauche_profil h1 {
-  color: #183152;
-  font-size: 20px;
-  padding: 5px;
-  border-bottom: 1px solid #183152;
-}
 
 .gauche_profil li {
   list-style-type: none;
   padding: 3px;
 }
 
-#actualite {
-    margin: auto;
-    display: block;
-}
-
-#actualite h1{
-  font-family: Verdana;
-  font-size: 20px;
-  margin-left: 7px;
-  display: inline;
-}
-
-#actualite h2{
-  font-family: Verdana;
-  font-size: 10px;
-  margin-left: 7px;
-  display: inline;
-  color:#848484;
-  text-decoration: none;
-}
-
-#actualite p{
-  padding:7px;
-  font-family: Verdana;
-  font-size: 16px;
-  margin-bottom: 8px;
-  border-top: 1px solid grey;
-}
-
-#groupes_profil {
-  width: 70%;
-  margin-left: 15%;
-
-  background-color: white;
+#creergroupe{
+  margin-left:100px;
+  color:#0B610B;
+  background-color: #FAFAFA;
+  border: outset 1px;
   border-radius: 8px;
-  box-shadow: 2px 2px 5px #1F2A36;
+  padding:4px;
+  vertical-align: top;
+  margin-top: 6px;
 }
 
-#groupe h1 {
-  font-family: Verdana;
-  font-size: 20px;
-  margin-top: 10px;
-  margin-left: 7px;
-  display: inline;
+#creergroupe:hover{
+  background-color: green;
+  color:white;
 }
 
-#groupe h2{
-  font-family: Verdana;
-  font-size: 10px;
-  margin-left: 7px;
-  display: inline;
-  color:#848484;
-  text-decoration: none;
+.profil {
+  margin-top: 100px;
+  margin-bottom: 10px;
+  padding: 5px;
 }
 
-#groupe p{
-  padding:7px;
-  font-family: Verdana;
+.profil img{
+  display: inline-block;
+  height: 26px;
+  float: right;
+  padding-bottom: 10px;
+}
+
+.profil li {
+  width: 100%;
+  padding: 5px;
+}
+
+.profil input {
   font-size: 16px;
-  margin-bottom: 8px;
-  border-top: 1px solid grey;
+  width: auto;
+  border: inherit;
+  border: 1px #0056af solid;
+  border-radius: 5px;
 }
 
-#groupe a{
-  text-decoration: none;
-  font-size: 14px;
+.infos_profil {
+  width: 60%;
+  margin-left: 20%;
+  background-color: white;
 }
 
-#calendrier_profil .calendrier{
-  top: inherit;
+.infos {
+  padding: 10px;
 }
-
-
-
 /* Calendrier */
 #next {
   float: right;
@@ -1833,24 +1882,66 @@ td {
 
 
 #creationgroupe {
-  margin-top: 40px;
-  margin-bottom: 30px;
+  margin:40px auto;
+  width:60%;
   border: 1px solid black;
-  width: 40%;
-  margin-left: 30%;
   background-color: rgba(255, 255, 255, 0.9);
 }
 
 #creationgroupe input {
   font-size: 90%;
-    color: white;
-    height: 35px;
-    width: 80%;
-    padding: 5px;
-    margin: 4%;
-    margin-left: 9%;
-    background: #414141;
-    border-radius: 5px 5px 5px 5px;
+  color: white;
+  height: 37px;
+  width: 70%;
+  background: #414141;
+  border-radius: 0px 5px 5px 0px;
+  transition:1s all ease;
+}
+
+#creationgroupe .labelnom {
+  text-align: center;
+  width: 10%;
+  margin: 4%;
+  padding: 10px;
+  margin-right: 0px;
+  margin-top:7px;
+  margin-right:-13px;
+  border: 1px solid black;
+  border-right: 0px;
+  border-radius: 5px 0px 0px 5px;
+  background: linear-gradient(to bottom, #007eff, #0062c7);
+  transition:1s all ease;
+}
+
+.areacreation{
+  border:1px black solid;
+  padding:5px;
+  margin:10px 0;
+  transition:1s all ease;
+}
+
+.areacreation:focus{
+  box-shadow: 0px 0px 13px rgba(69, 194, 255, 0.59);
+}
+
+.subboutton:hover{
+  cursor:pointer;
+  background-color:rgba(135, 165, 255, 0.77) !important;
+}
+
+.selectcreation{
+  text-align:center;
+  width:80%;
+  padding:10px;
+  border:1px black solid;
+  margin:5px;
+}
+
+.classImage{
+  margin:15px;
+  width:500px;
+  height:auto;
+  padding:10px 0px;
 }
 
 .creationgroupe_select{
@@ -1863,7 +1954,6 @@ td {
     margin-left: 20%;
     background: #414141;
     border-radius: 5px 5px 5px 5px;
-
 }
 
 .validegroupe {
@@ -1875,11 +1965,27 @@ td {
     border-radius: 5px 5px 5px 5px;
     color: white;
 }
-textarea.aeradescription{
-    box-shadow: 0 0 2px black;
 
+.ChangePicture{
+  margin:0 auto;
 }
 
+.boutonInputFile{
+  border-radius:6px;
+  border:2px rgb(82, 172, 255) solid;
+  width:auto;
+  padding:5px;
+  background-color:white;
+  text-align:center;
+  transition:1s all ease;
+  margin:0 auto;
+}
+
+
+.boutonInputFile:hover{
+  cursor:pointer;
+  background-color:rgba(164, 244, 255, 0.81);
+}
 
 /* Forum */
 .bodyforum {
@@ -2336,4 +2442,41 @@ a{
 .visible2{
   visibility:visible;
   transform: rotate(0deg)scale(1);
+}
+
+/* Notification */
+.notification{
+  position:fixed;
+  top:0;
+  right:50px;
+  margin:15px;
+  padding:15px;
+  z-index:8000;
+  color:white;
+  box-shadow: 0px 0px 20px rgb(255, 255, 255);
+  background-color:rgba(13, 45, 180, 1);
+  border-radius:5px;
+  width:400px;
+  height:150px;
+  transition:1s all ease;
+}
+
+.notification:hover{
+  background-color:rgb(108, 193, 255);
+  cursor:all-scroll;
+}
+
+.hidden{
+  height:0px;
+  width:0px;
+  opacity:0;
+}
+
+.textNotif{
+  padding-top:20px;
+  width:80%;
+}
+
+.textNotif span{
+  padding:5px;
 }

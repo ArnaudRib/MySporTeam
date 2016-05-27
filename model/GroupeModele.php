@@ -156,23 +156,28 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function modifDataGroupe($id_groupe, $info, $ville_groupe, $mail_groupe, $telephone_groupe){
-    echo "PD";
-    echo $telephone_groupe;
+  function modifDataGroupe($id_groupe){
+    $info=$_POST['informations'];
     $ville=2;
-    $sql="UPDATE groupe SET description=$info, id_ville=$ville, telephone_groupe=$telephone_groupe, mail_groupe=$mail_groupe WHERE id=?";
-    $resultat=$this->requeteSQL($sql, [$id_groupe]);
+    $mail=$_POST['mail'];
+    $telephone=$_POST['telephone'];
+    $sql="UPDATE groupe SET description=?, id_ville=?, telephone=?, mail=? WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$info, $ville, $telephone, $mail, $id_groupe]);
     return $resultat;
   }
 
   function publication($titre, $publication, $id_groupe){
-    $sql="INSERT INTO groupe_publication(titre, texte, date, id_groupe) VALUES (?,?,CURDATE(),?)";
+    $sql="INSERT INTO groupe_publication(titre, texte, date, id_groupe) VALUES (?,?,NOW(),?)";
     $resultat=$this->requeteSQL($sql, [$titre, $publication,$id_groupe]);
     return $resultat;
   }
 
+  function deletePublication($id_groupe){
+    $sql="DELETE FROM groupe_publication WHERE id_groupe=? AND id=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_publication']]);
+  }
   function quitGroupe($id_user, $id_groupe){
-    $sql="DELETE FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
+    $sql="DELETE FROM utilisateur WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
   }
 

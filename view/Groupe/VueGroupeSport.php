@@ -46,10 +46,11 @@
       </div>
       <div class="blocksportgroupe">
         <?php foreach ($groupes as $key => $value): ?>
+          <?php $nomgroupe=str_replace(' ', '-', $value['nom']);?>
           <a href="<?php goToPage('informationsgroupe', ['id'=>$value['id']])?>">
             <div class="groupesport">
               <div class="groupesport-image">
-                <img class="imageprofilfiltre" src="<?php echo image('Groupes/Profil/'.$value["id"].'.jpg')?>" alt="" />
+                <img class="imageprofilfiltre" src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>" alt="" />
               </div>
               <div class="groupesport-titre">
                 <?php echo $value['nom'] ?>

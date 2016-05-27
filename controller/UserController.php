@@ -22,12 +22,7 @@ class UserController
       if ($data['mot_de_passe'] == sha1($_POST['mot_de_passe'])) // Acces OK !
       {
         $_SESSION['user']=$data;
-        $message = '<p>Bienvenue '.$data['pseudo'].',
-        vous êtes maintenant connecté!
-        <p>Cliquez <a href="./">ici</a>
-        pour revenir à la page d accueil. Vous pouvez aussi
-        cliquer <a href="deconnexion">
-         ici pour vous deconnecter</a>.</p>';
+        header('Location: '.goToPage('Accueil').'?connexion=true');
       }
       else // Acces pas OK !
       {
@@ -70,9 +65,13 @@ class UserController
     $vue->loadpage(['message'=>$message]);
   }
 
-  public function loadProfil() //Mon profil
+
+  public function loadProfil()
   {
-    $vue=new Vue("Profil","User",['stylesheet.css'], ['profil.js', 'calendrier.js']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
+    $vue=new Vue("Profil","User",['stylesheet.css'], ['profil.js', 'calendrier.js', 'modifier_profil.js']);
+    $this->user->modifier_profil();
+    $pseudo=$_SESSION['user']['pseudo'];
+    $_SESSION['user']=$this->user->getDataUser($pseudo)->fetch(); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
     $vue->loadpage();
   }
 
@@ -87,6 +86,7 @@ class UserController
   }
 
   public function LoadAUser($pseudo_user){ //Profil des autres
+
     $dataUser=$this->user->getDataUser($pseudo_user)->fetch();
     $vue=new Vue("ProfilUnUtilisateur","User",['stylesheet.css']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
     $vue->loadpage(['dataUser'=>$dataUser]);

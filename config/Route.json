@@ -11,6 +11,7 @@
   "publicationsgroupe":"groupe/{id}/publications",
   "unepublicationgroupe":"groupe/{id}/publications/{id_publication}",
   "evenementsgroupe":"groupe/{id}/evenements",
+  "createevenement":"groupe/{id}/evenement/creation",
   "unevenementgroupe":"groupe/{id}/evenements/{id_evenement}",
   "membresgroupe":"groupe/{id}/membres",
   "creationgroupe":"creationgroupe",

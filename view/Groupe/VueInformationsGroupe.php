@@ -1,10 +1,11 @@
-<?php dump($_POST)?>
+<a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>" style="color:red; font-size:30px; margin-left:40px;"> click me maistret -,-</a> 
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-  <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
+    <?php $nomgroupe=str_replace(' ', '-', $datagroupe['nom']);?>
+  <img src="<?php echo image('Groupes/Banière/'.$nomgroupe.'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
-      <img src="<?php echo image('Groupes/Profil/'.$datagroupe['id'].'.jpg')?>"/>
+      <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>
     <h1><?php echo $datagroupe['nom']?></h1>
     <div id="menu_mongroupe">
       <nav>
@@ -19,14 +20,7 @@
               <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
             </form>
           </li>
-        <?php elseif($isLeader==true):
-          if(empty($_POST['modif'])):?>
-          <li id="abonnement" style="margin-top:-10px;margin-left:10px;display:inline-block;">
-            <form class="" action="" method="post">
-              <input  type="submit" name="modif" value="Modif" style='cursor:pointer;'>
-            </form>
-          </li>
-        <?php endif;?>
+        <?php elseif($isLeader==true):?>
           <li id="abonnement" style="margin-top:-10px; margin-left:10px; padding:5px;">
           <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Créer un événement</a>
           </li>
@@ -54,7 +48,7 @@
         <?php if(!empty($_POST['modif'])):?>
           <form class="" action="" method="post">
             <label for="publication"></label><br />
-            <textarea style="border:solid 1px black;margin-left:5%;width:90%;margin-bottom:10px; height:70px;" name="informations" value="" required><?php echo $datagroupe['description']?></textarea>
+            <textarea class="areagroupinfo" name="informations" value="" placeholder="Informations relatives à votre groupe." required><?php echo $datagroupe['description']?></textarea>
         <?php else:?>
         <div>
           <p><?php echo $datagroupe['description']?></p>
@@ -68,28 +62,32 @@
         </div>
         <?php if(!empty($_POST['modif'])):?>
           <h2>Mail</h2>
-          <input style="border:solid 1px black;width:90%;margin-bottom:2px;margin-left:5%;height:22px;" type="text" name="mail" value="<?php echo $datagroupe['mail_groupe']?>" id="pseudo" required/>
+          <input class="inputinfogroupe" type="text" name="mail" value="<?php echo $datagroupe['mail']?>" id="pseudo" required/>
           <h2>Téléphone</h2>
-          <input style="border:solid 1px black;width:90%;margin-bottom:2px;margin-left:5%;height:22px;" type="text" name="telephone" value="<?php echo $datagroupe['telephone_groupe']?>" id="pseudo" required/>
+          <input class="inputinfogroupe" type="text" name="telephone" value="<?php echo $datagroupe['telephone']?>" id="pseudo" required/>
           <h2>Ville</h2>
-          <input style="border:solid 1px black;width:90%;margin-bottom:2px;margin-left:5%;height:22px;" type="text" name="ville" value="<?php echo $ville['name']?>" id="pseudo" required/>
+          <input class="inputinfogroupe" style="margin-bottom:15px;" type="text" name="ville" value="<?php echo $ville['name']?>" id="pseudo" required/>
         <?php else:?>
         <div>
           <h2>Mail</h2>
-          <p><?php echo $datagroupe['mail_groupe']?></p>
+          <p><?php echo $datagroupe['mail']?></p>
           <h2>Téléphone</h2>
-          <p><?php echo $datagroupe['telephone_groupe']?></p>
+          <p><?php echo $datagroupe['telephone']?></p>
         </div>
       <?php endif;?>
       </div>
       <?php if(!empty($_POST['modif'])):?>
-      <input style="padding:9px;border-radius:5px; background-color:white;margin-top:20px;" type="submit" name="enregistrement" value="Enregistrer Modification">
-      <?php
-    endif;
-      if(!empty($_POST['enregistrement'])){
-        $_POST['modif']=NULL;
-      }
-      ?>
+        <input class="buttonmodif" type="submit" name="enregistrement" value="Enregistrer les modifications">
+      <?php endif;
+
+      if($isLeader):
+        if(empty($_POST['modif'])):?>
+          <form action="" method="post" style="text-align:center;">
+            <input class="buttonmodif" type="submit" name="modif" value="Modifier les informations" style='cursor:pointer;'>
+          </form>
+      <?php endif;?>
+    <?php endif;?>
+
     </form>
     </div>
 
