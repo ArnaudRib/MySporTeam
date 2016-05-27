@@ -130,6 +130,11 @@ class Route
         $this->ctr['Groupe']->loadUnEvenementGroupe($id_groupe, $id_evenement);
         break;
 
+      case 'createevenement':
+        $id_groupe=intval($this->params[0]);
+        $this->ctr['Groupe']->loadCreateEvenement($id_groupe);
+        break;
+
       case 'membresgroupe':
         $id_groupe=intval($this->params[0]);
         $this->ctr['Groupe']->loadMembresGroupe($id_groupe);

@@ -93,6 +93,12 @@ class GroupeController
     $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
   }
 
+  public function loadCreateEvenement($id_groupe){
+    $vue=new Vue("CreationEvenement", "Groupe", ['stylesheet.css']);
+    $vue->loadpage();
+
+  }
+
   public function loadUnePublicationGroupe($id_groupe, $id_publication){
     $vue=new Vue("UnePublicationGroupe", "Groupe", ['stylesheet.css']);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
