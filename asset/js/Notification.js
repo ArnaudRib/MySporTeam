@@ -73,6 +73,7 @@ function displayNotification(){
 function moveNotification(){
   var notification=document.getElementById('notification');
 
+
   notification.style.right=X+"px";
   notification.style.bottom=-Y+"px";
 }
