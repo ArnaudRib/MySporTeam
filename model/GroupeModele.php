@@ -172,6 +172,10 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function deletePublication($id_groupe){
+    $sql="DELETE FROM groupe_publication WHERE id_groupe=? AND id=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_publication']]);
+  }
   function quitGroupe($id_user, $id_groupe){
     $sql="DELETE FROM utilisateur WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);

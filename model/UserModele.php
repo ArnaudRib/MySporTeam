@@ -15,6 +15,15 @@ class UserModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function getUserNamePub($publication){
+    foreach ($publication as $key => $value) {
+      $sql="SELECT pseudo FROM utilisateur WHERE id=?";
+      $resultat=$this->requeteSQL($sql, [$value['id_user']])->fetchAll();
+      $allresults[$value['id']]=$resultat[0]['pseudo'];
+    }
+    return $allresults;
+  }
+
   function CheckUser(){
     $sql="SELECT * FROM utilisateur WHERE pseudo=? and mot_de_passe=?";
     $resultat=$this->requeteSQL($sql,[$_POST['pseudo'], sha1($_POST['mot_de_passe'])]);

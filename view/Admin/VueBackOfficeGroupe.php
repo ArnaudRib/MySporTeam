@@ -1,5 +1,6 @@
 <!--Partie Modal Modification-->
-<?php foreach ($groupes as $key => $value): ?>
+<?php foreach ($groupes as $key => $value):
+  $nomgroupe=str_replace(' ', '-', $value['nom']);?>
   <div id="modalinfo<?php echo $value['id']?>" class="modalinfo">
     <div id="insideModalInfo<?php echo $value['id']?>" class="insideModalInfo">
       <p id="<?php echo $value['id']?>" class="closeButtonModal" onclick="closeModalInfo(this)">&#10006;</p>
@@ -15,7 +16,7 @@
             <input type="hidden" name="id_groupe" value="<?php echo $value['id']?>">
             <div class="content-imggroupe">
               <h4 class="title" style="margin-left:10px;">Image du groupe</h4>
-              <img class='classImage imggroupe' src="<?php echo image('Groupes/Profil/'.$value['id'].'.jpg')?>" alt=""/>
+              <img class='classImage imggroupe' src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>" alt=""/>
               <label for="photo" class="boutonInputFile modifgroupeimg">Modifier</label>
               <input id="photo" class="files" type="file" name="photo" style="display:none;">
             </div>
@@ -122,12 +123,12 @@
   </div>
 
   <?php if(!empty($_POST)):
-    if(isset($succes)):?>
+    if(!empty($succes)):?>
       <div class="successbox fa fa-check">
         <div style="margin-left:20px; display:inline-block;"><?php echo $succes; ?></div>
       </div>
     <?php endif; ?>
-    <?php if(isset($error)):?>
+    <?php if(!empty($error)):?>
       <div class="errorbox fa fa-times-circle">
         <div style="margin-left:20px; display:inline-block;"><?php echo $error;?></div>
       </div>

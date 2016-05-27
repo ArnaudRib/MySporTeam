@@ -1,10 +1,11 @@
 <?php dump($_POST)?>
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-  <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
+    <?php $nomgroupe=str_replace(' ', '-', $datagroupe['nom']);?>
+  <img src="<?php echo image('Groupes/Banière/'.$nomgroupe.'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
-      <img src="<?php echo image('Groupes/Profil/'.$datagroupe['id'].'.jpg')?>"/>
+      <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>
     <h1><?php echo $datagroupe['nom']?></h1>
     <div id="menu_mongroupe">
       <nav>

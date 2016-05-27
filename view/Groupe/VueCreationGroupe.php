@@ -2,7 +2,7 @@
   <div class="blockinscription">
     <nav id="creationgroupe"> <!-- remettre <nav id="creationgroupe"> si tu veux pas noir-->
 
-      <form action="<?php goTopage('creationgroupe')?>" method="post" >
+      <form action="<?php goTopage('creationgroupe')?>" method="post" enctype="multipart/form-data" >
         <h1 class=""> Créer votre Groupe </h1>
         <?php if($error!=''):?>
           <div class="errorbox blackborder radius">
@@ -27,15 +27,6 @@
             <label for="ville" class="fa fa-home labelnom"></label>
             <input id='ville' type="text" name="ville" placeholder="Ville"/></br>
           </div>
-
-
-          <?php /*if(isset($_POST['nbr_max'])){
-            if ($_POST ['nbr_max'] >= 45 or $_POST ['nbr_max'] < 0){
-            echo "Perdu";}
-            else {
-            echo "Gagné";
-          }
-        } A METTRE DANS LE CONTROLLER SI VRAIMENT NECESSAIRE*/?>
 
         <div style="text-align:center; margin-right:-20px;margin-right: 4px; margin-left: -37px;">
           <select name="categorie" class="selectcreation"  require >
@@ -65,6 +56,12 @@
           <img class="UploadedImage classImage" />
         </div>
 
+        <div class="ChangePictureSport">
+          <label for="baniere" class="boutonInputFile">Ajouter une photo banière de groupe.</label>
+          <input id="baniere" class="files" type="file" name="baniere" style="display:none;">
+          <img class="UploadedImage classImage" />
+        </div>
+        
         <textarea class="areacreation" name="description" rows="10" cols="50" placeholder="Description"></textarea>
 
         <div style="text-align:center;">

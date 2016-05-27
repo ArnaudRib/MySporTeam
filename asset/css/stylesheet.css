@@ -408,7 +408,7 @@ footer li{
 }
 
 .button:hover{
-  background-color: red;
+  background-color: rgba(107, 131, 255, 0.86);
   box-shadow: 0px 0px 10px #EDF5A5;
 }
 
@@ -491,7 +491,6 @@ input.searchbar{
 @keyframes boxes{
   0%{
     opacity: 0;
-    transform:scale(0.00001);
   }
   100%{
     opacity: 1;
@@ -525,9 +524,9 @@ input.searchbar{
 .Haut1{
   margin:5% 10% 2% 10%;
   display:inline-block;
-  background-color: red;
+  background-color: rgba(93, 173, 231, 0.8);
   width: 80%;
-  height: 70%;
+  height: auto;
   z-index: 2;
 }
 
@@ -594,6 +593,16 @@ body{
   width: 100%;
 }
 
+.textunderconnexion{
+  font-size:13px;
+  color:grey;
+  display:inline-block;
+  transition:1s all ease;
+}
+
+.textunderconnexion:hover{
+  color:black;
+}
 .bodybackground{
   background-image:url("../images/wallpaper.png");
 }
@@ -606,11 +615,6 @@ form h1 {
   color: white;
   background-color: #2c2c2c;
   border-bottom: 1px solid black;
-}
-
-form p {
-    color: black;
-    font-size: 0.6em;
 }
 
 
@@ -982,14 +986,44 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 
 .publication h1{
   padding:5px;
+  padding-left:40px;
   display: inline-block;
   font-size: 20px;
+  width: 350px;
 }
 
 .publication h2{
   display: inline-block;
-  font-size: 14px;
+  font-size: 13px;
+  font-style:italic;
+  float:right;
+  padding:5px;
+  padding-right:10px;
   color:grey;
+}
+
+.deletebutton{
+  position:absolute;
+  font-size:25px;
+  padding-top:-10px;
+  padding-left:12px;
+  cursor:pointer;
+  color:red;
+  transition:1s all ease;
+}
+.deletebutton:hover{
+  color:orange;
+}
+
+.posteurPub{
+  font-size:8px;
+  color:grey;
+  float:right;
+  padding:5px;
+}
+
+.posteurPub span{
+  color:red;
 }
 
 .PostPublication{
@@ -1181,7 +1215,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   }
 
   /*PAGE EVENEMENT MON GROUPE*/
-  .participation a{
+  .participation{
     background: linear-gradient(141deg, #045FB4 30%, #084B8A 61%, #084B8A 75%);
     border-radius: 5px;
     padding:11px;
@@ -1904,6 +1938,7 @@ td {
 }
 
 .classImage{
+  margin:15px;
   width:500px;
   height:auto;
   padding:10px 0px;
@@ -2407,4 +2442,41 @@ a{
 .visible2{
   visibility:visible;
   transform: rotate(0deg)scale(1);
+}
+
+/* Notification */
+.notification{
+  position:fixed;
+  top:0;
+  right:50px;
+  margin:15px;
+  padding:15px;
+  z-index:8000;
+  color:white;
+  box-shadow: 0px 0px 20px rgb(255, 255, 255);
+  background-color:rgba(13, 45, 180, 1);
+  border-radius:5px;
+  width:400px;
+  height:150px;
+  transition:1s all ease;
+}
+
+.notification:hover{
+  background-color:rgb(108, 193, 255);
+  cursor:all-scroll;
+}
+
+.hidden{
+  height:0px;
+  width:0px;
+  opacity:0;
+}
+
+.textNotif{
+  padding-top:20px;
+  width:80%;
+}
+
+.textNotif span{
+  padding:5px;
 }

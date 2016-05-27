@@ -1,3 +1,19 @@
+<?php
+if(isset($_SESSION['user']['id'])):
+  if($_GET['connexion']):?>
+    <div id="notification" class="notification" onmousedown="moveNotification()">
+      <p id="closenotification" style="color:red; font-size:25px; cursor:pointer; float:right;" class="closeButtonModal" onclick="displayNotification()">&#10006;</p>
+      <div id="textnotification" class="textNotif">
+        <span style="display:block;">
+          Bienvenue <?php echo $_SESSION['user']['pseudo']?>!
+        </span>
+        <span style="display:block;">
+          Vous n'avez pas de nouvelles notifications!
+        </span>
+      </div>
+    </div>
+<?php  endif;
+endif;?>
 <!--Partie Popup-->
 <div id="popup" class="popup">
   <p class="closeButtonPopup" onclick="closePopUp()" style="top:65px;">&#10006;</p>
@@ -54,6 +70,5 @@
       </div>
     </aside>
   </nav>
-
   <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Fade', '100%', '400px'); ?>
   <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Slide', '100%', '400px'); ?>

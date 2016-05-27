@@ -1,9 +1,10 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-  <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
+    <?php $nomgroupe=str_replace(' ', '-', $datagroupe['nom']);?>
+  <img src="<?php echo image('Groupes/Banière/'.$nomgroupe.'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
-      <img src="<?php echo image('Groupes/Profil/'.$datagroupe['id'].'.jpg')?>"/>
+      <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>
       <h1><?php echo $datagroupe['nom']?></h1>
       <div id="menu_mongroupe">
         <nav>
@@ -44,7 +45,7 @@
           <h1>Informations groupe</h1>
         </div>
         <div>
-          <p><?php echo $datagroupe['description']?></p>
+          <p style="width: 425px;"><?php echo $datagroupe['description']?></p>
           <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
         </div>
       </div>
@@ -70,37 +71,45 @@
              <div style="text-align:center;">
                <input class="buttonPostPub" type="submit" name="Poster" value="Poster">
              </div>
-
-             <?php if($error!=''):?>
-               <div class="errorbox blackborder radius" style="font-size:15px; margin: 20px auto; ">
-                 <?php echo $error;?>
-               </div>
-             <?php endif; ?>
-             <?php if($succes!=''): ?>
-               <div class="successbox blackborder radius" style='margin:20px auto;'>
-                 <?php echo $succes;?>
-               </div>
-             <?php endif; ?>
-             
            </div>
         </form>
+
+        <?php if($error!=''):?>
+          <div class="errorbox blackborder radius" style="font-size:15px; margin: 20px auto; ">
+            <?php echo $error;?>
+          </div>
+        <?php endif; ?>
+        <?php if($succes!=''): ?>
+          <div class="successbox blackborder radius" style='margin:20px auto;padding:20px;'>
+            <?php echo $succes;?>
+          </div>
+        <?php endif; ?>
 
       <?php endif?>
       <div>
         <?php if ($publication!=NULL):
           foreach ($publication as $key => $value):?>
           <div id="<?php echo $i=count($publication) ?>" class="publication forme_case radius_mongroupe">
+            <?php if($isLeader):?>
+              <form class="" action="" method="post">
+                <label for="deletebutton" class="deletebutton">&#10006;</label>
+                <input type="hidden" name="id_publication" value="<?php echo $value['id']?>">
+                <input id="deletebutton" type="submit" name="deletePub" value="delete" style="display:none;">
+              </form>
+            <?php endif?>
             <h1><?php echo $value['titre']?></h1>
             <h2><?php echo diffDate($value['date']);?></h2>
             <p><?php echo $value['texte']?></p>
+            <h5 class="posteurPub">Publié par : <span><?php echo $user[$value['id']]?> </span></h5>
           </div>
         <?php  endforeach;
-      else:?>
-        <div  class="publication forme_case radius_mongroupe">
-          <h1> Aucune Publication</h1>
-        </div>
-        <?php
-      endif; ?>
+
+          else:?>
+            <div  class="publication forme_case radius_mongroupe">
+              <h1> Aucune Publication</h1>
+            </div>
+            <?php
+          endif; ?>
       </div>
     </div>
 
@@ -112,7 +121,9 @@
         </div>
         <?php if ($evenement!=NULL):
             foreach ($evenement as $key => $value):?>
+            <a href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id']])?>">
             <div class="evenenement"><img src="<?php echo image('Groupes/Evenements/'.$value['id'].'.jpg')?>"/></div>
+            </a>
           <?php endforeach;
           else:?>
             <div  class="publication forme_case radius_mongroupe">

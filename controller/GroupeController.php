@@ -118,6 +118,8 @@ class GroupeController
 
   public function loadPublicationsGroupe($id_groupe)
   {
+    $error='';
+    $succes='';
     $vue=new Vue("PublicationsGroupe", "Groupe", ['stylesheet.css']);
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
@@ -127,13 +129,20 @@ class GroupeController
           $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
         }
       }
-      $verification = new Verification($_POST);
-      $verification->notEmpty('titre', "Veuillez spécifier un titre à votre publication.");
-      $verification->notEmpty('publication', "Complétez le champ publication.");
-      $error=$verification->error;
-      if($verification->isValid()){
-        $this->groupe->publication($_POST['titre'], $_POST['publication'], $id_groupe);
-        $succes="Publication ajoutée!";
+      if(!empty($_POST['Poster'])){
+        $verification = new Verification($_POST);
+        $verification->notEmpty('titre', "Veuillez spécifier un titre à votre publication.");
+        $verification->notEmpty('publication', "Complétez le champ publication.");
+        $error=$verification->error;
+        if($verification->isValid()){
+          $this->groupe->publication($_POST['titre'], $_POST['publication'], $id_groupe);
+          $succes="Publication ajoutée!";
+        }
+      }
+
+      if(!empty($_POST['deletePub'])){
+        $this->groupe->deletePublication($id_groupe);
+        $succes="Publication effacée avec succès!";
       }
     }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
@@ -142,8 +151,9 @@ class GroupeController
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $ville=$this->groupe->getVille($datagroupe['id_ville'])->fetch();
     $publication=$this->groupe->getPublications($id_groupe)->fetchAll();
+    $user=$this->user->getUserNamePub($publication); // compliqué :D .. permet d'associer à chaque publication l'id du user qui l'a postée :o..
     $evenement=$this->groupe->getEvenements($id_groupe)->fetchAll();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'sport'=>$sport, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader, 'ville'=>$ville, 'publication'=>$publication,  'evenement'=>$evenement, 'error'=>$error, 'succes'=>$succes]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'sport'=>$sport, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader, 'ville'=>$ville, 'publication'=>$publication,  'evenement'=>$evenement, 'error'=>$error, 'succes'=>$succes, 'user'=>$user]);
   }
 
   public function loadUnePublicationsGroupe($id_groupe, $id_publication)
@@ -156,15 +166,17 @@ class GroupeController
   {
     $succes='';
     $error='';
-    dump($_POST);
+    $nomphoto=str_replace(' ', '-', $_POST['nom']);
     if(!empty($_POST)){
-      if(!empty($_FILES['imagegroupe']['name']))
-      $error.="Veuillez selectionner une photo de groupe!";
-
+      if(!empty($_FILES['photogroupe']['name']))
+        $error.="Veuillez selectionner une photo de groupe!";
+      if(!empty($_FILES['baniere']['name']))
+        $error.="Veuillez selectionner une banière pour le groupe!";
       $verification = new Verification($_POST);
       $verificationPhoto = new Verification($_FILES);
       $verification->notEmpty('nom', "Veuillez spécifier un nom à votre groupe.");
-      $verificationPhoto->PhotoOk('photogroupe', $_POST['id'].'.jpg','Groupes/Profil');
+      $verificationPhoto->PhotoOk('photogroupe', $nomphoto.'.jpg','Groupes/Profil');
+      $verificationPhoto->PhotoOk('baniere', $nomphoto.'.jpg','Groupes/Banière');
       $verification->notEmpty('categorie', "Veuillez séléctionner une catégorie.");
       $verification->notEmpty('nombre', "Indiquez le nombre maximal de membres.");
       $verification->notEmpty('sport', "Choississez un sport.");
@@ -173,10 +185,13 @@ class GroupeController
 
       $error=$verification->error;
       $error.=$verificationPhoto->error;
-
-      if($verification->isValid()){// && $verificationPhoto->isValid()){
+      if(!$verificationPhoto->isValid())
+        $error.="Ce groupe existe déjà! Veuillez choisir un autre nom.";
+      if($verification->isValid() && $verificationPhoto->isValid()){// && $verificationPhoto->isValid()){
         /*upload images*/
-        $error.=uploadPhoto($_POST['id'].'.jpg', 'Groupes/Profil', 'photogroupe');
+        $error.=uploadPhoto($nomphoto.'.jpg', 'Groupes/Profil', 'photogroupe');
+        $error.=uploadPhoto($nomphoto.'.jpg', 'Groupes/Banière', 'baniere');
+
         //Add BDD
         if(empty($error)){
           $this->groupe->addGroupe();

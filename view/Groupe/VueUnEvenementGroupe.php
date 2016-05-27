@@ -1,9 +1,10 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-  <img src="<?php echo image('Groupes/Banière/'.$datagroupe['id'].'.jpg')?>"/>
+    <?php $nomgroupe=str_replace(' ', '-', $datagroupe['nom']);?>
+  <img src="<?php echo image('Groupes/Banière/'.$nomgroupe.'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
-      <img src="<?php echo image('Groupes/Profil/'.$datagroupe['id'].'.jpg')?>"/>
+      <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>
       <h1><?php echo $datagroupe['nom']?></h1>
       <div id="menu_mongroupe">
         <nav>
@@ -42,8 +43,11 @@
       <h1><?php echo $evenement['nom']?></h1>
     </div>
     <div class="participation" style="display:inline-block;width:27%;vertical-align:top;">
-      <a href="" ><p>ajouter au planning</p></a>
-  </div>
+      <form class="" action="index.html" method="post">
+        <p>Ajouter au planning</p>
+        <!-- Vas falloir faire un submit ici un jour ;D -->
+      </form>
+    </div>
 
     <div class="cote_informations">
       <div class="radius_mongroupe forme_case" style="text-align:center;background-color:green; color:white;display:inline-block;width:49%;vertical-align:top;">

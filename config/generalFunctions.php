@@ -21,12 +21,12 @@ Class Verification
     $fileURL= substr(image($url),1);
     $imageFileType=pathinfo($fileURL, PATHINFO_EXTENSION);
 
-      if($imageFileType!='svg'){
-        $check = getimagesize($this->post[$name]["tmp_name"]);
-        if ($check == false) {
-          $this->error.= "Le fichier {$name} n'est pas du bon format.</br>";
-        }
+    if($imageFileType!='svg'){
+      $check = getimagesize($this->post[$name]["tmp_name"]);
+      if ($check == false) {
+        $this->error.= "Le fichier {$name} n'est pas du bon format.</br>";
       }
+    }
 
     if($skipAlreadyUploaded){
       if (file_exists($fileURL)) {
@@ -155,7 +155,7 @@ function uploadPhoto($name, $directory, $input){
   $fileURL= substr(image($url),1);
 
   if(!empty($_FILES[$input]['name'])){
-    if(!move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL) && $uploadOk!=1){
+    if(!move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL)){
       $error= "Une erreur s'est produite pour le champ {$input}. Veuillez réessayer plus tard, ou contacter l'administrateur.</br>";
     }
   }

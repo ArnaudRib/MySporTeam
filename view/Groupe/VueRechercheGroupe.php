@@ -39,10 +39,11 @@
 
       <div class="recherchegroupe">
         <?php foreach ($groupe as $key => $value): ?>
+          <?php $nomgroupe=str_replace(' ', '-', $value['nom']);?>
           <a href="<?php goToPage('informationsgroupe', ['id'=> $value['id']])?>">
             <div id="<?php echo $i=count($groupe) ?>"  class="groupe">
               <div style="width:100%; display:block;">
-                <div class="imagegroupe usualbackground" style="background-image:url('<?php echo image('Groupes/Profil/'.$value['id'].'.jpg') ?>');"> </div>
+                <div class="imagegroupe usualbackground" style="background-image:url('<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg') ?>');"> </div>
                 <div class="nomgroupe">
                   <h3 class="titregroupe"><?php echo $value['nom'] ?></h3>
                   <p style="background-color:rgb(226, 195, 34)">Sport</p>
