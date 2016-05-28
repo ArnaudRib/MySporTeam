@@ -7,73 +7,108 @@ function displayNotification(){
   text.style.display="none";
 }
 
-//DES BARS!!
-// (function() {
-//     document.onmousemove = handleMouseMove;
-//     function handleMouseMove(event) {
-//         var dot, eventDoc, doc, body, pageX, pageY;
-//
-//         event = event || window.event; // IE-ism
-//
-//         if (event.pageX == null && event.clientX != null) {
-//             eventDoc = (event.target && event.target.ownerDocument) || document;
-//             doc = eventDoc.documentElement;
-//             body = eventDoc.body;
-//
-//             event.pageX = event.clientX +
-//               (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-//               (doc && doc.clientLeft || body && body.clientLeft || 0);
-//             event.pageY = event.clientY +
-//               (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
-//               (doc && doc.clientTop  || body && body.clientTop  || 0 );
-//         }
-//
-//         moveNotification(event.pageX, event.pageY)
-//         // Use event.pageX / event.pageY here
-//     }
-// })();
-//
-// function moveNotification(X, Y){
-//   var notification=document.getElementById('notification');
-//   notification.style.right=X+"px";
-//   notification.style.top=Y+"px";
-//
-// }
+function getScrollOffsets(w) {
+    // Use the specified window or the current window if no argument
+    w = w || window;
 
+    // This works for all browsers except IE versions 8 and before
+    if (w.pageXOffset != null) return {x: w.pageXOffset, y:w.pageYOffset};
 
-(function() {
-    document.onmousemove = handleMouseMove;
-    function handleMouseMove(event) {
-        var dot, eventDoc, doc, body, pageX, pageY;
+    // For IE (or any browser) in Standards mode
+    var d = w.document;
+    if (document.compatMode == "CSS1Compat")
+        return {x:d.documentElement.scrollLeft, y:d.documentElement.scrollTop};
 
-        event = event || window.event; // IE-ism
+    // For browsers in Quirks mode
+    return { x: d.body.scrollLeft, y: d.body.scrollTop };
+}
 
-        if (event.pageX == null && event.clientX != null) {
-            eventDoc = (event.target && event.target.ownerDocument) || document;
-            doc = eventDoc.documentElement;
-            body = eventDoc.body;
+function drag(elementToDrag, event) {
+    // The initial mouse position, converted to document coordinates
+    var scroll = getScrollOffsets();  // A utility function from elsewhere
+    var startX = event.clientX + scroll.x;
+    var startY = event.clientY + scroll.y;
 
-            event.pageX = event.clientX +
-              (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-              (doc && doc.clientLeft || body && body.clientLeft || 0);
-            event.pageY = event.clientY +
-              (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
-              (doc && doc.clientTop  || body && body.clientTop  || 0 );
+    // The original position (in document coordinates) of the element
+    // that is going to be dragged.  Since elementToDrag is absolutely
+    // positioned, we assume that its offsetParent is the document body.
+    var origX = elementToDrag.offsetLeft;
+    var origY = elementToDrag.offsetTop;
+
+    // Compute the distance between the mouse down event and the upper-left
+    // corner of the element. We'll maintain this distance as the mouse moves.
+    var deltaX = startX - origX;
+    var deltaY = startY - origY;
+
+    // Register the event handlers that will respond to the mousemove events
+    // and the mouseup event that follow this mousedown event.
+    if (document.addEventListener) {  // Standard event model
+        // Register capturing event handlers on the document
+        document.addEventListener("mousemove", moveHandler, true);
+        document.addEventListener("mouseup", upHandler, true);
+    }
+    else if (document.attachEvent) {  // IE Event Model for IE5-8
+        // In the IE event model, we capture events by calling
+        // setCapture() on the element to capture them.
+        elementToDrag.setCapture();
+        elementToDrag.attachEvent("onmousemove", moveHandler);
+        elementToDrag.attachEvent("onmouseup", upHandler);
+        // Treat loss of mouse capture as a mouseup event.
+        elementToDrag.attachEvent("onlosecapture", upHandler);
+    }
+
+    // We've handled this event. Don't let anybody else see it.
+    if (event.stopPropagation) event.stopPropagation();  // Standard model
+    else event.cancelBubble = true;                      // IE
+
+    // Now prevent any default action.
+    if (event.preventDefault) event.preventDefault();   // Standard model
+    else event.returnValue = false;                     // IE
+
+    /**
+     * This is the handler that captures mousemove events when an element
+     * is being dragged. It is responsible for moving the element.
+     **/
+    function moveHandler(e) {
+        if (!e) e = window.event;  // IE event Model
+
+        // Move the element to the current mouse position, adjusted by the
+        // position of the scrollbars and the offset of the initial click.
+        var scroll = getScrollOffsets();
+        elementToDrag.style.left = (e.clientX + scroll.x - deltaX) + "px";
+        elementToDrag.style.top = (e.clientY + scroll.y - deltaY) + "px";
+
+        // And don't let anyone else see this event.
+        if (e.stopPropagation) e.stopPropagation();  // Standard
+        else e.cancelBubble = true;                  // IE
+    }
+
+    /**
+     * This is the handler that captures the final mouseup event that
+     * occurs at the end of a drag.
+     **/
+    function upHandler(e) {
+        if (!e) e = window.event;  // IE Event Model
+
+        // Unregister the capturing event handlers.
+        if (document.removeEventListener) {  // DOM event model
+            document.removeEventListener("mouseup", upHandler, true);
+            document.removeEventListener("mousemove", moveHandler, true);
+        }
+        else if (document.detachEvent) {  // IE 5+ Event Model
+            elementToDrag.detachEvent("onlosecapture", upHandler);
+            elementToDrag.detachEvent("onmouseup", upHandler);
+            elementToDrag.detachEvent("onmousemove", moveHandler);
+            elementToDrag.releaseCapture();
         }
 
-        X=event.pageX;
-        Y=event.pageY;
-        console.log(X);
-        console.log(Y);
-
-        // Use event.pageX / event.pageY here
+        // And don't let the event propagate any further.
+        if (e.stopPropagation) e.stopPropagation();  // Standard model
+        else e.cancelBubble = true;                  // IE
     }
-})();
+}
 
-function moveNotification(){
-  var notification=document.getElementById('notification');
-
-
-  notification.style.right=X+"px";
-  notification.style.bottom=-Y+"px";
+var notif = document.querySelector('#notification')
+notif.onmousedown = function (e) {
+  drag(notif, e)
 }
