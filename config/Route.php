@@ -64,6 +64,9 @@ class Route
         $this->ctr['Accueil']->loadAide();
         break;
 
+      case 'ajaxrecherchegenerale':
+        $this->ctr['Accueil']->loadRechercheGenerale();
+        break;
 
       //Sports
       case 'ajaxloadphoto':

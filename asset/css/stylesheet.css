@@ -289,29 +289,121 @@ left:6rem;
   }
 }
 
+
+/* Mega Recherche */
+#resultatsrecherche{
+  padding-top:9px;
+  width: 80%;
+  display: none;
+  background-color: rgba(133, 189, 255, 0.90);
+  margin:0 auto;
+  overflow-x:scroll;
+  height:auto;
+  border-radius: 5px;
+  margin-bottom:10px;
+  margin-top:-10px;
+  transition:1s all ease;
+}
+
+.searchgeneral li.selected {
+  background: rgb(85, 42, 255);
+  cursor: pointer;
+  width:100%;
+}
+.searchgeneral li:hover{
+  background: rgb(103, 65, 255);
+  cursor: pointer;
+  width:100%;
+}
+
+.searchgeneral li{
+  font-size:20px;
+}
+
+.searchgeneral p.visible {
+  display: block !important;
+}
+
+.headerVille{
+  width:100%;
+  background-color:rgb(0, 10, 255);
+  border-bottom:2px rgb(0, 41, 215) solid;
+  margin-bottom:5px;
+  color:white;
+}
+
+.separation{
+  border:1px black solid;
+  margin:5px auto;
+  width:70%;
+}
+
+.left-block{
+  display:inline-block;
+  width:41%;
+  text-align:right;
+  font-size:25px;
+}
+
+.right-block{
+  display:inline-block;
+  text-align:right;
+  width:35%;
+  font-size:20px;
+}
+
 /*FOOTER*/
 footer {
   background-color:#2E2E2E;
-  height: 50px;
+  height: auto;
   width: 100%;
   margin: 0;
+  position:absolute;
 }
 
-footer li{
-  color:#ffffff;
-  display: inline-block;
-  vertical-align: middle;
+.imgfooter{
+  margin: 10px 20px;
 }
 
-.textfooter {
-    height:4px;
-    vertical-align: middle;
-    margin: auto;
-    text-align: center;
+.textfooter{
+  display:inline-block;
+  vertical-align:center;
+  color:white;
+  font-size:20px;
+}
+
+.visibility{
+  max-height:0px;
+  opacity:0;
+  transition:1s all ease;
+}
+
+.drapeau{
+  transition:1s all ease;
+  display:inline-block;
+  margin:20px;
+  width:80px;
+  height:auto;
+}
+
+.buttonlanguage{
+  cursor:pointer;
+  font-size:20px;
+  position:relative;
+  margin:10px auto;
+  width:15%;
+  padding:15px;
+  background-color:rgb(180, 253, 255);
+  border-radius:8px;
+  border:1px white solid;
+  transition:1s all ease;
+}
+
+.buttonlanguage:hover{
+  background-color:rgb(84, 193, 255);
 }
 
 /*Contenu photo accueil*/
-
 .div1{ /* Division Sport*/
   position:relative;
   width:100%;
@@ -1608,6 +1700,7 @@ ul {
 .search li{
   font-size:20px;
 }
+
 .selected {
   display: inline-block;
 }
@@ -2332,13 +2425,28 @@ a{
 }
 
 .barRecherche{
-  padding: 15px;
+  padding: 20px;
+  font-size:30px;
+  margin-top:100px;
   border-radius:8px;
   padding-left: 40px;
   background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgl3aWR0aD0iMTlweCIgaGVpZ2h0PSIxOXB4IiB2aWV3Qm94PSIwIDAgMTkgMTkiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE5IDE5IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCgk8cGF0aCBmaWxsPSIjNjY2NjY2IiBkPSJNMTcuNjMyLDE2Ljk1NWwtNC43NjEtNC43NjJjMS4xMDktMS4xODgsMS43OTUtMi43NzYsMS43OTUtNC41MjdjMC0zLjY2Ny0yLjk4Mi02LjY0OS02LjY0OS02LjY0OQ0KCQljLTMuNjY3LDAtNi42NDksMi45ODItNi42NDksNi42NDhjMCwzLjY2NywyLjk4Miw2LjY0Nyw2LjY0OSw2LjY0N2MxLjM5MSwwLDIuNjgyLTAuNDMyLDMuNzUtMS4xNjRsNC44MzQsNC44MzRMMTcuNjMyLDE2Ljk1NXoNCgkJTTIuODI0LDcuNjY2YzAtMi44NjMsMi4zMy01LjE5Miw1LjE5Mi01LjE5MmMyLjg2NCwwLDUuMTkyLDIuMzI5LDUuMTkyLDUuMTkyYzAsMi44NjEtMi4zMjgsNS4xOTEtNS4xOTIsNS4xOTENCgkJQzUuMTU0LDEyLjg1NSwyLjgyNCwxMC41MjcsMi44MjQsNy42NjZ6Ii8+DQoJPC9zdmc+");
   background-position: 12px 50%;
   background-repeat: no-repeat;
   background-size: 19px 19px;
+  width:80%;
+}
+
+.loupe{
+  padding: 16px !important;
+  color:white !important;
+  font-size:30px !important;
+  cursor:pointer;
+  transition:2s all ease;
+}
+
+.loupe:hover{
+  color:red;
 }
 
 .buttonsubmit{
