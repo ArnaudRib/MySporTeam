@@ -294,7 +294,6 @@ left:6rem;
 #resultatsrecherche{
   padding-top:9px;
   width: 80%;
-  display: none;
   background-color: rgba(133, 189, 255, 0.90);
   margin:0 auto;
   overflow-x:scroll;

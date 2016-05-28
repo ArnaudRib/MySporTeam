@@ -3,7 +3,7 @@
   <p class="closeButtonPopup" onclick="closePopUp2()">&#10006;</p>
   <div id="FirstdivPopUp" class="FirstdivPopUp" style="width:100%; height:100%;">
     <div class="searchgeneral">
-      <input id="searchgeneral" class="barRecherche" type="text" placeholder="Entrez votre recherche" style="padding-left:50px;" name="name" value="" onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
+      <input id="searchgeneral" class="barRecherche" type="text" placeholder="Entrez votre recherche" style="padding-left:50px;" name="name" value="" onkeyup="getresults2(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
       <p id="resultatsrecherche">
         <span style="font-size:20px; padding-top:15px; color:black;">Veuillez compléter le champ recherche...</span>
       </p>

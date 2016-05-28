@@ -41,9 +41,9 @@ function closePopUp2(){
 /*Recherche générale :o*/
 savestr = "";
 var position = 0;
-function getresults(str, e) {
+function getresults2(str, e) {
   if (str.length == 0) {
-    document.getElementById("resultatsrecherche").innerHTML = '<span style="font-size:20px; margin-top:30px;">Veuillez rentrer un nom de ville.</span>'
+    document.getElementById("resultatsrecherche").innerHTML = '<span style="font-size:20px; padding:5px; margin-top:30px;">Veuillez compléter le champ de recherche.</span>'
 ;
     document.getElementById("resultatsrecherche").visible = "false";
     return;
