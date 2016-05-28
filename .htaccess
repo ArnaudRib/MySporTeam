@@ -2,5 +2,6 @@ Options +FollowSymLinks
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php?p=$1 [L,QSA]
+RewriteRule ^(fr|en)$ index.php?lang=$1 [L,QSA]
+RewriteRule ^(fr|en)/(.*)$ index.php?lang=$1&p=$2 [L,QSA]
 RewriteRule ^/asset/(.*)$ /asset/$1 [L,QSA]

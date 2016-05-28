@@ -64,6 +64,9 @@ class Route
         $this->ctr['Accueil']->loadAide();
         break;
 
+      case 'ajaxrecherchegenerale':
+        $this->ctr['Accueil']->loadRechercheGenerale();
+        break;
 
       //Sports
       case 'ajaxloadphoto':
@@ -233,5 +236,16 @@ function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('n
       $url=str_replace("{".$key."}", $value, $url);
     }
   }
-  echo "/".$url;
+  echo "/".$_GET['lang']."/".$url;
+}
+
+function loadlang(){
+  $json = file_get_contents("asset/lang/".$_GET['lang'].".json", "r");
+  $obj = json_decode($json, true);
+  return $obj;
+}
+
+function lang($expression){
+  $tablang=loadlang();
+  return $tablang[$expression];
 }

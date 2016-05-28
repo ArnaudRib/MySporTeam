@@ -10,6 +10,7 @@ class AccueilController
   function __construct()
   {
     $this->user=new UserModele();
+    $this->groupe=new GroupeModele();
     $this->accueil=new AccueilModele();
   }
 
@@ -32,5 +33,14 @@ class AccueilController
     $aide=$this->accueil->getAide();
     $vue=new Vue("Aide","Accueil", ['stylesheet.css'], ['aide.js']);
     $vue->loadpage(['aide'=>$aide]);
+  }
+
+  public function loadRechercheGenerale()
+  {
+    $rechercheVille=$this->groupe->searchVilleName(6)->fetchAll();
+    $recherchegroupe=$this->groupe->searchGroupeName(6)->fetchAll();
+    $rechercheuser=$this->user->searchUserName(6)->fetchAll();
+    $vue=new Vue("RechercheGenerale","Accueil");
+    $vue->loadajax(['rechercheVille'=>$rechercheVille, 'rechercheuser'=>$rechercheuser,'recherchegroupe'=>$recherchegroupe, 'resultat'=>$_GET['resultat']]);
   }
 }

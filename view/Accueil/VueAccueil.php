@@ -1,7 +1,7 @@
 <?php
 if(isset($_SESSION['user']['id'])):
   if($_GET['connexion']):?>
-    <div id="notification" class="notification" onmousedown="moveNotification()">
+    <div id="notification" class="notification">
       <p id="closenotification" style="color:red; font-size:25px; cursor:pointer; float:right;" class="closeButtonModal" onclick="displayNotification()">&#10006;</p>
       <div id="textnotification" class="textNotif">
         <span style="display:block;">

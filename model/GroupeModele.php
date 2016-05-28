@@ -108,6 +108,16 @@ class GroupeModele extends BaseDeDonnes
     return $resultats;
   }
 
+  function searchGroupeName($nbdisplay){
+    $sql="SELECT nom FROM groupe WHERE nom LIKE ?  ORDER BY nom LIMIT ?";
+    $resultats=$this->connectBDD()->prepare($sql);
+    $text="%" . $_GET['resultat'] . "%";
+    $resultats->bindParam(1, $text, PDO::PARAM_STR);
+    $resultats->bindParam(2, $nbdisplay, PDO::PARAM_INT);
+    $resultats->execute();
+    return $resultats;
+  }
+  
   /* Fonctions count.*/
   function getNbGroupeSports($sports){ // renvoie [idsport=>nbgroupe]
     foreach ($sports as $key => $value) {
@@ -124,7 +134,7 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function getNbMembresGroupe($groupes){ // renvoie [idsport=>nbgroupe]
+  function getNbMembresGroupe($groupes){ // renvoie [idgroupe=>nbmembre]
     foreach ($groupes as $key => $value) {
       $sql = "SELECT COUNT(*) as nbMembres FROM utilisateur_groupe WHERE id_groupe=?";
       $resultat=$this->requeteSQL($sql, [$value['id']])->fetchAll();

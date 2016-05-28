@@ -26,7 +26,7 @@ class GroupeController
 
   public function loadAjaxRecherche()
   {
-    $rechercheVille=$this->groupe->searchVilleName(50)->fetchAll();
+    $rechercheVille=$this->groupe->searchVilleName(10)->fetchAll();
     $vue=new Vue("AfficherVille","Groupe");
     $vue->loadajax(['rechercheVille'=>$rechercheVille, 'resultat'=>$_GET['resultat']]);
   }

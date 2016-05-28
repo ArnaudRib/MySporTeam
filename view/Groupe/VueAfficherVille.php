@@ -1,6 +1,6 @@
 <?php
 if (count($rechercheVille) == 0) {
-  echo "pas de résultats";
+  echo "<span style='font-size:20px; padding-top:15px; color:black;'>Aucune ville trouvée.</span>";
 }
  ?>
 <ul>
