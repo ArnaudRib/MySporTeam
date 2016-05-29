@@ -117,7 +117,7 @@ class GroupeModele extends BaseDeDonnes
     $resultats->execute();
     return $resultats;
   }
-  
+
   /* Fonctions count.*/
   function getNbGroupeSports($sports){ // renvoie [idsport=>nbgroupe]
     foreach ($sports as $key => $value) {
@@ -186,8 +186,9 @@ class GroupeModele extends BaseDeDonnes
     $sql="DELETE FROM groupe_publication WHERE id_groupe=? AND id=?";
     $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_publication']]);
   }
+  
   function quitGroupe($id_user, $id_groupe){
-    $sql="DELETE FROM utilisateur WHERE id_utilisateur=? AND id_groupe=?";
+    $sql="DELETE FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
   }
 
