@@ -236,7 +236,7 @@ function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('n
       $url=str_replace("{".$key."}", $value, $url);
     }
   }
-  echo "/".$_GET['lang']."/".$url;
+  echo "/mysporteam/".$_GET['lang']."/".$url;
 }
 
 function loadlang(){
