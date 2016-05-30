@@ -20,11 +20,8 @@
               </form>
             </li>
           <?php elseif($isLeader==true): ?>
-            <li id="abonnement" style="margin-top:-10px; margin-left:50px; padding:4px;">
-            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Modif</a>
-            </li>
-            <li id="abonnement" style="margin-top:-10px; margin-left:10px; padding:4px;">
-            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Créer un événement</a>
+            <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
+            <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>">Créer un événement</a>
             </li>
             <?php else: ?>
               <li id="desabonnement" style="margin-top:-10px;">
@@ -43,13 +40,15 @@
         <div id="<?php echo $i=count($membre) ?>" class="case_membre radius_mongroupe forme_case">
           <img src="<?php echo image('Groupes/sport3.jpg')?>" />
           <a href=""><h1><?php echo $value['pseudo']?></h1></a>
-          <?php if($isLeader==true):?>
+          <?php if($isLeader==true):
+            if(($value['leader_groupe'])!=1):?>
           <form style="float:right; margin-right:30px;" class="" action="" method="post">
             <label style="display:inline-block;" for="deletebutton" class="deletebutton">&#10006;</label>
             <input type="hidden" name="id_utilisateur" value="<?php echo $value['id_utilisateur']?>">
             <input id="deletebutton" type="submit" name="deleteUser" value="delete" style="display:none;">
           </form>
-        <?php endif?>
+        <?php endif;
+      endif;?>
         </div>
         <?php
       endforeach;

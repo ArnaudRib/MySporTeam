@@ -1323,11 +1323,28 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
     border:solid 1px #BDBDBD;
   }
 
+  .participation2{
+    background: linear-gradient(141deg, #045FB4 30%, #084B8A 61%, #084B8A 75%);
+    border-radius: 5px;
+    padding:11px;
+    margin:8px;
+    text-decoration: none;
+    margin-bottom: 4px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    color:white;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    border:solid 1px #BDBDBD;
+  }
+
   .participation p{
     margin: auto;
   }
 
-  .participation a:hover{
+  .participation:hover{
     background: linear-gradient(141deg, green 19%, green 61%, green 75%);
     color:#ffffff;
   }
@@ -1350,6 +1367,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 .AllForum {
 	font-family: Verdana, sans-serif;
 	background-color: #e6e6e6;
+  padding:70px 0px;
 }
 
 .AllForum a {
@@ -1369,13 +1387,19 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 	font-style: italic;
 }
 
+.blockdiscussion{
+  transition:1s all ease;
+}
+.blockdiscussion:hover{
+  background-color:rgba(177, 177, 177,0.6);
+}
 
 .forum {
+  background-color:white;
+  margin:0 auto;
 	width: 80%;
-  margin:50px auto;
 	border: 1px solid white;
 	border-radius: 10px;
-	background-color: #FFFFFF;
 	box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
 }
 
@@ -1384,8 +1408,6 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
     margin-bottom: 0em;
    	border: 0;
    	height: 0;
-    /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
-    /*border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
     border-top: 1px solid black;
     border-bottom: 1px solid white;
 }
@@ -1423,8 +1445,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 }
 
 .fleche {
-	margin-left: 30px;
-	margin-right: 30px;
+  margin:30px;
 }
 
 .fa-arrow-circle-o-right {
@@ -1443,9 +1464,6 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   color: red;
 }
 
-.dark {
-  background-color: #e4e4e4;
-}
 
 .nombre-reponses {
   display: inline-block;
@@ -1454,7 +1472,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 
 .dernier-message {
   display: inline-block;
-/
+  width: 15%;
 }
 
 .lien-forum {
@@ -1512,7 +1530,6 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 }
 
 .avatar {
-  width: 75px;
   height: 75px;
   display: block;
   margin: 10px 0 10px 0;
@@ -1526,10 +1543,13 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 .titre-post {
   font-size: 0.9em;
   margin: 0 0 0 0 !important;
+  display:inline-block;
 }
 
 .date-post {
+  display:inline-block;
   font-size: 0.8em;
+  float:right;
 }
 .modification {
   margin-top: 5px;
@@ -1569,10 +1589,39 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   width: 90%;
   height: 200px;
   border: solid 1px black;
+  font-size: 1em;
+  padding: 10px;
+  font-size:15px;
+}
+
+.textanswer{
+  margin: 20px 40px 10px 50px;
+  width: 90%;
+  padding: 5px;
+}
+
+.AnswerSpace{
+  padding:10px;
+  border:1px black solid;
+  border-radius:5px;
+  box-shadow: 0px 0px 10px #000000;
+  margin:40px;
+}
+
+.titreanswer{
+  width:60%;
   margin: 20px 50px 10px 50px;
   font-size: 1em;
   padding: 5px;
 }
+
+.inputforum{
+  border:1px black solid;
+  padding:10px;
+  width:70%;
+  font-size:15px;
+}
+
 
 .bouton-poster {
   margin: 10px 50px 20px 50px;
@@ -1582,7 +1631,6 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   font-size: 1em;
   font-weight: bold;
 }
-
 
 
 
@@ -2152,6 +2200,10 @@ td {
 a{
   text-decoration: none;
   color:black;
+}
+
+.contenu{
+  min-height: 70px;
 }
 
 /* Sport Groupe */

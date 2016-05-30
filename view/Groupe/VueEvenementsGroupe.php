@@ -45,7 +45,7 @@
           <img src="<?php echo image('Groupes/Evenements/'.$value['id'].'.jpg')?>"/>
           <div class="texteevenement">
             <h1><?php echo $value['nom']?></h1>
-            <h2 style="font-size:15px; color:grey;"><?php echo $value['date']?></h2>
+            <h2 style="font-size:15px; color:grey;"><?php echo $value['date_debut']?></h2>
             <p><?php echo $value['description']?></p>
             <a href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id']])?>" >Plus d'info</a>
 
@@ -56,7 +56,7 @@
                 <input id="deletebutton" type="submit" name="deleteEve" value="delete" style="display:none;">
               </form>
             <?php else:?>
-              <a href="" >ajouter au planning</a>
+            
             <?php endif;?>
           </div>
         </div>

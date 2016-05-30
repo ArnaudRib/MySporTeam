@@ -100,7 +100,7 @@
             <h1><?php echo $value['titre']?></h1>
             <h2><?php echo diffDate($value['date']);?></h2>
             <p><?php echo $value['texte']?></p>
-            <h5 class="posteurPub">Publié par : <span><?php echo $user[$value['id']]?> </span></h5>
+            <h5 class="posteurPub">Publié par : <!--<span><?php echo $user[$value['id']]?> </span></h5>-->
           </div>
         <?php  endforeach;
 

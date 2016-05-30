@@ -2,7 +2,7 @@
   <div class="blockforum">
     <div class="sectionForum">
       <div class="forums">
-        <h1 style="text-align: right; font-size: 50px;">Forums</h1>
+        <h1 style="text-align: right; font-size: 50px;">Forum</h1>
       </div>
       <div class="container-barre">
         <div class="barre-recherche">

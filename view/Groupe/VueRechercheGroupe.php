@@ -46,7 +46,7 @@
                 <div class="imagegroupe usualbackground" style="background-image:url('<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg') ?>');"> </div>
                 <div class="nomgroupe">
                   <h3 class="titregroupe"><?php echo $value['nom'] ?></h3>
-                  <p style="background-color:rgb(226, 195, 34)">Sport</p>
+                  <p style="background-color:rgb(226, 195, 34)">Sportp>
                   <p>Catégorie</p>
                   <p><?php echo $value['localisation'] ?></p>
                   <p>Niveau</p>

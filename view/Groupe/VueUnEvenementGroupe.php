@@ -20,11 +20,8 @@
               </form>
             </li>
           <?php elseif($isLeader==true): ?>
-            <li id="abonnement" style="margin-top:-10px; margin-left:50px; padding:4px;">
-            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Modif</a>
-            </li>
-            <li id="abonnement" style="margin-top:-10px; margin-left:10px; padding:4px;">
-            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Créer un événement</a>
+            <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
+            <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>">Créer un événement</a>
             </li>
             <?php else: ?>
               <li id="desabonnement" style="margin-top:-10px;">
@@ -42,11 +39,21 @@
     <div class="radius_mongroupe forme_case" id="nom_sport" style="width:70%; display:inline-block;">
       <h1><?php echo $evenement['nom']?></h1>
     </div>
-    <div class="participation" style="display:inline-block;width:27%;vertical-align:top;">
-      <form class="" action="index.html" method="post">
-        <p>Ajouter au planning</p>
+    <div  style="display:inline-block;width:27%;vertical-align:top;">
+        <?php if($isMembre==false):?>
+          <h1 class="radius_mongroupe participation2" style="font-size:18px; color:white; padding:2px; background-color:blue;text-align:center;text-decoration:none;">Rejoignez le groupe pour vous inscrire</h1>
+        <?php else:
+         if($isParticipant==false):?>
+        <form action="" method="post" style="text-align:center;">
+          <input style="width:100%;" class="participation" type="submit" name="ajout" value="Ajouter au planning" style='cursor:pointer;'>
+        </form>
+      <?php else:?>
+        <form action="" method="post" style="text-align:center;">
+          <input style="width:100%;" class="participation" type="submit" name="ajout" value="Supprimer du planning" style='cursor:pointer;'>
+        </form>
+      <?php endif;
+      endif;?>
         <!-- Vas falloir faire un submit ici un jour ;D -->
-      </form>
     </div>
 
     <div class="cote_informations">
@@ -58,12 +65,32 @@
       </div>
       <div class="radius_mongroupe forme_case">
         <div class="titre">
-          <h1>Informations évènement</h1>
+          <h1>Informations événement</h1>
         </div>
         <div>
-          <h2>date</h2>
-          <h2 style="font-size:15px; color:grey;"><?php echo $evenement['date']?></h2>
-          <p><?php echo $evenement['description']?></p>
+          <<?php if(!empty($_POST['modif'])):?>
+            <form class="" action="" method="post">
+              <h2>date début</h2>
+              <for="date_debut"></label><br />
+              <input class="inputinfogroupe" type="datetime" name="date_debut" value="<?php echo $evenement['date_debut']?>" id="pseudo" required/>
+              <h2>date fin</h2>
+              <for="date_fin"></label><br />
+              <input class="inputinfogroupe" type="datetime" name="date_fin" value="<?php echo $evenement['date_fin']?>" id="pseudo" required/>
+              <?php else:?>
+          <h2>date début</h2>
+          <h2 style="font-size:15px; color:grey;"><?php echo $evenement['date_debut']?></h2>
+          <h2>date fin</h2>
+          <h2 style="font-size:15px; color:grey;"><?php echo $evenement['date_fin']?></h2>
+          <?php endif;
+           if(!empty($_POST['modif'])):?>
+              <label for="publication"></label><br />
+              <textarea class="areagroupinfo" name="informations" value="" placeholder="Informations relatives à votre événement." required><?php echo $evenement['description']?></textarea>
+          <?php else:?>
+          <div>
+            <p><?php echo $evenement['description']?></p>
+            <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
+          </div>
+          <?php endif;?>
           <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
         </div>
       </div>
@@ -71,14 +98,36 @@
         <div class="titre">
           <h1>Contact</h1>
         </div>
+        <?php if(!empty($_POST['modif'])):?>
+          <h2>Mail</h2>
+          <input class="inputinfogroupe" type="text" name="mail" value="<?php echo $evenement['mail']?>" id="pseudo" required/>
+          <h2>Téléphone</h2>
+          <input class="inputinfogroupe" type="text" name="telephone" value="<?php echo $evenement['telephone']?>" id="pseudo" required/>
+          <h2>Ville</h2>
+          <input class="inputinfogroupe" style="margin-bottom:15px;" type="text" name="ville" value="<?php echo $ville['name']?>" id="pseudo" required/>
+        <?php else:?>
         <div>
           <h2>Mail</h2>
-          <p>aaaaaaaaaaaaaaaaaa@gmail.com</p>
+          <p><?php echo $evenement['mail']?></p>
           <h2>Téléphone</h2>
-          <p>03 XX XX XX XX</p>
+          <p><?php echo $evenement['telephone']?></p>
         </div>
+      <?php endif;?>
       </div>
-      </div>
+      <?php if(!empty($_POST['modif'])):?>
+        <input class="buttonmodif" type="submit" name="enregistrement" value="Enregistrer les modifications">
+      <?php endif;
+
+      if($isLeader):
+        if(empty($_POST['modif'])):?>
+          <form action="" method="post" style="text-align:center;">
+            <input class="buttonmodif" type="submit" name="modif" value="Modifier les informations" style='cursor:pointer;'>
+          </form>
+      <?php endif;?>
+    <?php endif;?>
+
+    </form>
+  </div>
 
       <div class="cote_informations">
 

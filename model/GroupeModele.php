@@ -27,8 +27,8 @@ class GroupeModele extends BaseDeDonnes
   function addEvenement($id_groupe){
   //  $sql="INSERT INTO groupe(nom, description, public, nbmax_sportifs, id_sport, id_ville, categorie, id_niveau) VALUES (?,?,?,?,?,?,?,?)";
   //  $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['public'], $_POST['nbmax_sportifs'], $_POST['id_sport'], $_POST['id_ville'], $_POST['categorie'], $_POST['id_niveau']]);
-    $sql="INSERT INTO evenement(nom, description, id_groupe, id_ville, date) VALUES (?,?,?,?,?)";
-    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'],$id_groupe,4,$_POST['date']]);
+    $sql="INSERT INTO evenement(nom, description, nombre, id_groupe, id_ville, date_debut, date_fin) VALUES (?,?,?,?,?,?,?)";
+    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['nombre'], $id_groupe,4,$_POST['date_debut'],$_POST['date_fin']]);
   }
 
 
@@ -176,6 +176,25 @@ class GroupeModele extends BaseDeDonnes
     return false;
   }
 
+  function addeventtouser($id_evenement,$id_user, $id_groupe){
+  $sql="INSERT INTO planning(id_utilisateur, id_groupe, id_evenement) VALUES (?,?,?)";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe, $id_evenement])->fetch();
+    return $resultat;
+  }
+
+  function deleteeventtouser($id_evenement,$id_user, $id_groupe){
+    $sql="DELETE FROM planning WHERE id_groupe=? AND id_utilisateur=? AND id_evenement=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe, $id_user, $id_evenement]);
+  }
+
+  function isParticipant($id_user, $id_evenement){
+    $sql = "SELECT * FROM planning WHERE id_utilisateur=? AND id_evenement=?";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_evenement])->fetch();
+    if($resultat)
+        return true;
+    return false;
+  }
+
   function joinGroupe($id_user, $id_groupe){
     $sql="INSERT INTO utilisateur_groupe(id_utilisateur, id_groupe) VALUES (?,?)";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
@@ -189,6 +208,16 @@ class GroupeModele extends BaseDeDonnes
     $telephone=$_POST['telephone'];
     $sql="UPDATE groupe SET description=?, id_ville=?, telephone=?, mail=? WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$info, $ville, $telephone, $mail, $id_groupe]);
+    return $resultat;
+  }
+
+  function modifDataEvent($id_evenement){
+    $info=$_POST['informations'];
+    $ville=2;
+    $mail=$_POST['mail'];
+    $telephone=$_POST['telephone'];
+    $sql="UPDATE evenement SET description=?, id_ville=?, telephone=?, mail=?, date_debut=?, date_fin=? WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$info, $ville, $telephone, $mail, $_POST['date_debut'], $_POST['date_fin'], $id_evenement]);
     return $resultat;
   }
 
@@ -214,7 +243,7 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function quitGroupe($id_user, $id_groupe){
-    $sql="DELETE FROM utilisateur WHERE id_utilisateur=? AND id_groupe=?";
+    $sql="DELETE FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
   }
 

@@ -19,10 +19,10 @@
         <fieldset>
           <div style="display:block; margin-left:20px;">
             <label for="nom" class="fa fa-group labelnom"></label>
-            <input id="nom" type="text" name="nom" placeholder="Nom événement"/></div>
+            <input id="nom" type="text" name="nom" placeholder="Nom événement" required/></div>
           <div style="display:block;margin-left:20px;">
             <label for="number" class="fa fa-line-chart labelnom"></label>
-            <input id="number" type="number" placeholder="Nombre de participants" name="nombre" min="0"/>
+            <input id="number" type="number" placeholder="Nombre de participants" name="nombre" min="0" required/>
           </div>
           <div style="display:block;margin-left:20px;">
             <div class="search">
@@ -34,8 +34,12 @@
             </div>
           </div>
           <div style="display:block;margin-left:20px;">
-            <label for="date" class="fa fa-home labelnom"></label>
-            <input id="ville" type="date" name="date"/>
+            <label for="datetime" class="fa fa-home labelnom"></label>
+            <input id="ville" type="datetime" name="date_debut" required/>
+          </div>
+          <div style="display:block;margin-left:20px;">
+            <label for="datetime" class="fa fa-home labelnom"></label>
+            <input id="ville" type="datetime" name="date_fin"required/>
           </div>
 
         <div class="ChangePictureSport">

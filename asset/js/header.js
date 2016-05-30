@@ -57,7 +57,7 @@ function getresults2(str, e) {
         }
       }
     };
-    xmlhttp.open("GET", "ajaxrecherchegenerale?resultat=" + str, true);
+    xmlhttp.open("GET", "/fr/ajaxrecherchegenerale?resultat=" + str, true);
     xmlhttp.send();
     savestr = str;
   }

@@ -12,6 +12,7 @@
           </p>
         </div>
         <form class="" action="" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="nomgroupe" value="<?php echo $nomgroupe ?>">
           <div class="card">
             <input type="hidden" name="id_groupe" value="<?php echo $value['id']?>">
             <div class="content-imggroupe">

@@ -77,6 +77,14 @@ class GroupeController
         $this->groupe->deleteEvenement($id_groupe);
         $succes="Publication effacée avec succès!";
         }
+        if(!empty($_POST['ajout'])){
+          if($_POST['ajout']=="Ajouter au planning"){
+          $this->groupe->addeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
+          }
+          if($_POST['ajout']=="Supprimer du planning"){
+          $this->groupe->deleteeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
+          }
+        }
       }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
@@ -91,19 +99,33 @@ class GroupeController
   {
     $vue=new Vue("UnEvenementGroupe", "Groupe", ['stylesheet.css']);
     if(!empty($_POST)){
+        if(!empty($_POST['abonnement'])){
       if(($_POST['abonnement']=="Rejoindre")){
         $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
       }if($_POST['abonnement']=="Désinscrire"){
         $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
       }
+      }
+      if(!empty($_POST['enregistrement'])){
+        $this->groupe->modifDataEvent($id_evenement);
+      }
+      if(!empty($_POST['ajout'])){
+        if($_POST['ajout']=="Ajouter au planning"){
+        $this->groupe->addeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
+        }
+        if($_POST['ajout']=="Supprimer du planning"){
+        $this->groupe->deleteeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
+        }
+      }
     }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
+    $isParticipant=$this->groupe->isParticipant($_SESSION['user']['id'], $id_evenement);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $evenement=$this->groupe->getEvenement($id_evenement)->fetch();
     $ville=$this->groupe->getVille($evenement['id_ville'])->fetch();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
   }
 
   public function loadCreateEvenement($id_groupe){
