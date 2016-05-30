@@ -34,9 +34,12 @@ class ForumController
 
   public function loadADiscussion($id_topic, $id_discussion)
   {
-    $views=$this->forum->AddView($id_topic, $id_discussion);
-
+    $views=$this->forum->AddView($id_topic, $id_discussion);//compteur +1
+    $topic=$this->forum->getTopic($id_topic)->fetch();
+    $discussion=$this->forum->getDiscussion($id_topic, $id_discussion)->fetch();
+    $messages=$this->forum->getMessages($id_topic, $id_discussion)->fetchAll();
+    $nbTotalMessageUsers=$this->forum->countAllMessage();
     $vue=new Vue("Discussion","Forum",['stylesheet.css']);
-    $vue->loadpage();
+    $vue->loadpage(['discussion'=>$discussion, 'topic'=>$topic, 'messages'=>$messages, 'nbTotalMessageUsers'=>$nbTotalMessageUsers]);
   }
 }

@@ -1513,7 +1513,6 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 }
 
 .avatar {
-  width: 75px;
   height: 75px;
   display: block;
   margin: 10px 0 10px 0;
@@ -1527,10 +1526,13 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 .titre-post {
   font-size: 0.9em;
   margin: 0 0 0 0 !important;
+  display:inline-block;
 }
 
 .date-post {
+  display:inline-block;
   font-size: 0.8em;
+  float:right;
 }
 .modification {
   margin-top: 5px;
@@ -1570,10 +1572,39 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   width: 90%;
   height: 200px;
   border: solid 1px black;
+  font-size: 1em;
+  padding: 10px;
+  font-size:15px;
+}
+
+.textanswer{
+  margin: 20px 40px 10px 50px;
+  width: 90%;
+  padding: 5px;
+}
+
+.AnswerSpace{
+  padding:10px;
+  border:1px black solid;
+  border-radius:5px;
+  box-shadow: 0px 0px 10px #000000;
+  margin:40px;
+}
+
+.titreanswer{
+  width:60%;
   margin: 20px 50px 10px 50px;
   font-size: 1em;
   padding: 5px;
 }
+
+.inputforum{
+  border:1px black solid;
+  padding:10px;
+  width:70%;
+  font-size:15px;
+}
+
 
 .bouton-poster {
   margin: 10px 50px 20px 50px;
@@ -2152,6 +2183,10 @@ td {
 a{
   text-decoration: none;
   color:black;
+}
+
+.contenu{
+  min-height: 70px;
 }
 
 /* Sport Groupe */
