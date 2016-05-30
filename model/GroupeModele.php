@@ -15,6 +15,22 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function getIDevenement(){
+    $sql="SELECT MAX(id) FROM groupe_publication";
+    $resultat=$this->requeteSQL($sql);
+    dump($resultat);
+    //$resultat=$resultat+1;
+    return $resultat;
+    //echo $resultat;
+  }
+
+  function addEvenement($id_groupe){
+  //  $sql="INSERT INTO groupe(nom, description, public, nbmax_sportifs, id_sport, id_ville, categorie, id_niveau) VALUES (?,?,?,?,?,?,?,?)";
+  //  $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['public'], $_POST['nbmax_sportifs'], $_POST['id_sport'], $_POST['id_ville'], $_POST['categorie'], $_POST['id_niveau']]);
+    $sql="INSERT INTO evenement(nom, description, id_groupe, id_ville, date) VALUES (?,?,?,?,?)";
+    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'],$id_groupe,4,$_POST['date']]);
+  }
+
 
   function getInfoGroupSport($id_sport){
     $sql="SELECT * FROM groupe WHERE id_sport=?";
@@ -117,7 +133,7 @@ class GroupeModele extends BaseDeDonnes
     $resultats->execute();
     return $resultats;
   }
-  
+
   /* Fonctions count.*/
   function getNbGroupeSports($sports){ // renvoie [idsport=>nbgroupe]
     foreach ($sports as $key => $value) {
@@ -186,6 +202,17 @@ class GroupeModele extends BaseDeDonnes
     $sql="DELETE FROM groupe_publication WHERE id_groupe=? AND id=?";
     $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_publication']]);
   }
+
+  function deleteEvenement($id_groupe){
+    $sql="DELETE FROM evenement WHERE id_groupe=? AND id=? ORDER BY date DESC";
+    $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_evenement']]);
+  }
+
+  function deleteUser($id_groupe){
+    $sql="DELETE FROM utilisateur_groupe WHERE id_groupe=? AND id_utilisateur=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_utilisateur']]);
+  }
+
   function quitGroupe($id_user, $id_groupe){
     $sql="DELETE FROM utilisateur WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);

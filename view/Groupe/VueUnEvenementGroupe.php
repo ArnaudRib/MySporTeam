@@ -61,6 +61,8 @@
           <h1>Informations évènement</h1>
         </div>
         <div>
+          <h2>date</h2>
+          <h2 style="font-size:15px; color:grey;"><?php echo $evenement['date']?></h2>
           <p><?php echo $evenement['description']?></p>
           <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
         </div>

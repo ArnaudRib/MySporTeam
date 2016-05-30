@@ -1,53 +1,69 @@
 <div class="bodybackground">
   <div class="blockinscription">
-  <?php if($error!=''):?>
-    <div class="errorbox blackborder radius">
-      <?php echo $error;?>
-    </div>
-  <?php endif; ?>
+    <nav id="creationgroupe"> <!-- remettre <nav id="creationgroupe"> si tu veux pas noir-->
 
-    <nav id="inscription"> <!-- remettre <nav id="creationgroupe"> si tu veux pas noir-->
-      <form action="<?php goTopage('creationgroupe')?>" method="post" >
+      <?php if($isLeader==true):?>
+      <form action="<?php  ?>" method="post" enctype="multipart/form-data" >
         <h1 class=""> Créer un événement </h1>
+        <?php if($error!=''):?>
+          <div class="errorbox blackborder radius">
+            <?php echo $error;?>
+          </div>
+        <?php endif; ?>
         <?php if($succes!=''): ?>
           <div class="successbox blackborder radius" style='margin:20px auto; margin-bottom:0px'>
             <?php echo $succes;?>
           </div>
         <?php endif; ?>
+
         <fieldset>
-          <div>
-            <label for="nom"><img src="<?php echo image('Users/icone_utilisateur.png')?>" /></label>
-            <input type="text" name="nom" placeholder="Nom événement">
+          <div style="display:block; margin-left:20px;">
+            <label for="nom" class="fa fa-group labelnom"></label>
+            <input id="nom" type="text" name="nom" placeholder="Nom événement"/></div>
+          <div style="display:block;margin-left:20px;">
+            <label for="number" class="fa fa-line-chart labelnom"></label>
+            <input id="number" type="number" placeholder="Nombre de participants" name="nombre" min="0"/>
           </div>
-          <input type="file" name="imagegroupe">
+          <div style="display:block;margin-left:20px;">
+            <div class="search">
+            <label for="ville" class="fa fa-home labelnom"></label>
+            <input id="search" class="barRecherche blackborder" type="text" class="form-control" name="ville" value="" style="width:70%; margin: 10px 0px; font-size:15px;" placeholder="Ville"  onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
+            <p id="results">
+              <span style="font-size:20px; padding-top:30px;">Veuillez rentrer un nom de ville.</span>
+            </p>
+            </div>
+          </div>
+          <div style="display:block;margin-left:20px;">
+            <label for="date" class="fa fa-home labelnom"></label>
+            <input id="ville" type="date" name="date"/>
+          </div>
 
-          <select name="categorie" require>
-            <option selected value=""> --- Catégorie --- </option>
-            <option value="Compétition"> Compétition </option>
-            <option value="Cours"> Cours </option>
-            <option value="Entrainement"> Entrainement </option>
-          </select>
+        <div class="ChangePictureSport">
+          <label for="baniere" class="boutonInputFile">Ajouter une photo d'illustration</label>
+          <input id="baniere" class="files" type="file" name="baniere" style="display:none;">
+          <img class="UploadedImage classImage" />
+        </div>
 
-          <input type="number" placeholder="Nombre de places : 45max" name="nombre" min="0" max="45"/>
-          <?php /*if(isset($_POST['nbr_max'])){
-            if ($_POST ['nbr_max'] >= 45 or $_POST ['nbr_max'] < 0){
-            echo "Perdu";}
-            else {
-            echo "Gagné";
-          }
-        } A METTRE DANS LE CONTROLLER SI VRAIMENT NECESSAIRE*/?>
+        <textarea class="areacreation" name="description" rows="10" cols="50" placeholder="Description"></textarea>
 
-        <input type="text" name="ville" placeholder="Ville"></br>
-
-        <label style="display: inline-block; width: 60px; float: none;">Public</label> <input style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" name="visibilite" value="public">
-        <label style="display: inline-block; width: 60px; float: none;">Privé</label> <input type="radio" name="visibilite" value="prive" style="display: inline-block; width: 30px; height: 15px">
-
-        <textarea name="description" rows="10" cols="50" placeholder="Description"></textarea>
-
-        <input id="submit" type="submit" name="Envoyer" value="Valider">
+        <div style="text-align:center;">
+          <input class="subboutton" id="submit" type="submit" name="Envoyer" value="Valider">
+        </div>
       </fieldset>
     </form>
+  <?php else:?>
+    <h1>Erreur, vous n'êtes pas l'administrateur de groupe<h1>
+    <?php endif;?>
 
     </nav>
   </div>
 </div>
+<!-- Pour une liste des villes déroulante :
+<select class="recherchefiltre" name="Ville">
+<?php $i=0; ?>
+<option selected value=""> --- Ville --- </option>
+<?php foreach ($villes as $key => $value): ?>
+<option value="<?php echo $i?>"> <?php echo $value['ville'] ?></option>
+<?php $i+=1; ?>
+<?php endforeach; ?>
+</select> -->

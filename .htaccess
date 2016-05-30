@@ -4,4 +4,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(fr|en)$ index.php?lang=$1 [L,QSA]
 RewriteRule ^(fr|en)/(.*)$ index.php?lang=$1&p=$2 [L,QSA]
-RewriteRule ^/mysporteam/asset/(.*)$ /mysporteam/asset/$1 [L,QSA]
+RewriteRule ^/asset/(.*)$ /asset/$1 [L,QSA]

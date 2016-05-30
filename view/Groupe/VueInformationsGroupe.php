@@ -1,4 +1,3 @@
-<a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>" style="color:red; font-size:30px; margin-left:40px;"> click me maistret -,-</a> 
 <div class="fond_mongroupe">
   <div id="image_de_fond">
     <?php $nomgroupe=str_replace(' ', '-', $datagroupe['nom']);?>
@@ -22,7 +21,7 @@
           </li>
         <?php elseif($isLeader==true):?>
           <li id="abonnement" style="margin-top:-10px; margin-left:10px; padding:5px;">
-          <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Créer un événement</a>
+          <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>">Créer un événement</a>
           </li>
           <?php else: ?>
             <li id="desabonnement" style="margin-top:-10px;">

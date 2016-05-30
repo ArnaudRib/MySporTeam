@@ -22,7 +22,7 @@
           <?php elseif($isLeader==true): ?>
 
             <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
-            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Créer un événement</a>
+            <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>">Créer un événement</a>
             </li>
             <?php else: ?>
               <li id="desabonnement" style="margin-top:-10px;">
@@ -45,9 +45,19 @@
           <img src="<?php echo image('Groupes/Evenements/'.$value['id'].'.jpg')?>"/>
           <div class="texteevenement">
             <h1><?php echo $value['nom']?></h1>
+            <h2 style="font-size:15px; color:grey;"><?php echo $value['date']?></h2>
             <p><?php echo $value['description']?></p>
             <a href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id']])?>" >Plus d'info</a>
-            <a href="" >ajouter au planning</a>
+
+            <?php if($isLeader):?>
+              <form class="" action="" method="post">
+                <label for="deletebutton" class="deletebutton">&#10006;</label>
+                <input type="hidden" name="id_evenement" value="<?php echo $value['id']?>">
+                <input id="deletebutton" type="submit" name="deleteEve" value="delete" style="display:none;">
+              </form>
+            <?php else:?>
+              <a href="" >ajouter au planning</a>
+            <?php endif;?>
           </div>
         </div>
       <?php  endforeach;

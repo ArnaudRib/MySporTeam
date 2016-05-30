@@ -9,11 +9,11 @@
           <span id="bouttonfiltre" class="plusboutton fa fa-plus" style="display:inline-block;" onclick="displayFiltre()"></span>
         </div>
         <div class="search">
-          <input id="search" class="barRecherche blackborder" type="text" class="form-control" name="ville" value="" style="width:70%; margin: 10px 0px; font-size:15px;" placeholder="Ville"  onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
-          <p id="results">
-            <span style="font-size:20px; padding-top:30px;">Veuillez rentrer un nom de ville.</span>
-          </p>
-        </div>
+            <input id="search" class="barRecherche blackborder" type="text" class="form-control" name="ville" value="" style="width:70%; margin: 10px 0px; font-size:15px;" placeholder="Ville"  onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
+            <p id="results">
+              <span style="font-size:20px; padding-top:30px;">Veuillez rentrer un nom de ville.</span>
+            </p>
+          </div>
         <div class="niveau">
           <h3>Niveau</h2>
             <?php $i=1; ?>

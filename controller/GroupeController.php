@@ -31,6 +31,13 @@ class GroupeController
     $vue->loadajax(['rechercheVille'=>$rechercheVille, 'resultat'=>$_GET['resultat']]);
   }
 
+  public function loadAjaxCreateEvent()
+  {
+    $rechercheVille=$this->groupe->searchVilleName(10)->fetchAll();
+    $vue=new Vue("AfficherVille","Groupe");
+    $vue->loadajax(['rechercheVille'=>$rechercheVille, 'resultat'=>$_GET['resultat']]);
+  }
+
   public function loadInformationsGroupe($id_groupe)
   {
     $vue=new Vue("InformationsGroupe", "Groupe", ['stylesheet.css']);
@@ -59,12 +66,18 @@ class GroupeController
   {
     $vue=new Vue("EvenementsGroupe", "Groupe", ['stylesheet.css']);
     if(!empty($_POST)){
+      if(!empty($_POST['abonnement'])){
       if(($_POST['abonnement']=="Rejoindre")){
         $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
       }if($_POST['abonnement']=="Désinscrire"){
         $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
+        }
       }
-    }
+      if(!empty($_POST['deleteEve'])){
+        $this->groupe->deleteEvenement($id_groupe);
+        $succes="Publication effacée avec succès!";
+        }
+      }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
@@ -94,9 +107,44 @@ class GroupeController
   }
 
   public function loadCreateEvenement($id_groupe){
-    $vue=new Vue("CreationEvenement", "Groupe", ['stylesheet.css']);
-    $vue->loadpage();
+    $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
+      $succes='';
+      $error='';
+      $villes=$this->groupe->getVilles()->fetchAll();
+      if(!empty($_POST)){
+        if(!empty($_FILES['baniere']['name']))
+          $error.="Veuillez selectionner une banière pour le groupe!";
+        $verification = new Verification($_POST);
+        $verificationPhoto = new Verification($_FILES);
+        $verification->notEmpty('nom', "Veuillez spécifier un nom à votre groupe.");
+        $verification->notEmpty('nombre', "Indiquez le nombre maximal de membres.");
+        $verification->notEmpty('ville', "Choississez une ville.");
+        $verification->notEmpty('description', "Décrivez votre groupe.");
 
+        $error=$verification->error;
+        $error.=$verificationPhoto->error;
+        if(!$verificationPhoto->isValid())
+          $error.="Ce groupe existe déjà! Veuillez choisir un autre nom.";
+        if($verification->isValid() && $verificationPhoto->isValid()){// && $verificationPhoto->isValid()){
+          /*upload images*/
+          //$nomphoto=$this->groupe->getIDevenement();
+          //dump($nomphoto);
+          $error.=uploadPhoto("10".'.jpg', 'Groupes/Evenements', 'evenements');
+
+          //Add BDD
+          if(empty($error)){
+            $nomphoto=str_replace(' ', '-', $_POST['nom']);
+            //$id_ville=$this->groupe->getIdVille($_POST['ville']);
+            //dump($id_ville);
+            $this->groupe->addEvenement($id_groupe);
+          }
+          }
+          }
+
+          $categorie=$this->groupe->getCategory()->fetchAll();
+          $sports=$this->sport->getSports()->fetchAll();
+          $vue=new Vue("CreationEvenement", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['showphoto.js','RechercheGroupe.js']); // CSS a unifier dans le meme fichier
+          $vue->loadpage(['sports'=>$sports, 'categorie'=>$categorie, 'villes'=>$villes, 'isLeader'=>$isLeader,'error'=>$error, 'succes'=>$succes]);
   }
 
   public function loadUnePublicationGroupe($id_groupe, $id_publication){
@@ -109,11 +157,17 @@ class GroupeController
   {
     $vue=new Vue("MembresGroupe", "Groupe", ['stylesheet.css']);
     if(!empty($_POST)){
+      if(!empty($_POST['abonnement'])){
       if(($_POST['abonnement']=="Rejoindre")){
         $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
       }if($_POST['abonnement']=="Désinscrire"){
         $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
       }
+      }
+      if(!empty($_POST['deleteUser'])){
+        $this->groupe->deleteUser($id_groupe);
+        $succes="";
+        }
     }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
@@ -172,8 +226,8 @@ class GroupeController
   {
     $succes='';
     $error='';
-    $nomphoto=str_replace(' ', '-', $_POST['nom']);
     if(!empty($_POST)){
+      $nomphoto=str_replace(' ', '-', $_POST['nom']);
       if(!empty($_FILES['photogroupe']['name']))
         $error.="Veuillez selectionner une photo de groupe!";
       if(!empty($_FILES['baniere']['name']))
