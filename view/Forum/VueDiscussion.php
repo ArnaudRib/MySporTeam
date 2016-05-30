@@ -1,4 +1,4 @@
-<body class="AllForum">
+<div class="AllForum">
   <div class="forum">
     <h2 class="forums">Chemin > ### > ### </h2>
     <div class="container-barre">
@@ -93,3 +93,4 @@
     </div>
 
   </div>
+</div>

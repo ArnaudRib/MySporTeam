@@ -172,8 +172,8 @@ class GroupeController
   {
     $succes='';
     $error='';
-    $nomphoto=str_replace(' ', '-', $_POST['nom']);
     if(!empty($_POST)){
+      $nomphoto=str_replace(' ', '-', $_POST['nom']);
       if(!empty($_FILES['photogroupe']['name']))
         $error.="Veuillez selectionner une photo de groupe!";
       if(!empty($_FILES['baniere']['name']))

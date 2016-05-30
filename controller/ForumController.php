@@ -24,13 +24,19 @@ class ForumController
   {
     $topic=$this->forum->getTopic($id_topic)->fetch();
     $discussions=$this->forum->getDiscussions($id_topic)->fetchAll();
-    $vue=new Vue("Topic","Forum",['stylesheet.css', 'font-awesome.min.css']);
-    $vue->loadpage(['discussions'=>$discussions, 'topic'=>$topic]);
+    $creator=$this->user->getDataUserDiscussion($discussions);
+    $nbreponses=$this->forum->countReponse($id_topic, $discussions);
+    $nbvues=$this->forum->countVues($id_topic, $discussions);
+    $lastMessage=$this->forum->getLastMessageInfo($id_topic, $discussions);
+    $vue=new Vue("Topic","Forum",['stylesheet.css']);
+    $vue->loadpage(['discussions'=>$discussions, 'topic'=>$topic, 'creator'=>$creator, 'nbreponses'=>$nbreponses, 'nbvues'=>$nbvues, 'lastMessage'=>$lastMessage]);
   }
 
   public function loadADiscussion($id_topic, $id_discussion)
   {
-    $vue=new Vue("Discussion","Forum",['stylesheet.css', 'font-awesome.min.css']);
+    $views=$this->forum->AddView($id_topic, $id_discussion);
+
+    $vue=new Vue("Discussion","Forum",['stylesheet.css']);
     $vue->loadpage();
   }
 }

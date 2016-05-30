@@ -15,6 +15,15 @@ class UserModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function getDataUserDiscussion($discussions){
+    foreach ($discussions as $key => $value) {
+      $sql="SELECT pseudo FROM utilisateur WHERE id=?";
+      $resultat=$this->requeteSQL($sql, [$value['id_user']])->fetchAll();
+      $allresults[$value['id']]=$resultat[0]['pseudo'];
+    }
+    return $allresults;
+  }
+
   function getUserNamePub($publication){
     foreach ($publication as $key => $value) {
       $sql="SELECT pseudo FROM utilisateur WHERE id=?";
