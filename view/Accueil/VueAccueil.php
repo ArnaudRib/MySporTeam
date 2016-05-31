@@ -1,18 +1,21 @@
 <?php
 if(isset($_SESSION['user']['id'])):
-  if($_GET['connexion']):?>
-    <div id="notification" class="notification">
-      <p id="closenotification" style="color:red; font-size:25px; cursor:pointer; float:right;" class="closeButtonModal" onclick="displayNotification()">&#10006;</p>
-      <div id="textnotification" class="textNotif">
-        <span style="display:block;">
-          <?php echo lang("Bienvenue").' '.$_SESSION['user']['pseudo']?>!
-        </span>
-        <span style="display:block;">
-          <?php echo lang("Vous n'avez pas de nouvelles notifications!") ?>
-        </span>
+  if(isset($_GET['connexion'])):
+    if($_GET['connexion']):?>
+      <div id="notification" class="notification">
+        <p id="closenotification" style="color:red; font-size:25px; cursor:pointer; float:right;" class="closeButtonModal" onclick="displayNotification()">&#10006;</p>
+        <div id="textnotification" class="textNotif">
+          <span style="display:block;">
+            <?php echo lang("Bienvenue").' '.$_SESSION['user']['pseudo']?>!
+          </span>
+          <span style="display:block;">
+            <?php echo lang("Vous n'avez pas de nouvelles notifications!") ?>
+          </span>
+        </div>
       </div>
-    </div>
-<?php  endif;
+<?php
+    endif;
+  endif;
 endif;?>
 <!--Partie Popup-->
 <div id="popup" class="popup">

@@ -1382,6 +1382,50 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 
 .containerforum{
   padding:10px 0;
+  transition:1s all ease;
+}
+
+.containerforum:hover{
+  background-color:rgba(108, 108, 108, 0.30);
+}
+
+.editpen{
+  width:15px;
+  margin:5px;
+  margin-top:15px;
+}
+
+.modifybutton2{
+  border:1px black solid;
+  background-color:orange;
+  border-radius:4px;
+  margin:5px;
+  transition:1s all ease;
+  cursor:pointer;
+}
+
+.modifybutton2:hover{
+  background-color:rgb(255, 82, 8);
+}
+
+.deletebutton2{
+  margin:5px;
+  background-color:red;
+  border:1px black solid;
+  border-radius:4px;
+  transition:1s all ease;
+  cursor:pointer;
+}
+
+.deletebutton2:hover{
+  background-color:rgb(190, 1, 1);
+}
+
+
+.deletepic{
+  width:20px;
+  margin:5px;
+  margin-top:15px;
 }
 
 .lien-forum p {
@@ -1625,14 +1669,17 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 
 
 .bouton-poster {
+  background-color: #08184f;
+  color:white;
   margin: 10px 50px 20px 50px;
   height: 40px;
-  width: 130px;
+  padding:8px;
+  border-radius:5px;
+  width: auto;
   border: solid 1px #e4e4e4;
   font-size: 1em;
   font-weight: bold;
 }
-
 
 
 /* aide*/
