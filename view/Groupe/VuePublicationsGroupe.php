@@ -88,21 +88,23 @@
       <?php endif?>
       <div>
         <?php if ($publication!=NULL):
+          $i=1;
           foreach ($publication as $key => $value):?>
           <div id="<?php echo $i=count($publication) ?>" class="publication forme_case radius_mongroupe">
             <?php if($isLeader):?>
-              <form class="" action="" method="post">
-                <label for="deletebutton" class="deletebutton">&#10006;</label>
-                <input type="hidden" name="id_publication" value="<?php echo $value['id']?>">
-                <input id="deletebutton" type="submit" name="deletePub" value="delete" style="display:none;">
+              <form action="" method="post">
+                <input type="hidden" name="id_publication" value="<?php echo $value['id'] ?>">
+                <input class="deletebutton" type="submit" name="deletePub" value="&#10006;">
               </form>
             <?php endif?>
             <h1><?php echo $value['titre']?></h1>
             <h2><?php echo diffDate($value['date']);?></h2>
             <p><?php echo $value['texte']?></p>
-            <h5 class="posteurPub"><?php echo lang('Publié par :') ?> <!--<span><?php echo $user[$value['id']]?> </span></h5>-->
+            <h5 class="posteurPub"><?php echo lang('Publié par')?>: <span><?php echo $user[$value['id']]?> </span></h5>
           </div>
-        <?php  endforeach;
+
+        <?php
+        endforeach;
 
           else:?>
             <div  class="publication forme_case radius_mongroupe">

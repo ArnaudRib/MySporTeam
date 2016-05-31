@@ -1102,7 +1102,10 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   cursor:pointer;
   color:red;
   transition:1s all ease;
+  background-color: white;
+  border-radius:5px;
 }
+
 .deletebutton:hover{
   color:orange;
 }
