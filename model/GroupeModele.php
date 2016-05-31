@@ -201,9 +201,9 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function modifDataGroupe($id_groupe){
+  function modifDataGroupe($id_groupe,$ville){
     $info=$_POST['informations'];
-    $ville=2;
+    //$ville=2;
     $mail=$_POST['mail'];
     $telephone=$_POST['telephone'];
     $sql="UPDATE groupe SET description=?, id_ville=?, telephone=?, mail=? WHERE id=?";
