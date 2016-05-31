@@ -44,7 +44,14 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function getIdVille($ville){
+  function getClub($id_club){
+    echo $id_club;
+    $sql="SELECT * FROM club WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$id_club]);
+    return $resultat;
+  }
+
+  function getVilleById($ville){
     $sql="SELECT * FROM city WHERE name=?";
     $resultat=$this->requeteSQL($sql, [$ville]);
     return $resultat;
@@ -61,6 +68,13 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
   }
+
+  function conutparticipants($id_evenement){
+    $sql="SELECT COUNT(id) FROM planning WHERE id_evenement=?";
+    $resultat=$this->requeteSQL($sql, [$id_evenement]);
+    return $resultat;
+  }
+
 
   function getEvenement($id_evenement){
     $sql="SELECT * FROM evenement WHERE id=?";
@@ -108,11 +122,6 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function getClub($id_club){
-    $sql="SELECT * FROM club WHERE id=?";
-    $resultat=$this->requeteSQL($sql,[$id_club]);
-    return $resultat;
-  }
 
   function searchVilleName($nbdisplay){
     $sql="SELECT name FROM city WHERE name LIKE ?  ORDER BY name LIMIT ?";
@@ -201,23 +210,23 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function modifDataGroupe($id_groupe,$ville){
+
+  function modifDataGroupe($id_groupe, $id_ville){
     $info=$_POST['informations'];
-    //$ville=2;
     $mail=$_POST['mail'];
     $telephone=$_POST['telephone'];
     $sql="UPDATE groupe SET description=?, id_ville=?, telephone=?, mail=? WHERE id=?";
-    $resultat=$this->requeteSQL($sql, [$info, $ville, $telephone, $mail, $id_groupe]);
+    $resultat=$this->requeteSQL($sql, [$info, $id_ville, $telephone, $mail, $id_groupe]);
     return $resultat;
   }
 
-  function modifDataEvent($id_evenement){
+  function modifDataEvent($id_evenement, $id_ville){
     $info=$_POST['informations'];
     $ville=2;
     $mail=$_POST['mail'];
     $telephone=$_POST['telephone'];
     $sql="UPDATE evenement SET description=?, id_ville=?, telephone=?, mail=?, date_debut=?, date_fin=? WHERE id=?";
-    $resultat=$this->requeteSQL($sql, [$info, $ville, $telephone, $mail, $_POST['date_debut'], $_POST['date_fin'], $id_evenement]);
+    $resultat=$this->requeteSQL($sql, [$info, $id_ville, $telephone, $mail, $_POST['date_debut'], $_POST['date_fin'], $id_evenement]);
     return $resultat;
   }
 
@@ -239,6 +248,7 @@ class GroupeModele extends BaseDeDonnes
 
   function deleteUser($id_groupe){
     $sql="DELETE FROM utilisateur_groupe WHERE id_groupe=? AND id_utilisateur=?";
+    echo $_POST['id_utilisateur'];
     $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_utilisateur']]);
   }
 

@@ -31,16 +31,10 @@ class GroupeController
     $vue->loadajax(['rechercheVille'=>$rechercheVille, 'resultat'=>$_GET['resultat']]);
   }
 
-  public function loadAjaxCreateEvent()
-  {
-    $rechercheVille=$this->groupe->searchVilleName(10)->fetchAll();
-    $vue=new Vue("AfficherVille","Groupe");
-    $vue->loadajax(['rechercheVille'=>$rechercheVille, 'resultat'=>$_GET['resultat']]);
-  }
 
   public function loadInformationsGroupe($id_groupe)
   {
-    $vue=new Vue("InformationsGroupe", "Groupe", ['stylesheet.css']);
+    $vue=new Vue("InformationsGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
         if(($_POST['abonnement']=="Rejoindre")){
@@ -50,7 +44,9 @@ class GroupeController
         }
       }
       if(!empty($_POST['enregistrement'])){
-        $this->groupe->modifDataGroupe($id_groupe,$villeid);
+        $info_ville=$this->groupe->getVilleById($_POST['ville'])->fetch();
+        $id_ville=$info_ville['id'];
+        $this->groupe->modifDataGroupe($id_groupe, $id_ville);
       }
     }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
@@ -67,25 +63,26 @@ class GroupeController
     $vue=new Vue("EvenementsGroupe", "Groupe", ['stylesheet.css']);
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
-      if(($_POST['abonnement']=="Rejoindre")){
-        $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
-      }if($_POST['abonnement']=="Désinscrire"){
-        $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
+        if(($_POST['abonnement']=="Rejoindre")){
+          $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
+        }
+        if($_POST['abonnement']=="Désinscrire"){
+          $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
         }
       }
       if(!empty($_POST['deleteEve'])){
         $this->groupe->deleteEvenement($id_groupe);
         $succes="Publication effacée avec succès!";
         }
-        if(!empty($_POST['ajout'])){
-          if($_POST['ajout']=="Ajouter au planning"){
+      if(!empty($_POST['ajout'])){
+        if($_POST['ajout']=="Ajouter au planning"){
           $this->groupe->addeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
-          }
-          if($_POST['ajout']=="Supprimer du planning"){
+        }
+        if($_POST['ajout']=="Supprimer du planning"){
           $this->groupe->deleteeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
-          }
         }
       }
+    }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
@@ -97,7 +94,7 @@ class GroupeController
 
   public function loadUnEvenementGroupe($id_groupe, $id_evenement)
   {
-    $vue=new Vue("UnEvenementGroupe", "Groupe", ['stylesheet.css']);
+    $vue=new Vue("UnEvenementGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
     if(!empty($_POST)){
         if(!empty($_POST['abonnement'])){
       if(($_POST['abonnement']=="Rejoindre")){
@@ -107,7 +104,10 @@ class GroupeController
       }
       }
       if(!empty($_POST['enregistrement'])){
-        $this->groupe->modifDataEvent($id_evenement);
+        $info_ville=$this->groupe->getVilleById($_POST['ville'])->fetch();
+        $id_ville=$info_ville['id'];
+        $this->groupe->modifDataEvent($id_evenement, $id_ville);
+        //$this->groupe->modifDataEvent($id_evenement);
       }
       if(!empty($_POST['ajout'])){
         if($_POST['ajout']=="Ajouter au planning"){
@@ -124,8 +124,10 @@ class GroupeController
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $evenement=$this->groupe->getEvenement($id_evenement)->fetch();
+    $club=$this->groupe->getClub($evenement['id_club'])->fetch();
+    $participants=$this->groupe->conutparticipants($id_evenement)->fetchAll();
     $ville=$this->groupe->getVille($evenement['id_ville'])->fetch();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
   }
 
   public function loadCreateEvenement($id_groupe){
@@ -156,7 +158,7 @@ class GroupeController
           //Add BDD
           if(empty($error)){
             $nomphoto=str_replace(' ', '-', $_POST['nom']);
-            //$id_ville=$this->groupe->getIdVille($_POST['ville']);
+            //$id_ville=$this->groupe->getVilleById($_POST['ville']);
             //dump($id_ville);
             $this->groupe->addEvenement($id_groupe);
           }

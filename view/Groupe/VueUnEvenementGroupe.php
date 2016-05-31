@@ -1,3 +1,5 @@
+<?php  dump($participants);
+echo intval($participants['0']['COUNT(id)']);?>
 <div class="fond_mongroupe">
   <div id="image_de_fond">
     <?php $nomgroupe=str_replace(' ', '-', $datagroupe['nom']);?>
@@ -41,13 +43,17 @@
     </div>
     <div  style="display:inline-block;width:27%;vertical-align:top;">
         <?php if($isMembre==false):?>
-          <h1 class="radius_mongroupe participation2" style="font-size:18px; color:white; padding:2px; background-color:blue;text-align:center;text-decoration:none;">Rejoignez le groupe pour vous inscrire</h1>
+          <h1 class="radius_mongroupe participation2" style="">Rejoignez le groupe pour vous inscrire</h1>
         <?php else:
-         if($isParticipant==false):?>
+         if($isParticipant==false):
+             if((intval($evenement['places']))-(intval($participants['0']['COUNT(id)']))==0):?>
+             <h1 class="radius_mongroupe participation2" style="">Complet</h1>
+           <?php else: ?>
         <form action="" method="post" style="text-align:center;">
           <input style="width:100%;" class="participation" type="submit" name="ajout" value="Ajouter au planning" style='cursor:pointer;'>
         </form>
-      <?php else:?>
+      <?php endif;
+    else:?>
         <form action="" method="post" style="text-align:center;">
           <input style="width:100%;" class="participation" type="submit" name="ajout" value="Supprimer du planning" style='cursor:pointer;'>
         </form>
@@ -58,10 +64,14 @@
 
     <div class="cote_informations">
       <div class="radius_mongroupe forme_case" style="text-align:center;background-color:green; color:white;display:inline-block;width:49%;vertical-align:top;">
-            <p><?php echo $evenement['places']?> participants</p>
+            <p><?php echo $evenement['places']?> places</p>
       </div>
       <div class="radius_mongroupe forme_case" style="text-align:center;background-color:green; color:white;display:inline-block;width:49%;vertical-align:top;">
-            <p>XX places restantes</p>
+        <?php if((intval($participants['0']['COUNT(id)']))<2):?>
+            <p><?php echo intval($participants['0']['COUNT(id)']);?> participant</p>
+          <?php else:?>
+            <p><?php echo intval($participants['0']['COUNT(id)']);?> participants</p>
+          <?php endif;?>
       </div>
       <div class="radius_mongroupe forme_case">
         <div class="titre">
@@ -104,7 +114,10 @@
           <h2>Téléphone</h2>
           <input class="inputinfogroupe" type="text" name="telephone" value="<?php echo $evenement['telephone']?>" id="pseudo" required/>
           <h2>Ville</h2>
-          <input class="inputinfogroupe" style="margin-bottom:15px;" type="text" name="ville" value="<?php echo $ville['name']?>" id="pseudo" required/>
+          <input id="search" class="inputinfogroupe" style="margin-left:20px;" type="text" class="form-control" name="ville" value="" style="width:70%; margin: 10px 0px; font-size:15px;" placeholder="Ville"  onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
+          <p id="results">
+            <span style="font-size:20px; padding-top:30px;">Veuillez rentrer un nom de ville.</span>
+          </p>
         <?php else:?>
         <div>
           <h2>Mail</h2>
@@ -114,6 +127,12 @@
         </div>
       <?php endif;?>
       </div>
+      <div class="radius_mongroupe forme_case">
+        <div class="titre">
+          <h1>Club</h1>
+            </div>
+          <h2 style="font-size:15px;"><?php echo $club['nom']?></h2>
+        </div>
       <?php if(!empty($_POST['modif'])):?>
         <input class="buttonmodif" type="submit" name="enregistrement" value="Enregistrer les modifications">
       <?php endif;

@@ -1,4 +1,16 @@
 <div class="AllForum">
+
+  <?php if($error!=''):?>
+    <div class="errorbox blackborder radius" style="text-align:center; margin:10px auto;">
+      <?php echo $error;?>
+    </div>
+  <?php endif; ?>
+  <?php if($succes!=''): ?>
+    <div class="successbox blackborder radius" style='margin:20px auto; padding:10px;'>
+      <?php echo $succes;?>
+    </div>
+  <?php endif; ?>
+
   <div class="forum">
     <h2 class="forums"><?php echo $topic['titre']?> > <?php echo $discussion['titre']?> </h2>
     <div class="container-barre">
@@ -9,7 +21,6 @@
         </form>
       </div>
     </div>
-
     <div class="padding10 bleu">
       <div class="post-auteur">
         Auteur : <?php echo $discussion['creator'];?>
@@ -45,13 +56,13 @@
         <div class="AnswerSpace">
           <div class="titreanswer">
             <label for="inputform">Titre</label>
-            <input id='inputform' class="inputforum" type="text" name="titre" placeholder="Titre" value="<?php if(!empty($_POST)){ echo $_POST['titre'];} ?>">
+            <input id='inputform' class="inputforum" type="text" name="titre" placeholder="Titre" value="<?php if(isset($error)){if(!empty($_POST)){ echo $_POST['titre'];}} ?>">
           </div>
           <div class="textanswer">
             <label for="areaanswer">Corps du message</label>
-            <textarea id='areaanswer' class="form-text" form="form-reponse" name="reponse" placeholder="Veuillez insérer votre réponse ici"> <?php if(!empty($_POST)){ echo $_POST['reponse'];} ?></textarea>
+            <textarea id='areaanswer' class="form-text" form="form-reponse" name="reponse" placeholder="Veuillez insérer votre réponse ici"><?php if(isset($error)){if(!empty($_POST)){ echo $_POST['reponse'];}}?></textarea>
           </div>
-          <input class="bouton-poster bleu" type="submit" value="Poster">
+          <input class="bouton-poster bleu" type="submit" name="PostMessage">
       </div>
       </form>
     </div>

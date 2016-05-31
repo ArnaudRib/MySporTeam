@@ -1,5 +1,6 @@
 <?php
 if(isset($_SESSION['user']['id'])):
+  if(isset($_GET['connexion'])):
   if($_GET['connexion']):?>
     <div id="notification" class="notification">
       <p id="closenotification" style="color:red; font-size:25px; cursor:pointer; float:right;" class="closeButtonModal" onclick="displayNotification()">&#10006;</p>
@@ -13,6 +14,7 @@ if(isset($_SESSION['user']['id'])):
       </div>
     </div>
 <?php  endif;
+endif;
 endif;?>
 <!--Partie Popup-->
 <div id="popup" class="popup">

@@ -70,7 +70,6 @@ class UserModele extends BaseDeDonnes
     }
   }
 
-
   function getNbMembreGroupe($groupes){ // renvoie [idsport=>nbgroupe]
     foreach ($groupes as $key => $value) {
       $sql = "SELECT COUNT(*) as nbMembres FROM utilisateur_groupe WHERE id_groupe=?";
@@ -106,5 +105,29 @@ class UserModele extends BaseDeDonnes
     $resultats->bindParam(2, $nbdisplay, PDO::PARAM_INT);
     $resultats->execute();
     return $resultats;
+  }
+
+  function getGroupesSportsUtilisateur() {
+    $sql="SELECT * FROM utilisateur_sport JOIN sports ON sports.id=utilisateur_sport.id_sport WHERE id_utilisateur=?";
+    $resultat=$this->requeteSQL($sql,[$_SESSION['user']['id']])->fetchAll();
+    $sports=array();
+    foreach ($resultat as $key => $value) {
+      $sports[$key]=$value['nom'];
+    }
+    dump($sports);
+    return $sports;
+  }
+
+  function getEvent() {
+    $sql="SELECT * FROM utilisateur_evenement JOIN evenement ON evenement.id=utilisateur_evenement.id_evenement WHERE utilisateur_evenement.id_utilisateur=?";
+    $resultat = $this->requeteSQL($sql,[$_SESSION['user']['id']])->fetchAll();
+    dump($resultat);
+    return $resultat;
+  }
+
+  function getDataGroupeUser() {
+    $sql="SELECT * FROM utilisateur_groupe JOIN groupe ON groupe.id=utilisateur_groupe.id_groupe WHERE id_utilisateur=? ";
+    $resultat=$this->requeteSQL($sql,[$_SESSION['user']['id']])->fetchAll();
+    return $resultat;
   }
 }

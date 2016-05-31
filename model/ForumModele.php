@@ -77,10 +77,15 @@ class ForumModele extends BaseDeDonnes
 
   function countAllMessage(){
     $sql="SELECT id_utilisateur ,COUNT(*) as NbPost FROM message GROUP BY id_utilisateur";
-    $resultat=$this->requeteSQL($sql, [$value['id'], $id_topic])->fetchAll();
+    $resultat=$this->requeteSQL($sql)->fetchAll();
     foreach ($resultat as $key => $value) {
       $resultatfinal[$value['id_utilisateur']]=$value['NbPost'];
     }
     return $resultatfinal;
+  }
+
+  function postMessage($id_topic, $id_discussion){
+    $sql="INSERT INTO message(titre, texte, date_creation, id_discussion, id_utilisateur, id_topic) VALUES (?,?,NOW(),?,?,?)";
+    $resultat=$this->requeteSQL($sql, [$_POST['titre'], $_POST['reponse'], $id_discussion, $_SESSION['user']['id'], $id_topic])->fetchAll();
   }
 }
