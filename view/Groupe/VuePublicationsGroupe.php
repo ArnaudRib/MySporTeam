@@ -9,10 +9,10 @@
       <div id="menu_mongroupe">
         <nav>
           <ul style='margin-top:15px;'>
-            <a href="<?php  goToPage('informationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li>Informations</li></a>
-            <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="selectionne"><li>Publications</li></a>
-            <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Evènements</li></a>
-            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li>Membres</li></a>
+            <a href="<?php  goToPage('informationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Informations') ?></li></a>
+            <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="selectionne"><li><?php echo lang('Publications') ?></li></a>
+            <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Evènements') ?></li></a>
+            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li><?php echo lang('Membres') ?></li></a>
             <?php if($isMembre==false):?>
             <li id="abonnement" style="margin-top:-10px;">
               <form class="" action="" method="post">
@@ -21,7 +21,7 @@
             </li>
           <?php elseif($isLeader==true): ?>
             <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
-            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>">Créer un événement</a>
+            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>"><?php echo lang('Créer un événement') ?></a>
             </li>
             <?php else: ?>
               <li id="desabonnement" style="margin-top:-10px;">
@@ -42,7 +42,7 @@
       </div>
       <div class="radius_mongroupe forme_case">
         <div class="titre">
-          <h1>Informations groupe</h1>
+          <h1><?php echo lang('Informations groupe') ?></h1>
         </div>
         <div>
           <p style="width: 425px;"><?php echo $datagroupe['description']?></p>
@@ -63,7 +63,7 @@
       <?php if($isLeader==true): ?>
         <form class="" action="" method="post">
            <div class="PostPublication">
-             <p class="headerPostPub titre">Poster une nouvelle publication<p>
+             <p class="headerPostPub titre"><?php echo lang('Poster une nouvelle publication') ?><p>
              <label for="titre"></label>
              <input class="inputinfogroupe" type="text" name="titre" value="" id="pseudo" placeholder="Titre"/>
              <label for="publication"></label><br />
@@ -100,13 +100,13 @@
             <h1><?php echo $value['titre']?></h1>
             <h2><?php echo diffDate($value['date']);?></h2>
             <p><?php echo $value['texte']?></p>
-            <h5 class="posteurPub">Publié par : <!--<span><?php echo $user[$value['id']]?> </span></h5>-->
+            <h5 class="posteurPub"><?php echo lang('Publié par :') ?> <!--<span><?php echo $user[$value['id']]?> </span></h5>-->
           </div>
         <?php  endforeach;
 
           else:?>
             <div  class="publication forme_case radius_mongroupe">
-              <h1> Aucune Publication</h1>
+              <h1> <?php echo lang('Aucune Publication') ?></h1>
             </div>
             <?php
           endif; ?>
@@ -117,7 +117,7 @@
     <div class="cote">
       <div class="radius_mongroupe mongroupe_evenements forme_case">
         <div class="titre">
-          <h1>Futurs évènements</h1>
+          <h1><?php echo lang('Futurs évènements') ?></h1>
         </div>
         <?php if ($evenement!=NULL):
             foreach ($evenement as $key => $value):?>
@@ -127,7 +127,7 @@
           <?php endforeach;
           else:?>
             <div  class="publication forme_case radius_mongroupe">
-              <h1> Aucun événement</h1>
+              <h1><?php echo lang('Aucun événement') ?></h1>
             </div>
             <?php
           endif; ?>

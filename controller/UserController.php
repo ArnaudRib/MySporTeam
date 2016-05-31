@@ -94,6 +94,7 @@ class UserController
     $vue->loadpage(['dataUser'=>$dataUser]);
   }
 
+
   public function deconnexion(){
     session_unset($_SESSION['user']);
     header('Location: connexion');

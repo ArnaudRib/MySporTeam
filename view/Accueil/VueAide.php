@@ -2,9 +2,9 @@
   <div class="blockaide">
 
     <div class="faq encadrementTitre blackborder radius">
-      <h1> FAQ </h1>
+      <h1> <?php echo lang("FAQ") ?> </h1>
     </div>
-    
+
     <div class="question">
       <div class="container light-background OmbreContainer centre">
         <?php foreach ($aide as $type => $contenu) :?>
@@ -15,8 +15,8 @@
             </h2>
             <div class="block80">
               <?php foreach ($contenu as $questionreponse) :?>
-                Q : <?php echo ($questionreponse[0]);?></br>
-                R : <?php echo ($questionreponse[1]);?></br></br>
+                <?php echo lang("Q") ?> : <?php echo ($questionreponse[0]);?></br>
+                <?php echo lang("R") ?> : <?php echo ($questionreponse[1]);?></br></br>
               <?php endforeach; ?>
             </div>
           </div>

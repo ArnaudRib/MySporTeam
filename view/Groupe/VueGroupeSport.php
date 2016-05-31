@@ -53,22 +53,22 @@
                 <img class="imageprofilfiltre" src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>" alt="" />
               </div>
               <div class="groupesport-titre">
-                <?php echo $value['nom'] ?>
+                <?php echo $value['nom']?>
               </div>
               <div class="groupesport-chiffre">
-                <span style="position:relative; bottom:15px;"><?php echo $nbmembre[$value['id']] ?></span><span style="font-size:35px;">/</span><span style="position:relative; bottom:-10px;"><?php echo $value['nbmax_sportifs'] ?></span>
+                <span style="position:relative; bottom:15px;"><?php echo $nbmembre[$value['id']]?></span><span style="font-size:35px;">/</span><span style="position:relative; bottom:-10px;"><?php echo $value['nbmax_sportifs']?></span>
               </div>
             </div>
           </a>
         <?php endforeach; ?>
         <?php if(empty($groupes)): //à changer xd?>
-          <p style="color:red; font-size:25px; margin-top:20px;" >Aucun groupe n'a été trouvé.</p>
+          <p style="color:red; font-size:25px; margin-top:20px;" ><?php echo lang("Aucun groupe n'a été trouvé.") ?></p>
         <?php endif;  ?>
       </div>
     </div>
     <div class="centre">
       <a href="<?php goToPage('recherchegroupe')?>">
-        <h1 class="blockrechercheavancee">Accéder à la recherche avancée de groupes.</h1>
+        <h1 class="blockrechercheavancee"><?php echo lang('Accéder à la recherche avancée de groupes.') ?></h1>
       </a>
     </div>
   </div>

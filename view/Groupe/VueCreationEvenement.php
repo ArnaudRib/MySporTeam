@@ -4,7 +4,7 @@
 
       <?php if($isLeader==true):?>
       <form action="<?php  ?>" method="post" enctype="multipart/form-data" >
-        <h1 class=""> Créer un événement </h1>
+        <h1 class=""> <?php echo lang("Créer un événement") ?> </h1>
         <?php if($error!=''):?>
           <div class="errorbox blackborder radius">
             <?php echo $error;?>
@@ -62,12 +62,3 @@
     </nav>
   </div>
 </div>
-<!-- Pour une liste des villes déroulante :
-<select class="recherchefiltre" name="Ville">
-<?php $i=0; ?>
-<option selected value=""> --- Ville --- </option>
-<?php foreach ($villes as $key => $value): ?>
-<option value="<?php echo $i?>"> <?php echo $value['ville'] ?></option>
-<?php $i+=1; ?>
-<?php endforeach; ?>
-</select> -->
