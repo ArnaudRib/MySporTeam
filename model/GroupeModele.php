@@ -44,7 +44,7 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function getIdVille($ville){
+  function getVilleById($ville){
     $sql="SELECT * FROM city WHERE name=?";
     $resultat=$this->requeteSQL($sql, [$ville]);
     return $resultat;
@@ -201,13 +201,12 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function modifDataGroupe($id_groupe){
+  function modifDataGroupe($id_groupe, $id_ville){
     $info=$_POST['informations'];
-    $ville=2;
     $mail=$_POST['mail'];
     $telephone=$_POST['telephone'];
     $sql="UPDATE groupe SET description=?, id_ville=?, telephone=?, mail=? WHERE id=?";
-    $resultat=$this->requeteSQL($sql, [$info, $ville, $telephone, $mail, $id_groupe]);
+    $resultat=$this->requeteSQL($sql, [$info, $id_ville, $telephone, $mail, $id_groupe]);
     return $resultat;
   }
 

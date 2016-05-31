@@ -1,4 +1,3 @@
-
 <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>" style="color:red; font-size:30px; margin-left:40px;"> click me maistret -,-</a>
 <div class="fond_mongroupe">
   <div id="image_de_fond">
@@ -66,8 +65,15 @@
           <input class="inputinfogroupe" type="text" name="mail" value="<?php echo $datagroupe['mail']?>" id="pseudo" required/>
           <h2>Téléphone</h2>
           <input class="inputinfogroupe" type="text" name="telephone" value="<?php echo $datagroupe['telephone']?>" id="pseudo" required/>
-          <h2>Ville</h2>
-          <input class="inputinfogroupe" style="margin-bottom:15px;" type="text" name="ville" value="<?php echo $ville['name']?>" id="pseudo" required/>
+
+          <div class="search">
+            <h2>Ville</h2>
+            <input id="search" class="inputinfogroupe" style="margin-left:20px;" type="text" class="form-control" name="ville" value="" style="width:70%; margin: 10px 0px; font-size:15px;" placeholder="Ville"  onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
+            <p id="results">
+              <span style="font-size:20px; padding-top:30px;">Veuillez rentrer un nom de ville.</span>
+            </p>
+          </div>
+
         <?php else:?>
         <div>
           <h2>Mail</h2>

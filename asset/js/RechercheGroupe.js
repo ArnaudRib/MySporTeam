@@ -34,8 +34,10 @@ function getresults(str, e) {
 }
 
 function get(str) {
-  document.getElementById('search').value = str;
+  var search= document.getElementById('search');
+  search.value = str;
 }
+
 function showsearch() {
   var search = document.getElementById('results');
   search.classList.add('visible');

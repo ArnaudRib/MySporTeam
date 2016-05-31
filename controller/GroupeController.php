@@ -40,7 +40,7 @@ class GroupeController
 
   public function loadInformationsGroupe($id_groupe)
   {
-    $vue=new Vue("InformationsGroupe", "Groupe", ['stylesheet.css']);
+    $vue=new Vue("InformationsGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
         if(($_POST['abonnement']=="Rejoindre")){
@@ -50,7 +50,9 @@ class GroupeController
         }
       }
       if(!empty($_POST['enregistrement'])){
-        $this->groupe->modifDataGroupe($id_groupe);
+        $info_ville=$this->groupe->getVilleById($_POST['ville'])->fetch();
+        $id_ville=$info_ville['id'];
+        $this->groupe->modifDataGroupe($id_groupe, $id_ville);
       }
     }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
@@ -157,7 +159,7 @@ class GroupeController
           //Add BDD
           if(empty($error)){
             $nomphoto=str_replace(' ', '-', $_POST['nom']);
-            //$id_ville=$this->groupe->getIdVille($_POST['ville']);
+            //$id_ville=$this->groupe->getVilleById($_POST['ville']);
             //dump($id_ville);
             $this->groupe->addEvenement($id_groupe);
           }
