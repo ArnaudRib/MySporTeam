@@ -10,10 +10,10 @@
     <div id="menu_mongroupe">
       <nav>
         <ul style='margin-top:15px;'>
-          <a href="<?php  goToPage('informationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="selectionne"><li>Informations</li></a>
-          <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li>Publications</li></a>
-          <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Evènements</li></a>
-          <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li>Membres</li></a>
+          <a href="<?php  goToPage('informationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="selectionne"><li><?php echo lang('Informations') ?></li></a>
+          <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Publications') ?></li></a>
+          <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Evènements') ?></li></a>
+          <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li><?php echo lang('Membres') ?></li></a>
           <?php if($isMembre==false):?>
           <li id="abonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
@@ -22,7 +22,7 @@
           </li>
         <?php elseif($isLeader==true):?>
           <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
-          <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>">Créer un événement</a>
+          <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>"><?php echo lang('Créer un événement') ?></a>
           </li>
           <?php else: ?>
             <li id="desabonnement" style="margin-top:-10px;">
@@ -43,7 +43,7 @@
       </div>
       <div class="radius_mongroupe forme_case">
         <div class="titre">
-          <h1>Informations groupe</h1>
+          <h1><?php echo lang('Informations groupe') ?></h1>
         </div>
         <?php if(!empty($_POST['modif'])):?>
           <form class="" action="" method="post">
@@ -58,16 +58,16 @@
       </div>
       <div class="radius_mongroupe forme_case">
         <div class="titre">
-          <h1>Contact</h1>
+          <h1><?php echo lang('Contact') ?></h1>
         </div>
         <?php if(!empty($_POST['modif'])):?>
-          <h2>Mail</h2>
+          <h2><?php echo lang('Mail') ?></h2>
           <input class="inputinfogroupe" type="text" name="mail" value="<?php echo $datagroupe['mail']?>" id="pseudo" required/>
-          <h2>Téléphone</h2>
+          <h2><?php echo lang('Téléphone') ?></h2>
           <input class="inputinfogroupe" type="text" name="telephone" value="<?php echo $datagroupe['telephone']?>" id="pseudo" required/>
 
           <div class="search">
-            <h2>Ville</h2>
+            <h2><?php echo lang('Ville') ?></h2>
             <input id="search" class="inputinfogroupe" style="margin-left:20px;" type="text" class="form-control" name="ville" value="" style="width:70%; margin: 10px 0px; font-size:15px;" placeholder="Ville"  onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
             <p id="results">
               <span style="font-size:20px; padding-top:30px;">Veuillez rentrer un nom de ville.</span>
@@ -76,9 +76,9 @@
 
         <?php else:?>
         <div>
-          <h2>Mail</h2>
+          <h2><?php echo lang('Mail') ?></h2>
           <p><?php echo $datagroupe['mail']?></p>
-          <h2>Téléphone</h2>
+          <h2><?php echo lang('Téléphone') ?></h2>
           <p><?php echo $datagroupe['telephone']?></p>
         </div>
       <?php endif;?>

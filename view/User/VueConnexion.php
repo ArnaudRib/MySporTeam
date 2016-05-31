@@ -11,7 +11,7 @@ endif; */?>
       <form action="" method="post">
 
         <div class="haut_inscription">
-          <h1>Connexion</h1>
+          <h1><?php echo lang('Connexion') ?></h1>
         </div>
 
         <fieldset>
@@ -23,9 +23,9 @@ endif; */?>
           <div><label for="mdp"><img src="<?php echo image('Users/icone_lock.png')?>" /></label>
             <input id="mdp" type="password" name="mot_de_passe" placeholder="Mot de passe" oninput="Verification()" required></div> <br />
             <div style="margin-top:-15px;">
-              <a style="text-decoration:none !important;" href=""> <p class="textunderconnexion">Mot de passe oublié ?</p> </a>
+              <a style="text-decoration:none !important;" href=""> <p class="textunderconnexion"><?php echo lang('Mot de passe oublié ?') ?></p> </a>
               |
-              <a style="text-decoration:none !important;" href="inscription"> <p class="textunderconnexion">Pas inscrit ?</p></a>
+              <a style="text-decoration:none !important;" href="inscription"> <p class="textunderconnexion"><?php echo lang('Pas inscrit ?') ?></p></a>
             </div>
             <?php echo $message; ?>
           </br>

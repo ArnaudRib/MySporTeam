@@ -3,13 +3,13 @@
 <div class="haut_mongroupe">
   <div class="hautdugroupe">
     <img id="image_mongroupe" src="<?php echo image('Groupes/image_groupe.jpg')?>"/ width='100%' height="250px;">
-    <h1>Mon profil</h1>
+    <h1><?php echo lang('Mon profil') ?></h1>
     <div class="menu_mongroupe">
       <nav>
         <ul>
-          <li><a href="javascript:showonlyone('informations_profil');" >Informations</li></a>
-          <li><a href="javascript:showonlyone('groupes_profil');" >Groupes</li></a>
-          <li><a href="javascript:showonlyone('calendrier_profil');" >Planning</li></a>
+          <li><a href="javascript:showonlyone('informations_profil');" ><?php echo lang('Informations')?></li></a>
+          <li><a href="javascript:showonlyone('groupes_profil');" ><?php echo lang('Groupes') ?></li></a>
+          <li><a href="javascript:showonlyone('calendrier_profil');" ><?php echo lang('Planning')?></li></a>
         </ul>
       </nav>
     </div>
@@ -19,7 +19,7 @@
 <div class="profil" id="informations_profil">
   <div class="gauche_profil">
     <ul>
-      <h1>Groupes</h1>
+      <h1><?php echo lang('Groupes') ?></h1>
       <li>FootClub</li>
       <li>TennisClub</li>
       <li>RugbyClub</li>
@@ -27,7 +27,7 @@
     </ul>
 
     <ul>
-      <h1>Sports</h1>
+      <h1><?php echo lang('Sports') ?></h1>
       <li>Football</li>
       <li>Tennis</li>
       <li>Rugby</li>
