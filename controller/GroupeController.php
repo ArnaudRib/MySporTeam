@@ -67,25 +67,26 @@ class GroupeController
     $vue=new Vue("EvenementsGroupe", "Groupe", ['stylesheet.css']);
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
-      if(($_POST['abonnement']=="Rejoindre")){
-        $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
-      }if($_POST['abonnement']=="Désinscrire"){
-        $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
+        if(($_POST['abonnement']=="Rejoindre")){
+          $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
+        }
+        if($_POST['abonnement']=="Désinscrire"){
+          $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
         }
       }
       if(!empty($_POST['deleteEve'])){
         $this->groupe->deleteEvenement($id_groupe);
         $succes="Publication effacée avec succès!";
         }
-        if(!empty($_POST['ajout'])){
-          if($_POST['ajout']=="Ajouter au planning"){
+      if(!empty($_POST['ajout'])){
+        if($_POST['ajout']=="Ajouter au planning"){
           $this->groupe->addeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
-          }
-          if($_POST['ajout']=="Supprimer du planning"){
+        }
+        if($_POST['ajout']=="Supprimer du planning"){
           $this->groupe->deleteeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
-          }
         }
       }
+    }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
