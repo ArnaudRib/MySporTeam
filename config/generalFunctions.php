@@ -215,27 +215,36 @@ function diffDate($date){
 }
 
 function test($iTime, $expression) {
-        $iTimeDifference = time() - $iTime ;
-        if( $iTimeDifference<0 ) { return; }
-        $iSeconds       = $iTimeDifference ;
-        $iMinutes       = round( $iTimeDifference/60 );
-        $iHours         = round( $iTimeDifference/3600 );
-        $iDays          = round( $iTimeDifference/86400 );
-        $iWeeks         = round( $iTimeDifference/604800 );
-        $iMonths        = round( $iTimeDifference/2419200 );
-        $iYears         = round( $iTimeDifference/29030400 );
-        if( $iSeconds<60 )
-                return "less than a minute";
-        elseif( $iMinutes<60 )
-                return sprintf($expression, $iMinutes . ' minute' . ( $iMinutes>1 ? 's' : '' ));
-        elseif( $iHours<24 )
-                return sprintf($expression, $iHours . ' hour' . ( $iHours>1 ? 's' : '' ));
-        elseif( $iDays<7 )
-                return sprintf($expression, $iDays . ' day' . ( $iDays>1 ? 's' : '' ));
-        elseif( $iWeeks <4 )
-                return sprintf($expression, $iWeeks . ' week' . ( $iWeeks>1 ? 's' : '' ));
-        elseif( $iMonths<12 )
-                return sprintf($expression, $iMonths . ' month' . ( $iMonths>1 ? 's' : '' ));
-        else
-                return sprintf($expression, $iYears . ' year' . ( $iYears>1 ? 's' : '' ));
+  $iTimeDifference = time() - $iTime ;
+  if( $iTimeDifference<0 ) { return; }
+  $iSeconds       = $iTimeDifference ;
+  $iMinutes       = round( $iTimeDifference/60 );
+  $iHours         = round( $iTimeDifference/3600 );
+  $iDays          = round( $iTimeDifference/86400 );
+  $iWeeks         = round( $iTimeDifference/604800 );
+  $iMonths        = round( $iTimeDifference/2419200 );
+  $iYears         = round( $iTimeDifference/29030400 );
+  if( $iSeconds<60 )
+    return "less than a minute";
+  elseif( $iMinutes<60 )
+    return sprintf($expression, $iMinutes . ' minute' . ( $iMinutes>1 ? 's' : '' ));
+  elseif( $iHours<24 )
+    return sprintf($expression, $iHours . ' hour' . ( $iHours>1 ? 's' : '' ));
+  elseif( $iDays<7 )
+    return sprintf($expression, $iDays . ' day' . ( $iDays>1 ? 's' : '' ));
+  elseif( $iWeeks <4 )
+    return sprintf($expression, $iWeeks . ' week' . ( $iWeeks>1 ? 's' : '' ));
+  elseif( $iMonths<12 )
+    return sprintf($expression, $iMonths . ' month' . ( $iMonths>1 ? 's' : '' ));
+  else
+    return sprintf($expression, $iYears . ' year' . ( $iYears>1 ? 's' : '' ));
+}
+
+function showProfil($data) {
+  if(isset($_SESSION['user'][$data])) {
+    echo $_SESSION['user'][$data];
+  }
+  else {
+    echo "<i style='font-size:13px;'>Non précisé</i>";
+  }
 }

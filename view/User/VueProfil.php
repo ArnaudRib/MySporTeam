@@ -1,13 +1,3 @@
-<?php
-function showProfil($data) {
-  if(isset($_SESSION['user'][$data])) {
-    echo $_SESSION['user'][$data];
-  }
-  else {
-    echo "<i style='font-size:13px;'>Non précisé</i>";
-  }
-}?>
-
 <div class="fond_mongroupe">
   <div id="image_de_fond">
     <img src="<?php echo image('Users/Bannière/'.$_SESSION['user']['id'].'.jpg')?>"/>
