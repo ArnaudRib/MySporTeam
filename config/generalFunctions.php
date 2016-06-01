@@ -169,7 +169,7 @@ function uploadPhoto($name, $directory, $input){
   $error="";
   $url=$directory.'/'.$name;
   $fileURL= substr(image($url),1);
-  dump($fileURL);
+
   if(!empty($_FILES[$input]['name'])){
     if(!move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL)){
       $error= "Une erreur s'est produite pour le champ {$input}. Veuillez réessayer plus tard, ou contacter l'administrateur.</br>";

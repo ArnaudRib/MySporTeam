@@ -39,6 +39,18 @@
   <?php /*$taille=10; ?>
   <?php $hauteur=30+310*($taille); */?> <!-- REMPLACER $EVENEMNT PAR COUNT($EVENEMENT) plus tard qd requete. permet de setup la hauteur de la page. Evite pb ac footer -->
   <div id="corps_mongroupe" />
+
+  <?php if($error!=''):?>
+    <div class="errorbox blackborder radius">
+      <?php echo $error;?>
+    </div>
+  <?php endif; ?>
+  <?php if($succes!=''): ?>
+    <div class="successbox blackborder radius" style='margin:20px auto; padding:10px;'>
+      <?php echo $succes;?>
+    </div>
+  <?php endif; ?>
+
   <?php if ($evenement!=NULL):
       foreach ($evenement as $key => $value):
         $nom_evenement=str_replace(' ', '-', $value['nom']); ?>
@@ -48,13 +60,13 @@
             <h1><?php echo $value['nom']?></h1>
             <h2 style="font-size:15px; color:grey;"><?php echo $value['date_debut']?></h2>
             <p><?php echo $value['description']?></p>
-            <a href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id']])?>"><?php echo lang("Plus d'info") ?></a>
+            <a style="display:inline-block;" href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id']])?>"><?php echo lang("Plus d'info") ?></a>
 
             <?php if($isLeader):?>
-              <form class="" action="" method="post">
-                <label for="deletebutton" class="deletebutton">&#10006;</label>
+              <form style="display:inline-block;" class="" action="" method="post">
                 <input type="hidden" name="id_evenement" value="<?php echo $value['id']?>">
-                <input id="deletebutton" type="submit" name="deleteEve" value="delete" style="display:none;">
+                <input type="hidden" name="nom" value="<?php echo $value['nom']?>">
+                <input id="deletebutton" type="submit" class="buttonsupprimerevenement" name="deleteEve" value="Supprimer l'évènement" style="">
               </form>
             <?php else:?>
 

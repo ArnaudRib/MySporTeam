@@ -1227,6 +1227,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   padding-top: 10px;
   display: inline-block;
 }
+
 .case_mongroupeevenement h1{
   color:black;
   font-family: Verdana;
@@ -1241,10 +1242,28 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   margin: 4px;
   color:blue;
   border:solid 1px #BDBDBD;
+  transition:1s all ease;
 }
 
 .case_mongroupeevenement a:hover{
-  background-color: #585858;
+  background-color: #5896ff;
+  color:#ffffff;
+}
+
+.buttonsupprimerevenement{
+  border-radius: 10px;
+  padding: 5px;
+  text-decoration: none;
+  margin: 4px;
+  color: red;
+  font-size:16px;
+  border: solid 1px #BDBDBD;
+  transition:1s all ease;
+}
+
+.buttonsupprimerevenement:hover{
+  cursor:pointer;
+  background-color: #ff4545;
   color:#ffffff;
 }
 
@@ -1325,6 +1344,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
     text-align: center;
     font-size: 20px;
     border:solid 1px #BDBDBD;
+    transition:1s all ease;
   }
 
   .participation2{
@@ -1351,6 +1371,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   .participation:hover{
     background: linear-gradient(141deg, green 19%, green 61%, green 75%);
     color:#ffffff;
+    cursor:pointer;
   }
 
 #boutonrecherche{
@@ -1908,13 +1929,6 @@ ul {
   padding: 5px;
 }
 
-.profil img{
-  display: inline-block;
-  height: 26px;
-  float: right;
-  padding-bottom: 10px;
-}
-
 .profil li {
   width: 100%;
   padding: 5px;
@@ -2195,6 +2209,13 @@ td:hover {
   width:500px;
   height:auto;
   padding:10px 0px;
+}
+
+.UploadedImage{
+  margin:0 auto;
+  box-shadow:0px 0px 10px black;
+  width:80%;
+  display:block;
 }
 
 .creationgroupe_select{

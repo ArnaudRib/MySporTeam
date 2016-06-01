@@ -19,15 +19,15 @@
         <fieldset>
           <div style="display:block; margin-left:20px;">
             <label for="nom" class="fa fa-group labelnom"></label>
-            <input id="nom" type="text" name="nom" placeholder="Nom événement" required/></div>
+            <input id="nom" type="text" name="nom" placeholder="Nom événement" value="<?php if(!empty($_POST)){echo $_POST['nom'];}?>" required/></div>
           <div style="display:block;margin-left:20px;">
             <label for="number" class="fa fa-line-chart labelnom"></label>
-            <input id="number" type="number" placeholder="Nombre de participants" name="nombre" min="0" required/>
+            <input id="number" type="number" placeholder="Nombre de participants" name="nombre" value="<?php if(!empty($_POST)){echo $_POST['nombre'];}?>" min="0" required/>
           </div>
           <div style="display:block;margin-left:20px;">
             <div class="search">
             <label for="ville" class="fa fa-home labelnom"></label>
-            <input id="search" class="" type="text" class="form-control" name="ville" value="" placeholder="Ville"  onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
+            <input id="search" class="" type="text" class="form-control" name="ville" placeholder="Ville"  value="<?php if(!empty($_POST)){echo $_POST['ville'];}?>" onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
             <p id="results">
               <span style="font-size:20px; padding-top:30px;">Veuillez rentrer un nom de ville.</span>
             </p>
@@ -79,7 +79,7 @@
             </select>
             <select class="selecttemps" name="seconde_fin">
               <option selected value=""><?php echo lang('Seconde') ?> </option>
-              <?php for ($i=0; $i <61-0 ; $i++) :?>
+              <?php for ($i=0; $i <60 ; $i++) :?>
                 <option value="<?php if($i>=10){echo $i;}else{echo '0'.$i;} ?>"><?php if($i>=10){echo $i;}else{echo '0'.$i;} ?></option>
               <?php endfor ?>
             </select>
@@ -91,7 +91,7 @@
           <img class="UploadedImage classImage" />
         </div>
 
-        <textarea class="areacreation" style="width:100%;" name="description" rows="10" cols="50" placeholder="Description"></textarea>
+        <textarea class="areacreation" style="width:100%;" name="description" rows="10" cols="50" placeholder="Description"><?php if(!empty($_POST)){echo $_POST['description'];}?></textarea>
 
         <div style="text-align:center;">
           <input class="subboutton" id="submit" type="submit" name="Envoyer" value="Valider">

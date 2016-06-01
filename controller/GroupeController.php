@@ -72,15 +72,10 @@ class GroupeController
       }
       if(!empty($_POST['deleteEve'])){
         $this->groupe->deleteEvenement($id_groupe);
-        $succes="Publication effacée avec succès!";
-        }
-      if(!empty($_POST['ajout'])){
-        if($_POST['ajout']=="Ajouter au planning"){
-          $this->groupe->addeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
-        }
-        if($_POST['ajout']=="Supprimer du planning"){
-          $this->groupe->deleteeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
-        }
+        $nom_evenement=str_replace(' ', '-',$_POST['nom']);
+        $error.=deletePhoto($nom_evenement.'.jpg', 'Groupes/Evenements','Erreur lors de la suppression de la photo.');
+        if(empty($error))
+          $succes="Evenement effacé avec succès!";
       }
     }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
@@ -89,7 +84,7 @@ class GroupeController
     $ville=$this->groupe->getVille($datagroupe['id_ville'])->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $evenement=$this->groupe->getEvenements($id_groupe)->fetchAll();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre, 'error'=>$error, 'succes'=>$succes]);
   }
 
   public function loadUnEvenementGroupe($id_groupe, $id_evenement)
@@ -107,14 +102,13 @@ class GroupeController
         $info_ville=$this->groupe->getVilleById($_POST['ville'])->fetch();
         $id_ville=$info_ville['id'];
         $this->groupe->modifDataEvent($id_evenement, $id_ville);
-        //$this->groupe->modifDataEvent($id_evenement);
       }
       if(!empty($_POST['ajout'])){
         if($_POST['ajout']=="Ajouter au planning"){
-        $this->groupe->addeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
+          $this->groupe->addEventToUser($id_evenement, $_SESSION['user']['id'], $id_groupe);
         }
         if($_POST['ajout']=="Supprimer du planning"){
-        $this->groupe->deleteeventtouser($id_evenement,$_SESSION['user']['id'], $id_groupe);
+          $this->groupe->deleteEventToUser($id_evenement,$_SESSION['user']['id'], $id_groupe);
         }
       }
     }
@@ -162,6 +156,7 @@ class GroupeController
       $verification->notEmpty('nombre', "Indiquez le nombre maximal de membres.");
       $verification->notEmpty('ville', "Choississez une ville.");
       $verification->notEmpty('description', "Décrivez votre groupe.");
+      $error.=$verification->error;
 
       if($verification->isValid()){
         $nom_evenement=str_replace(' ', '-',$_POST['nom']);
@@ -173,17 +168,15 @@ class GroupeController
             $error.=uploadPhoto($nom_evenement.'.jpg', 'Groupes/Evenements', 'baniere');
           }
         }
-
-      $error.=$verification->error;
       $error.=$verificationPhoto->error;
       if(empty($error)){
           $ville=$this->groupe->getVilleById($_POST['ville'])->fetch();
           $id_ville=intval($ville['id']);
           $this->groupe->addEvenement($id_groupe, $id_ville);
+          $succes="Evènement ajouté avec succes!!";
         }
       }
     }
-
     $categorie=$this->groupe->getCategory()->fetchAll();
     $sports=$this->sport->getSports()->fetchAll();
     $vue=new Vue("CreationEvenement", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['showphoto.js','RechercheGroupe.js', 'CreateEvenement.js']); // CSS a unifier dans le meme fichier
