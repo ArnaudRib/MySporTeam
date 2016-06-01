@@ -160,5 +160,14 @@
   "Lieu":"Lieu",
   "Heure":"Heure",
   "Minute":"Minute",
-  "Seconde":"Seconde"
+  "Seconde":"Seconde",
+  "Site du club":"Site du club",
+  "Modérer le club":"Modérer le club",
+  "Bannière du club":"Bannière du club",
+  "Nom du Club":"Nom du Club",
+  "Modération des clubs du site.":"Modération des clubs du site.",
+  "Liste des clubs.":"Liste des clubs.",
+  "Nom":"Nom",
+  "Lien du site":"Lien du site",
+  "Clubs":"Clubs"
 }

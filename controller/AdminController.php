@@ -195,4 +195,16 @@ class AdminController
     $vue->loadbackoffice();
   }
 
+  public function loadBackOfficeClub()
+  {
+    if(isset($_POST['Suppr'])){
+      //supprimer groupe ici.
+      $this->admin->deleteClub();
+      $succes="Suppression réussie!";
+    }
+    $clubs=$this->groupe->getClubs()->fetchAll();
+    $vue=new Vue("BackOfficeClub","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
+    $vue->loadbackoffice(['clubs'=>$clubs]);
+  }
+  
 }

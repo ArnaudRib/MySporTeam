@@ -42,9 +42,14 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function getClub($id_club){
-    echo $id_club;
     $sql="SELECT * FROM club WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$id_club]);
+    return $resultat;
+  }
+
+  function getClubs(){
+    $sql="SELECT * FROM club";
+    $resultat=$this->requeteSQL($sql);
     return $resultat;
   }
 

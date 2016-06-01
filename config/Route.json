@@ -32,5 +32,6 @@
   "backofficetype":"admin/types",
   "backofficesport":"admin/sports",
   "backofficeAsport":"admin/sports/{id_sport}",
-  "backofficeuser":"admin/user"
+  "backofficeuser":"admin/user",
+  "backofficeclub":"admin/clubs"
 }
