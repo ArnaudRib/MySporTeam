@@ -1,16 +1,16 @@
 <?php
-function showProfil($data) {
-  if($_SESSION['user'][$data] != "-" AND $_SESSION['user'][$data] !=1) {
-    echo $_SESSION['user'][$data];
-  }
-  else {
-    echo "";
-  }
-}
+// function showProfil($data) {
+//   if($_SESSION['user'][$data] != "-" AND $_SESSION['user'][$data] !=1) {
+//     echo $_SESSION['user'][$data];
+//   }
+//   else {
+//     echo "";
+//   }
+// }
 
-
-echo uploadPhoto($_SESSION['user']['id'].'.jpg', "Users/Profil", "photo_profil");
-echo uploadPhoto($_SESSION['user']['id'].'.jpg', "Users/Bannière", "photo_couverture");
+//
+// echo uploadPhoto($_SESSION['user']['id'].'.jpg', "Users/Profil", "photo_profil");
+// echo uploadPhoto($_SESSION['user']['id'].'.jpg', "Users/Bannière", "photo_couverture");
 ?>
 
 <div class="fond_mongroupe">

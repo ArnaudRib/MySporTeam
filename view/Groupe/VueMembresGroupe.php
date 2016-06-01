@@ -21,7 +21,7 @@
             </li>
           <?php elseif($isLeader==true): ?>
             <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
-            <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>">C<?php echo lang('Créer un événement') ?></a>
+              <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>"><?php echo lang("Créer un événement") ?></a>
             </li>
             <?php else: ?>
               <li id="desabonnement" style="margin-top:-10px;">

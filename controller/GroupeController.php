@@ -132,43 +132,62 @@ class GroupeController
 
   public function loadCreateEvenement($id_groupe){
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
-      $succes='';
-      $error='';
-      $villes=$this->groupe->getVilles()->fetchAll();
-      if(!empty($_POST)){
-        if(!empty($_FILES['baniere']['name']))
-          $error.="Veuillez selectionner une banière pour le groupe!";
-        $verification = new Verification($_POST);
-        $verificationPhoto = new Verification($_FILES);
-        $verification->notEmpty('nom', "Veuillez spécifier un nom à votre groupe.");
-        $verification->notEmpty('nombre', "Indiquez le nombre maximal de membres.");
-        $verification->notEmpty('ville', "Choississez une ville.");
-        $verification->notEmpty('description', "Décrivez votre groupe.");
+    $succes='';
+    $error='';
+    $villes=$this->groupe->getVilles()->fetchAll();
+    if(!empty($_POST)){
+      /*Mise en forme des dates*/
+      $jma_debut_array=explode('/',$_POST['date_debut']);
+      $amj_debut_array=array_reverse($jma_debut_array);
+      $amj_debut=implode("-", $amj_debut_array);
+      $date_debut=$amj_debut.' '.$_POST['heure_debut'].':'.$_POST['minute_debut'].':'.$_POST['seconde_debut'];
 
-        $error=$verification->error;
-        $error.=$verificationPhoto->error;
-        if(!$verificationPhoto->isValid())
-          $error.="Ce groupe existe déjà! Veuillez choisir un autre nom.";
-        if($verification->isValid() && $verificationPhoto->isValid()){// && $verificationPhoto->isValid()){
-          /*upload images*/
-          //$nomphoto=$this->groupe->getIDevenement();
-          //dump($nomphoto);
-          $error.=uploadPhoto("10".'.jpg', 'Groupes/Evenements', 'evenements');
+      $jma_fin_array=explode('/',$_POST['date_fin']);
+      $amj_fin_array=array_reverse($jma_fin_array);
+      $amj_fin=implode("-", $amj_fin_array);
+      $date_fin=$amj_fin.' '.$_POST['heure_fin'].':'.$_POST['minute_fin'].':'.$_POST['seconde_fin'];
 
-          //Add BDD
-          if(empty($error)){
-            $nomphoto=str_replace(' ', '-', $_POST['nom']);
-            //$id_ville=$this->groupe->getVilleById($_POST['ville']);
-            //dump($id_ville);
-            $this->groupe->addEvenement($id_groupe);
-          }
-          }
-          }
+      $_POST['date_debut_finale']=$date_debut;
+      $_POST['date_fin_finale']=$date_fin;
 
-          $categorie=$this->groupe->getCategory()->fetchAll();
-          $sports=$this->sport->getSports()->fetchAll();
-          $vue=new Vue("CreationEvenement", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['showphoto.js','RechercheGroupe.js']); // CSS a unifier dans le meme fichier
-          $vue->loadpage(['sports'=>$sports, 'categorie'=>$categorie, 'villes'=>$villes, 'isLeader'=>$isLeader,'error'=>$error, 'succes'=>$succes]);
+      if(!isset($_FILES['baniere']['name']))
+        $error.="Veuillez selectionner une photo de présentation pour l'évènement!";
+
+      $verification = new Verification($_POST);
+      $verificationPhoto = new Verification($_FILES);
+      $verification->isDate('date_debut_finale', "Veuillez rentrer une date pour le début de votre évènement valide.");
+      $verification->isDate('date_fin_finale', "Veuillez rentrer une date pour la fin de votre évènement valide.");
+
+      $verification->notEmpty('nom', "Veuillez spécifier un nom à votre groupe.");
+      $verification->notEmpty('nombre', "Indiquez le nombre maximal de membres.");
+      $verification->notEmpty('ville', "Choississez une ville.");
+      $verification->notEmpty('description', "Décrivez votre groupe.");
+
+      if($verification->isValid()){
+        $nom_evenement=str_replace(' ', '-',$_POST['nom']);
+        if(!empty($_FILES['baniere']['name'])){
+          $verificationPhoto->PhotoOk('baniere', $nom_evenement.'.jpg', 'Groupes/Evenements');
+          if(!$verificationPhoto->isValid()){
+            $error.="Cet évènement existe déjà! Veuillez choisir un autre nom.";
+          }else{
+            $error.=uploadPhoto($nom_evenement.'.jpg', 'Groupes/Evenements', 'baniere');
+          }
+        }
+
+      $error.=$verification->error;
+      $error.=$verificationPhoto->error;
+      if(empty($error)){
+          $ville=$this->groupe->getVilleById($_POST['ville'])->fetch();
+          $id_ville=intval($ville['id']);
+          $this->groupe->addEvenement($id_groupe, $id_ville);
+        }
+      }
+    }
+
+    $categorie=$this->groupe->getCategory()->fetchAll();
+    $sports=$this->sport->getSports()->fetchAll();
+    $vue=new Vue("CreationEvenement", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['showphoto.js','RechercheGroupe.js', 'CreateEvenement.js']); // CSS a unifier dans le meme fichier
+    $vue->loadpage(['sports'=>$sports, 'categorie'=>$categorie, 'villes'=>$villes, 'isLeader'=>$isLeader,'error'=>$error, 'succes'=>$succes]);
   }
 
   public function loadUnePublicationGroupe($id_groupe, $id_publication){

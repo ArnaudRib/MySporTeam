@@ -16,6 +16,21 @@ Class Verification
     }
   }
 
+  public function isDate($name, $message){
+    if(!strtotime($this->post[$name])){
+      $this->error.=$message.'</br>';
+      return false;
+    }
+  }
+
+  public function isPreviousDate($name, $message){ /*pas testé xD.. */
+    if(!preg_match($this->post[$name],'/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/'))
+    {
+      $this->error.=$message.'</br>';
+      return false;
+    }
+  }
+
   function PhotoOk($name, $futurnomimage, $directory, $skipAlreadyUploaded=true){
     $url=$directory.'/'.$futurnomimage;
     $fileURL= substr(image($url),1);
@@ -38,6 +53,7 @@ Class Verification
       $this->error.= "Désolé, le fichier importé est trop lourd.</br>";
     }
   }
+
 
   public function isValid()
   {
@@ -153,7 +169,7 @@ function uploadPhoto($name, $directory, $input){
   $error="";
   $url=$directory.'/'.$name;
   $fileURL= substr(image($url),1);
-
+  dump($fileURL);
   if(!empty($_FILES[$input]['name'])){
     if(!move_uploaded_file($_FILES[$input]["tmp_name"], $fileURL)){
       $error= "Une erreur s'est produite pour le champ {$input}. Veuillez réessayer plus tard, ou contacter l'administrateur.</br>";

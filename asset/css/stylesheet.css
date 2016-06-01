@@ -2111,7 +2111,7 @@ td:hover {
 
 #creationgroupe fieldset {
   position: relative;
-  width: 50%;
+  width: 80%;
   font-family: Verdana;
   font-size: 1em;
 }
@@ -2134,6 +2134,7 @@ td:hover {
   transition:1s all ease;
 }
 
+
 #creationgroupe .labelnom {
   text-align: center;
   width: 10%;
@@ -2147,6 +2148,22 @@ td:hover {
   border-radius: 5px 0px 0px 5px;
   background: linear-gradient(to bottom, #007eff, #0062c7);
   transition:1s all ease;
+}
+
+.heuresinput{
+  width:20% !important;
+}
+
+.titlehorraire{
+  display:block:
+  font-size:15px;
+  margin-left:20px;
+}
+.selecttemps{
+  text-align:center;
+  padding:5px;
+  border-radius:4px;
+  border:1px black solid;
 }
 
 .areacreation{

@@ -123,7 +123,6 @@ class UserModele extends BaseDeDonnes
     foreach ($resultat as $key => $value) {
       $sports[$key]=$value['nom'];
     }
-    dump($sports);
     return $sports;
   }
 

@@ -15,21 +15,17 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function getIDevenement(){
-    $sql="SELECT MAX(id) FROM groupe_publication";
-    $resultat=$this->requeteSQL($sql);
-    dump($resultat);
-    //$resultat=$resultat+1;
+  function getIdMaxEvenement(){
+    $sql="SELECT MAX(id) FROM evenement";
+    $resultat=$this->requeteSQL($sql)->fetch();
+    $resultat=intval($resultat['MAX(id)'])+1;
     return $resultat;
-    //echo $resultat;
   }
 
 
-  function addEvenement($id_groupe){
-  //  $sql="INSERT INTO groupe(nom, description, public, nbmax_sportifs, id_sport, id_ville, categorie, id_niveau) VALUES (?,?,?,?,?,?,?,?)";
-  //  $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['public'], $_POST['nbmax_sportifs'], $_POST['id_sport'], $_POST['id_ville'], $_POST['categorie'], $_POST['id_niveau']]);
-    $sql="INSERT INTO evenement(nom, description, nombre, id_groupe, id_ville, date_debut, date_fin) VALUES (?,?,?,?,?,?,?)";
-    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['nombre'], $id_groupe,4,$_POST['date_debut'],$_POST['date_fin']]);
+  function addEvenement($id_groupe, $id_ville){
+    $sql="INSERT INTO evenement(nom, description, places, id_groupe, id_ville, date_debut, date_fin) VALUES (?,?,?,?,?,?,?)";
+    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['nombre'], $id_groupe, $id_ville, $_POST['date_debut_finale'],$_POST['date_fin_finale']]);
   }
 
 

@@ -158,5 +158,8 @@
   "TM":"TM",
   "Langues":"Languages",
   "Veuillez compléter le champ recherche...":"Please complete search...",
-  "Lieu":"Place"
+  "Lieu":"Place",
+  "Heure":"Hour",
+  "Minute":"Minute",
+  "Seconde":"Seconde"
 }

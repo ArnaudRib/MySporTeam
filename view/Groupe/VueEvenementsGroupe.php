@@ -40,9 +40,10 @@
   <?php $hauteur=30+310*($taille); */?> <!-- REMPLACER $EVENEMNT PAR COUNT($EVENEMENT) plus tard qd requete. permet de setup la hauteur de la page. Evite pb ac footer -->
   <div id="corps_mongroupe" />
   <?php if ($evenement!=NULL):
-      foreach ($evenement as $key => $value):?>
+      foreach ($evenement as $key => $value):
+        $nom_evenement=str_replace(' ', '-', $value['nom']); ?>
         <div id="<?php echo $i=count($evenement) ?>" class="case_mongroupeevenement radius_mongroupe forme_case">
-          <img src="<?php echo image('Groupes/Evenements/'.$value['id'].'.jpg')?>"/>
+          <img src="<?php echo image('Groupes/Evenements/'.$nom_evenement.'.jpg')?>"/>
           <div class="texteevenement">
             <h1><?php echo $value['nom']?></h1>
             <h2 style="font-size:15px; color:grey;"><?php echo $value['date_debut']?></h2>

@@ -21,7 +21,7 @@
             </li>
           <?php elseif($isLeader==true): ?>
             <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
-            <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>"><?php echo lang('Créer un événement') ?></a>
+              <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>"><?php echo lang("Créer un événement") ?></a>
             </li>
             <?php else: ?>
               <li id="desabonnement" style="margin-top:-10px;">
@@ -122,11 +122,12 @@
           <h1><?php echo lang('Futurs évènements') ?></h1>
         </div>
         <?php if ($evenement!=NULL):
-            foreach ($evenement as $key => $value):?>
+          foreach ($evenement as $key => $value):
+            $nom_evenement=str_replace(' ', '-', $value['nom']); ?>
             <a href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id']])?>">
-            <div class="evenenement"><img src="<?php echo image('Groupes/Evenements/'.$value['id'].'.jpg')?>"/></div>
+            <div class="evenenement"><img src="<?php echo image('Groupes/Evenements/'.$nom_evenement.'.jpg')?>"/></div>
             </a>
-          <?php endforeach;
+        <?php endforeach;
           else:?>
             <div  class="publication forme_case radius_mongroupe">
               <h1><?php echo lang('Aucun événement') ?></h1>
