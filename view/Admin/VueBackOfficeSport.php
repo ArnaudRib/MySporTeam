@@ -26,6 +26,13 @@
       </li>
     </a>
 
+    <a href="<?php goToPage('backofficeclub')?>">
+      <li class="nextline">
+          <i class="fa fa-users"></i>
+          <p><?php echo lang("Clubs") ?></p>
+      </li>
+    </a>
+
     <a href="<?php goToPage('backofficetype')?>">
       <li class="nextline">
           <i class="fa fa-wrench"></i>

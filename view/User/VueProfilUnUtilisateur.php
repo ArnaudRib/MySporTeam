@@ -1,73 +1,47 @@
-<?php dump($dataUser); ?>
-
-<div class="haut_mongroupe">
-  <div class="hautdugroupe">
-    <img id="image_mongroupe" src="<?php echo image('Groupes/image_groupe.jpg')?>"/ width='100%' height="250px;">
-    <h1><?php echo lang('Mon profil') ?></h1>
-    <div class="menu_mongroupe">
+<div class="fond_mongroupe">
+  <div id="image_de_fond">
+    <img src="<?php echo image('Users/Bannière/'.$pseudouser.'.jpg')?>"/>
+  </div>
+  <div id="haut_mongroupe">
+    <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>"/>
+    <h1><?php echo $_SESSION['user']['pseudo'] ?></h1>
+    <div id="menu_mongroupe">
       <nav>
-        <ul>
-          <li><a href="javascript:showonlyone('informations_profil');" ><?php echo lang('Informations')?></li></a>
-          <li><a href="javascript:showonlyone('groupes_profil');" ><?php echo lang('Groupes') ?></li></a>
-          <li><a href="javascript:showonlyone('calendrier_profil');" ><?php echo lang('Planning')?></li></a>
+        <ul style='margin-top:15px;'>
         </ul>
       </nav>
     </div>
   </div>
-</div>
 
-<div class="profil" id="informations_profil">
-  <div class="gauche_profil">
-    <ul>
-      <h1><?php echo lang('Groupes') ?></h1>
-      <li>FootClub</li>
-      <li>TennisClub</li>
-      <li>RugbyClub</li>
-      <li>FightClub</li>
-    </ul>
+  <div class="profil profilUnUtilisateur">
 
-    <ul>
-      <h1><?php echo lang('Sports') ?></h1>
-      <li>Football</li>
-      <li>Tennis</li>
-      <li>Rugby</li>
-      <li>Boxe</li>
-    </ul>
+    <div class="sesInfos fond">
+      <h1 class="titre">Ses Informations personnelles</h1>
+      <label for="">
+        <?php if( date("m")==date("m",strtotime($dataUser['naissance'])) && date("d")==date("d",strtotime($dataUser['naissance'])) ) : ?>
+          <img class="iconeBirthday" src="<?php echo image('Users/anniversaire.png')?>" alt="" />
+        <?php endif; ?>
+        Pseudo :
+        <?=$dataUser['pseudo'] ?>
+      </label>
+      <label for="">Prénom : <?=$dataUser['prénom']?></label>
+      <label for="">Email : <?=$dataUser['email'] ?></label>
+      <label for="">Ville : <?=$dataUser['id_ville'] ?></label>
   </div>
 
-  <div class="corps_profil">
-    <ul>
-      <li id="actualite">
-        <h1>AuteurPublication</h1>
-        <h2>GroupePublication -- date</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat.</p>
-      </li>
-      <li id="actualite">
-        <h1>AuteurPublication</h1>
-        <h2>GroupePublication -- date</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat.</p>
-      </li><li id="actualite">
-        <h1>AuteurPublication</h1>
-        <h2>GroupePublication -- date</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris. Vestibulum maximus libero id sapien tempor placerat.</p>
-      </li>
-    </ul>
+  <div class="sesGroupes fond">
+    <h1 class="titre">Ses Groupes</h1>
+    <?php foreach ($groupUser as $key => $value) {
+      if($value['public']==1) :  ?>
+      <div class="infos_groupe"><a href="">
+        <h2><?=$value["nom_groupe"] ?></h2>
+        <h3><?=$value["localisation"]  ?></h3>
+        <h4>Sport : <?=$value["nom_sport"]  ?></h3>
+        <h4>Nombres max de sportifs : <?=$value["nbmax_sportifs"]  ?></h4>
+      </div></a>
+    <?php endif; ?>
+    <?php
+  } ?>
   </div>
-</div>
 
-<div class="profil" id="groupes_profil">
-  <div id="groupe">
-    <h1>Nom du groupe</h1>
-    <h2> son niveau </h2>
-    <p>
-      Informations sur le groupe : Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Proin quis pulvinar arcu, a hendrerit ex. In sollicitudin facilisis mauris.
-      Vestibulum maximus libero id sapien tempor placerat.
-    </p>
-    <a href="">Prochain evenement</a>
-  </div>
-</div>
-
-<div class="profil" id="calendrier_profil">
-  <?php require_once('view/_required/calendrier.php') ?>
 </div>

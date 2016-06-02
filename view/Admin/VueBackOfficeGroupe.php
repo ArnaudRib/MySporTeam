@@ -21,9 +21,32 @@
               <label for="photo" class="boutonInputFile modifgroupeimg"><?php echo lang("Modifier") ?></label>
               <input id="photo" class="files" type="file" name="photo" style="display:none;">
             </div>
-            <div class="content-descriptiongroupe">
-              <label for="description" style="display:block;"><?php echo lang("Modifier la description") ?> : </label>
-              <textarea name="description" style="display:block; border:1px black solid; margin:10px auto; border-radius:10px; padding:5px;" rows="3" cols="75" maxlength="30" placeholder="Description du sport (MAX : 30 caractères)."><?php echo $value['description']?></textarea>
+            <div class="infouser">
+              <h3 style='margin-bottom:10px;'><?php echo lang("Informations") ?> :</h3>
+              <div class="content-input">
+                <label class="textlabel" for="nom"><?php echo lang("Nom du Groupe") ?></label>
+                <input id="pseudo" type="text" name="nom" value="<?php echo $value['nom']?>" >
+              </div>
+              <div class="content-input">
+                <label class="textlabel" for="telephone"><?php echo lang("Téléphone") ?></label>
+                <input id="email" name="telephone" value="<?php echo $value['telephone']?>">
+              </div>
+              <div class="content-input">
+                <label class="textlabel" for="email"><?php echo lang("Email") ?></label>
+                <input id="Numéro" type="email" name="email" value="<?php echo $value['mail']?>">
+              </div>
+              <div class="content-input">
+                <label class="textlabel" for="nbmax_sportif"><?php echo lang("Nombre maximal de sportifs") ?></label>
+                <input id="Numéro" type="number" name="nbmax_sportif" value="<?php echo $value['nbmax_sportifs']?>">
+              </div>
+              <div class="content-descriptiongroupe">
+              <label style="display: inline-block; width: 60px; float: none;"><?php echo lang("Public") ?></label> <input style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" value="1"name="public" value="<?php echo $value['public']?>">
+              <label style="display: inline-block; width: 60px; float: none;"><?php echo lang("Privé") ?></label> <input type="radio" name="prive" value="<?php echo $value['public']?>" value="2" style="display: inline-block; width: 30px; height: 15px">
+              </div>
+              <div class="content-descriptiongroupe">
+                <label for="description" style="display:block;"><?php echo lang("Modifier la description") ?> : </label>
+                <textarea name="description" style="display:block; border:1px black solid; border-radius:10px; padding:5px;" rows="3" cols="75" maxlength="30" placeholder="Description du sport (MAX : 30 caractères)."><?php echo $value['description']?></textarea>
+              </div>
             </div>
             <!-- RAJOTUER ICI LA SUITE DES TRUCS DU GROUPE.-->
           </div>
@@ -32,10 +55,10 @@
       </div>
     </div>
   </div>
-  <?php endforeach; ?>
+<?php endforeach; ?>
 
-  <!--Partie Modal Suppression-->
-  <?php foreach ($groupes as $key => $value): ?>
+<!--Partie Modal Suppression-->
+<?php foreach ($groupes as $key => $value): ?>
   <div id="modalsuppr<?php echo $value['id']?>" class="modalsuppr">
     <div id="insideModalSuppr<?php echo $value['id']?>" class="insideModalSuppr">
       <p id="<?php echo $value['id']?>" class="closeButtonModal" onclick="closeModalSuppr(this)">&#10006;</p>
@@ -52,15 +75,15 @@
       </div>
     </div>
   </div>
-  <?php endforeach; ?>
+<?php endforeach; ?>
 
 
-  <div class="sidebar">
+<div class="sidebar">
   <a href="<?php goToPage('Accueil')?>">
   <div class="TitreSite">
     <?php echo lang("MySporTeam") ?>
   </div>
-  </a>
+</a>
   <ul class="menu">
     <a href="<?php goToPage('backoffice')?>">
       <li class="nextline">
@@ -80,6 +103,13 @@
       <li class="nextline active">
           <i class="fa fa-users"></i>
           <p><?php echo lang("Groupes") ?></p>
+      </li>
+    </a>
+
+    <a href="<?php goToPage('backofficeclub')?>">
+      <li class="nextline">
+          <i class="fa fa-users"></i>
+          <p><?php echo lang("Clubs") ?></p>
       </li>
     </a>
 
@@ -114,10 +144,10 @@
 
 
   </ul>
-  </div>
+</div>
 
 
-  <div class="main-panel">
+<div class="main-panel">
   <div class="navbar navbar-header">
     <p class="title"><?php echo lang("Groupes") ?></p>
     <i class="subtitle"><?php echo lang("Supervision des groupes.") ?></i>
@@ -138,7 +168,7 @@
 
   <div class="block95 card">
     <div class="header">
-      <h4 class="title"><?php echo lang("Liste des sports") ?></h4>
+      <h4 class="title"><?php echo lang("Liste des groupes") ?></h4>
       <p class="sousheader">
         <i> <?php echo lang("Cliquez sur une ligne pour modifier.") ?> </p>
       </p>
@@ -149,15 +179,15 @@
           <th><?php echo lang("Nom du groupe") ?></th>
           <th><?php echo lang("Nombre de membres") ?></th>
           <th style="background-color:rgb(85, 182, 244);"><?php echo lang("Plus d'informations") ?></th>
-          <th style='background-color:rgb(255, 61, 61);'><?php echo lang("Supprimer") ?>Supprimer</th>
+          <th style='background-color:rgb(255, 61, 61);'><?php echo lang("Supprimer") ?></th>
         </tr>
         <?php foreach ($groupes as $key => $value): ?>
-            <tr class="lignesport">
-              <td><?php echo ucfirst($value['nom']) ?></td>
-              <td class="centre"><?php echo $nbmembres[$value['id']]?></td>
-              <td id="<?php echo $value['id']?>" class="infoCell" onclick="modalinfo(this)" ><p class="plusButton" style="top:65px;">+</p></td>
-              <td id="<?php echo $value['id']?>" class="supprCell" onclick="modalSuppr(this)"><p class="closeButton"  style="top:65px;">&#10006;</p></td>
-            </tr>
+          <tr class="lignesport">
+            <td><?php echo ucfirst($value['nom']) ?></td>
+            <td class="centre"><?php echo $nbmembres[$value['id']]?></td>
+            <td id="<?php echo $value['id']?>" class="infoCell" onclick="modalinfo(this)" ><p class="plusButton" style="top:65px;">+</p></td>
+            <td id="<?php echo $value['id']?>" class="supprCell" onclick="modalSuppr(this)"><p class="closeButton"  style="top:65px;">&#10006;</p></td>
+          </tr>
         <?php endforeach; ?>
       </table>
   </div>

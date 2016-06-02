@@ -26,6 +26,12 @@ class AdminModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$description, $id_groupe]);
   }
 
+  function updateClub($id_club){
+    $informations=$_POST['informations']; $téléphone=$_POST['téléphone']; $email=$_POST['email']; $lien=$_POST['lien']; $nom=$_POST['nom'];  $id_club=$_POST['id_club'];
+    $sql="UPDATE club SET informations=?, téléphone=?, email=?, lien=?, nom=?   WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$informations, $téléphone, $email, $lien, $nom, $id_club]);
+  }
+
   function UsedType($type){
     $sql="SELECT titre FROM types_sports WHERE titre=?";
     $resultat=$this->requeteSQL($sql,[$type]);
@@ -52,4 +58,10 @@ class AdminModele extends BaseDeDonnes
     $sql="DELETE FROM groupe WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$_POST['id_groupe']]);
   }
+
+  function deleteClub(){
+    $sql="DELETE FROM club WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$_POST['id_club']]);
+  }
+
 }

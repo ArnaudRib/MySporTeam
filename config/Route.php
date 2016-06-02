@@ -218,6 +218,10 @@ class Route
         $this->ctr['Admin']->loadBackOfficeUser();
         break;
 
+      case 'backofficeclub':
+        $this->ctr['Admin']->loadBackOfficeClub();
+        break;
+
       default:
         # code...
         break;

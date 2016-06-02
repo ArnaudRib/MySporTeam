@@ -32,10 +32,11 @@
     <hr class="HR1">
 <?php $i=1; ?>
 <?php foreach ($messages as $key => $value): ?>
+  <?php $creator=str_replace(' ', '-', $value['creator']) ?>
   <article class="post">
     <div class="conv-pseudo">
       <a href="#" class="pseudo"><?php echo $value['creator']?></a>
-      <img class="avatar" src="<?php echo image('Users/Profil/'.$value['id_utilisateur'].'.jpg')?>" />
+      <img class="avatar" src="<?php echo image('Users/Profil/'.$creator.'.jpg')?>" />
       <p class="nombre-message">Messages: <?php echo $nbTotalMessageUsers[$value['id_utilisateur']]?>
     </div>
     <div class="conv-contenu">

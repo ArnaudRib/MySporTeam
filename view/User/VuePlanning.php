@@ -1,16 +1,16 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-    <img src="<?php echo image('Users/.png')?>"/>
+    <img src="<?php echo image('Users/Bannière/'.$pseudouser.'.jpg')?>"/>
   </div>
   <div id="haut_mongroupe">
-    <img src="<?php echo image('Users/.png')?>"/>
+    <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>"/>
     <h1><?php echo $_SESSION['user']['pseudo'] ?></h1>
     <div id="menu_mongroupe">
       <nav>
         <ul style='margin-top:15px;'>
-          <a href="#" id="selectionne"><li><?php echo lang('Informations personnels') ?></li></a>
-          <a href="<?php  goToPage('',['id'=>'1', 'id_publication'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Gérer mes groupes') ?></li></a>
-          <a href="<?php  goToPage('',['id'=>'1', 'id_evenement'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Planning') ?></li></a>
+          <a href="<?php goToPage('profil')?>" id="non_selectionne"><li><?php echo lang('Informations personnelles') ?></li></a>
+          <a href="<?php  goToPage('groupesUtilisateur')?>" id="non_selectionne"><li><?php echo lang('Gérer mes groupes') ?></li></a>
+          <a href="<?php  goToPage('planningUtilisateur')?>" id="selectionne"><li><?php echo lang('Planning') ?></li></a>
           <a id="creergroupe" href="<?php goToPage('creationgroupe')?>" ><li><?php echo lang('Créer un groupe') ?></li></a>
         </ul>
       </nav>
@@ -67,33 +67,45 @@
                     <td class="disabled">
                     </td>
                   <?php else: ?>
-                    <td>
-                      <div class="chiffreSemaine"><?php echo $d < $numb_of_days[$mois-1]+1 ? $d : null; $d++; ?></div>
+                    <td onclick="displayInfosEvent(<?= $d+1 ?>, <?= $mois?>)">
+                      <div class="chiffreSemaine"><?php echo $d < $numb_of_days[$mois-1]+1 ? ($d < 10 ? "0{$d}" : $d) : null;  $d++;?></div>
                       <?php
-                      $d = $d < 10 ? "0{$d}" : $d;
+                      $day = $d < 10 ? "0".($d-1)."" : $d-1;
                       $month = $mois < 10 ? "0{$mois}" : $mois;
-                      $date="{$year}-{$month}-{$d}";
+                      $date= date("Y-m-d",mktime(0,0,0,$month, $day,$year));
+                      $eventsDuJour=array();
                       $showedEvent=0;
                       foreach ($events as $key => $value) {
-                        if($value['date'] == $date) {
+                        if(date('Y-m-d', strtotime($value['date_debut'])) == $date) {
+                          ?><div class="event"></div>
+                          <?php
                           $showedEvent++;
-                          ?><div class="event">.</div><?php
+                          $eventsDuJour[]=['nom'=>$value['nom'],'date_debut'=>$value['date_debut'],'date_fin'=>$value['date_fin'],'place'=>$value['places'],'description'=>$value['description']];
                         }
-                      }
-                      if($showedEvent>0) {
-                        ?><div class="infos_event"><p> Informations dbbbvbe dvbvdjbj dsvbjdj sdv s</p></div><?php
-                      }
-                      ?>
-                    </td>
-                  <?php endif;?>
+                      }?>
+                      <?php if($showedEvent > 0): ?>
+                        <div class="infos_event talkbubble" id="<?="infos_event_{$mois}_{$d}";?>" style="display:none;">
+                          <?php
+                          foreach ($eventsDuJour as $key => $value) {
+                            ?><h3><?=$value['nom']?></h3>
+                            <h4><?=$value['date_debut'] ?></h4>
+                            <h4><?=$value['date_fin'] ?></h4>
+                            <h4>Places : <?=$value['place'] ?></h4>
+                            <p> <?=$value['description']?> <br> </p>
+                          <?php
+                        }?>
+                      </div>
+                    <?php endif;?>
+                  </td>
+                <?php endif;?>
 
-                <?php endfor;?>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      <?php endfor;?>
-    </div>
-
-
+              <?php endfor;?>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <?php endfor;?>
   </div>
+
+
+</div>
