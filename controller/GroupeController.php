@@ -91,27 +91,27 @@ class GroupeController
   {
     $vue=new Vue("UnEvenementGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
     if(!empty($_POST)){
-        if(!empty($_POST['abonnement'])){
-      if(($_POST['abonnement']=="Rejoindre")){
-        $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
-      }if($_POST['abonnement']=="Désinscrire"){
-        $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
+      if(!empty($_POST['abonnement'])){
+          $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
       }
+      if(!empty($_POST['desabonnement'])){
+          $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
       }
+
       if(!empty($_POST['enregistrement'])){
         $info_ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
         $id_ville=$info_ville['id'];
         $this->groupe->modifDataEvent($id_evenement, $id_ville);
       }
-      if(!empty($_POST['ajout'])){
-        if($_POST['ajout']=="Ajouter au planning"){
-          $this->groupe->addEventToUser($id_evenement, $_SESSION['user']['id'], $id_groupe);
-        }
-        if($_POST['ajout']=="Supprimer du planning"){
-          $this->groupe->deleteEventToUser($id_evenement,$_SESSION['user']['id'], $id_groupe);
-        }
+
+      if(!empty($_POST['addPlanning'])){
+        $this->groupe->addEventToUser($id_evenement, $_SESSION['user']['id']);
+      }
+      if(!empty($_POST['deletePlanning'])){
+        $this->groupe->deleteEventToUser($id_evenement,$_SESSION['user']['id']);
       }
     }
+
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isParticipant=$this->groupe->isParticipant($_SESSION['user']['id'], $id_evenement);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);

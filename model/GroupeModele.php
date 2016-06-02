@@ -187,15 +187,15 @@ class GroupeModele extends BaseDeDonnes
     return false;
   }
 
-  function addEventToUser($id_evenement,$id_user, $id_groupe){
-    $sql="INSERT INTO utilisateur_evenement(id_utilisateur, id_evenement) VALUES (?,?,?)";
+  function addEventToUser($id_evenement,$id_user){
+    $sql="INSERT INTO utilisateur_evenement(id_utilisateur, id_evenement) VALUES (?,?)";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_evenement])->fetch();
     return $resultat;
   }
 
-  function deleteEventToUser($id_evenement,$id_user, $id_groupe){
-    $sql="DELETE FROM utilisateur_evenement WHERE id_groupe=? AND id_utilisateur=? AND id_evenement=?";
-    $resultat=$this->requeteSQL($sql, [$id_groupe, $id_user, $id_evenement]);
+  function deleteEventToUser($id_evenement,$id_user){
+    $sql="DELETE FROM utilisateur_evenement WHERE id_utilisateur=? AND id_evenement=?";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_evenement]);
   }
 
   function isParticipant($id_user, $id_evenement){

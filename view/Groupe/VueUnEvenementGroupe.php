@@ -26,7 +26,7 @@
           <?php else: ?>
             <li id="desabonnement" style="margin-top:-10px;">
               <form class="" action="" method="post">
-                <input type="submit" name="abonnement" value="Désinscrire" style='cursor:pointer;'>
+                <input type="submit" name="desabonnement" value="Désinscrire" style='cursor:pointer;'>
               </form>
             </li>
           <?php endif;?>
@@ -48,12 +48,12 @@
           <h1 class="radius_mongroupe participation2" style="">Complet</h1>
         <?php else: ?>
           <form action="" method="post" style="text-align:center;">
-            <input style="width:100%;" class="participation" type="submit" name="ajout" value="Ajouter au planning" style='cursor:pointer;'>
+            <input style="width:100%;" class="participation" type="submit" name="addPlanning" value="Ajouter au planning" style='cursor:pointer;'>
           </form>
         <?php endif;
       else:?>
       <form action="" method="post" style="text-align:center;">
-        <input style="width:100%;" class="participation" type="submit" name="ajout" value="Supprimer du planning" style='cursor:pointer;'>
+        <input style="width:100%;" class="participation" type="submit" name="deletePlanning" value="Supprimer du planning" style='cursor:pointer;'>
       </form>
     <?php endif;
     endif;?>
@@ -131,15 +131,18 @@
         </div>
         <h2 style="font-size:15px;"><?php echo $club['nom']?></h2>
       </div>
-      <?php if(!empty($_POST['modif'])):?>
-        <input class="buttonmodif" type="submit" name="enregistrement" value="Enregistrer les modifications">
-      <?php endif;
-
-      if($isLeader):
-        if(empty($_POST['modif'])):?>
-          <input class="buttonmodif" type="submit" name="modif" value="Modifier les informations" style='cursor:pointer;'>
+        <?php if(!empty($_POST['modif'])):?>
+          <form class="" action="" method="post">
+            <input class="buttonmodif" type="submit" name="enregistrement" value="Enregistrer les modifications">
+          </form>
+          <?php endif;
+        if($isLeader):
+          if(empty($_POST['modif'])):?>
+          <form class="" action="" method="post">
+            <input type="submit" class="buttonmodif" name="modif" value="Modifier les informations" style='cursor:pointer;'>
+          </form>
+        <?php endif;?>
       <?php endif;?>
-    <?php endif;?>
 
       </form>
     </div>
