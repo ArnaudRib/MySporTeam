@@ -188,8 +188,8 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function addEventToUser($id_evenement,$id_user, $id_groupe){
-    $sql="INSERT INTO utilisateur_evenement(id_utilisateur, id_groupe, id_evenement) VALUES (?,?,?)";
-    $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe, $id_evenement])->fetch();
+    $sql="INSERT INTO utilisateur_evenement(id_utilisateur, id_evenement) VALUES (?,?,?)";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_evenement])->fetch();
     return $resultat;
   }
 
