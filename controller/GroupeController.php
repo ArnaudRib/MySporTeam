@@ -278,6 +278,7 @@ class GroupeController
       $verification->notEmpty('sport', "Choississez un sport.");
       $verification->notEmpty('ville', "Choississez une ville.");
       $verification->notEmpty('description', "Décrivez votre groupe.");
+      $verification->notEmpty('visibilite', "Votre groupe sera-il privé ou public?.");
 
       $error=$verification->error;
       $error.=$verificationPhoto->error;
@@ -297,7 +298,7 @@ class GroupeController
 
     $categorie=$this->groupe->getCategory()->fetchAll();
     $sports=$this->sport->getSports()->fetchAll();
-    $vue=new Vue("CreationGroupe", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['showphoto.js']); // CSS a unifier dans le meme fichier
+    $vue=new Vue("CreationGroupe", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['showphoto.js', 'RechercheGroupe.js']); // CSS a unifier dans le meme fichier
     $vue->loadpage(['sports'=>$sports, 'categorie'=>$categorie, 'error'=>$error, 'succes'=>$succes]);
   }
 
@@ -312,6 +313,16 @@ class GroupeController
     $vue=new Vue("GroupeSport", "Groupe", ['stylesheet.css'], ['GroupeSport.js']);
     $vue->loadpage(['sport'=>$sport, 'sports'=>$sports, 'photo'=>$photo, 'Allsports'=>$Allsports, 'groupes'=>$groupes, 'nbmembre'=>$nbmembre]);
   }
+
+  public function loadGroupeInvitation($id_groupe){
+    //fais toi plaisir :D
+    $error='';
+    $succes='';
+    $vue=new Vue("GroupeInvitation", "Groupe", ['stylesheet.css']);
+    $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
+
+  }
+
 
   public function loadClub($id_club)
   {

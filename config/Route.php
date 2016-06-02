@@ -168,6 +168,11 @@ class Route
         $this->ctr['Groupe']->loadGroupeSport($id_sport);
         break;
 
+      case 'invitmembres':
+        $id_groupe=intval($this->params[0]);
+        $this->ctr['Groupe']->loadGroupeInvitation($id_groupe);
+        break;
+
       // Forum
       case 'forum':
         $this->ctr['Forum']->loadForum();
