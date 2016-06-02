@@ -2130,8 +2130,7 @@ ul {
 }
 
 .calendrier {
-  margin:3px auto;
-  margin-top: 100px;
+  margin: 100px auto;
   width: 70%;
   box-shadow: 0px 0px 5px #000000;
 }
@@ -2165,7 +2164,7 @@ td {
   max-width: 70px;
   border: 1px solid black;
   font-size: 20px;
-  vertical-align: text-top;
+  vertical-align: top;
   padding: 10px;
   height: 80px;
   max-height: 80px;
@@ -2198,11 +2197,20 @@ tr {
 .event {
   float: right;
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: #525252;
-  margin-left: 5px;
+  width: 100%;
+  text-align:center;
+  cursor:pointer;
+  padding:6px;
+  border-radius:4px;
+  color:white;
+  font-size:10px;
+  background-color: #0029ff;
+  margin: 5px;
+  transition:1s all ease;
+}
+
+.event:hover{
+  background-color: #5571ff;
 }
 
 .infos_event {
@@ -2218,9 +2226,9 @@ tr {
 .talkbubble {
    background: #5aacff;
    position: absolute;
-   -moz-border-radius:    10px;
+   -moz-border-radius: 10px;
    -webkit-border-radius: 10px;
-   border-radius:         10px;
+   border-radius: 10px;
 }
 
 .talkbubble:before {
@@ -2237,7 +2245,7 @@ tr {
 
 .infos_event h4 {
   color: lightgrey;
-  font-size:15px;
+  font-size:12px;
 }
 
 .infos_event {

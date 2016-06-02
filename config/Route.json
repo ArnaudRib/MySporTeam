@@ -15,6 +15,7 @@
   "createevenement":"groupe/{id}/evenement/creation",
   "unevenementgroupe":"groupe/{id}/evenements/{id_evenement}",
   "membresgroupe":"groupe/{id}/membres",
+  "invitmembres":"groupe/{id}/invitation",
   "creationgroupe":"creationgroupe",
   "clubinfo":"club/{id_club}",
   "profil":"myprofil",
