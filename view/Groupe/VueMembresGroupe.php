@@ -43,9 +43,9 @@
           <?php if($isLeader==true):
             if(($value['leader_groupe'])!=1):?>
           <form style="float:right; margin-right:30px;" class="" action="" method="post">
-            <label style="display:inline-block;" for="deletebutton" class="deletebutton">&#10006;</label>
+            <!--<label style="display:inline-block;" for="deletebutton" class="deletebutton">&#10006;</label>-->
             <input type="hidden" name="id_utilisateur" value="<?php echo $value['id_utilisateur']?>">
-            <input id="deletebutton" type="submit" name="deleteUser" value="delete" style="display:none;">
+            <input class="deletebutton"  type="submit" name="deleteUser" value="&#10006;">
           </form>
         <?php endif;
       endif;?>
