@@ -26,6 +26,13 @@
       </li>
     </a>
 
+    <a href="<?php goToPage('backofficeclub')?>">
+      <li class="nextline">
+          <i class="fa fa-users"></i>
+          <p><?php echo lang("Clubs") ?></p>
+      </li>
+    </a>
+    
     <a href="<?php goToPage('backofficetype')?>">
       <li class="nextline active">
           <i class="fa fa-wrench"></i>
@@ -57,12 +64,10 @@
   </ul>
 </div>
 
-
-
 <div class="main-panel">
   <div class="navbar navbar-header">
-    <p class="title">Types</p>
-    <i class="subtitle">Modifications des types de sports.</i>
+    <p class="title"><?php echo lang("Types") ?></p>
+    <i class="subtitle"><?php echo lang("Modifications des types de sports.") ?></i>
   </div>
   <?php if(isset($_POST['type'])):
     if(empty($error)):?>
@@ -77,9 +82,9 @@
   <?php endif; ?>
   <div class="block95 card">
     <div class="header">
-      <h4 class="title">Liste des sports</h4>
+      <h4 class="title"><?php echo lang("Liste des sports") ?></h4>
       <p class="sousheader">
-        <i> Cliquez sur une ligne pour modifier. </p>
+        <i> <?php echo lang("Cliquez sur une ligne pour modifier.") ?> </p>
       </p>
     </div>
     <div class="" style='margin:0 auto;'>
@@ -101,34 +106,31 @@
         <?php $i+=1; ?>
       <?php endforeach; ?>
     </div>
-      <div class="centre">
-      	<button id="boutonADD" class="btn btn-4 btn-4a" onclick="displayAdd()">
-          Ajouter un type <span style="font-size:25px; padding-left:30%;">+</span>
-        </button>
-        <button id="boutonREMOVE" class="btn btn-4 btn-4a backbuttonred hidden" onclick="displayAdd()">
-          Annuler <span style="font-size:20px; padding-left:40%;">x</span>
-        </button>
-      </div>
+    <div class="centre">
+    	<button id="boutonADD" class="btn btn-4 btn-4a" onclick="displayAdd()">
+        <?php echo lang("Ajouter un type") ?><span style="font-size:25px; padding-left:30%;">+</span>
+      </button>
+      <button id="boutonREMOVE" class="btn btn-4 btn-4a backbuttonred hidden" onclick="displayAdd()">
+        <?php echo lang("Annuler") ?>  <span style="font-size:20px; padding-left:40%;">x</span>
+      </button>
+    </div>
 
-      <div id="Add" class="hiddensize">
-        <div class="block95 card">
-          <div class="header">
-            <h4 class="title">Ajouter un type</h4>
-            <p class="sousheader">
-              <i>Remplissez les informations qui suivent.</p>
-            </p>
-          </div>
-            <form class="" action="" method="post">
-              <fieldset>
-                <label class="textlabel" for="nom">Nom du type</label>
-                <input type="text" class="inputfieldset" name="type" placeholder="Le nouveau type."  >
-                <input type="submit" name="Add" value="Ajouter un type" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:8px;">
-              </fieldset>
-            </form>
+    <div id="Add" class="hiddensize">
+      <div class="block95 card">
+        <div class="header">
+          <h4 class="title"><?php echo lang("Ajouter un type") ?></h4>
+          <p class="sousheader">
+            <i><?php echo lang("Remplissez les informations qui suivent.") ?></p>
+          </p>
         </div>
+          <form class="" action="" method="post">
+            <fieldset>
+              <label class="textlabel" for="nom"><?php echo lang("Nom du type") ?></label>
+              <input type="text" class="inputfieldset" name="type" placeholder="Le nouveau type."  >
+              <input type="submit" name="Add" value="Ajouter un type" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:8px;">
+            </fieldset>
+          </form>
       </div>
-
-
+    </div>
   </div>
-
 </div>

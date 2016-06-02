@@ -1,9 +1,9 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-    <img src="<?php echo image('Users/.png')?>"/>
+    <img src="<?php echo image('Users/Bannière/'.$pseudouser.'.jpg')?>"/>
   </div>
   <div id="haut_mongroupe">
-    <img src="<?php echo image('Users/.png')?>"/>
+    <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>"/>
     <h1><?php echo $_SESSION['user']['pseudo'] ?></h1>
     <div id="menu_mongroupe">
       <nav>

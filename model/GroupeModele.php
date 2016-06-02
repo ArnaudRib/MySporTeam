@@ -15,6 +15,19 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function getIdMaxEvenement(){
+    $sql="SELECT MAX(id) FROM evenement";
+    $resultat=$this->requeteSQL($sql)->fetch();
+    $resultat=intval($resultat['MAX(id)'])+1;
+    return $resultat;
+  }
+
+
+  function addEvenement($id_groupe, $id_ville){
+    $sql="INSERT INTO evenement(nom, description, places, id_groupe, id_ville, date_debut, date_fin) VALUES (?,?,?,?,?,?,?)";
+    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['nombre'], $id_groupe, $id_ville, $_POST['date_debut_finale'],$_POST['date_fin_finale']]);
+  }
+
 
   function getInfoGroupSport($id_sport){
     $sql="SELECT * FROM groupe WHERE id_sport=?";
@@ -22,13 +35,25 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function getVille($id_ville){
+  function getVilleById($id_ville){
     $sql="SELECT * FROM city WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$id_ville]);
     return $resultat;
   }
 
-  function getIdVille($ville){
+  function getClub($id_club){
+    $sql="SELECT * FROM club WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$id_club]);
+    return $resultat;
+  }
+
+  function getClubs(){
+    $sql="SELECT * FROM club";
+    $resultat=$this->requeteSQL($sql);
+    return $resultat;
+  }
+
+  function getVilleByName($ville){
     $sql="SELECT * FROM city WHERE name=?";
     $resultat=$this->requeteSQL($sql, [$ville]);
     return $resultat;
@@ -45,6 +70,13 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
   }
+
+  function conutparticipants($id_evenement){
+    $sql="SELECT COUNT(id) FROM utilisateur_evenement WHERE id_evenement=?";
+    $resultat=$this->requeteSQL($sql, [$id_evenement]);
+    return $resultat;
+  }
+
 
   function getEvenement($id_evenement){
     $sql="SELECT * FROM evenement WHERE id=?";
@@ -92,14 +124,19 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function getClub($id_club){
-    $sql="SELECT * FROM club WHERE id=?";
-    $resultat=$this->requeteSQL($sql,[$id_club]);
-    return $resultat;
-  }
 
   function searchVilleName($nbdisplay){
     $sql="SELECT name FROM city WHERE name LIKE ?  ORDER BY name LIMIT ?";
+    $resultats=$this->connectBDD()->prepare($sql);
+    $text="%" . $_GET['resultat'] . "%";
+    $resultats->bindParam(1, $text, PDO::PARAM_STR);
+    $resultats->bindParam(2, $nbdisplay, PDO::PARAM_INT);
+    $resultats->execute();
+    return $resultats;
+  }
+
+  function searchGroupeName($nbdisplay){
+    $sql="SELECT nom FROM groupe WHERE nom LIKE ?  ORDER BY nom LIMIT ?";
     $resultats=$this->connectBDD()->prepare($sql);
     $text="%" . $_GET['resultat'] . "%";
     $resultats->bindParam(1, $text, PDO::PARAM_STR);
@@ -124,7 +161,7 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function getNbMembresGroupe($groupes){ // renvoie [idsport=>nbgroupe]
+  function getNbMembresGroupe($groupes){ // renvoie [idgroupe=>nbmembre]
     foreach ($groupes as $key => $value) {
       $sql = "SELECT COUNT(*) as nbMembres FROM utilisateur_groupe WHERE id_groupe=?";
       $resultat=$this->requeteSQL($sql, [$value['id']])->fetchAll();
@@ -150,37 +187,79 @@ class GroupeModele extends BaseDeDonnes
     return false;
   }
 
+  function addEventToUser($id_evenement,$id_user, $id_groupe){
+    $sql="INSERT INTO utilisateur_evenement(id_utilisateur, id_evenement) VALUES (?,?,?)";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_evenement])->fetch();
+    return $resultat;
+  }
+
+  function deleteEventToUser($id_evenement,$id_user, $id_groupe){
+    $sql="DELETE FROM utilisateur_evenement WHERE id_groupe=? AND id_utilisateur=? AND id_evenement=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe, $id_user, $id_evenement]);
+  }
+
+  function isParticipant($id_user, $id_evenement){
+    $sql = "SELECT * FROM utilisateur_evenement WHERE id_utilisateur=? AND id_evenement=?";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_evenement])->fetch();
+    if($resultat)
+        return true;
+    return false;
+  }
+
   function joinGroupe($id_user, $id_groupe){
     $sql="INSERT INTO utilisateur_groupe(id_utilisateur, id_groupe) VALUES (?,?)";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
     return $resultat;
   }
 
-  function modifDataGroupe($id_groupe){
+
+  function modifDataGroupe($id_groupe, $id_ville){
+    $info=$_POST['informations'];
+    $mail=$_POST['mail'];
+    $telephone=$_POST['telephone'];
+    $sql="UPDATE groupe SET description=?, id_ville=?, telephone=?, mail=? WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$info, $id_ville, $telephone, $mail, $id_groupe]);
+    return $resultat;
+  }
+
+  function modifDataEvent($id_evenement, $id_ville){
     $info=$_POST['informations'];
     $ville=2;
     $mail=$_POST['mail'];
     $telephone=$_POST['telephone'];
-    $sql="UPDATE groupe SET description=?, id_ville=?, telephone=?, mail=? WHERE id=?";
-    $resultat=$this->requeteSQL($sql, [$info, $ville, $telephone, $mail, $id_groupe]);
+    $sql="UPDATE evenement SET description=?, id_ville=?, telephone=?, mail=?, date_debut=?, date_fin=? WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$info, $id_ville, $telephone, $mail, $_POST['date_debut'], $_POST['date_fin'], $id_evenement]);
     return $resultat;
   }
 
   function publication($titre, $publication, $id_groupe){
-    $sql="INSERT INTO groupe_publication(titre, texte, date, id_groupe) VALUES (?,?,CURDATE(),?)";
-    $resultat=$this->requeteSQL($sql, [$titre, $publication,$id_groupe]);
+    $sql="INSERT INTO groupe_publication(titre, texte, date, id_groupe, id_user) VALUES (?,?,NOW(),?,?)";
+    $resultat=$this->requeteSQL($sql, [$titre, $publication,$id_groupe, $_SESSION['user']['id']]);
     return $resultat;
   }
 
+  function deletePublication($id_groupe){
+    $sql="DELETE FROM groupe_publication WHERE id_groupe=? AND id=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_publication']]);
+  }
+
+  function deleteEvenement($id_groupe){
+    $sql="DELETE FROM evenement WHERE id_groupe=? AND id=?";
+    $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_evenement']]);
+  }
+
+  function deleteUser($id_groupe){
+    $sql="DELETE FROM utilisateur_groupe WHERE id_groupe=? AND id_utilisateur=?";
+    echo $_POST['id_utilisateur'];
+    $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_utilisateur']]);
+  }
+
   function quitGroupe($id_user, $id_groupe){
-    $sql="DELETE FROM utilisateur WHERE id_utilisateur=? AND id_groupe=?";
+    $sql="DELETE FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
   }
 
   function addGroupe(){
-  //  $sql="INSERT INTO groupe(nom, description, public, nbmax_sportifs, id_sport, id_ville, categorie, id_niveau) VALUES (?,?,?,?,?,?,?,?)";
-  //  $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['public'], $_POST['nbmax_sportifs'], $_POST['id_sport'], $_POST['id_ville'], $_POST['categorie'], $_POST['id_niveau']]);
-
     $sql="INSERT INTO groupe(nom, description) VALUES (?,?)";
     $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description']]);
   }

@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="/asset/css/font-awesome.css">
   <?php
   $this->loadcss(); //nomcss devra être un tableau.?>
   <title><?php echo $this->titre ?></title>

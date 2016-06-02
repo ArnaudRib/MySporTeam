@@ -2,8 +2,8 @@
   <div class="blockinscription">
     <nav id="creationgroupe"> <!-- remettre <nav id="creationgroupe"> si tu veux pas noir-->
 
-      <form action="<?php goTopage('creationgroupe')?>" method="post" >
-        <h1 class=""> Créer votre Groupe </h1>
+      <form action="<?php goTopage('creationgroupe')?>" method="post" enctype="multipart/form-data" >
+        <h1 class=""> <?php echo lang("Créer votre Groupe") ?> </h1>
         <?php if($error!=''):?>
           <div class="errorbox blackborder radius">
             <?php echo $error;?>
@@ -28,24 +28,15 @@
             <input id='ville' type="text" name="ville" placeholder="Ville"/></br>
           </div>
 
-
-          <?php /*if(isset($_POST['nbr_max'])){
-            if ($_POST ['nbr_max'] >= 45 or $_POST ['nbr_max'] < 0){
-            echo "Perdu";}
-            else {
-            echo "Gagné";
-          }
-        } A METTRE DANS LE CONTROLLER SI VRAIMENT NECESSAIRE*/?>
-
         <div style="text-align:center; margin-right:-20px;margin-right: 4px; margin-left: -37px;">
           <select name="categorie" class="selectcreation"  require >
-            <option selected value=""> --- Catégorie --- </option>
+            <option selected value=""> --- <?php echo lang("Catégorie") ?> --- </option>
             <?php foreach ($categorie as $key => $value): ?>
               <option value="<?php echo $value['id']?>"><?php echo $value['nom']?></option>
             <?php endforeach; ?>
           </select>
           <select  class="selectcreation" name="sport">
-            <option value="" selected> --- Sport --- </option>
+            <option value="" selected> --- <?php echo lang("Sport") ?> --- </option>
             <?php foreach ($sports as $key => $value): ?>
               <option value="<?php echo $value['id']?>"> <?php echo ucfirst($value['nom'])?> </option>
             <?php endforeach; ?>
@@ -53,15 +44,21 @@
         </div>
 
         <div style="text-align:center;">
-          <label for='public' style="display: inline-block; width: 60px; float: none;">Public</label>
+          <label for='public' style="display: inline-block; width: 60px; float: none;"><?php echo lang("Public") ?></label>
           <input id='public' style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" name="visibilite" value="public">
-          <label for='prive' style="display: inline-block; width: 60px; float: none;">Privé</label>
+          <label for='prive' style="display: inline-block; width: 60px; float: none;"><?php echo lang("Privé") ?></label>
           <input id='prive' type="radio" name="visibilite" value="prive" style="display: inline-block; width: 30px; height: 15px">
         </div>
 
         <div class="ChangePictureSport">
-          <label for="icone" class="boutonInputFile">Modifier l'icone du sport.</label>
-          <input id="icone" class="files" type="file" name="icone" style="display:none;">
+          <label for="photo" class="boutonInputFile"><?php echo lang("Ajouter une photo de groupe.") ?></label>
+          <input id="photo" class="files" type="file" name="photogroupe" style="display:none;">
+          <img class="UploadedImage classImage" />
+        </div>
+
+        <div class="ChangePictureSport">
+          <label for="Bannière" class="boutonInputFile"><?php echo lang("Ajouter une photo Bannière de groupe.") ?></label>
+          <input id="Bannière" class="files" type="file" name="Bannière" style="display:none;">
           <img class="UploadedImage classImage" />
         </div>
 

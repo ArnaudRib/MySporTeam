@@ -41,16 +41,16 @@ class AdminController
         $verification = new Verification($_POST);
         $verificationPhoto = new Verification($_FILES);
         if(!empty($_FILES['photo']['name']))
-          $verificationPhoto->PhotoOk('photo', $sport['nom'].'.jpg','Sports', false);
+          $verificationPhoto->PhotoOk('photo', $_POST['nomgroupe'].'.jpg', 'Groupes/Profil', false);
+
         $verification->notEmpty('description', "Veuillez remplir la description du groupe.");
         /*Rajouter les autres vérifications ici*/
         $error=$verification->error;
         $error.=$verificationPhoto->error;
         if($verification->isValid() && $verificationPhoto->isValid()){
           if(!empty($_FILES['photo']['name']))
-             $error.=deletePhoto($_POST['id_groupe'].'.jpg', 'Groupes/Profil', 'Erreur de suppression du champ photo.');
-          $error.=uploadPhoto(minNoSpace($_POST['id_groupe']).'.jpg', 'Groupes/Profil', 'photo');
-
+             $error.=deletePhoto($_POST['nomgroupe'].'.jpg', 'Groupes/Profil', 'Erreur de suppression du champ photo.');
+          $error.=uploadPhoto($_POST['nomgroupe'].'.jpg', 'Groupes/Profil', 'photo');
           if(empty($error)){
             $this->admin->updateGroupe($_POST['id_groupe']);
           }
@@ -195,4 +195,16 @@ class AdminController
     $vue->loadbackoffice();
   }
 
+  public function loadBackOfficeClub()
+  {
+    if(isset($_POST['Suppr'])){
+      //supprimer groupe ici.
+      $this->admin->deleteClub();
+      $succes="Suppression réussie!";
+    }
+    $clubs=$this->groupe->getClubs()->fetchAll();
+    $vue=new Vue("BackOfficeClub","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
+    $vue->loadbackoffice(['clubs'=>$clubs]);
+  }
+  
 }

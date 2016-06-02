@@ -289,29 +289,120 @@ left:6rem;
   }
 }
 
+
+/* Mega Recherche */
+#resultatsrecherche{
+  padding-top:9px;
+  width: 80%;
+  background-color: rgba(133, 189, 255, 0.90);
+  margin:0 auto;
+  overflow-x:scroll;
+  height:auto;
+  border-radius: 5px;
+  margin-bottom:10px;
+  margin-top:-10px;
+  transition:1s all ease;
+}
+
+.searchgeneral li.selected {
+  background: rgb(85, 42, 255);
+  cursor: pointer;
+  width:100%;
+}
+.searchgeneral li:hover{
+  background: rgb(103, 65, 255);
+  cursor: pointer;
+  width:100%;
+}
+
+.searchgeneral li{
+  font-size:20px;
+}
+
+.searchgeneral p.visible {
+  display: block !important;
+}
+
+.headerVille{
+  width:100%;
+  background-color:rgb(0, 10, 255);
+  border-bottom:2px rgb(0, 41, 215) solid;
+  margin-bottom:5px;
+  color:white;
+}
+
+.separation{
+  border:1px black solid;
+  margin:5px auto;
+  width:70%;
+}
+
+.left-block{
+  display:inline-block;
+  width:41%;
+  text-align:right;
+  font-size:25px;
+}
+
+.right-block{
+  display:inline-block;
+  text-align:right;
+  width:35%;
+  font-size:20px;
+}
+
 /*FOOTER*/
 footer {
   background-color:#2E2E2E;
-  height: 50px;
+  height: auto;
   width: 100%;
   margin: 0;
+  position:absolute;
 }
 
-footer li{
-  color:#ffffff;
-  display: inline-block;
-  vertical-align: middle;
+.imgfooter{
+  margin: 10px 20px;
 }
 
-.textfooter {
-    height:4px;
-    vertical-align: middle;
-    margin: auto;
-    text-align: center;
+.textfooter{
+  display:inline-block;
+  vertical-align:center;
+  color:white;
+  font-size:20px;
+}
+
+.visibility{
+  max-height:0px;
+  opacity:0;
+  transition:1s all ease;
+}
+
+.drapeau{
+  transition:1s all ease;
+  display:inline-block;
+  margin:20px;
+  width:80px;
+  height:auto;
+}
+
+.buttonlanguage{
+  cursor:pointer;
+  font-size:20px;
+  position:relative;
+  margin:10px auto;
+  width:15%;
+  padding:15px;
+  background-color:rgb(180, 253, 255);
+  border-radius:8px;
+  border:1px white solid;
+  transition:1s all ease;
+}
+
+.buttonlanguage:hover{
+  background-color:rgb(84, 193, 255);
 }
 
 /*Contenu photo accueil*/
-
 .div1{ /* Division Sport*/
   position:relative;
   width:100%;
@@ -408,7 +499,7 @@ footer li{
 }
 
 .button:hover{
-  background-color: red;
+  background-color: rgba(107, 131, 255, 0.86);
   box-shadow: 0px 0px 10px #EDF5A5;
 }
 
@@ -491,7 +582,6 @@ input.searchbar{
 @keyframes boxes{
   0%{
     opacity: 0;
-    transform:scale(0.00001);
   }
   100%{
     opacity: 1;
@@ -525,9 +615,9 @@ input.searchbar{
 .Haut1{
   margin:5% 10% 2% 10%;
   display:inline-block;
-  background-color: red;
+  background-color: rgba(93, 173, 231, 0.8);
   width: 80%;
-  height: 70%;
+  height: auto;
   z-index: 2;
 }
 
@@ -594,6 +684,16 @@ body{
   width: 100%;
 }
 
+.textunderconnexion{
+  font-size:13px;
+  color:grey;
+  display:inline-block;
+  transition:1s all ease;
+}
+
+.textunderconnexion:hover{
+  color:black;
+}
 .bodybackground{
   background-image:url("../images/wallpaper.png");
 }
@@ -606,11 +706,6 @@ form h1 {
   color: white;
   background-color: #2c2c2c;
   border-bottom: 1px solid black;
-}
-
-form p {
-    color: black;
-    font-size: 0.6em;
 }
 
 
@@ -691,8 +786,8 @@ form p {
 .fond_mongroupe{
   background-color: #E6E6E6;
   font-family: Verdana;
-  height: auto;
   overflow: hidden;
+  min-height: 500px;
 }
 
 #image_de_fond{
@@ -881,6 +976,42 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   }
 }
 
+.buttonmodif{
+  padding:5px;
+  text-align:center;
+  background-color:rgba(64, 159, 247, 0.8);
+  border-radius:6px;
+  border:1px black solid;
+  width:100%;
+  font-size:15px;
+  transition:1s all ease;
+}
+
+.buttonmodif:hover{
+  background-color:rgb(170, 178, 255);
+  cursor:pointer;
+}
+
+.inputinfogroupe{
+  border:solid 1px black;
+  width:90%;
+  margin-bottom:2px;
+  margin-left:5%;
+  padding:10px 15px;
+  font-size:15px;
+}
+
+.areagroupinfo{
+  border:solid 1px black;
+  margin-left:5%;
+  width:90%;
+  font-size:15px;
+  margin-bottom:10px;
+  padding:8px;
+  height:70px;
+}
+
+
 /* MON GROUPE PUBLCIATION*/
 #corps_mongroupe{
   top:62px;
@@ -948,14 +1079,81 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 
 .publication h1{
   padding:5px;
+  padding-left:40px;
   display: inline-block;
   font-size: 20px;
+  width: 350px;
 }
 
 .publication h2{
   display: inline-block;
-  font-size: 14px;
+  font-size: 13px;
+  font-style:italic;
+  float:right;
+  padding:5px;
+  padding-right:10px;
   color:grey;
+}
+
+.deletebutton{
+  position:absolute;
+  font-size:25px;
+  padding-top:-10px;
+  padding-left:12px;
+  cursor:pointer;
+  color:red;
+  transition:1s all ease;
+  background-color: white;
+  border-radius:5px;
+}
+
+.deletebutton:hover{
+  color:orange;
+}
+
+.posteurPub{
+  font-size:8px;
+  color:grey;
+  float:right;
+  padding:5px;
+}
+
+.posteurPub span{
+  color:red;
+}
+
+.PostPublication{
+  background-color:rgba(172, 224, 255, 0.55);
+  border:1px black solid;
+  border-radius:5px;
+  box-shadow: 0px 0px 5px rgba(4, 14, 255, 0.66);
+  margin:10px;
+  margin-top:0px;
+}
+
+.buttonPostPub{
+  width:90%;
+  background-color:rgb(148, 191, 255);
+  cursor:pointer;
+  padding:5px;
+  border:1px black solid;
+  border-radius:4px;
+  margin:5px;
+  transition:1s all ease;
+  font-size:15px;
+}
+
+.buttonPostPub:hover{
+  background-color:rgba(88, 235, 255, 0.68);
+}
+
+.headerPostPub{
+  width:100%;
+  padding:4px;
+  background-color:white;
+  margin-bottom:10px;
+  font-size:20px;
+  text-align:center;
 }
 
 .evenenement{
@@ -1030,6 +1228,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   padding-top: 10px;
   display: inline-block;
 }
+
 .case_mongroupeevenement h1{
   color:black;
   font-family: Verdana;
@@ -1044,10 +1243,28 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   margin: 4px;
   color:blue;
   border:solid 1px #BDBDBD;
+  transition:1s all ease;
 }
 
 .case_mongroupeevenement a:hover{
-  background-color: #585858;
+  background-color: #5896ff;
+  color:#ffffff;
+}
+
+.buttonsupprimerevenement{
+  border-radius: 10px;
+  padding: 5px;
+  text-decoration: none;
+  margin: 4px;
+  color: red;
+  font-size:16px;
+  border: solid 1px #BDBDBD;
+  transition:1s all ease;
+}
+
+.buttonsupprimerevenement:hover{
+  cursor:pointer;
+  background-color: #ff4545;
   color:#ffffff;
 }
 
@@ -1113,7 +1330,25 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   }
 
   /*PAGE EVENEMENT MON GROUPE*/
-  .participation a{
+  .participation{
+    background: linear-gradient(141deg, #045FB4 30%, #084B8A 61%, #084B8A 75%);
+    border-radius: 5px;
+    padding:11px;
+    margin:8px;
+    text-decoration: none;
+    margin-bottom: 4px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    color:white;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    border:solid 1px #BDBDBD;
+    transition:1s all ease;
+  }
+
+  .participation2{
     background: linear-gradient(141deg, #045FB4 30%, #084B8A 61%, #084B8A 75%);
     border-radius: 5px;
     padding:11px;
@@ -1134,9 +1369,10 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
     margin: auto;
   }
 
-  .participation a:hover{
+  .participation:hover{
     background: linear-gradient(141deg, green 19%, green 61%, green 75%);
     color:#ffffff;
+    cursor:pointer;
   }
 
 #boutonrecherche{
@@ -1157,6 +1393,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 .AllForum {
 	font-family: Verdana, sans-serif;
 	background-color: #e6e6e6;
+  padding:40px 0px;
 }
 
 .AllForum a {
@@ -1170,19 +1407,69 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 
 .containerforum{
   padding:10px 0;
+  transition:1s all ease;
+}
+
+.containerforum:hover{
+  background-color:rgba(108, 108, 108, 0.30);
+}
+
+.editpen{
+  width:15px;
+  margin:5px;
+  margin-top:15px;
+}
+
+.modifybutton2{
+  border:1px black solid;
+  background-color:orange;
+  border-radius:4px;
+  margin:5px;
+  transition:1s all ease;
+  cursor:pointer;
+}
+
+.modifybutton2:hover{
+  background-color:rgb(255, 82, 8);
+}
+
+.deletebutton2{
+  margin:5px;
+  background-color:red;
+  border:1px black solid;
+  border-radius:4px;
+  transition:1s all ease;
+  cursor:pointer;
+}
+
+.deletebutton2:hover{
+  background-color:rgb(190, 1, 1);
+}
+
+
+.deletepic{
+  width:20px;
+  margin:5px;
+  margin-top:15px;
 }
 
 .lien-forum p {
 	font-style: italic;
 }
 
+.blockdiscussion{
+  transition:1s all ease;
+}
+.blockdiscussion:hover{
+  background-color:rgba(177, 177, 177,0.6);
+}
 
 .forum {
+  background-color:white;
+  margin:0 auto;
 	width: 80%;
-  margin:50px auto;
 	border: 1px solid white;
 	border-radius: 10px;
-	background-color: #FFFFFF;
 	box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
 }
 
@@ -1191,8 +1478,6 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
     margin-bottom: 0em;
    	border: 0;
    	height: 0;
-    /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
-    /*border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
     border-top: 1px solid black;
     border-bottom: 1px solid white;
 }
@@ -1230,8 +1515,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 }
 
 .fleche {
-	margin-left: 30px;
-	margin-right: 30px;
+  margin:30px;
 }
 
 .fa-arrow-circle-o-right {
@@ -1250,9 +1534,6 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   color: red;
 }
 
-.dark {
-  background-color: #e4e4e4;
-}
 
 .nombre-reponses {
   display: inline-block;
@@ -1261,7 +1542,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 
 .dernier-message {
   display: inline-block;
-/
+  width: 15%;
 }
 
 .lien-forum {
@@ -1319,7 +1600,6 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 }
 
 .avatar {
-  width: 75px;
   height: 75px;
   display: block;
   margin: 10px 0 10px 0;
@@ -1333,10 +1613,13 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 .titre-post {
   font-size: 0.9em;
   margin: 0 0 0 0 !important;
+  display:inline-block;
 }
 
 .date-post {
+  display:inline-block;
   font-size: 0.8em;
+  float:right;
 }
 .modification {
   margin-top: 5px;
@@ -1376,21 +1659,52 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   width: 90%;
   height: 200px;
   border: solid 1px black;
+  font-size: 1em;
+  padding: 10px;
+  font-size:15px;
+}
+
+.textanswer{
+  margin: 20px 40px 10px 50px;
+  width: 90%;
+  padding: 5px;
+}
+
+.AnswerSpace{
+  padding:10px;
+  border:1px black solid;
+  border-radius:5px;
+  box-shadow: 0px 0px 10px #000000;
+  margin:40px;
+}
+
+.titreanswer{
+  width:60%;
   margin: 20px 50px 10px 50px;
   font-size: 1em;
   padding: 5px;
 }
 
+.inputforum{
+  border:1px black solid;
+  padding:10px;
+  width:70%;
+  font-size:15px;
+}
+
+
 .bouton-poster {
+  background-color: #08184f;
+  color:white;
   margin: 10px 50px 20px 50px;
   height: 40px;
-  width: 130px;
+  padding:8px;
+  border-radius:5px;
+  width: auto;
   border: solid 1px #e4e4e4;
   font-size: 1em;
   font-weight: bold;
 }
-
-
 
 
 /* aide*/
@@ -1489,7 +1803,7 @@ ul {
   padding-top:1px;
   width: 70%;
   display: none;
-  background: beige;
+  background: #cfceff;
   margin:0 auto;
   overflow-x:scroll;
   height:80px;
@@ -1498,14 +1812,20 @@ ul {
   margin-top:-10px;
 }
 
-.search li:hover, .search li.selected {
-  background: rgb(254, 219, 98);
+.search li.selected{
+  background: rgb(139, 178, 250);
+  cursor: pointer;
+}
+.search li:hover{
+  background: rgb(97, 153, 255);
   cursor: pointer;
 }
 
 .search li{
   font-size:20px;
+  transition:0.5s all ease;
 }
+
 .selected {
   display: inline-block;
 }
@@ -1645,6 +1965,48 @@ ul {
   padding: 10px;
 }
 
+.bouttoninputprofil{
+  padding:5px;
+}
+
+.submitmodifprofil{
+  background-color:rgb(199, 253, 255);
+  transition:1s all ease;
+}
+
+.imgeditprofile{
+  width:50px;
+  transition:1s all ease;
+  margin-right:30px;
+  float:right;
+}
+
+.imgeditprofile:hover{
+  cursor:pointer;
+  width:55px;
+}
+
+.submitmodifprofil:hover{
+  background-color:rgb(126, 209, 255);
+  cursor:pointer;
+}
+
+.bouttonchangemdp{
+  padding:10px;
+  margin:5px auto;
+  border:2px rgb(33, 155, 255) solid;
+  border-radius:5px;
+  text-align:center;
+  background-color:rgb(148, 216, 255);
+  transition:1s all ease;
+  cursor:pointer;
+}
+
+.bouttonchangemdp:hover{
+  background-color:rgb(45, 178, 255);
+  cursor:pointer;
+}
+
 #mes_groupes{
   width: 80%;
   margin-left: 20%;
@@ -1747,6 +2109,7 @@ ul {
   background-color: lightgrey;
 }
 
+
 /* Calendrier */
 #next {
   float: right;
@@ -1795,6 +2158,7 @@ ul {
 table {
   border-collapse: collapse;
   background-color: white;
+  z-index: 1;
 }
 
 td {
@@ -1807,11 +2171,15 @@ td {
   max-height: 80px;
 }
 
-tr {
-}
-
 td:hover {
   background-color: #8ac4ff;
+  z-index: 1;
+  box-sizing:!important;
+}
+
+tr {
+  width: 100%;
+  height: 80px;
 }
 
 .jourSemaine {
@@ -1872,6 +2240,10 @@ td:hover {
   font-size:15px;
 }
 
+.infos_event {
+  padding: 5px;
+}
+
 .haut_calendrier {
   width: 100%;
   height: 250px;
@@ -1909,7 +2281,7 @@ td:hover {
 
 #creationgroupe fieldset {
   position: relative;
-  width: 50%;
+  width: 80%;
   font-family: Verdana;
   font-size: 1em;
 }
@@ -1932,6 +2304,7 @@ td:hover {
   transition:1s all ease;
 }
 
+
 #creationgroupe .labelnom {
   text-align: center;
   width: 10%;
@@ -1945,6 +2318,22 @@ td:hover {
   border-radius: 5px 0px 0px 5px;
   background: linear-gradient(to bottom, #007eff, #0062c7);
   transition:1s all ease;
+}
+
+.heuresinput{
+  width:20% !important;
+}
+
+.titlehorraire{
+  display:block:
+  font-size:15px;
+  margin-left:20px;
+}
+.selecttemps{
+  text-align:center;
+  padding:5px;
+  border-radius:4px;
+  border:1px black solid;
 }
 
 .areacreation{
@@ -1971,6 +2360,19 @@ td:hover {
   margin:5px;
 }
 
+.classImage{
+  margin:15px;
+  width:500px;
+  height:auto;
+}
+
+.UploadedImage{
+  margin:0 auto;
+  box-shadow:0px 0px 10px black;
+  width:80%;
+  display:block;
+}
+
 .creationgroupe_select{
   font-size: 90%;
     color: white;
@@ -1981,7 +2383,6 @@ td:hover {
     margin-left: 20%;
     background: #414141;
     border-radius: 5px 5px 5px 5px;
-
 }
 
 .validegroupe {
@@ -2006,11 +2407,12 @@ td:hover {
   background-color:white;
   text-align:center;
   transition:1s all ease;
-  margin:0 auto;
+  margin:10px auto;
 }
 
 
 .boutonInputFile:hover{
+  cursor:pointer;
   background-color:rgba(164, 244, 255, 0.81);
 }
 
@@ -2087,6 +2489,10 @@ td:hover {
 a{
   text-decoration: none;
   color:black;
+}
+
+.contenu{
+  min-height: 70px;
 }
 
 /* Sport Groupe */
@@ -2359,13 +2765,28 @@ a{
 }
 
 .barRecherche{
-  padding: 15px;
+  padding: 20px;
+  font-size:30px;
+  margin-top:100px;
   border-radius:8px;
   padding-left: 40px;
   background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgl3aWR0aD0iMTlweCIgaGVpZ2h0PSIxOXB4IiB2aWV3Qm94PSIwIDAgMTkgMTkiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE5IDE5IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCgk8cGF0aCBmaWxsPSIjNjY2NjY2IiBkPSJNMTcuNjMyLDE2Ljk1NWwtNC43NjEtNC43NjJjMS4xMDktMS4xODgsMS43OTUtMi43NzYsMS43OTUtNC41MjdjMC0zLjY2Ny0yLjk4Mi02LjY0OS02LjY0OS02LjY0OQ0KCQljLTMuNjY3LDAtNi42NDksMi45ODItNi42NDksNi42NDhjMCwzLjY2NywyLjk4Miw2LjY0Nyw2LjY0OSw2LjY0N2MxLjM5MSwwLDIuNjgyLTAuNDMyLDMuNzUtMS4xNjRsNC44MzQsNC44MzRMMTcuNjMyLDE2Ljk1NXoNCgkJTTIuODI0LDcuNjY2YzAtMi44NjMsMi4zMy01LjE5Miw1LjE5Mi01LjE5MmMyLjg2NCwwLDUuMTkyLDIuMzI5LDUuMTkyLDUuMTkyYzAsMi44NjEtMi4zMjgsNS4xOTEtNS4xOTIsNS4xOTENCgkJQzUuMTU0LDEyLjg1NSwyLjgyNCwxMC41MjcsMi44MjQsNy42NjZ6Ii8+DQoJPC9zdmc+");
   background-position: 12px 50%;
   background-repeat: no-repeat;
   background-size: 19px 19px;
+  width:80%;
+}
+
+.loupe{
+  padding: 16px !important;
+  color:white !important;
+  font-size:30px !important;
+  cursor:pointer;
+  transition:2s all ease;
+}
+
+.loupe:hover{
+  color:red;
 }
 
 .buttonsubmit{
@@ -2469,4 +2890,54 @@ a{
 .visible2{
   visibility:visible;
   transform: rotate(0deg)scale(1);
+}
+
+/* Notification */
+.notification{
+  position:absolute;
+  top:0;
+  right:50px;
+  padding:15px;
+  z-index:8000;
+  color:black;
+  box-shadow: 0px 0px 20px rgb(255, 151, 28);
+  background-color:rgba(255, 249, 116, 1);
+  border-radius:5px;
+  width:400px;
+  height:auto;
+  animation: apparition 1s;
+}
+
+.notification:hover{
+  box-shadow: 0px 0px 25px rgb(255, 151, 28);
+  cursor:all-scroll;
+}
+
+.notification:focus{
+  cursor:default;;
+}
+
+@keyframe apparition{
+  from{
+    height:0px;
+    max-height:0px;
+  }
+  to{
+    max-height:auto;
+  }
+}
+
+.hidden{
+  height:0px;
+  width:0px;
+  opacity:0;
+}
+
+.textNotif{
+  padding:20px;
+  width:80%;
+}
+
+.textNotif span{
+  padding:5px;
 }

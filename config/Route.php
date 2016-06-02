@@ -64,6 +64,9 @@ class Route
         $this->ctr['Accueil']->loadAide();
         break;
 
+      case 'ajaxrecherchegenerale':
+        $this->ctr['Accueil']->loadRechercheGenerale();
+        break;
 
       //Sports
       case 'ajaxloadphoto':
@@ -128,6 +131,11 @@ class Route
         $id_groupe=intval($this->params[0]);
         $id_evenement=intval($this->params[1]);
         $this->ctr['Groupe']->loadUnEvenementGroupe($id_groupe, $id_evenement);
+        break;
+
+      case 'createevenement':
+        $id_groupe=intval($this->params[0]);
+        $this->ctr['Groupe']->loadCreateEvenement($id_groupe);
         break;
 
       case 'membresgroupe':
@@ -210,6 +218,10 @@ class Route
         $this->ctr['Admin']->loadBackOfficeUser();
         break;
 
+      case 'backofficeclub':
+        $this->ctr['Admin']->loadBackOfficeClub();
+        break;
+
       default:
         # code...
         break;
@@ -228,5 +240,16 @@ function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('n
       $url=str_replace("{".$key."}", $value, $url);
     }
   }
-  echo "/".$url;
+  echo "/".$_GET['lang']."/".$url;
+}
+
+function loadlang(){
+  $json = file_get_contents("asset/lang/".$_GET['lang'].".json", "r");
+  $obj = json_decode($json, true);
+  return $obj;
+}
+
+function lang($expression){
+  $tablang=loadlang();
+  return $tablang[$expression];
 }

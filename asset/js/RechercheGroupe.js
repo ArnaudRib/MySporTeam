@@ -27,15 +27,17 @@ function getresults(str, e) {
         }
       }
     };
-    xmlhttp.open("GET", "ajaxrecherchegroupe?resultat=" + str, true);
+    xmlhttp.open("GET", "/fr/ajaxrecherchegroupe?resultat=" + str, true);
     xmlhttp.send();
     savestr = str;
   }
 }
 
 function get(str) {
-  document.getElementById('search').value = str;
+  var search= document.getElementById('search');
+  search.value = str;
 }
+
 function showsearch() {
   var search = document.getElementById('results');
   search.classList.add('visible');

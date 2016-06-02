@@ -4,13 +4,15 @@
   "inscription":"inscription",
   "deconnexion":"deconnexion",
   "ajaxloadphoto":"ajaxloadphoto",
+  "ajaxrecherchegroupe":"ajaxrecherchegroupe",
+  "ajaxrecherchegenerale":"ajaxrecherchegenerale",
   "sportgroupe":"groupe/sport/{id_sport}",
   "recherchegroupe":"recherchegroupe",
-  "ajaxrecherchegroupe":"ajaxrecherchegroupe",
   "informationsgroupe":"groupe/{id}/informations",
   "publicationsgroupe":"groupe/{id}/publications",
   "unepublicationgroupe":"groupe/{id}/publications/{id_publication}",
   "evenementsgroupe":"groupe/{id}/evenements",
+  "createevenement":"groupe/{id}/evenement/creation",
   "unevenementgroupe":"groupe/{id}/evenements/{id_evenement}",
   "membresgroupe":"groupe/{id}/membres",
   "creationgroupe":"creationgroupe",
@@ -30,5 +32,6 @@
   "backofficetype":"admin/types",
   "backofficesport":"admin/sports",
   "backofficeAsport":"admin/sports/{id_sport}",
-  "backofficeuser":"admin/user"
+  "backofficeuser":"admin/user",
+  "backofficeclub":"admin/clubs"
 }

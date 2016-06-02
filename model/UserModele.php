@@ -15,6 +15,39 @@ class UserModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function getDataUserById($id_utilisateur){
+    $sql="SELECT * FROM utilisateur WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$id_utilisateur]);
+    return $resultat;
+  }
+
+  function getPseudoAndId(){
+    $sql="SELECT id, pseudo FROM utilisateur";
+    $resultat=$this->requeteSQL($sql)->fetchAll();
+    foreach ($resultat as $key => $value) {
+      $resultatfinal[$value['id']]=$value['pseudo'];
+    }
+    return $resultatfinal;
+  }
+
+  function getDataUserDiscussion($discussions){
+    foreach ($discussions as $key => $value) {
+      $sql="SELECT pseudo FROM utilisateur WHERE id=?";
+      $resultat=$this->requeteSQL($sql, [$value['id_user']])->fetchAll();
+      $allresults[$value['id']]=$resultat[0]['pseudo'];
+    }
+    return $allresults;
+  }
+
+  function getUserNamePub($publication){
+    foreach ($publication as $key => $value) {
+      $sql="SELECT pseudo FROM utilisateur WHERE id=?";
+      $resultat=$this->requeteSQL($sql, [$value['id_user']])->fetchAll();
+      $allresults[$value['id']]=$resultat[0]['pseudo'];
+    }
+    return $allresults;
+  }
+
   function CheckUser(){
     $sql="SELECT * FROM utilisateur WHERE pseudo=? and mot_de_passe=?";
     $resultat=$this->requeteSQL($sql,[$_POST['pseudo'], sha1($_POST['mot_de_passe'])]);
@@ -30,17 +63,21 @@ class UserModele extends BaseDeDonnes
 
   function InscriptionUser(){
     //$naissance=$_POST['annee']."-".$_POST['mois']."-".$_POST['jour'];
-    $sql="INSERT INTO utilisateur(nom, prénom, email, sexe, mot_de_passe, adresse, numero_telephone, naissance, pseudo, admin_util, id_photo, id_ville) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    $sql="INSERT INTO utilisateur(nom, prenom, email, sexe, mot_de_passe, adresse, numero_telephone, naissance, pseudo, admin_util, id_photo, id_ville) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
     $resultat=$this->requeteSQL($sql,["-", "-",$_POST['email'],'-',sha1($_POST['mot_de_passe']),"-",0,"0000-00-00", $_POST['pseudo'],3,3,3]);
 
     return $resultat;
   }
 
-  function modifier_profil() {
+  function modifierProfil($pseudo, $id_ville) {
     foreach ($_POST as $key => $value) {
-      if($value != " " and $key != "Envoyer") {
+      if($key != "modifyProfil" && $key!='ville') {
         $sql="UPDATE utilisateur SET $key=? WHERE pseudo=?";
-        $resultat=$this->requeteSQL($sql,[$value,$_SESSION['user']['pseudo']]);
+        $resultat=$this->requeteSQL($sql,[$value, $pseudo]);
+      }
+      if($key=='ville'){
+        $sql="UPDATE utilisateur SET id_ville=? WHERE pseudo=?";
+        $resultat=$this->requeteSQL($sql,[intval($id_ville),$pseudo]);
       }
     }
   }
@@ -68,7 +105,7 @@ class UserModele extends BaseDeDonnes
   }
 
   function getDataGroupeAUser($pseudo) {
-    $sql="SELECT *,sports.nom AS nom_sport,groupe.nom AS nom_groupe, utilisateur.nom AS nom_utilisateur 
+    $sql="SELECT *,sports.nom AS nom_sport,groupe.nom AS nom_groupe, utilisateur.nom AS nom_utilisateur
     FROM utilisateur_groupe
     JOIN groupe ON groupe.id=utilisateur_groupe.id_groupe
     JOIN utilisateur ON utilisateur_groupe.id_utilisateur=utilisateur.id
@@ -103,6 +140,16 @@ class UserModele extends BaseDeDonnes
       $allresults[$value['id']]=$resultat[0]['nbPostsUser'];
     }
     return $allresults;
+  }
+
+  function searchUserName($nbdisplay){
+    $sql="SELECT pseudo FROM utilisateur WHERE pseudo LIKE ?  ORDER BY pseudo LIMIT ?";
+    $resultats=$this->connectBDD()->prepare($sql);
+    $text="%" . $_GET['resultat'] . "%";
+    $resultats->bindParam(1, $text, PDO::PARAM_STR);
+    $resultats->bindParam(2, $nbdisplay, PDO::PARAM_INT);
+    $resultats->execute();
+    return $resultats;
   }
 
 }

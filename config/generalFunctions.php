@@ -16,17 +16,32 @@ Class Verification
     }
   }
 
+  public function isDate($name, $message){
+    if(!strtotime($this->post[$name])){
+      $this->error.=$message.'</br>';
+      return false;
+    }
+  }
+
+  public function isPreviousDate($name, $message){ /*pas testé xD.. */
+    if(!preg_match($this->post[$name],'/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/'))
+    {
+      $this->error.=$message.'</br>';
+      return false;
+    }
+  }
+
   function PhotoOk($name, $futurnomimage, $directory, $skipAlreadyUploaded=true){
     $url=$directory.'/'.$futurnomimage;
     $fileURL= substr(image($url),1);
     $imageFileType=pathinfo($fileURL, PATHINFO_EXTENSION);
 
-      if($imageFileType!='svg'){
-        $check = getimagesize($this->post[$name]["tmp_name"]);
-        if ($check == false) {
-          $this->error.= "Le fichier {$name} n'est pas du bon format.</br>";
-        }
+    if($imageFileType!='svg'){
+      $check = getimagesize($this->post[$name]["tmp_name"]);
+      if ($check == false) {
+        $this->error.= "Le fichier {$name} n'est pas du bon format.</br>";
       }
+    }
 
     if($skipAlreadyUploaded){
       if (file_exists($fileURL)) {
@@ -38,6 +53,7 @@ Class Verification
       $this->error.= "Désolé, le fichier importé est trop lourd.</br>";
     }
   }
+
 
   public function isValid()
   {
@@ -173,4 +189,37 @@ function deletePhoto($name, $directory, $message){
     }
   }
   return $error;
+}
+
+function diffDate($date){
+  date_default_timezone_set("Europe/Paris");
+  if(!ctype_digit($date))
+    $date = strtotime($date);
+  if(date('Ymd', $date) == date('Ymd')){
+    $diff = time()-$date;
+  if($diff < 60) /* moins de 60 secondes */
+   return 'Il y a '.$diff.' sec';
+  else if($diff < 3600) /* moins d'une heure */
+   return 'Il y a '.round($diff/60, 0).' min';
+  else if($diff < 10800) /* moins de 3 heures */
+   return 'Il y a '.round($diff/3600, 0).' heures';
+  else /*  plus de 3 heures ont affiche ajourd'hui à HH:MM:SS */
+   return 'Aujourd\'hui à '.date('H:i:s', $date);
+  }
+  else if(date('Ymd', $date) == date('Ymd', strtotime('- 1 DAY')))
+  return 'Hier à '.date('H:i:s', $date);
+  else if(date('Ymd', $date) == date('Ymd', strtotime('- 2 DAY')))
+  return 'Il y a 2 jours à '.date('H:i:s', $date);
+  else
+  return 'Le '.date('d/m/Y à H:i:s', $date);
+}
+
+function showProfil($data) {
+  if(isset($_SESSION['user'][$data])) {
+    echo $_SESSION['user'][$data];
+  }
+  else {
+    echo "<i style='font-size:13px;'>";
+    echo lang('Non spécifié')."</i>";
+  }
 }

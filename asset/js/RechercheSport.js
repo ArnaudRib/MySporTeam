@@ -5,7 +5,7 @@ function getresults(str='') {
       document.getElementById("PhotoSport").innerHTML = xmlhttp.responseText;
     }
   };
-  xmlhttp.open("GET", "ajaxloadphoto?resultat=" + str, true);
+  xmlhttp.open("GET", "/fr/ajaxloadphoto?resultat=" + str, true);
   xmlhttp.send();
 }
 
