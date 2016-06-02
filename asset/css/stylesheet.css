@@ -691,6 +691,8 @@ form p {
 .fond_mongroupe{
   background-color: #E6E6E6;
   font-family: Verdana;
+  height: auto;
+  overflow: hidden;
 }
 
 #image_de_fond{
@@ -1610,10 +1612,10 @@ ul {
 .profil {
   margin-top: 100px;
   margin-bottom: 10px;
-  padding: 5px;
+  min-height: 200px;
 }
 
-.profil img{
+.boutonModifierProfil{
   display: inline-block;
   height: 26px;
   float: right;
@@ -1642,6 +1644,109 @@ ul {
 .infos {
   padding: 10px;
 }
+
+#mes_groupes{
+  width: 80%;
+  margin-left: 20%;
+  background-color: #E6E6E6;
+  font-family: Verdana;
+
+}
+
+#publication {
+  display: block;
+  width: 60%;
+  background-color: white;
+  float:right;
+  margin-right: 15%;
+}
+
+#publication h1{
+  padding:5px;
+  display: inline-block;
+}
+
+#publication h2{
+  display: inline-block;
+  font-size: 14px;
+  color:grey;
+}
+
+.cote_mesgroupes {
+  width: 20%;
+  display: inline-block;
+}
+
+.modifier_photo, .modifier_couverture {
+  width: 50%;
+  float: left;
+  display: block;
+}
+
+.iconeBirthday {
+  width: 30px;
+}
+
+.fond {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.sesGroupes {
+  width: 45%;
+  border: 1px solid black;
+  overflow: hidden;
+  padding: inherit;
+}
+
+.sesInfos {
+  float: left;
+  width: 30%;
+  margin-left: 10%;
+  margin-right: 5%;
+  border: 1px solid black;
+  padding: inherit;
+}
+
+.sesInfos h1 {
+  font-size: 22px;
+  padding: 8px;
+}
+
+.sesGroupes h1 {
+  font-size: 28px;
+  padding: 5px;
+}
+
+.profilUnUtilisateur label {
+  margin: 10px;
+}
+
+.infos_groupe {
+  padding: 10px;
+}
+
+.infos_groupe h2{
+  border-bottom: 1px solid #094e95;
+  padding: 5px;
+}
+
+.infos_groupe h3 {
+  display:inline-block;
+  text-align: right;
+  float: right;
+}
+
+.infos_groupe h4 {
+  color: grey;
+  margin: 5px;
+}
+
+.infos_groupe:hover {
+  background-color: lightgrey;
+}
+
 /* Calendrier */
 #next {
   float: right;
@@ -1662,9 +1767,8 @@ ul {
 }
 
 .calendrier {
-  top: 50px;
-  position: relative;
   margin:3px auto;
+  margin-top: 100px;
   width: 70%;
   box-shadow: 0px 0px 5px #000000;
 }
@@ -1694,10 +1798,20 @@ table {
 }
 
 td {
-  min-width: 80px;
-  padding: 5px;
-  padding-bottom: 10px;
+  max-width: 70px;
   border: 1px solid black;
+  font-size: 20px;
+  vertical-align: text-top;
+  padding: 10px;
+  height: 80px;
+  max-height: 80px;
+}
+
+tr {
+}
+
+td:hover {
+  background-color: #8ac4ff;
 }
 
 .jourSemaine {
@@ -1706,38 +1820,62 @@ td {
 }
 
 .chiffreSemaine {
-  float:left;
+  position: relative;
+  top: 0px;
+  left: 0px;
   font: 1em Verdana;
-    font-weight: bold;
-  width: 100%;
-  margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .event {
-  text-align: right;
-  width: 100%;
+  float: right;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #525252;
+  margin-left: 5px;
+}
+
+.infos_event {
+  position: absolute;
+  margin-top: -2%;
+  margin-left: 10.5%;
+  padding: 5px;
+  width: 200px;
   color: white;
-  font: 0.75em Verdana;
-  max-width: 100%;
-  max-height: 3ex;
-  overflow: hidden;
-  margin: 1px;
-  padding: 3px;
-  border-radius: 3px;
+  z-index: 1000;
 }
 
-.pas_important {
-  background-color: rgba(0, 150, 0, 0.60);
+.talkbubble {
+   background: #5aacff;
+   position: absolute;
+   -moz-border-radius:    10px;
+   -webkit-border-radius: 10px;
+   border-radius:         10px;
 }
 
-.important {
-  background-color: rgba(150, 0, 0, 0.60);
+.talkbubble:before {
+   content:"";
+   position: absolute;
+   right: 100%;
+   top: 26px;
+   width: 0;
+   height: 0;
+   border-top: 10px solid transparent;
+   border-right: 20px solid #5aacff;
+   border-bottom: 10px solid transparent;
+}
+
+.infos_event h4 {
+  color: lightgrey;
+  font-size:15px;
 }
 
 .haut_calendrier {
   width: 100%;
   height: 250px;
-  background-image: url("../images/General/fond_cliff.jpg");
+  background-image: url("");
   background-size: cover;
 }
 

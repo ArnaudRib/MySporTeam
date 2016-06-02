@@ -1,25 +1,31 @@
-<?php function showProfil($data) {
+<?php
+function showProfil($data) {
   if($_SESSION['user'][$data] != "-" AND $_SESSION['user'][$data] !=1) {
     echo $_SESSION['user'][$data];
   }
   else {
     echo "";
   }
-}?>
+}
+
+
+echo uploadPhoto($_SESSION['user']['id'].'.jpg', "Users/Profil", "photo_profil");
+echo uploadPhoto($_SESSION['user']['id'].'.jpg', "Users/Bannière", "photo_couverture");
+?>
 
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-    <img src="<?php echo image('Groupes/image_groupe.jpg')?>"/>
+    <img src="<?php echo image('Users/Bannière/'.$_SESSION['user']['id'].'.jpg')?>"/>
   </div>
   <div id="haut_mongroupe">
-    <img src="<?php echo image('Groupes/sport3.jpg')?>"/>
-    <h1>Profil</h1>
+    <img src="<?php echo image('Users/Profil/'.$_SESSION['user']['id'].'.jpg')?>"/>
+    <h1><?php echo $_SESSION['user']['pseudo'] ?></h1>
     <div id="menu_mongroupe">
       <nav>
-        <ul>
-          <a href="#" id="selectionne"><li>Informations personnels</li></a>
-          <a href="<?php  goToPage('',['id'=>'1', 'id_publication'=>'1'])?>" id="non_selectionne"><li>Gérer mes groupes</li></a>
-          <a href="<?php  goToPage('',['id'=>'1', 'id_evenement'=>'1'])?>" id="non_selectionne"><li>Planning</li></a>
+        <ul style='margin-top:15px;'>
+          <a href="<?php  goToPage('profil')?>" id="selectionne"><li>Informations personnels</li></a>
+          <a href="<?php  goToPage('groupesUtilisateur')?>" id="non_selectionne"><li>Mes Groupes</li></a>
+          <a href="<?php  goToPage('planningUtilisateur')?>" id="non_selectionne"><li>Planning</li></a>
           <a id="creergroupe" href="<?php goToPage('creationgroupe')?>" ><li>Créer un groupe</li></a>
         </ul>
       </nav>
@@ -30,22 +36,23 @@
     <div class="forme_case radius_mongroupe infos_profil">
       <div class="titre"><h1>Informations personnelles : </h1></div>
       <div class="infos">
-        <form class="" action="" method="post">
-        <ul>
-          <li>Photo de profil : <span class="modifier_profil"><?php showProfil('id_photo');?> </span></li>
-          <li>Pseudo : <?php showProfil('pseudo');?></li>
-          <li>Email : <span class="modifier_profil"><?php showProfil('email');?></span></li>
-          <li><a href=""> changer son mot de passe </a></li>
-          <li>Nom : <span class="modifier_profil"><?php showProfil('nom');?></span></li>
-          <li>Prénom : <span class="modifier_profil"><?php showProfil('prénom');?></span></li>
-          <li>Sexe : <span class="modifier_profil"><?php showProfil('sexe');?> </span></li>
-          <li>Adresse : <span class="modifier_profil"><?php showProfil('adresse');?> </span></li>
-          <li>Téléphone :  <span class="modifier_profil"><?php showProfil('numero_telephone');?> </span></li>
-          <li>Lieu de naissance : <span class="modifier_profil"><?php showProfil('naissance');?> </span></li>
-          <li>Ville : <span class="modifier_profil"><?php showProfil('id_ville');?></span></li>
-          <li><span class="modifier_profil_submit"><img src="<?php echo image('Users/icone_modifier.png')?>" onclick="modifier_profil()"/></span></li>
-        </ul>
-      </form>
+        <form class="" action="" method="post" enctype="multipart/form-data">
+          <ul>
+            <li><span class="modifier_photo"><img src="<?php echo image('Users/Profil/'.$_SESSION['user']['id'].'.jpg')?>" alt="Photo de profil" style="width: 80px;" /></span></li>
+            <li><span class="modifier_couverture"><img src="<?php echo image('Users/Bannière/'.$_SESSION['user']['id'].'.jpg')?>" alt="Photo de couverture" style="width: 80px;" /></span></li>
+            <li>Pseudo : <?php showProfil('pseudo');?></li>
+            <li>Email : <span class="modifier_profil"><?php showProfil('email');?></span></li>
+            <li><a href=""> changer son mot de passe </a></li>
+            <li>Nom : <span class="modifier_profil"><?php showProfil('nom');?></span></li>
+            <li>Prénom : <span class="modifier_profil"><?php showProfil('prénom');?></span></li>
+            <li>Sexe : <span class="modifier_profil"><?php showProfil('sexe');?> </span></li>
+            <li>Adresse : <span class="modifier_profil"><?php showProfil('adresse');?> </span></li>
+            <li>Téléphone :  <span class="modifier_profil"><?php showProfil('numero_telephone');?> </span></li>
+            <li>Lieu de naissance : <span class="modifier_profil"><?php showProfil('naissance');?> </span></li>
+            <li>Ville : <span class="modifier_profil"><?php showProfil('id_ville');?></span></li>
+            <li><span class="modifier_profil_submit"><img class="boutonModifierProfil" src="<?php echo image('Users/icone_modifier.png')?>" onclick="modifier_profil()"/></span></li>
+          </ul>
+        </form>
       </div>
     </div>
   </div>

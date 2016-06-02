@@ -39,13 +39,44 @@ class UserModele extends BaseDeDonnes
   function modifier_profil() {
     foreach ($_POST as $key => $value) {
       if($value != " " and $key != "Envoyer") {
-        var_dump($value);
         $sql="UPDATE utilisateur SET $key=? WHERE pseudo=?";
         $resultat=$this->requeteSQL($sql,[$value,$_SESSION['user']['pseudo']]);
       }
     }
   }
 
+  function getGroupesSportsUtilisateur() {
+    $sql="SELECT * FROM utilisateur_sport JOIN sports ON sports.id=utilisateur_sport.id_sport WHERE id_utilisateur=?";
+    $resultat=$this->requeteSQL($sql,[$_SESSION['user']['id']])->fetchAll();
+    $sports=array();
+    foreach ($resultat as $key => $value) {
+      $sports[$key]=$value['nom'];
+    }
+    return $sports;
+  }
+
+  function getEvent() {
+    $sql="SELECT * FROM utilisateur_evenement JOIN evenement ON evenement.id=utilisateur_evenement.id_evenement WHERE utilisateur_evenement.id_utilisateur=?";
+    $resultat = $this->requeteSQL($sql,[$_SESSION['user']['id']])->fetchAll();
+    return $resultat;
+  }
+
+  function getDataGroupeUser() {
+    $sql="SELECT * FROM utilisateur_groupe JOIN groupe ON groupe.id=utilisateur_groupe.id_groupe WHERE id_utilisateur=? ";
+    $resultat=$this->requeteSQL($sql,[$_SESSION['user']['id']])->fetchAll();
+    return $resultat;
+  }
+
+  function getDataGroupeAUser($pseudo) {
+    $sql="SELECT *,sports.nom AS nom_sport,groupe.nom AS nom_groupe, utilisateur.nom AS nom_utilisateur 
+    FROM utilisateur_groupe
+    JOIN groupe ON groupe.id=utilisateur_groupe.id_groupe
+    JOIN utilisateur ON utilisateur_groupe.id_utilisateur=utilisateur.id
+    JOIN sports ON groupe.id_sport=sports.id
+    WHERE utilisateur.pseudo=?";
+    $resultat=$this->requeteSQL($sql,[$pseudo])->fetchAll();
+    return $resultat;
+  }
 
   function getNbMembreGroupe($groupes){ // renvoie [idsport=>nbgroupe]
     foreach ($groupes as $key => $value) {

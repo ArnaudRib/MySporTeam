@@ -82,19 +82,23 @@ class UserController
 
   public function LoadPlanningUser(){ // Mon planning
     $vue=new Vue("Planning","User",['stylesheet.css'], ['profil.js', 'calendrier.js']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
-    $vue->loadpage();
+    $events = $this->user->getEvent();
+    $vue->loadpage(['events' => $events]);
   }
 
   public function LoadGroupesUser(){
     $vue=new Vue("Groupes","User",['stylesheet.css']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
-    $vue->loadpage();
+    $sports = $this->user->getGroupesSportsUtilisateur();
+    $dataGroupUser = $this->user->getDataGroupeUser();
+    $vue->loadpage(['sports'=>$sports,'dataGroupUser'=>$dataGroupUser]);
   }
 
   public function LoadAUser($pseudo_user){ //Profil des autres
 
     $dataUser=$this->user->getDataUser($pseudo_user)->fetch();
+    $groupUser=$this->user->getDataGroupeAUser($pseudo_user);
     $vue=new Vue("ProfilUnUtilisateur","User",['stylesheet.css']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
-    $vue->loadpage(['dataUser'=>$dataUser]);
+    $vue->loadpage(['dataUser'=>$dataUser,'groupUser'=>$groupUser]);
   }
 
   public function deconnexion(){
