@@ -35,7 +35,7 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function getVille($id_ville){
+  function getVilleById($id_ville){
     $sql="SELECT * FROM city WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$id_ville]);
     return $resultat;
@@ -53,7 +53,7 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function getVilleById($ville){
+  function getVilleByName($ville){
     $sql="SELECT * FROM city WHERE name=?";
     $resultat=$this->requeteSQL($sql, [$ville]);
     return $resultat;

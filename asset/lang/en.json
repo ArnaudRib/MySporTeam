@@ -106,7 +106,7 @@
   "Créer votre Groupe":"Create a Group",
   "Sport":"Sport",
   "Ajouter une photo de groupe.":"Add a group picture.",
-  "Ajouter une photo banière de groupe.":"Add a banner picture group.",
+  "Ajouter une photo Bannière de groupe.":"Add a banner picture group.",
   "Informations":"Informations",
   "Publications":"Publications",
   "Evènements":"Events",
@@ -142,11 +142,11 @@
   "Gérer mes groupes":"Manage my groups",
   "Planning":"Schedule",
   "Créer un groupe":"Create a group",
-  "Informations personnelles":"Personel Informations",
+  "Informations personnelles":"Personal Informations",
   "Photo de profil":"Profil picture",
   "Pseudo":"Pseudo",
   "Email":"Email",
-  "changer son mot de passe":"Change your password",
+  "Changer son mot de passe":"Change your password",
   "Nom":"Name",
   "Prénom":"Surname",
   "Sexe":"Gender",
@@ -169,5 +169,9 @@
   "Modération des clubs du site.":"Manage clubs of MySporTeam.",
   "Liste des clubs.":"List of the clubs.",
   "Lien du site":"Link to the website",
-  "Clubs":"Clubs"
+  "Clubs":"Clubs",
+  "Editer les informations":"Edit informations",
+  "Photo de couverture":"Cover Picture",
+  "Non spécifié":"Not specified",
+  "Enregistrer les modifications":"Save changes"
 }

@@ -86,8 +86,8 @@
           </div>
 
         <div class="ChangePictureSport">
-          <label for="baniere" class="boutonInputFile">Ajouter une photo d'illustration</label>
-          <input id="baniere" class="files" type="file" name="baniere" style="display:none;">
+          <label for="Bannière" class="boutonInputFile">Ajouter une photo d'illustration</label>
+          <input id="Bannière" class="files" type="file" name="Bannière" style="display:none;">
           <img class="UploadedImage classImage" />
         </div>
 

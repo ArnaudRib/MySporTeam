@@ -63,18 +63,21 @@ class UserModele extends BaseDeDonnes
 
   function InscriptionUser(){
     //$naissance=$_POST['annee']."-".$_POST['mois']."-".$_POST['jour'];
-    $sql="INSERT INTO utilisateur(nom, prénom, email, sexe, mot_de_passe, adresse, numero_telephone, naissance, pseudo, admin_util, id_photo, id_ville) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    $sql="INSERT INTO utilisateur(nom, prenom, email, sexe, mot_de_passe, adresse, numero_telephone, naissance, pseudo, admin_util, id_photo, id_ville) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
     $resultat=$this->requeteSQL($sql,["-", "-",$_POST['email'],'-',sha1($_POST['mot_de_passe']),"-",0,"0000-00-00", $_POST['pseudo'],3,3,3]);
 
     return $resultat;
   }
 
-  function modifier_profil() {
+  function modifierProfil($pseudo, $id_ville) {
     foreach ($_POST as $key => $value) {
-      if($value != " " and $key != "Envoyer") {
-        var_dump($value);
+      if($key != "modifyProfil" && $key!='ville') {
         $sql="UPDATE utilisateur SET $key=? WHERE pseudo=?";
-        $resultat=$this->requeteSQL($sql,[$value,$_SESSION['user']['pseudo']]);
+        $resultat=$this->requeteSQL($sql,[$value, $pseudo]);
+      }
+      if($key=='ville'){
+        $sql="UPDATE utilisateur SET id_ville=? WHERE pseudo=?";
+        $resultat=$this->requeteSQL($sql,[intval($id_ville),$pseudo]);
       }
     }
   }

@@ -57,8 +57,8 @@
         </div>
 
         <div class="ChangePictureSport">
-          <label for="baniere" class="boutonInputFile"><?php echo lang("Ajouter une photo banière de groupe.") ?></label>
-          <input id="baniere" class="files" type="file" name="baniere" style="display:none;">
+          <label for="Bannière" class="boutonInputFile"><?php echo lang("Ajouter une photo Bannière de groupe.") ?></label>
+          <input id="Bannière" class="files" type="file" name="Bannière" style="display:none;">
           <img class="UploadedImage classImage" />
         </div>
 

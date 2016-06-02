@@ -106,7 +106,7 @@
   "Créer votre Groupe":"Créer votre Groupe",
   "Sport":"Sport",
   "Ajouter une photo de groupe.":"Ajouter une photo de groupe.",
-  "Ajouter une photo banière de groupe.":"Ajouter une photo banière de groupe.",
+  "Ajouter une photo Bannière de groupe.":"Ajouter une photo Bannière de groupe.",
   "Informations":"Informations",
   "Publications":"Publications",
   "Evènements":"Evènements",
@@ -146,7 +146,7 @@
   "Photo de profil":"Photo de profil",
   "Pseudo":"Pseudo",
   "Email":"Email",
-  "changer son mot de passe":"Changer son mot de passe",
+  "Changer son mot de passe":"Changer son mot de passe",
   "Nom":"Nom",
   "Prénom":"Prénom",
   "Sexe":"Sexe",
@@ -169,5 +169,9 @@
   "Liste des clubs.":"Liste des clubs.",
   "Nom":"Nom",
   "Lien du site":"Lien du site",
-  "Clubs":"Clubs"
+  "Clubs":"Clubs",
+  "Editer les informations":"Editer les informations",
+  "Photo de couverture":"Photo de couverture",
+  "Non spécifié":"Non spécifié",
+  "Enregistrer les modifications":"Enregistrer les modifications"
 }

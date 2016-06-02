@@ -1,7 +1,7 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
     <?php $nomgroupe=str_replace(' ', '-', $datagroupe['nom']);?>
-    <img src="<?php echo image('Groupes/Banière/'.$nomgroupe.'.jpg')?>"/>
+    <img src="<?php echo image('Groupes/Bannière/'.$nomgroupe.'.jpg')?>"/>
   </div>
   <div id="haut_mongroupe">
     <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>

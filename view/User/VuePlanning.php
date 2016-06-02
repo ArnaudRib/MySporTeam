@@ -8,9 +8,9 @@
     <div id="menu_mongroupe">
       <nav>
         <ul style='margin-top:15px;'>
-          <a href="#" id="selectionne"><li><?php echo lang('Informations personnelles') ?></li></a>
-          <a href="<?php  goToPage('',['id'=>'1', 'id_publication'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Gérer mes groupes') ?></li></a>
-          <a href="<?php  goToPage('',['id'=>'1', 'id_evenement'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Planning') ?></li></a>
+          <a id="non_selectionne" href="<?php goToPage('profil')?>" ><li><?php echo lang('Informations personnelles') ?></li></a>
+          <a id="non_selectionne" href="<?php  goToPage('groupesUtilisateur')?>"><li><?php echo lang('Gérer mes groupes') ?></li></a>
+          <a id="selectionne" href="<?php  goToPage('planningUtilisateur')?>" ><li><?php echo lang('Planning') ?></li></a>
           <a id="creergroupe" href="<?php goToPage('creationgroupe')?>" ><li><?php echo lang('Créer un groupe') ?></li></a>
         </ul>
       </nav>

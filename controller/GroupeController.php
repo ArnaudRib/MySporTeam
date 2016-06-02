@@ -44,7 +44,7 @@ class GroupeController
         }
       }
       if(!empty($_POST['enregistrement'])){
-        $info_ville=$this->groupe->getVilleById($_POST['ville'])->fetch();
+        $info_ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
         $id_ville=$info_ville['id'];
         $this->groupe->modifDataGroupe($id_groupe, $id_ville);
       }
@@ -53,7 +53,7 @@ class GroupeController
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $infoleader=$this->groupe->getInfoLeader($id_groupe)->fetch();
-    $ville=$this->groupe->getVille($datagroupe['id_ville'])->fetch();
+    $ville=$this->groupe->getVilleById($datagroupe['id_ville'])->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'infoleader'=>$infoleader,'isLeader'=>$isLeader, 'sport'=>$sport, 'isMembre'=>$isMembre]);
   }
@@ -81,7 +81,7 @@ class GroupeController
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
-    $ville=$this->groupe->getVille($datagroupe['id_ville'])->fetch();
+    $ville=$this->groupe->getVilleById($datagroupe['id_ville'])->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $evenement=$this->groupe->getEvenements($id_groupe)->fetchAll();
     $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre, 'error'=>$error, 'succes'=>$succes]);
@@ -99,7 +99,7 @@ class GroupeController
       }
       }
       if(!empty($_POST['enregistrement'])){
-        $info_ville=$this->groupe->getVilleById($_POST['ville'])->fetch();
+        $info_ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
         $id_ville=$info_ville['id'];
         $this->groupe->modifDataEvent($id_evenement, $id_ville);
       }
@@ -120,7 +120,7 @@ class GroupeController
     $evenement=$this->groupe->getEvenement($id_evenement)->fetch();
     $club=$this->groupe->getClub($evenement['id_club'])->fetch();
     $participants=$this->groupe->conutparticipants($id_evenement)->fetchAll();
-    $ville=$this->groupe->getVille($evenement['id_ville'])->fetch();
+    $ville=$this->groupe->getVilleById($evenement['id_ville'])->fetch();
     $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
   }
 
@@ -144,7 +144,7 @@ class GroupeController
       $_POST['date_debut_finale']=$date_debut;
       $_POST['date_fin_finale']=$date_fin;
 
-      if(!isset($_FILES['baniere']['name']))
+      if(!isset($_FILES['Bannière']['name']))
         $error.="Veuillez selectionner une photo de présentation pour l'évènement!";
 
       $verification = new Verification($_POST);
@@ -160,17 +160,17 @@ class GroupeController
 
       if($verification->isValid()){
         $nom_evenement=str_replace(' ', '-',$_POST['nom']);
-        if(!empty($_FILES['baniere']['name'])){
-          $verificationPhoto->PhotoOk('baniere', $nom_evenement.'.jpg', 'Groupes/Evenements');
+        if(!empty($_FILES['Bannière']['name'])){
+          $verificationPhoto->PhotoOk('Bannière', $nom_evenement.'.jpg', 'Groupes/Evenements');
           if(!$verificationPhoto->isValid()){
             $error.="Cet évènement existe déjà! Veuillez choisir un autre nom.";
           }else{
-            $error.=uploadPhoto($nom_evenement.'.jpg', 'Groupes/Evenements', 'baniere');
+            $error.=uploadPhoto($nom_evenement.'.jpg', 'Groupes/Evenements', 'Bannière');
           }
         }
       $error.=$verificationPhoto->error;
       if(empty($error)){
-          $ville=$this->groupe->getVilleById($_POST['ville'])->fetch();
+          $ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
           $id_ville=intval($ville['id']);
           $this->groupe->addEvenement($id_groupe, $id_ville);
           $succes="Evènement ajouté avec succes!!";
@@ -245,7 +245,7 @@ class GroupeController
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
-    $ville=$this->groupe->getVille($datagroupe['id_ville'])->fetch();
+    $ville=$this->groupe->getVilleById($datagroupe['id_ville'])->fetch();
     $publication=$this->groupe->getPublications($id_groupe)->fetchAll();
     $user=$this->user->getUserNamePub($publication); // compliqué :D .. permet d'associer à chaque publication l'id du user qui l'a postée :o..
     $evenement=$this->groupe->getEvenements($id_groupe)->fetchAll();
@@ -266,13 +266,13 @@ class GroupeController
       $nomphoto=str_replace(' ', '-', $_POST['nom']);
       if(!empty($_FILES['photogroupe']['name']))
         $error.="Veuillez selectionner une photo de groupe!";
-      if(!empty($_FILES['baniere']['name']))
-        $error.="Veuillez selectionner une banière pour le groupe!";
+      if(!empty($_FILES['Bannière']['name']))
+        $error.="Veuillez selectionner une Bannière pour le groupe!";
       $verification = new Verification($_POST);
       $verificationPhoto = new Verification($_FILES);
       $verification->notEmpty('nom', "Veuillez spécifier un nom à votre groupe.");
       $verificationPhoto->PhotoOk('photogroupe', $nomphoto.'.jpg','Groupes/Profil');
-      $verificationPhoto->PhotoOk('baniere', $nomphoto.'.jpg','Groupes/Banière');
+      $verificationPhoto->PhotoOk('Bannière', $nomphoto.'.jpg','Groupes/Bannière');
       $verification->notEmpty('categorie', "Veuillez séléctionner une catégorie.");
       $verification->notEmpty('nombre', "Indiquez le nombre maximal de membres.");
       $verification->notEmpty('sport', "Choississez un sport.");
@@ -286,7 +286,7 @@ class GroupeController
       if($verification->isValid() && $verificationPhoto->isValid()){// && $verificationPhoto->isValid()){
         /*upload images*/
         $error.=uploadPhoto($nomphoto.'.jpg', 'Groupes/Profil', 'photogroupe');
-        $error.=uploadPhoto($nomphoto.'.jpg', 'Groupes/Banière', 'baniere');
+        $error.=uploadPhoto($nomphoto.'.jpg', 'Groupes/Bannière', 'Bannière');
 
         //Add BDD
         if(empty($error)){
@@ -319,7 +319,7 @@ class GroupeController
     // $email=$this->groupe->getEmailClub($dataclub['email'])->fetch();
     // $tel=$this->groupe->getTelClub($dataclub['telephone'])->fetch();
     // $adresse=$this->groupe->getAdresse($dataclub['adresse'])->fetch();
-    // $ville=$this->groupe->getVille($dataclub['id_ville'])->fetch();
+    // $ville=$this->groupe->getVilleById($dataclub['id_ville'])->fetch();
     $vue=new Vue("Club", "Groupe", ['stylesheet.css']);
     $vue->loadpage(['dataclub'=>$dataclub]);
   }

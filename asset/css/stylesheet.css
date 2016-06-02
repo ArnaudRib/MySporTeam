@@ -1802,7 +1802,7 @@ ul {
   padding-top:1px;
   width: 70%;
   display: none;
-  background: beige;
+  background: #cfceff;
   margin:0 auto;
   overflow-x:scroll;
   height:80px;
@@ -1811,13 +1811,18 @@ ul {
   margin-top:-10px;
 }
 
-.search li:hover, .search li.selected {
-  background: rgb(254, 219, 98);
+.search li.selected{
+  background: rgb(139, 178, 250);
+  cursor: pointer;
+}
+.search li:hover{
+  background: rgb(97, 153, 255);
   cursor: pointer;
 }
 
 .search li{
   font-size:20px;
+  transition:0.5s all ease;
 }
 
 .selected {
@@ -1950,6 +1955,48 @@ ul {
 
 .infos {
   padding: 10px;
+}
+
+.bouttoninputprofil{
+  padding:5px;
+}
+
+.submitmodifprofil{
+  background-color:rgb(199, 253, 255);
+  transition:1s all ease;
+}
+
+.imgeditprofile{
+  width:50px;
+  transition:1s all ease;
+  margin-right:30px;
+  float:right;
+}
+
+.imgeditprofile:hover{
+  cursor:pointer;
+  width:55px;
+}
+
+.submitmodifprofil:hover{
+  background-color:rgb(126, 209, 255);
+  cursor:pointer;
+}
+
+.bouttonchangemdp{
+  padding:10px;
+  margin:5px auto;
+  border:2px rgb(33, 155, 255) solid;
+  border-radius:5px;
+  text-align:center;
+  background-color:rgb(148, 216, 255);
+  transition:1s all ease;
+  cursor:pointer;
+}
+
+.bouttonchangemdp:hover{
+  background-color:rgb(45, 178, 255);
+  cursor:pointer;
 }
 
 #mes_groupes{
@@ -2208,7 +2255,6 @@ td:hover {
   margin:15px;
   width:500px;
   height:auto;
-  padding:10px 0px;
 }
 
 .UploadedImage{
@@ -2252,7 +2298,7 @@ td:hover {
   background-color:white;
   text-align:center;
   transition:1s all ease;
-  margin:0 auto;
+  margin:10px auto;
 }
 
 

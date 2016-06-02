@@ -9,6 +9,7 @@ class UserController
   function __construct()
   {
     $this->user=new UserModele();
+    $this->groupe=new GroupeModele();
   }
 
 
@@ -68,16 +69,57 @@ class UserController
 
   public function loadProfil()
   {
-    $vue=new Vue("Profil","User",['stylesheet.css'], ['profil.js', 'calendrier.js', 'modifier_profil.js', 'showphoto.js']);
-    $this->user->modifier_profil();
-    $pseudo=$_SESSION['user']['pseudo'];
-    $_SESSION['user']=$this->user->getDataUser($pseudo)->fetch(); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
-    $vue->loadpage();
+    $pseudouser=str_replace(' ', '-', $_SESSION['user']['pseudo']);
+    if(!empty($_POST['modifyProfil'])){
+      $verification = new Verification($_POST);
+      $verificationPhoto = new Verification($_FILES);
+      $verification->notEmpty('email', "Veuillez compléter le champ email.");
+      $verification->notEmpty('nom', "Spécifiez votre nom de famille.");
+      $verification->notEmpty('prenom', "Spécifiez votre prénom.");
+      $verification->notEmpty('sexe', "Êtes-vous un homme ou une femme?");
+      $verification->notEmpty('ville', "Choississez une ville.");
+      $error.=$verification->error;
+
+      if($verification->isValid()){
+        if(!empty($_FILES['photo']['name']))
+          $verificationPhoto->PhotoOk('photo', $pseudouser.'.jpg','Users/Profil', false);
+        if(!empty($_FILES['couverture']['name']))
+          $verificationPhoto->PhotoOk('couverture', $pseudouser.'.jpg','Users/Bannière', false);
+
+        if(!$verificationPhoto->isValid()){
+          $error.="Un problème s'est produit lors de l'ajout des photos.";
+        }else{
+          if(!empty($_FILES['photo']['name']))
+             deletePhoto($pseudouser.'.jpg', 'Users/Profil', 'photo');
+          if(!empty($_FILES['couverture']['name']))
+             deletePhoto($pseudouser.'.jpg', 'Users/Bannière', 'couverture');
+         /*upload images*/
+         //
+         $error.=uploadPhoto($pseudouser.'.jpg', 'Users/Profil', 'photo');
+         $error.=uploadPhoto($pseudouser.'.jpg', 'Users/Bannière', 'couverture');
+        }
+        if(empty($error)){
+          $ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
+          $id_ville=$ville['id'];
+          $this->user->modifierProfil($_SESSION['user']['pseudo'], $id_ville);
+          $succes="Profil modifié avec succès!";
+        }
+      }
+    }
+
+    $id_ville=$_SESSION['user']['id_ville'];
+    if(!empty($_SESSION['user']['id_ville'])){
+      $ville=$this->groupe->getVilleById($id_ville)->fetch();
+      $nomville=$ville['name'];
+    }
+    $_SESSION['user']=$this->user->getDataUser($_SESSION['user']['pseudo'])->fetch(); //refresh la session.
+    $vue=new Vue("Profil","User",['stylesheet.css'], ['calendrier.js', 'modifier_profil.js', 'showphoto.js', 'RechercheGroupe.js']);
+    $vue->loadpage(['nomville'=>$nomville, 'pseudouser'=>$pseudouser, 'error'=>$error, 'succes'=>$succes]);
   }
 
   public function LoadPlanningUser(){ // Mon planning
     $events = $this->user->getEvent();
-    $vue=new Vue("Planning","User",['stylesheet.css'], ['profil.js', 'calendrier.js']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
+    $vue=new Vue("Planning","User",['stylesheet.css'], ['calendrier.js']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
     $vue->loadpage(['events' => $events]);
   }
 
