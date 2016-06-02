@@ -19,7 +19,6 @@
 
   <div class="calendrier">
     <?php
-
     $year = date('Y');
     $currentMonth = date('n');
     for ($i=0; $i < 12; $i++) {
@@ -76,10 +75,12 @@
                       $eventsDuJour=array();
                       $showedEvent=0;
                       foreach ($events as $key => $value) {
-                        if(date('Y-m-d', strtotime($value['date_debut'])) == $date) {
-                          ?><div class="event"></div>
-                          <?php
-                          $showedEvent++;
+                        if(date('Y-m-d', strtotime($value['date_debut'])) == $date) {?>
+                          <div class="event">
+                            <?php echo $value['nom'];?>
+                          </div>
+
+                          <?php $showedEvent++;
                           $eventsDuJour[]=['nom'=>$value['nom'],'date_debut'=>$value['date_debut'],'date_fin'=>$value['date_fin'],'place'=>$value['places'],'description'=>$value['description']];
                         }
                       }?>
@@ -88,10 +89,11 @@
                           <?php
                           foreach ($eventsDuJour as $key => $value) {
                             ?><h3><?=$value['nom']?></h3>
-                            <h4><?=$value['date_debut'] ?></h4>
-                            <h4><?=$value['date_fin'] ?></h4>
-                            <h4>Places : <?=$value['place'] ?></h4>
-                            <p> <?=$value['description']?> <br> </p>
+                            <h4><?php echo '<span style="color:rgb(125, 125, 125);">From</span> '. date('l d F', strtotime($value['date_debut']))."</br>at ".date('H:i:s', strtotime($value['date_debut']));?></h4>
+                            <h4><?php echo '<span style="color:rgb(125, 125, 125);">To</span> '. date('l d F', strtotime($value['date_fin']))."</br>at ".date('H:i:s', strtotime($value['date_fin']));?></h4>
+                            <h4><span style="color:rgb(111, 111, 111);">Places</span> : <?=$value['place'] ?></h4>
+                            <p style="font-size: 14px;font-style: italic; padding-left: 5px;"> <?=$value['description']?> <br> </p>
+                            <hr style="border:1px rgba(99, 99, 99, 0.57) solid; margin:5px 15px;">
                           <?php
                         }?>
                       </div>
@@ -106,6 +108,4 @@
       </div>
     <?php endfor;?>
   </div>
-
-
 </div>

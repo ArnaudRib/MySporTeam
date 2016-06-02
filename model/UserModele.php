@@ -62,10 +62,8 @@ class UserModele extends BaseDeDonnes
   }
 
   function InscriptionUser(){
-    //$naissance=$_POST['annee']."-".$_POST['mois']."-".$_POST['jour'];
-    $sql="INSERT INTO utilisateur(nom, prenom, email, sexe, mot_de_passe, adresse, numero_telephone, naissance, pseudo, admin_util, id_photo, id_ville) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-    $resultat=$this->requeteSQL($sql,["-", "-",$_POST['email'],'-',sha1($_POST['mot_de_passe']),"-",0,"0000-00-00", $_POST['pseudo'],3,3,3]);
-
+    $sql="INSERT INTO utilisateur(email, mot_de_passe, pseudo) VALUES (?,?,?)";
+    $resultat=$this->requeteSQL($sql,[$_POST['email'],sha1($_POST['mot_de_passe']),$_POST['pseudo']]);
     return $resultat;
   }
 
