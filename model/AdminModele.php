@@ -21,13 +21,12 @@ class AdminModele extends BaseDeDonnes
   }
 
   function updateGroupe($id_groupe){
-    $description=$_POST['description'];
-    $sql="UPDATE groupe SET description=? WHERE id=?";
-    $resultat=$this->requeteSQL($sql, [$description, $id_groupe]);
+    $sql="UPDATE groupe SET nom=?, description=?, telephone=?, mail=?, public=?, nbmax_sportifs=? WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$_POST['nom'], $_POST['description'], $_POST['telephone'], $_POST['email'], intval($_POST['public']), $_POST['nbmax_sportifs'], $id_groupe]);
   }
 
   function updateClub($id_club){
-    $informations=$_POST['informations']; $téléphone=$_POST['téléphone']; $email=$_POST['email']; $lien=$_POST['lien']; $nom=$_POST['nom'];  $id_club=$_POST['id_club'];
+    $informations=$_POST['informations']; $téléphone=$_POST['telephone']; $email=$_POST['email']; $lien=$_POST['lien']; $nom=$_POST['nom'];  $id_club=$_POST['id_club'];
     $sql="UPDATE club SET informations=?, téléphone=?, email=?, lien=?, nom=? WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$informations, $téléphone, $email, $lien, $nom, $id_club]);
   }

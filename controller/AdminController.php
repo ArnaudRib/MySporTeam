@@ -42,22 +42,30 @@ class AdminController
         $verificationPhoto = new Verification($_FILES);
         if(!empty($_FILES['photo']['name']))
           $verificationPhoto->PhotoOk('photo', $_POST['nomgroupe'].'.jpg', 'Groupes/Profil', false);
+        if(!empty($_FILES['photo']['name']))
+          $verificationPhoto->PhotoOk('couverture', $_POST['nomgroupe'].'.jpg', 'Groupes/Bannière', false);
 
         $verification->notEmpty('nom', "Veuillez spécifier le nom du groupe.");
         $verification->notEmpty('description', "Veuillez remplir la description du groupe.");
         $verification->notEmpty('telephone', "Quel est votre numéro de téléphone?");
         $verification->notEmpty('email', "Veuillez donner votre email.");
-        $verification->notEmpty('public', "Ce groupe est-il privé ou public?.");
+        $verification->notEmpty('nbmax_sportifs', "Veuillez préciser le nombre maximum de membres.");
 
         /*Rajouter les autres vérifications ici*/
         $error=$verification->error;
         $error.=$verificationPhoto->error;
-        if($verification->isValid() && $verificationPhoto->isValid()){
+        if($verification->isValid()){//} && $verificationPhoto->isValid()){
           if(!empty($_FILES['photo']['name']))
              $error.=deletePhoto($_POST['nomgroupe'].'.jpg', 'Groupes/Profil', 'Erreur de suppression du champ photo.');
+         if(!empty($_FILES['couverture']['name']))
+            $error.=deletePhoto($_POST['nomgroupe'].'.jpg', 'Groupes/Bannière', 'Erreur de suppression du champ bannière.');
+
           $error.=uploadPhoto($_POST['nomgroupe'].'.jpg', 'Groupes/Profil', 'photo');
+          $error.=uploadPhoto($_POST['nomgroupe'].'.jpg', 'Groupes/Bannière', 'couverture');
+
           if(empty($error)){
             $this->admin->updateGroupe($_POST['id_groupe']);
+            $succes="Modification effectuée!";
           }
         }
       }
