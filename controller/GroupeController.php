@@ -217,7 +217,7 @@ class GroupeController
     $membre=$this->groupe->getMembres($id_groupe)->fetchAll();
     $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'NBmembres'=>$NBmembres, 'membre'=>$membre, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader]);
   }
-  
+
 
   public function loadPublicationsGroupe($id_groupe)
   {
@@ -327,23 +327,22 @@ class GroupeController
 
   public function loadGroupeInvitation($id_groupe){
     //fais toi plaisir :D
-   // $error='';
-    //$succes='';
-    $vue=new Vue("GroupeInvitation", "Groupe", ['stylesheet.css']);
-     //$vue=new Vue("invitmembres", "Groupe", ['stylesheet.css']);
+    $error='';
+    $succes='';
     if(!empty($_POST)){
       if(!empty($_POST['invitUser'])){
         $this->groupe->invitUser($id_groupe);
         $succes="";
-        }
+      }
     }
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $membre=$this->groupe->getMembres($id_groupe)->fetchAll();
     $nonmembre=$this->groupe->getNonMembres($id_groupe)->fetchAll();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'nonmembre'=>$nonmembre, 'membre'=>$membre, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader]);
-    //$vue->loadpage(['error'=>$error, 'succes'=>$succes]);
+    $invites=$this->groupe->getMembresInvit($id_groupe)->fetchAll();
+    $vue=new Vue("GroupeInvitation", "Groupe", ['stylesheet.css'], ['InvitationUser.js']);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'nonmembre'=>$nonmembre, 'membre'=>$membre, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader, 'invites'=>$invites]);
 
   }
 

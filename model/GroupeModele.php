@@ -76,9 +76,9 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_evenement]);
     return $resultat;
   }
-  
-  
-  
+
+
+
     function countmembres($id_groupe){
     $sql="SELECT COUNT(id) FROM utilisateur_groupe WHERE id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
@@ -103,9 +103,15 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
   }
-  
+
    function getNonMembres($id_groupe){
-    $sql="SELECT * FROM utilisateur JOIN utilisateur_groupe ON utilisateur.id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe!=? ORDER BY pseudo";
+    $sql="SELECT *, utilisateur.id as useful_id FROM utilisateur JOIN utilisateur_groupe ON utilisateur.id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe!=? GROUP BY utilisateur.id ORDER BY pseudo;";
+    $resultat=$this->requeteSQL($sql, [$id_groupe]);
+    return $resultat;
+  }
+
+  function getMembresInvit($id_groupe){
+    $sql="SELECT * FROM utilisateur JOIN utilisateur_invitation ON utilisateur.id=utilisateur_invitation.id_utilisateur WHERE utilisateur_invitation.id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
   }
@@ -115,8 +121,8 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
   }
-  
- 
+
+
 
   function getVilles(){
     $sql="SELECT city.name as ville, departement.name as departement
@@ -266,14 +272,12 @@ class GroupeModele extends BaseDeDonnes
 
   function deleteUser($id_groupe){
     $sql="DELETE FROM utilisateur_groupe WHERE id_groupe=? AND id_utilisateur=?";
-    echo $_POST['id_utilisateur'];
     $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_utilisateur']]);
   }
-  
+
    function invitUser($id_groupe){
-    echo "pd";
-    $sql="INSERT INTO utilisateur_invitation(id_utilisateur, id_groupe, date) VALUES (?,?,NOW())";
-    $resultat=$this->requeteSQL($sql, [$_POST['id_utilisateur'],$id_groupe]);
+    $sql="INSERT INTO utilisateur_invitation(id_utilisateur, id_groupe, date, message) VALUES (?,?,NOW(),?)";
+    $resultat=$this->requeteSQL($sql, [$_POST['id_utilisateur'], $id_groupe, $_POST['message']]);
     return $resultat;
   }
 
@@ -281,12 +285,7 @@ class GroupeModele extends BaseDeDonnes
     $sql="DELETE FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
   }
-  
-  function getMembresInvit($id_groupe){
-    $sql="SELECT * FROM utilisateur JOIN utilisateur_invitation ON utilisateur.id=utilisateur_invitation.id_utilisateur WHERE utilisateur_groupe.id_groupe=?";
-    $resultat=$this->requeteSQL($sql, [$id_groupe]);
-    return $resultat;
-  }
+
 
   function addGroupe(){
     $sql="INSERT INTO groupe(nom, description) VALUES (?,?)";

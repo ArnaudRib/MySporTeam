@@ -1120,6 +1120,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   transition:1s all ease;
   background-color: white;
   border-radius:5px;
+  margin-left: 14%;
 }
 
 .plusbutton:hover{
@@ -2557,7 +2558,7 @@ a{
 }
 
 .information_club_text{
-  padding:10px;  
+  padding:10px;
 }
 
 .description_club{
@@ -3029,4 +3030,8 @@ a{
 
 .textNotif span{
   padding:5px;
+}
+
+.displaynone{
+  display:none;
 }
