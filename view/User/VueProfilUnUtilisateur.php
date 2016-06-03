@@ -24,7 +24,7 @@
         Pseudo :
         <?=$dataUser['pseudo'] ?>
       </label>
-      <label for="">Prénom : <?=$dataUser['prénom']?></label>
+      <label for="">Prénom : <?=$dataUser['prenom']?></label>
       <label for="">Email : <?=$dataUser['email'] ?></label>
       <label for="">Ville : <?=$dataUser['id_ville'] ?></label>
   </div>

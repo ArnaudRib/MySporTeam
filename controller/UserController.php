@@ -42,28 +42,34 @@ class UserController
 
   public function inscription()
   {
-    $message='';
+    $error='';
     if(!empty($_POST)){
       if (isset($_POST['pseudo']) || isset($_POST['mot_de_passe'])){
         if($_POST['mot_de_passe']==$_POST['mot_de_passe_confirmation']){
           $data1=$this->user->FreePseudo($_POST['pseudo']); // si pseudo non déjà utilisé.
-          if(!$data1){
-            $data=$this->user->InscriptionUser(); //si il y a une réponse, true + tableau de la réponse, sinon, false.
-            if($data){
-              $message= 'Inscription réussie!';
+          if(passwordOk($_POST['mot_de_passe'])){
+            if(!$data1){
+              $data=$this->user->InscriptionUser(); //si il y a une réponse, true + tableau de la réponse, sinon, false.
+              if($data){
+                $succes= 'Inscription réussie!';
+              }
+            }else{
+              $error= "Pseudo déjà utilisé!";
             }
-          }else{
-            $message= "Pseudo déjà utilisé!";
+          }else {
+            $error= "Le mot de passe n'a pas les critères demandés!";
+          }{
+
           }
         }else{
-          $message= 'Mots de passe non correspondants.';
+          $error= 'Mots de passe non correspondants.';
         }
       }else{
-        $message= 'Un des champs est vide.';
+        $error= 'Un des champs est vide.';
       }
     }
     $vue=new Vue("Inscription","User",['stylesheet.css'], ['Verification.js']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
-    $vue->loadpage(['message'=>$message]);
+    $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
   }
 
 

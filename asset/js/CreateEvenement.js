@@ -1,86 +1,43 @@
-function replaceAt(str, index, item) {
-  var a = str.split('');
-  a[index] = item;
-  i++;
-  return a.join('');
-}
-
-/*date 1*/
 var input=document.getElementById('date_debut');
-input.onkeypress = valid;
-
-i=0;
-j=0;
-function valid(e) {
-  event = e;
-  e = e.target;
-
-  keyCode = event.key ? event.which : event.keyCode;
-  touche = String.fromCharCode(keyCode);
-  caracteres = '0123456789';
-
-  d = input.value.split('/');
-
-  if(caracteres.indexOf(touche) < 0) {
-    event.preventDefault()
-  } else {
-    event.preventDefault()
-    d[j] = replaceAt(d[j], i, touche);
-  }
-
-  if(d[j][i]!="d" && d[j][i]!="m" && d[j][i]!="y"){
-    i=0;
-    j++;
-  }
-
-  e.value = d.join('/');
-}
-
-
-/*date2*/
-
-function replaceAt2(str, index, item) {
-  var a = str.split('');
-  a[index] = item;
-  k++;
-  return a.join('');
-}
-
 var input2=document.getElementById('date_fin');
-input2.onkeypress = valid2;
-k=0;
-l=0;
 
-function valid2(e) {
-  event = e;
-  h = e.target;
+valid = new DateValid(input)
+valid2 = new DateValid(input2)
+input.onkeypress = valid.validation
+input2.onkeypress = valid2.validation
 
-  keyCode = event.key ? event.which : event.keyCode;
-  touche = String.fromCharCode(keyCode);
-  caracteres = '00123456789';
+function DateValid(input) {
+  this.i = 0
+  this.j = 0
+  this.input = input
+  var v = this
+  this.validation = function (e) {
+    event = e;
+    e = e.target;
 
-  f= input2.value.split('/');
+    keyCode = event.key ? event.which : event.keyCode;
+    touche = String.fromCharCode(keyCode);
+    caracteres = '0123456789';
+    d = v.input.value.split('/');
 
-  if(caracteres.indexOf(touche) < 0) {
-    event.preventDefault()
-  } else {
-    event.preventDefault()
-    f[l] = replaceAt2(f[l], k, touche);
+    if(caracteres.indexOf(touche) < 0) {
+      event.preventDefault()
+    } else {
+      event.preventDefault()
+      d[v.j] = v.replaceAt(d[v.j], v.i, touche);
+    }
+
+    if(d[v.j][v.i]!="d" && d[v.j][v.i]!="m" && d[v.j][v.i]!="y"){
+      v.i=0;
+      v.j++;
+    }
+    e.value = d.join('/');
   }
 
-  if(f[l][k]!="d" && f[l][k]!="m" && f[l][k]!="y"){
-    k=0;
-    l++;
+  this.replaceAt = function(str, index, item) {
+    var a = str.split('');
+    a[index] = item;
+    v.i++;
+    return a.join('');
   }
-
-  h.value = f.join('/');
-}
-
-
-
-function isNumberInRange(number, i, j){
-  if (i<= number && number <= j){
-    return true;
-  }
-  return false;
 }

@@ -43,7 +43,12 @@ class AdminController
         if(!empty($_FILES['photo']['name']))
           $verificationPhoto->PhotoOk('photo', $_POST['nomgroupe'].'.jpg', 'Groupes/Profil', false);
 
+        $verification->notEmpty('nom', "Veuillez spécifier le nom du groupe.");
         $verification->notEmpty('description', "Veuillez remplir la description du groupe.");
+        $verification->notEmpty('telephone', "Quel est votre numéro de téléphone?");
+        $verification->notEmpty('email', "Veuillez donner votre email.");
+        $verification->notEmpty('public', "Ce groupe est-il privé ou public?.");
+
         /*Rajouter les autres vérifications ici*/
         $error=$verification->error;
         $error.=$verificationPhoto->error;
@@ -206,5 +211,5 @@ class AdminController
     $vue=new Vue("BackOfficeClub","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
     $vue->loadbackoffice(['clubs'=>$clubs]);
   }
-  
+
 }

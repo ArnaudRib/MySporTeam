@@ -24,24 +24,24 @@
             <div class="infouser">
               <h3 style='margin-bottom:10px;'><?php echo lang("Informations") ?> :</h3>
               <div class="content-input">
-                <label class="textlabel" for="nom"><?php echo lang("Nom du Groupe") ?></label>
+                <label class="textlabel" for="nom"><?php echo lang("Nom du groupe") ?></label>
                 <input id="pseudo" type="text" name="nom" value="<?php echo $value['nom']?>" >
               </div>
               <div class="content-input">
                 <label class="textlabel" for="telephone"><?php echo lang("Téléphone") ?></label>
-                <input id="email" name="telephone" value="<?php echo $value['telephone']?>">
+                <input id="telephone" name="telephone" value="<?php echo $value['telephone']?>">
               </div>
               <div class="content-input">
                 <label class="textlabel" for="email"><?php echo lang("Email") ?></label>
-                <input id="Numéro" type="email" name="email" value="<?php echo $value['mail']?>">
+                <input id="email" type="email" name="email" value="<?php echo $value['mail']?>">
               </div>
               <div class="content-input">
                 <label class="textlabel" for="nbmax_sportif"><?php echo lang("Nombre maximal de sportifs") ?></label>
-                <input id="Numéro" type="number" name="nbmax_sportif" value="<?php echo $value['nbmax_sportifs']?>">
+                <input id="nbmax_sportif" type="number" name="nbmax_sportif" min="0" value="<?php echo $value['nbmax_sportifs']?>">
               </div>
               <div class="content-descriptiongroupe">
-              <label style="display: inline-block; width: 60px; float: none;"><?php echo lang("Public") ?></label> <input style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" value="1"name="public" value="<?php echo $value['public']?>">
-              <label style="display: inline-block; width: 60px; float: none;"><?php echo lang("Privé") ?></label> <input type="radio" name="prive" value="<?php echo $value['public']?>" value="2" style="display: inline-block; width: 30px; height: 15px">
+                <label style="display: inline-block; width: 60px; float: none;"><?php echo lang("Public") ?></label> <input style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" value="1" name="visibiliy" value="<?php echo $value['public']?>">
+                <label style="display: inline-block; width: 60px; float: none;"><?php echo lang("Privé") ?></label> <input type="radio" name="visibiliy" value="<?php echo $value['public']?>" value="2" style="display: inline-block; width: 30px; height: 15px">
               </div>
               <div class="content-descriptiongroupe">
                 <label for="description" style="display:block;"><?php echo lang("Modifier la description") ?> : </label>

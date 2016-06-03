@@ -28,7 +28,7 @@ class AdminModele extends BaseDeDonnes
 
   function updateClub($id_club){
     $informations=$_POST['informations']; $téléphone=$_POST['téléphone']; $email=$_POST['email']; $lien=$_POST['lien']; $nom=$_POST['nom'];  $id_club=$_POST['id_club'];
-    $sql="UPDATE club SET informations=?, téléphone=?, email=?, lien=?, nom=?   WHERE id=?";
+    $sql="UPDATE club SET informations=?, téléphone=?, email=?, lien=?, nom=? WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$informations, $téléphone, $email, $lien, $nom, $id_club]);
   }
 

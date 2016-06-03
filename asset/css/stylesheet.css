@@ -2503,6 +2503,62 @@ a{
   min-height: 70px;
 }
 
+/* Page Club */
+
+.fond_club{
+  background-color: #E6E6E6;
+  font-family: Verdana;
+}
+
+.banniere_club{
+  display: block;
+  width: 100%;
+  height: 250px;
+  background-position: 50% 50%;
+}
+
+.titre_club{
+  margin-left: 44%;
+  width: 20%;
+  border-radius: 15px 15px 15px 15px;
+  color: white;
+  padding-left: 3%;
+  background: linear-gradient(141deg, #045FB4 30%, #084B8A 61%, #084B8A 75%);
+  margin-top: 3%;
+}
+
+.titre_club_informations{
+  margin-top: 5%;
+  border-radius: 5px 5px 0 0;
+  color: WHITE;
+  padding-left: 2%;
+  background: linear-gradient(141deg, #045FB4 30%, #084B8A 61%, #084B8A 75%);
+}
+
+.information_club{
+  border-radius: 0 0 10px 10px;
+  background-color: white;
+  padding-left: 7px;
+}
+
+.information_club_text{
+  padding:10px;  
+}
+
+.description_club{
+  margin-left: 8%;
+  margin-top: 3%;
+}
+
+.cote_club{
+  margin-bottom: 7%;
+  display: inline-block;
+  vertical-align: top;
+  width: 49%;
+  overflow: hidden;
+  padding: 2px;
+}
+
 /* Sport Groupe */
 .backgroundimage{
   width:100%;
@@ -2769,6 +2825,16 @@ a{
   border:1px black solid;
   box-shadow: 0px 0 20px rgb(167, 249, 134);
   text-align:center;
+  cursor:help;
+}
+
+.infobox{ /* A changer comme dans admin.css*/
+  width:100%;
+  background-color:rgba(88, 174, 254, 0.99);
+  margin:10px auto;
+  border:1px black solid;
+  box-shadow: 0px 0 20px rgb(149, 252, 255);
+  padding:10px;
   cursor:help;
 }
 
