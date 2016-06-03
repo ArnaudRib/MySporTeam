@@ -1111,6 +1111,21 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   color:orange;
 }
 
+.plusbutton{
+  position:absolute;
+  font-size:25px;
+  padding-top:-10px;
+  cursor:pointer;
+  color:green;
+  transition:1s all ease;
+  background-color: white;
+  border-radius:5px;
+}
+
+.plusbutton:hover{
+  color:#08088A;
+}
+
 .posteurPub{
   font-size:8px;
   color:grey;

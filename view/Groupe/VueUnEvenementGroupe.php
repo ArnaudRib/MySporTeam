@@ -14,12 +14,17 @@
           <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="selectionne"><li><?php echo lang('Evènements') ?></li></a>
           <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li><?php echo lang('Membres') ?></li></a>
           <?php if($isMembre==false):?>
-            <li id="abonnement" style="margin-top:-10px;">
-              <form class="" action="" method="post">
-                <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
-              </form>
-            </li>
-          <?php elseif($isLeader==true): ?>
+              if($datagroupe['public']!="0"): 
+          if((intval($datagroupe['nbmax_sportifs']))-(intval($NBmembres['0']['COUNT(id)']))>0):?>
+          <li id="abonnement" style="margin-top:-10px;">
+            <form class="" action="" method="post">
+              <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
+            </form>
+          </li>
+          <?php 
+          else:
+          endif;
+          elseif($isLeader==true): ?>
             <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
               <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>"><?php echo lang('Créer un événement') ?></a>
             </li>

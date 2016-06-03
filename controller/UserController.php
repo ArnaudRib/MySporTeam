@@ -70,6 +70,9 @@ class UserController
   public function loadProfil()
   {
     $pseudouser=str_replace(' ', '-', $_SESSION['user']['pseudo']);
+    $succes="";
+    $error="";
+    $nomville="";
     if(!empty($_POST['modifyProfil'])){
       $verification = new Verification($_POST);
       $verificationPhoto = new Verification($_FILES);

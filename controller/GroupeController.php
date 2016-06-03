@@ -49,18 +49,21 @@ class GroupeController
         $this->groupe->modifDataGroupe($id_groupe, $id_ville);
       }
     }
+    $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $infoleader=$this->groupe->getInfoLeader($id_groupe)->fetch();
     $ville=$this->groupe->getVilleById($datagroupe['id_ville'])->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'infoleader'=>$infoleader,'isLeader'=>$isLeader, 'sport'=>$sport, 'isMembre'=>$isMembre]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'infoleader'=>$infoleader,'isLeader'=>$isLeader, 'sport'=>$sport, 'isMembre'=>$isMembre]);
   }
 
   public function loadEvenementsGroupe($id_groupe)
   {
     $vue=new Vue("EvenementsGroupe", "Groupe", ['stylesheet.css']);
+    $succes="";
+    $error="";
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
         if(($_POST['abonnement']=="Rejoindre")){
@@ -82,9 +85,10 @@ class GroupeController
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $ville=$this->groupe->getVilleById($datagroupe['id_ville'])->fetch();
+    $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $evenement=$this->groupe->getEvenements($id_groupe)->fetchAll();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre, 'error'=>$error, 'succes'=>$succes]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre, 'error'=>$error, 'succes'=>$succes]);
   }
 
   public function loadUnEvenementGroupe($id_groupe, $id_evenement)
@@ -119,9 +123,10 @@ class GroupeController
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $evenement=$this->groupe->getEvenement($id_evenement)->fetch();
     $club=$this->groupe->getClub($evenement['id_club'])->fetch();
+    $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
     $participants=$this->groupe->conutparticipants($id_evenement)->fetchAll();
     $ville=$this->groupe->getVilleById($evenement['id_ville'])->fetch();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
   }
 
   public function loadCreateEvenement($id_groupe){
@@ -208,9 +213,11 @@ class GroupeController
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
+    $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
     $membre=$this->groupe->getMembres($id_groupe)->fetchAll();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'membre'=>$membre, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'NBmembres'=>$NBmembres, 'membre'=>$membre, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader]);
   }
+  
 
   public function loadPublicationsGroupe($id_groupe)
   {
@@ -246,10 +253,14 @@ class GroupeController
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $ville=$this->groupe->getVilleById($datagroupe['id_ville'])->fetch();
+    $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
     $publication=$this->groupe->getPublications($id_groupe)->fetchAll();
+    $user="";
+    if (!empty($publication)){
     $user=$this->user->getUserNamePub($publication); // compliqué :D .. permet d'associer à chaque publication l'id du user qui l'a postée :o..
+    }
     $evenement=$this->groupe->getEvenements($id_groupe)->fetchAll();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'sport'=>$sport, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader, 'ville'=>$ville, 'publication'=>$publication,  'evenement'=>$evenement, 'error'=>$error, 'succes'=>$succes, 'user'=>$user]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'sport'=>$sport, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader, 'ville'=>$ville, 'publication'=>$publication,  'evenement'=>$evenement, 'error'=>$error, 'succes'=>$succes, 'user'=>$user]);
   }
 
   public function loadUnePublicationsGroupe($id_groupe, $id_publication)
@@ -316,10 +327,23 @@ class GroupeController
 
   public function loadGroupeInvitation($id_groupe){
     //fais toi plaisir :D
-    $error='';
-    $succes='';
+   // $error='';
+    //$succes='';
     $vue=new Vue("GroupeInvitation", "Groupe", ['stylesheet.css']);
-    $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
+     //$vue=new Vue("invitmembres", "Groupe", ['stylesheet.css']);
+    if(!empty($_POST)){
+      if(!empty($_POST['invitUser'])){
+        $this->groupe->invitUser($id_groupe);
+        $succes="";
+        }
+    }
+    $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
+    $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
+    $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
+    $membre=$this->groupe->getMembres($id_groupe)->fetchAll();
+    $nonmembre=$this->groupe->getNonMembres($id_groupe)->fetchAll();
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'nonmembre'=>$nonmembre, 'membre'=>$membre, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader]);
+    //$vue->loadpage(['error'=>$error, 'succes'=>$succes]);
 
   }
 

@@ -13,17 +13,23 @@
           <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Publications') ?></li></a>
           <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Evènements') ?></li></a>
           <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li><?php echo lang('Membres') ?></li></a>
-          <?php if($isMembre==false):?>
+          <?php if($isMembre==false):
+          if($datagroupe['public']!="0"): 
+          if((intval($datagroupe['nbmax_sportifs']))-(intval($NBmembres['0']['COUNT(id)']))>0):?>
           <li id="abonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
               <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
             </form>
           </li>
-        <?php elseif($isLeader==true):?>
+          <?php 
+          else:
+          endif;
+          endif;
+        elseif($isLeader==true):?>
           <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
             <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>"><?php echo lang("Créer un événement") ?></a>
           </li>
-          <?php else: ?>
+          <?php else:?>
             <li id="desabonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
               <input type="submit" name="abonnement" value="Désinscrire" style='cursor:pointer;'>
@@ -48,9 +54,12 @@
           <form class="" action="" method="post">
             <label for="publication"></label><br />
             <textarea class="areagroupinfo" name="informations" value="" placeholder="Informations relatives à votre groupe." required><?php echo $datagroupe['description']?></textarea>
+          <h2><?php echo lang('Nombre max de membres') ?></h2>
+          <input class="inputinfogroupe" type="text" name="NBmembres" value="<?php echo $datagroupe['nbmax_sportifs']?>" id="pseudo" required/>
         <?php else:?>
         <div>
           <p><?php echo $datagroupe['description']?></p>
+          <p><?php echo lang('Nombre maximum de membres')?>:<?php echo $datagroupe['nbmax_sportifs']?></p>
           <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
         </div>
         <?php endif;?>
@@ -61,9 +70,9 @@
         </div>
         <?php if(!empty($_POST['modif'])):?>
           <h2><?php echo lang('Mail') ?></h2>
-          <input class="inputinfogroupe" type="text" name="mail" value="<?php echo $datagroupe['mail']?>" id="pseudo" required/>
+          <input class="inputinfogroupe" type="text" name="mail" value="<?php echo $datagroupe['mail']?>" id="pseudo" />
           <h2><?php echo lang('Téléphone') ?></h2>
-          <input class="inputinfogroupe" type="text" name="telephone" value="<?php echo $datagroupe['telephone']?>" id="pseudo" required/>
+          <input class="inputinfogroupe" type="text" name="telephone" value="<?php echo $datagroupe['telephone']?>" id="pseudo" />
 
           <div class="search">
             <h2><?php echo lang('Ville') ?></h2>

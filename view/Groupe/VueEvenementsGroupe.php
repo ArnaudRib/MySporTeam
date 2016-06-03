@@ -13,24 +13,29 @@
             <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Publications') ?></li></a>
             <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="selectionne"><li><?php echo lang('Evènements') ?></li></a>
             <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li><?php echo lang('Membres') ?></li></a>
-            <?php if($isMembre==false):?>
-            <li id="abonnement" style="margin-top:-10px;">
-              <form class="" action="" method="post">
-                <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
-              </form>
-            </li>
-          <?php elseif($isLeader==true): ?>
-
-            <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
+            <?php if($isMembre==false):
+          if($datagroupe['public']!="0"): 
+          if((intval($datagroupe['nbmax_sportifs']))-(intval($NBmembres['0']['COUNT(id)']))>0):?>
+          <li id="abonnement" style="margin-top:-10px;">
+            <form class="" action="" method="post">
+              <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
+            </form>
+          </li>
+          <?php 
+          else:
+          endif;
+          endif;
+        elseif($isLeader==true):?>
+          <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
             <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>"><?php echo lang("Créer un événement") ?></a>
+          </li>
+          <?php else:?>
+            <li id="desabonnement" style="margin-top:-10px;">
+            <form class="" action="" method="post">
+              <input type="submit" name="abonnement" value="Désinscrire" style='cursor:pointer;'>
+            </form>
             </li>
-            <?php else: ?>
-              <li id="desabonnement" style="margin-top:-10px;">
-              <form class="" action="" method="post">
-                <input type="submit" name="abonnement" value="Désinscrire" style='cursor:pointer;'>
-              </form>
-              </li>
-            <?php endif;?>
+          <?php endif;?>
           </ul>
         </nav>
       </div>
@@ -51,7 +56,9 @@
     </div>
   <?php endif; ?>
 
-  <?php if ($evenement!=NULL):
+  <?php 
+  if($datagroupe['public']!="0"):
+  if ($evenement!=NULL):
       foreach ($evenement as $key => $value):
         $nom_evenement=str_replace(' ', '-', $value['nom']); ?>
         <div id="<?php echo $i=count($evenement) ?>" class="case_mongroupeevenement radius_mongroupe forme_case">
@@ -79,6 +86,43 @@
         <h1><?php echo lang("Aucun événement") ?></h1>
       </div>
       <?php
-    endif; ?>
+    endif;
+    else:
+    if($isMembre==false):?>
+      <div  class="publication forme_case radius_mongroupe">
+        <h1><?php echo lang("Groupe privé. Evénements masqués.") ?></h1>
+      </div>
+      <?php else:
+      if ($evenement!=NULL):
+      foreach ($evenement as $key => $value):
+        $nom_evenement=str_replace(' ', '-', $value['nom']); ?>
+        <div id="<?php echo $i=count($evenement) ?>" class="case_mongroupeevenement radius_mongroupe forme_case">
+          <img src="<?php echo image('Groupes/Evenements/'.$nom_evenement.'.jpg')?>"/>
+          <div class="texteevenement">
+            <h1><?php echo $value['nom']?></h1>
+            <h2 style="font-size:15px; color:grey;"><?php echo $value['date_debut']?></h2>
+            <p><?php echo $value['description']?></p>
+            <a style="display:inline-block;" href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id']])?>"><?php echo lang("Plus d'info") ?></a>
+
+            <?php if($isLeader):?>
+              <form style="display:inline-block;" class="" action="" method="post">
+                <input type="hidden" name="id_evenement" value="<?php echo $value['id']?>">
+                <input type="hidden" name="nom" value="<?php echo $value['nom']?>">
+                <input id="deletebutton" type="submit" class="buttonsupprimerevenement" name="deleteEve" value="Supprimer l'évènement" style="">
+              </form>
+            <?php else:?>
+
+            <?php endif;?>
+          </div>
+        </div>
+      <?php  endforeach;
+    else:?>
+      <div  class="publication forme_case radius_mongroupe">
+        <h1><?php echo lang("Aucun événement") ?></h1>
+      </div>
+      <?php
+    endif;
+    endif; 
+    endif;?>
   </div>
 </div>

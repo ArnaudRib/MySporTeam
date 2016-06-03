@@ -173,5 +173,14 @@
   "Editer les informations":"Edit informations",
   "Photo de couverture":"Cover Picture",
   "Non spécifié":"Not specified",
-  "Enregistrer les modifications":"Save changes"
+  "Enregistrer les modifications":"Save changes",
+  "Inviter des membres":"Invit members",
+  "Retour":"Return",
+  "Groupe privé. Publications masquées.":"Private Group. Publications masked.",
+   "Groupe privé. Evénements masqués.":"Private Group. Events masked.",
+   "Groupe privé. Membres masqués.":"Private Group. Members masked.",
+   "Ajouter des membres":"Add members",
+   "Nombre max de membres":"Max number of members",
+   "Nombre maximum de membres":"Maximum of members",
+    "Nombre de membres":"Number of members"
 }
