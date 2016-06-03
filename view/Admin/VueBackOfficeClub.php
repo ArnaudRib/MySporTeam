@@ -52,11 +52,11 @@
               </div>
               <div class="content-input">
                 <label class="textlabel" for="Téléphone"><?php echo lang("Téléphone") ?></label>
-                <input id="Numéro" type="text" name="téléphone" value="<?php echo $value['téléphone']?>">
+                <input id="telephone" type="text" name="téléphone" value="<?php echo $value['téléphone']?>">
               </div>
               <div class="content-input">
-                <label class="textlabel" for="Téléphone"><?php echo lang("Lien du site") ?></label>
-                <input id="Numéro" type="text" name="lien" value="<?php echo $value['lien']?>">
+                <label class="textlabel" for="lien"><?php echo lang("Lien du site") ?></label>
+                <input id="lien" type="text" name="lien" value="<?php echo $value['lien']?>">
               </div>
               <div class="content-descriptiongroupe">
                 <label for="description" style="display:block;"><?php echo lang("Modifier la description") ?> : </label>

@@ -17,31 +17,39 @@
             <input type="hidden" name="id_groupe" value="<?php echo $value['id']?>">
             <div class="content-imggroupe">
               <h4 class="title" style="margin-left:10px;"><?php echo lang("Image du groupe") ?></h4>
-              <img class='classImage imggroupe' src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>" alt=""/>
+              <img class='classImage imggroupe' style="width:30%;height:auto;" src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>" alt=""/>
               <label for="photo" class="boutonInputFile modifgroupeimg"><?php echo lang("Modifier") ?></label>
               <input id="photo" class="files" type="file" name="photo" style="display:none;">
+            </div>
+            <div class="content-imggroupe">
+              <h4 class="title" style="margin-left:10px;"><?php echo lang("Bannière du groupe") ?></h4>
+              <img class='classImage imggroupe' style="width:60%;height:auto;" src="<?php echo image('Groupes/Bannière/'.$nomgroupe.'.jpg')?>" alt=""/>
+              <label for="photo" class="boutonInputFile modifgroupeimg"><?php echo lang("Modifier") ?></label>
+              <input id="photo" class="files" type="file" name="couverture" style="display:none;">
             </div>
             <div class="infouser">
               <h3 style='margin-bottom:10px;'><?php echo lang("Informations") ?> :</h3>
               <div class="content-input">
-                <label class="textlabel" for="nom"><?php echo lang("Nom du Groupe") ?></label>
+                <label class="textlabel" for="nom"><?php echo lang("Nom du groupe") ?></label>
                 <input id="pseudo" type="text" name="nom" value="<?php echo $value['nom']?>" >
               </div>
               <div class="content-input">
                 <label class="textlabel" for="telephone"><?php echo lang("Téléphone") ?></label>
-                <input id="email" name="telephone" value="<?php echo $value['telephone']?>">
+                <input id="telephone" name="telephone" value="<?php echo $value['telephone']?>">
               </div>
               <div class="content-input">
                 <label class="textlabel" for="email"><?php echo lang("Email") ?></label>
-                <input id="Numéro" type="email" name="email" value="<?php echo $value['mail']?>">
+                <input id="email" type="email" name="email" value="<?php echo $value['mail']?>">
               </div>
               <div class="content-input">
                 <label class="textlabel" for="nbmax_sportif"><?php echo lang("Nombre maximal de sportifs") ?></label>
-                <input id="Numéro" type="number" name="nbmax_sportif" value="<?php echo $value['nbmax_sportifs']?>">
+                <input id="nbmax_sportif" type="number" name="nbmax_sportifs" min="1" value="<?php echo $value['nbmax_sportifs']?>">
               </div>
               <div class="content-descriptiongroupe">
-              <label style="display: inline-block; width: 60px; float: none;"><?php echo lang("Public") ?></label> <input style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" value="1"name="public" value="<?php echo $value['public']?>">
-              <label style="display: inline-block; width: 60px; float: none;"><?php echo lang("Privé") ?></label> <input type="radio" name="prive" value="<?php echo $value['public']?>" value="2" style="display: inline-block; width: 30px; height: 15px">
+                <label for="public" style="display: inline-block; width: 60px; float: none;"><?php echo lang("Public") ?></label>
+                <input id="public" name="public" type="radio" value="1" style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" <?php if($value['public']=="1") { echo 'selected checked'; }; ?>>
+                <label for="prive" style="display: inline-block; width: 60px; float: none;"><?php echo lang("Privé") ?></label>
+                <input id="prive" name="public" type="radio"value="0" style="display: inline-block; width: 30px; height: 15px"  <?php if($value['public']=="0") { echo 'selected checked'; }; ?>>
               </div>
               <div class="content-descriptiongroupe">
                 <label for="description" style="display:block;"><?php echo lang("Modifier la description") ?> : </label>

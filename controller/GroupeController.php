@@ -351,11 +351,9 @@ class GroupeController
   public function loadClub($id_club)
   {
     $dataclub=$this->groupe->getClub($id_club)->fetch();
-    // $email=$this->groupe->getEmailClub($dataclub['email'])->fetch();
-    // $tel=$this->groupe->getTelClub($dataclub['telephone'])->fetch();
-    // $adresse=$this->groupe->getAdresse($dataclub['adresse'])->fetch();
-    // $ville=$this->groupe->getVilleById($dataclub['id_ville'])->fetch();
+    $ville=$this->groupe->getVilleById($dataclub['id_ville'])->fetch();
+    $nomclub=str_replace(' ', '-', $dataclub['nom']);
     $vue=new Vue("Club", "Groupe", ['stylesheet.css']);
-    $vue->loadpage(['dataclub'=>$dataclub]);
+    $vue->loadpage(['dataclub'=>$dataclub,'ville'=>$ville, 'nomclub'=>$nomclub]);
   }
 }

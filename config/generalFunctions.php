@@ -85,6 +85,9 @@ function isAdmin(){
   return false;
 }
 
+function passwordOk($password){
+  return preg_match("/(?=.*[A-Z])(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}/", $password); // regex for password
+}
 
 /* Remise en forme */
 function minNoSpace($root){
