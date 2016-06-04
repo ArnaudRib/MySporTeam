@@ -191,6 +191,10 @@
   "Groupe privé. Evénements masqués.":"Groupe privé. Evénements masqués.",
   "Groupe privé. Membres masqués.":"Groupe privé. Membres masqués.",
   "Ajouter des membres":"Ajouter des membres",
- "Nombre max de membres":"Nombre max de membres",
- "Nombre maximum de membres":"Nombre maximum de membres"
+  "Nombre max de membres":"Nombre max de membres",
+  "Nombre maximum de membres":"Nombre maximum de membres",
+  "Ajouter un club":"Ajouter un club",
+  "Nom du club" : "Nom du club" ,
+  "Ajouter un club" : "Ajouter un club" ,
+  "Importer une bannière du club (.jpg)" : "Importer une bannière du club (.jpg)"
 }

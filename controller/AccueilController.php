@@ -43,4 +43,16 @@ class AccueilController
     $vue=new Vue("RechercheGenerale","Accueil");
     $vue->loadajax(['rechercheVille'=>$rechercheVille, 'rechercheuser'=>$rechercheuser,'recherchegroupe'=>$recherchegroupe, 'resultat'=>$_GET['resultat']]);
   }
+
+  public function loadRechercheUser()
+  {
+    $rechercheuser=$this->user->searchUser(6)->fetchAll();
+    $vue=new Vue("RechercheUser","Accueil", ['']);
+    $vue->loadajax(['rechercheuser'=>$rechercheuser, 'resultat'=>$_GET['resultat']]);
+  }
+
+  public function loadMessagePrive(){
+    $vue=new Vue("MessagePrive","Accueil", ['stylesheet.css'], ['RechercheUser.js']);
+    $vue->loadpage();
+  }
 }

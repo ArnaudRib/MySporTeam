@@ -14,6 +14,11 @@ class AdminModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$nom, $fileURLphoto, $id_sport]);
   }
 
+  function addClub(){
+    $sql="INSERT INTO club (nom, adresse, email, telephone, lien, informations) VALUES (?,?,?,?,?,?)";
+    $resultat=$this->requeteSQL($sql, [$_POST['nom'], $_POST['adresse'],$_POST['email'],$_POST['telephone'],$_POST['lien'],$_POST['informations']]);
+  }
+  
   function updateSport($id_sport){
     $description=$_POST['description']; $id_type=$_POST['id_type'];
     $sql="UPDATE sports SET description=?, id_type=? WHERE id=?";
@@ -26,9 +31,9 @@ class AdminModele extends BaseDeDonnes
   }
 
   function updateClub($id_club){
-    $informations=$_POST['informations']; $téléphone=$_POST['telephone']; $email=$_POST['email']; $lien=$_POST['lien']; $nom=$_POST['nom'];  $id_club=$_POST['id_club'];
-    $sql="UPDATE club SET informations=?, téléphone=?, email=?, lien=?, nom=? WHERE id=?";
-    $resultat=$this->requeteSQL($sql, [$informations, $téléphone, $email, $lien, $nom, $id_club]);
+    $informations=$_POST['informations']; $téléphone=$_POST['telephone']; $email=$_POST['email']; $lien=$_POST['lien']; $nom=$_POST['nom']; $adresse=$_POST['adresse']; $id_club=$_POST['id_club'];
+    $sql="UPDATE club SET informations=?, téléphone=?, email=?, lien=?, nom=?, adresse=? WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$informations, $téléphone, $email, $lien, $nom, $adresse,$id_club]);
   }
 
   function UsedType($type){

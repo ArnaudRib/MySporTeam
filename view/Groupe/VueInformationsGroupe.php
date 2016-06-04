@@ -14,14 +14,14 @@
           <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Evènements') ?></li></a>
           <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li><?php echo lang('Membres') ?></li></a>
           <?php if($isMembre==false):
-          if($datagroupe['public']!="0"): 
+          if($datagroupe['public']!="0"):
           if((intval($datagroupe['nbmax_sportifs']))-(intval($NBmembres['0']['COUNT(id)']))>0):?>
           <li id="abonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
               <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
             </form>
           </li>
-          <?php 
+          <?php
           else:
           endif;
           endif;
@@ -76,7 +76,7 @@
 
           <div class="search">
             <h2><?php echo lang('Ville') ?></h2>
-            <input id="search" class="inputinfogroupe" style="margin-left:20px;" type="text" class="form-control" name="ville" value="" style="width:70%; margin: 10px 0px; font-size:15px;" placeholder="Ville"  onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
+            <input id="search" class="inputinfogroupe" style="margin-left:20px;" type="text" class="form-control" name="ville" value="" style="width:70%; margin: 10px 0px; font-size:15px;" placeholder="Ville"  onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch3()" spellcheck="false">
             <p id="results">
               <span style="font-size:20px; padding-top:30px;">Veuillez rentrer un nom de ville.</span>
             </p>

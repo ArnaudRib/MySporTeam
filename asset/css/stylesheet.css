@@ -373,6 +373,50 @@ left:6rem;
   height:80px;
 }
 
+/* recherche user*/
+#resultatsrechercheuser{
+  padding-top:9px;
+  width: 80%;
+  background-color: rgba(133, 189, 255, 0.90);
+  margin:0 auto;
+  overflow-x:scroll;
+  height:auto;
+  border-radius: 5px;
+  margin-bottom:10px;
+  margin-top:-10px;
+  transition:1s all ease;
+}
+
+.searchuser li.selected {
+  background: rgb(85, 42, 255);
+  cursor: pointer;
+  width:100%;
+}
+
+.messagesearch{
+  background: rgb(85, 42, 255);
+  padding:10px;
+  z-index:0;
+  width:100%;
+}
+
+.searchuser li:hover{
+  background: rgb(103, 65, 255);
+  cursor: pointer;
+  width:100%;
+}
+
+.searchuser li{
+  font-size:20px;
+  display:flex;
+  align-items: center;
+  background: rgb(42, 185, 255);
+}
+
+.blockresultsuser{
+  width:60%;
+}
+
 /*FOOTER*/
 footer {
   background-color:#2E2E2E;
@@ -2788,6 +2832,95 @@ a{
 .blockrechercheavancee:hover{
   background-color: rgba(7, 219, 213, 0.9);
 }
+
+/* Message prive */
+
+.h2-message {
+	text-decoration: underline;
+}
+
+.bodymsg{
+  font-family: Verdana;
+  padding:50px;
+  background-color:rgba(83, 234, 255, 0.61);
+}
+
+.messageform {
+  margin:0 auto;
+	border: 1px solid #000000;
+	width: 55%;
+	padding: 0 15px 0 15px;
+	box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+	background-color: #dbeaef;
+}
+
+.labelmessage {
+	display: inline-block;
+	width: 150px;
+	text-align: right;
+}
+
+.messagedestinataire {
+	position: relative;
+}
+
+.txtmessage {
+	width: 400px;
+  border-radius:5px;
+  font-size:15px;
+  padding:12px;
+	margin: 10px 0 10px 0;
+  border:1px black solid;
+}
+
+.textareamessageprive {
+  border-radius:5px;
+	width: 400px;
+	margin: 10px 0 10px 0;
+  padding:5px;
+  border:1px black solid;
+  height:150px;
+  font-family: Verdana;
+}
+
+.bouttonmsgprive {
+	width: 100px;
+  background-color: #043450;
+  color: #FFFFFF;
+  margin: 15px;
+  cursor:pointer;
+  transition:1s all ease;
+  border-radius:5px;
+  padding:10px;
+  font-size:15px;
+}
+
+.submitmessageprive {
+	width: 100%;
+	text-align: center;
+}
+
+.sendmessageboutton{
+  box-shadow:1px 3px 1px black;
+}
+.sendmessageboutton:hover{
+  background-color:rgb(55, 119, 241);
+}
+
+.cancelboutton{
+  background-color: rgba(255, 92, 92, 0.64);
+  box-shadow:1px 2px 1px red;
+}
+
+.cancelboutton:hover{
+  background-color: rgba(255, 32, 32, 0.64);
+}
+
+.cancelboutton:active{
+  background-color: rgba(255, 19, 154, 0.64);
+}
+
+
 /* GLOBAL */
 .encadrementTitre{
   background-color:rgb(194, 246, 229);
@@ -3025,6 +3158,10 @@ a{
   transform: rotate(0deg)scale(1);
 }
 
+.visible4{
+  display:none;
+  background-color:rgb(122, 255, 243);
+}
 /* Notification */
 .notification{
   position:absolute;

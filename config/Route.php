@@ -68,6 +68,14 @@ class Route
         $this->ctr['Accueil']->loadRechercheGenerale();
         break;
 
+      case 'messageprive':
+        $this->ctr['Accueil']->loadMessagePrive();
+        break;
+
+      case 'ajaxrechercheuser':
+        $this->ctr['Accueil']->loadRechercheUser();
+        break;
+
       //Sports
       case 'ajaxloadphoto':
         $this->ctr['Sport']->loadphoto();

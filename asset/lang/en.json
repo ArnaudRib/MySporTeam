@@ -188,10 +188,13 @@
   "Inviter des membres":"Invit members",
   "Retour":"Return",
   "Groupe privé. Publications masquées.":"Private Group. Publications masked.",
-   "Groupe privé. Evénements masqués.":"Private Group. Events masked.",
-   "Groupe privé. Membres masqués.":"Private Group. Members masked.",
-   "Ajouter des membres":"Add members",
-   "Nombre max de membres":"Max number of members",
-   "Nombre maximum de membres":"Maximum of members",
-    "Nombre de membres":"Number of members"
+  "Groupe privé. Evénements masqués.":"Private Group. Events masked.",
+  "Groupe privé. Membres masqués.":"Private Group. Members masked.",
+  "Ajouter des membres":"Add members",
+  "Nombre max de membres":"Max number of members",
+  "Nombre maximum de membres":"Maximum of members",
+  "Nombre de membres":"Number of members",
+  "Nom du club" : "Name of the club" ,
+  "Ajouter un club" : "Add a club" ,
+  "Importer une bannière du club (.jpg)" : "Import a cover picture for the club (.jpg)"
 }
