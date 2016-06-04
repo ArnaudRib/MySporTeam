@@ -44,7 +44,7 @@
   <div id="corps_mongroupe">
     <div class="cote_informations">
       <div class="radius_mongroupe forme_case" id="nom_sport">
-        <h1><?php echo ucfirst($sport['nom'])?></h1>
+        <h1><?php echo ucfirst($sport['nom'])?> (<?php echo $niveau['nom']?>)</h1>
       </div>
       <div class="radius_mongroupe forme_case">
         <div class="titre">

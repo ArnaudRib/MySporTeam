@@ -64,6 +64,12 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_sport]);
     return $resultat;
   }
+  
+  function getLevel($id_level){
+    $sql="SELECT * FROM niveau WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$id_level]);
+    return $resultat;
+  }
 
   function getEvenements($id_groupe){
     $sql="SELECT * FROM evenement WHERE id_groupe=?";
@@ -291,5 +297,14 @@ class GroupeModele extends BaseDeDonnes
   function addGroupe(){
     $sql="INSERT INTO groupe(nom, description) VALUES (?,?)";
     $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description']]);
+  }
+  
+    function getNiveauGroupes($niveaux){ // renvoie [idsport=>nbgroupe]
+    foreach ($niveaux as $key => $value) {
+      $sql = "SELECT COUNT(*) as niveau FROM groupe WHERE id_niveau=?";
+      $resultat=$this->requeteSQL($sql, [$value['id']])->fetchAll();
+      $allresults[$value['id']]=$resultat[0]['niveau'];
+    }
+    return $allresults;
   }
 }

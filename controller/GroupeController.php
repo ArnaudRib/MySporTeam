@@ -53,10 +53,11 @@ class GroupeController
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
+    $niveau=$this->groupe->getLevel($datagroupe['id_niveau'])->fetch();
     $infoleader=$this->groupe->getInfoLeader($id_groupe)->fetch();
     $ville=$this->groupe->getVilleById($datagroupe['id_ville'])->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'infoleader'=>$infoleader,'isLeader'=>$isLeader, 'sport'=>$sport, 'isMembre'=>$isMembre]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'niveau'=>$niveau, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'infoleader'=>$infoleader,'isLeader'=>$isLeader, 'sport'=>$sport, 'isMembre'=>$isMembre]);
   }
 
   public function loadEvenementsGroupe($id_groupe)
@@ -121,12 +122,13 @@ class GroupeController
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
+    $niveau=$this->groupe->getLevel($datagroupe['id_niveau'])->fetch();
     $evenement=$this->groupe->getEvenement($id_evenement)->fetch();
     $club=$this->groupe->getClub($evenement['id_club'])->fetch();
     $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
     $participants=$this->groupe->conutparticipants($id_evenement)->fetchAll();
     $ville=$this->groupe->getVilleById($evenement['id_ville'])->fetch();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'niveau'=>$niveau, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
   }
 
   public function loadCreateEvenement($id_groupe){
