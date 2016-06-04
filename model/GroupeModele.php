@@ -134,6 +134,12 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function getDepartements(){
+    $sql="SELECT * FROM departement";
+    $resultat=$this->requeteSQL($sql);
+    return $resultat;
+  }
+
   function getNiveau(){
     $sql="SELECT * FROM niveau";
     $resultat=$this->requeteSQL($sql);
@@ -291,4 +297,92 @@ class GroupeModele extends BaseDeDonnes
     $sql="INSERT INTO groupe(nom, description) VALUES (?,?)";
     $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description']]);
   }
+
+  function getGroupeNiveau($groupes){
+    foreach ($groupes as $key => $value) {
+      $sql = "SELECT niveau.nom as niveau FROM niveau WHERE id=?";
+      $resultat=$this->requeteSQL($sql, [$value['id_niveau']])->fetchAll();
+      $allresults[$value['id']]=$resultat[0]['niveau'];
+    }
+    return $allresults;
+  }
+
+  function getGroupeSport($groupes){
+    foreach ($groupes as $key => $value) {
+      $sql = "SELECT nom as sport FROM sports WHERE id=?";
+      $resultat=$this->requeteSQL($sql, [$value['id_sport']])->fetchAll();
+      $allresults[$value['id']]=$resultat[0]['sport'];
+    }
+    return $allresults;
+  }
+  function getGroupeDepartement($groupes){
+    foreach ($groupes as $key => $value) {
+      $sql = "SELECT departement.departement_code as code,departement.name as nom FROM departement JOIN city ON city.departement_code=departement.departement_code WHERE city.id=?";
+      $resultat=$this->requeteSQL($sql, [$value['id_ville']])->fetchAll();
+      $allresults[$value['id']]=[ $resultat[0]['code'], $resultat[0]['nom']];
+    }
+    return $allresults;
+  }
+
+
+  function getVilleGroupe($groupes){
+    foreach ($groupes as $key => $value) {
+      $sql = "SELECT name as ville FROM city WHERE id=?";
+      $resultat=$this->requeteSQL($sql, [$value['id_ville']])->fetchAll();
+      $allresults[$value['id']]=$resultat[0]['ville'];
+    }
+    return $allresults;
+  }
+
+  function RechercheGroupes(){
+    $sql.='SELECT * FROM groupe
+    JOIN city ON city.id=groupe.id_ville
+    JOIN departement ON departement.departement_code=city.departement_code
+    WHERE ';
+    $sql.=!empty($_POST['departement']) ? "departement.departement_code=?" : '';
+    $sql.=!empty($_POST['departement']) && (!empty($_POST['ville']) || (!empty($_POST['niveau']) || !empty($_POST['sport']))) ? ' AND ' : '';
+
+    $sql.=!empty($_POST['ville']) ? "groupe.id_ville=?" : '';
+    $sql.=!empty($_POST['ville']) && (!empty($_POST['niveau']) || !empty($_POST['sport'])) ? ' AND ' : '';
+    $sql.=!empty($_POST['niveau']) ? "groupe.id_niveau=?" : '';
+    $sql.=!empty($_POST['sport']) && !empty($_POST['niveau'])? ' AND ' : '';
+    $sql.=!empty($_POST['sport']) ? "groupe.id_sport=?" : '' ;
+
+    $str.= $_POST['departement'];
+    $str.= !empty($_POST['departement']) && (!empty($_POST['ville']) || (!empty($_POST['sport']) || !empty($_POST['niveau']))) ? ', ' : '';
+    $str.= $_POST['ville'];
+    $str.= !empty($_POST['ville']) && (!empty($_POST['sport']) || !empty($_POST['niveau'])) ? ', ' : '';
+    $str.= $_POST['niveau'];
+    $str.= !empty($_POST['sport']) && (!empty($_POST['ville']) || !empty($_POST['niveau'])) ? ', ' : '';
+    $str.= $_POST['sport'];
+
+    $array=explode(',', $str);
+
+    $resultat=$this->requeteSQL($sql,$array)->fetchAll();
+    return $resultat;
+
+  }
 }
+
+//ENTRE TEMPS
+// $sql.='SELECT * FROM groupe
+//
+// WHERE ';
+// $sql.=!empty($_POST['departement']) ? "id_ville=?" : '';
+// $sql.=!empty($_POST['ville']) && (!empty($_POST['niveau']) || !empty($_POST['sport'])) ? ' AND ' : '';
+//
+// $sql.=!empty($_POST['ville']) ? "id_ville=?" : '';
+// $sql.=!empty($_POST['ville']) && (!empty($_POST['niveau']) || !empty($_POST['sport'])) ? ' AND ' : '';
+// $sql.=!empty($_POST['niveau']) ? "id_niveau=?" : '';
+// $sql.=!empty($_POST['sport']) && !empty($_POST['niveau'])? ' AND ' : '';
+// $sql.=!empty($_POST['sport']) ? "id_sport=?" : '' ;
+//
+// $str.= $_POST['ville'];
+// $str.= !empty($_POST['ville']) && (!empty($_POST['sport']) || !empty($_POST['niveau'])) ? ', ' : '';
+// $str.= $_POST['niveau'];
+// $str.= !empty($_POST['sport']) && (!empty($_POST['ville']) || !empty($_POST['niveau'])) ? ', ' : '';
+// $str.= $_POST['sport'];
+// $array=explode(',', $str);
+//
+// $resultat=$this->requeteSQL($sql,$array)->fetchAll();
+// return $resultat;

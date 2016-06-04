@@ -1769,6 +1769,9 @@ ul {
   height: auto;
   vertical-align: top;
   background: rgb(145, 176, 245);
+  background-size:45px;
+  background-repeat:no-repeat;
+  background-position:2% 5%;
 }
 
 .groupe:hover{
@@ -1785,11 +1788,23 @@ ul {
   height: 150px;
 }
 
+.blockNoMatch{
+  padding:40px;
+  margin:30px;
+  background-color:rgb(82, 187, 255);
+  border-radius:30px;
+  border:1px black solid;
+  font-size:25px;
+}
 .nomgroupe{
   margin-left: 10px;
   text-align: center;
   display: inline-block;
   vertical-align: top;
+  background-color:rgb(71, 79, 255);
+  border-radius:5px;
+  padding:5px;
+  width:40%;
 }
 
 .descriptiongroupe{
@@ -1797,11 +1812,17 @@ ul {
   width:100%;
   display:block;
   word-wrap: break-word;
+  padding:15px 40px;
+  margin-top:10px;
+  border:1px rgb(59, 149, 255) solid;
+  background-color: rgb(59, 149, 255);
+  border-radius:30px;
+
 }
 
 .filtre{
   margin:0 auto;
-  width:20%;
+  width:40%;
   padding-left:5%;
   text-align: center;
   max-height:50px;

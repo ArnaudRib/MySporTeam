@@ -16,12 +16,25 @@ class GroupeController
 
   public function loadRecherche()
   {
-    $niveau=$this->groupe->getNiveau()->fetchAll();
     $villes=$this->groupe->getVilles()->fetchAll();
     $sports=$this->sport->getSports()->fetchAll();
+    $groupes=$this->groupe->getGroup()->fetchAll();
+    $niveaux=$this->groupe->getNiveau()->fetchAll();
+    $departements=$this->groupe->getDepartements()->fetchAll();
+
+    if(!empty($_POST['rechercheAvancee'])){
+      if(!empty($_POST['ville'])){
+        $ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
+        $_POST['ville']=$ville['id'];
+      }
+      $groupes=$this->groupe->RechercheGroupes();
+    }
+    $villesGroupe=$this->groupe->getVilleGroupe($groupes);
+    $niveau=$this->groupe->getGroupeNiveau($groupes);
+    $sportGroupe=$this->groupe->getGroupeSport($groupes);
+    $departementGroupe=$this->groupe->getGroupeDepartement($groupes);
     $vue=new Vue("RechercheGroupe", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['RechercheGroupe.js']);
-    $groupe=$this->groupe->getGroup()->fetchAll();
-    $vue->loadpage(['groupe'=>$groupe, 'niveau'=>$niveau, 'villes'=>$villes, 'sports'=>$sports]);
+    $vue->loadpage(['groupes'=>$groupes, 'niveau'=>$niveau, 'niveaux'=>$niveaux ,'villes'=>$villes, 'sports'=>$sports, 'sportGroupe'=>$sportGroupe, 'villesGroupe'=>$villesGroupe, 'departements'=>$departements, 'departementGroupe'=>$departementGroupe]);
   }
 
   public function loadAjaxRecherche()

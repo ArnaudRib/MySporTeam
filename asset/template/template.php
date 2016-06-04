@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="/asset/images/General/biceps.ico">
   <link rel="stylesheet" href="/asset/css/font-awesome.css">
   <?php
   $this->loadcss(); //nomcss devra être un tableau.?>
