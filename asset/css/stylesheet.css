@@ -317,6 +317,8 @@ left:6rem;
 
 .searchgeneral li{
   font-size:20px;
+  display:flex;
+  align-items: center;
 }
 
 .searchgeneral p.visible {
@@ -349,6 +351,26 @@ left:6rem;
   text-align:right;
   width:35%;
   font-size:20px;
+}
+
+.photogroupeRecherche{
+  display:inline-block;
+  width:40%;
+  text-align:right;
+  padding:5px;
+}
+
+.nomgroupeRecherche{
+  display:inline-flex;
+  align-items: center;
+  width:59%;
+  padding-left:5%;
+  text-align:left;
+}
+
+.imgRecherche{
+  width:auto;
+  height:80px;
 }
 
 /*FOOTER*/

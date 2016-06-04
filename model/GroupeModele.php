@@ -153,8 +153,8 @@ class GroupeModele extends BaseDeDonnes
   }
 
 
-  function searchVilleName($nbdisplay){
-    $sql="SELECT name FROM city WHERE name LIKE ?  ORDER BY name LIMIT ?";
+  function searchVille($nbdisplay){
+    $sql="SELECT * FROM city WHERE name LIKE ?  ORDER BY name LIMIT ?";
     $resultats=$this->connectBDD()->prepare($sql);
     $text="%" . $_GET['resultat'] . "%";
     $resultats->bindParam(1, $text, PDO::PARAM_STR);
@@ -163,8 +163,8 @@ class GroupeModele extends BaseDeDonnes
     return $resultats;
   }
 
-  function searchGroupeName($nbdisplay){
-    $sql="SELECT nom FROM groupe WHERE nom LIKE ?  ORDER BY nom LIMIT ?";
+  function searchGroupe($nbdisplay){
+    $sql="SELECT * FROM groupe WHERE nom LIKE ?  ORDER BY nom LIMIT ?";
     $resultats=$this->connectBDD()->prepare($sql);
     $text="%" . $_GET['resultat'] . "%";
     $resultats->bindParam(1, $text, PDO::PARAM_STR);
