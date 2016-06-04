@@ -57,12 +57,12 @@
             <input style="width:100%;" class="participation" type="submit" name="addPlanning" value="Ajouter au planning" style='cursor:pointer;'>
           </form>
         <?php endif;
-      else:?>
-      <form action="" method="post" style="text-align:center;">
-        <input style="width:100%;" class="participation" type="submit" name="deletePlanning" value="Supprimer du planning" style='cursor:pointer;'>
-      </form>
-    <?php endif;
-    endif;?>
+          else:?>
+          <form action="" method="post" style="text-align:center;">
+            <input style="width:100%;" class="participation" type="submit" name="deletePlanning" value="Supprimer du planning" style='cursor:pointer;'>
+          </form>
+        <?php endif;?>
+      <?php endif;?>
     <!-- Vas falloir faire un submit ici un jour ;D -->
   </div>
 
@@ -137,18 +137,18 @@
         </div>
         <h2 style="font-size:15px;"><?php echo $club['nom']?></h2>
       </div>
-        <?php if(!empty($_POST['modif'])):?>
-          <form class="" action="" method="post">
-            <input class="buttonmodif" type="submit" name="enregistrement" value="Enregistrer les modifications">
-          </form>
-          <?php endif;
-        if($isLeader):
-          if(empty($_POST['modif'])):?>
-          <form class="" action="" method="post">
-            <input type="submit" class="buttonmodif" name="modif" value="Modifier les informations" style='cursor:pointer;'>
-          </form>
-        <?php endif;?>
+      <?php if(!empty($_POST['modif'])):?>
+        <form class="" action="" method="post">
+          <input class="buttonmodif" type="submit" name="enregistrement" value="Enregistrer les modifications">
+        </form>
+        <?php endif;
+      if($isLeader):
+        if(empty($_POST['modif'])):?>
+        <form class="" action="" method="post">
+          <input type="submit" class="buttonmodif" name="modif" value="Modifier les informations" style='cursor:pointer;'>
+        </form>
       <?php endif;?>
+    <?php endif;?>
 
       </form>
     </div>
