@@ -71,7 +71,7 @@ class GroupeModele extends BaseDeDonnes
     return $resultat;
   }
 
-  function conutparticipants($id_evenement){
+  function countparticipants($id_evenement){
     $sql="SELECT COUNT(id) FROM utilisateur_evenement WHERE id_evenement=?";
     $resultat=$this->requeteSQL($sql, [$id_evenement]);
     return $resultat;
@@ -315,6 +315,7 @@ class GroupeModele extends BaseDeDonnes
     }
     return $allresults;
   }
+
   function getGroupeDepartement($groupes){
     foreach ($groupes as $key => $value) {
       $sql = "SELECT departement.departement_code as code,departement.name as nom FROM departement JOIN city ON city.departement_code=departement.departement_code WHERE city.id=?";

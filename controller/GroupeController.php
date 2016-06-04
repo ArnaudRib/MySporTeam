@@ -137,7 +137,7 @@ class GroupeController
     $evenement=$this->groupe->getEvenement($id_evenement)->fetch();
     $club=$this->groupe->getClub($evenement['id_club'])->fetch();
     $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
-    $participants=$this->groupe->conutparticipants($id_evenement)->fetchAll();
+    $participants=$this->groupe->countparticipants($id_evenement)->fetchAll();
     $ville=$this->groupe->getVilleById($evenement['id_ville'])->fetch();
     $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
   }
