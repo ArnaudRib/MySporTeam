@@ -11,7 +11,7 @@
         <?php endif; ?>
         <?php if($succes!=''): ?>
           <div class="successbox blackborder radius" style='margin:20px auto; margin-bottom:0px'>
-            <?php echo $succes;?>
+            <?php echo $succes;?> <b><a href="<?php echo goToPage('informationsgroupe', ['id'=>$id])?>">ici</a></b>
           </div>
         <?php endif; ?>
 

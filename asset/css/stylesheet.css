@@ -2484,8 +2484,9 @@ tr {
 
 .areacreation{
   border:1px black solid;
-  padding:5px;
-  margin:10px 0;
+  padding:15px;
+  margin:10px auto;
+  width:100%;
   transition:1s all ease;
 }
 

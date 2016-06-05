@@ -26,6 +26,7 @@
       <div class="sports_mesgroupes">
         <ul>
           <?php foreach ($sports as $key => $value) :?>
+            READ ME !!!! -> nécessite l'id du sport pour le lien -> :3 je crois que u as refait la requête :3..
             <a href="<?php goToPage('sportgroupe', ['id_sport'=>$value['id']])?>">
               <li style="margin:5px;"><?=ucfirst($value) ?></li>
             </a>

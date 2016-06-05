@@ -64,7 +64,7 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_sport]);
     return $resultat;
   }
-  
+
   function getLevel($id_level){
     $sql="SELECT * FROM niveau WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$id_level]);
@@ -123,7 +123,7 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function getInfoLeader($id_groupe){
-    $sql="SELECT * FROM utilisateur INNER JOIN utilisateur_groupe ON id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe=? AND leader_groupe=1";
+    $sql="SELECT * FROM utilisateur INNER JOIN utilisateur_groupe ON utilisateur.id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe=? AND utilisateur_groupe.leader_groupe=1";
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
   }
@@ -300,10 +300,11 @@ class GroupeModele extends BaseDeDonnes
 
 
   function addGroupe(){
-    $sql="INSERT INTO groupe(nom, description) VALUES (?,?)";
-    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description']]);
+    $sql="INSERT INTO groupe(nom, description, id_categorie, nbmax_sportifs, id_sport, id_ville, public, date_creation) VALUES (?,?,?,?,?,?,?,NOW())";
+    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['categorie'], $_POST['nombre'], $_POST['sport'], $_POST['ville'],$_POST['visibilite']]);
+    $id=$this->connectBDD()->lastInsertId(); //fonction intégrée de PDO.
+    return $id;
   }
-
 
   function getGroupeNiveau($groupes){
     foreach ($groupes as $key => $value) {

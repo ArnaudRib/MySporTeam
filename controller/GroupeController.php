@@ -317,7 +317,10 @@ class GroupeController
 
         //Add BDD
         if(empty($error)){
-          $this->groupe->addGroupe();
+          $ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
+          $_POST['ville']=intval($ville['id']);
+          $id=$this->groupe->addGroupe();
+          $succes="Groupe ajouté avec succès!</br> Vous pouvez consulter sa page en cliquant ";
         }
       }
     }
@@ -325,7 +328,7 @@ class GroupeController
     $categorie=$this->groupe->getCategory()->fetchAll();
     $sports=$this->sport->getSports()->fetchAll();
     $vue=new Vue("CreationGroupe", "Groupe", ['font-awesome.css', 'stylesheet.css'], ['showphoto.js', 'RechercheGroupe.js']); // CSS a unifier dans le meme fichier
-    $vue->loadpage(['sports'=>$sports, 'categorie'=>$categorie, 'error'=>$error, 'succes'=>$succes]);
+    $vue->loadpage(['sports'=>$sports, 'categorie'=>$categorie, 'error'=>$error, 'succes'=>$succes, 'id'=>$id]);
   }
 
 
