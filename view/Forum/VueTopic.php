@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <div class="padding10 bleu">
+    <div class="padding10 bleu" style="text-align:right;">
       <div class="titreforum">
         Titre/Démarré par
       </div>

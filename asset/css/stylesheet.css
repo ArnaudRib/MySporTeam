@@ -1620,11 +1620,14 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 .nombre-reponses {
   display: inline-block;
   width: 15%;
+  text-align:center;
 }
 
 .dernier-message {
   display: inline-block;
   width: 15%;
+  text-align:center;
+  margin-right:35px;
 }
 
 .lien-forum {
@@ -1643,6 +1646,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 .titreforum {
   display: inline-block;
   width: 55%;
+  text-align:center;
 }
 
 .vide {
@@ -3162,20 +3166,22 @@ a{
   display:none;
   background-color:rgb(122, 255, 243);
 }
+
+
 /* Notification */
 .notification{
   position:absolute;
-  top:0;
-  right:50px;
+  top:60px;
+  left:20px;
   padding:15px;
   z-index:8000;
   color:black;
   box-shadow: 0px 0px 20px rgb(255, 151, 28);
   background-color:rgba(255, 249, 116, 1);
   border-radius:5px;
-  width:400px;
   height:auto;
   animation: apparition 1s;
+  width:600px;
 }
 
 .notification:hover{
@@ -3197,19 +3203,62 @@ a{
   }
 }
 
-.hidden{
-  height:0px;
-  width:0px;
-  opacity:0;
+.notifInvitation{
+  background-color:rgb(255, 198, 73);
+  box-shadow:0px 2px 4px;
+  border-radius:5px;
+  border:1px black solid;
+  padding:10px;
+  width:80%;
+  transition:1s all ease;
 }
 
+.notifInvitation:hover{
+  background-color:rgb(254, 210, 113);
+}
+
+.notifMessage{
+  background-color:rgb(255, 127, 73);
+  box-shadow:0px 2px 4px;
+  border-radius:5px;
+  border:1px black solid;
+  padding-left:10px;
+  width:80%;
+  transition:1s all ease;
+}
+
+.notifMessage:hover{
+  background-color:rgb(251, 149, 105);
+}
+
+.deletenotif{
+  font-family:Arial;
+  font-size:18px;
+  background-color:red;
+  border-radius:5px;
+  margin:15px auto;
+  border:1px black solid;
+  cursor:pointer;
+  transition:1s all ease;
+}
+
+.deletenotif:hover{
+  background-color:rgb(182, 11, 11);
+}
 .textNotif{
   padding:20px;
-  width:80%;
+  padding-top:10px;
+  width:100%;
 }
 
 .textNotif span{
   padding:5px;
+}
+
+.hidden{
+  height:0px;
+  width:0px;
+  opacity:0;
 }
 
 .displaynone{

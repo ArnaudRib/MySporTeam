@@ -5,12 +5,68 @@ if(isset($_SESSION['user']['id'])):
       <div id="notification" class="notification">
         <p id="closenotification" style="color:red; font-size:25px; cursor:pointer; float:right;" class="closeButtonModal" onclick="displayNotification()">&#10006;</p>
         <div id="textnotification" class="textNotif">
-          <span style="display:block;">
-            <?php echo lang("Bienvenue").' '.$_SESSION['user']['pseudo']?>!
+          <span style="display:block; font-size:24px;  font-family:Arial">
+            <?php echo lang("Bienvenue");?> <b> <?php echo $_SESSION['user']['pseudo']?></b>!
           </span>
-          <span style="display:block;">
-            <?php echo lang("Vous n'avez pas de nouvelles notifications!") ?>
-          </span>
+          <div class="BlockNotifInvit">
+            <?php if(!empty($notificationinvitation)):?>
+              <div style="display:inline-block; width:90%; padding:10px; padding-bottom:5px; font-family:Arial; margin: 0 auto;">
+                <?php echo lang('Vous avez')?> <b><?php echo count($notificationinvitation)?></b> invitation(s)!
+              </div>
+            <?php endif; ?>
+            <?php foreach ($notificationinvitation as $key => $value): ?>
+              <a href="<?php echo goToPage('informationsgroupe', ['id'=>$value['id_groupe']])?>">
+                <div class="notifInvitation">
+                  <div style="display:inline-block; width:20%;">
+                    <img src="<?php echo image('svg/invitation.svg')?>" style="width:65px; margin-bottom:15px;" alt="" />
+                  </div>
+                  <div style="display:inline-block; width:70%; font-family:Arial;">
+                    <?php echo lang('Le groupe privé')?> <b><?php echo $value['nom']?></b> <?php echo lang('vous a invité à les rejoindre!')?> </br>
+                    <u><b>Date</u></b> : <?php echo DiffDate($value['date'])?>.</br>
+                    <u><b>Message</u></b> : <?php echo $value['message']?></br>
+                  </div>
+                  <div style="display:block; width:90%; text-align:center; margin:0 auto; font-family:Arial;">
+                    <i><?php echo lang('Vous pouvez consulter leur page en cliquant sur cette notification')?>.</i>
+                  </div>
+                </div>
+              </a>
+            <?php endforeach; ?>
+          </div>
+
+          <div class="BlockNotifMessage" style="margin-top:10px;">
+              <?php if(!empty($notificationmessage)):?>
+                <div style="display:inline-block; width:90%; padding:10px; padding-bottom:5px; font-family:Arial; margin: 0 auto;">
+                  <?php echo lang('Vous avez')?>  <b><?php echo count($notificationmessage)?></b> message(s) <?php echo lang('non lu(s)')?> !
+                </div>
+              <?php endif; ?>
+              <?php foreach ($notificationmessage as $key => $value): ?>
+                <div class="notifMessage">
+                  <div style="  align-content: center; display: flex;">
+                    <div style="display:inline-flex; align-items:center;">
+                      <img src="<?php echo image('svg/envelope.svg')?>" style="width:65px;" alt="" />
+                    </div>
+                    <div style="display:inline-block; width:70%;vertical-align: top; padding:15px; font-family:Arial;">
+                      <u><b>De</u></b> : <?php echo $value['pseudo']?></br>
+                      <u><b>À</u></b> : <?php echo DiffDate($value['date'])?>.</br>
+                      <u><b>Objet</u></b> : <?php echo $value['objet']?>.</br>
+                      <u><b>Message</u></b> : <?php echo $value['message']?>
+                    </div>
+                  </div>
+                  <div style="display:block; width:90%; text-align:center; margin:0 auto">
+                    <form class="" action="" method="post">
+                      <input type="hidden" name="id_message" value="<?php echo $value['id_message']?>">
+                      <input type="submit" class="deletenotif" name="deletenotif" value="Cliquer ici pour confirmer la lecture.">
+                    </form>
+                  </div>
+                </div>
+
+              <?php endforeach; ?>
+              <?php if(empty($notificationinvitation) && empty($notificationmessage)): ?>
+              <div style="display:inline-block; width:90%; padding:10px; padding-bottom:5px; font-family:Arial; margin: 0 auto;">
+                <?php echo lang("Vous n'avez pas de nouvelles notifications!") ?>
+              </div>
+            <?php endif; ?>
+          </div>
         </div>
       </div>
 <?php
