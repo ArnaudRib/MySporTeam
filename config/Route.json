@@ -3,6 +3,8 @@
   "connexion":"connexion",
   "inscription":"inscription",
   "deconnexion":"deconnexion",
+  "resetpw":"reset-password",
+  "forgottenpw":"forgotten-password",
   "ajaxloadphoto":"ajaxloadphoto",
   "ajaxrecherchegroupe":"ajaxrecherchegroupe",
   "ajaxrecherchegenerale":"ajaxrecherchegenerale",

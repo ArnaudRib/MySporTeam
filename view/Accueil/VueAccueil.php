@@ -3,7 +3,7 @@ if(isset($_SESSION['user']['id'])):
   if(isset($_GET['connexion'])):
     if($_GET['connexion']):?>
       <div id="notification" class="notification">
-        <p id="closenotification" style="color:red; font-size:25px; cursor:pointer; float:right;" class="closeButtonModal" onclick="displayNotification()">&#10006;</p>
+        <p id="closenotification" style="color:red; font-size:35px; cursor:pointer; float:right;" class="closeButtonModal" onclick="displayNotification()">&#10006;</p>
         <div id="textnotification" class="textNotif">
           <span style="display:block; font-size:24px;  font-family:Arial">
             <?php echo lang("Bienvenue");?> <b> <?php echo $_SESSION['user']['pseudo']?></b>!
@@ -15,7 +15,6 @@ if(isset($_SESSION['user']['id'])):
               </div>
             <?php endif; ?>
             <?php foreach ($notificationinvitation as $key => $value): ?>
-              <a href="<?php echo goToPage('informationsgroupe', ['id'=>$value['id_groupe']])?>">
                 <div class="notifInvitation">
                   <div style="display:inline-block; width:20%;">
                     <img src="<?php echo image('svg/invitation.svg')?>" style="width:65px; margin-bottom:15px;" alt="" />
@@ -25,11 +24,12 @@ if(isset($_SESSION['user']['id'])):
                     <u><b>Date</u></b> : <?php echo DiffDate($value['date'])?>.</br>
                     <u><b>Message</u></b> : <?php echo $value['message']?></br>
                   </div>
-                  <div style="display:block; width:90%; text-align:center; margin:0 auto; font-family:Arial;">
-                    <i><?php echo lang('Vous pouvez consulter leur page en cliquant sur cette notification')?>.</i>
-                  </div>
+                  <a href="<?php echo goToPage('informationsgroupe', ['id'=>$value['id_groupe']])?>">
+                    <div class="msgclick">
+                        <i><?php echo lang('Vous pouvez consulter leur page en cliquant sur ce message')?>.</i>
+                    </div>
+                  </a>
                 </div>
-              </a>
             <?php endforeach; ?>
           </div>
 

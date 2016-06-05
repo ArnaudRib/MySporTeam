@@ -150,4 +150,22 @@ class UserModele extends BaseDeDonnes
     return $resultats;
   }
 
+  function checkEmailPseudo(){
+    $sql="SELECT * FROM utilisateur WHERE pseudo=? AND email=?";
+    $resultat=$this->requeteSQL($sql, [$_POST['pseudo'], $_POST['email']]);
+    return $resultat;
+  }
+
+  function AddToken($token){
+    $sql="UPDATE utilisateur SET token=? WHERE pseudo=?";
+    $resultat=$this->requeteSQL($sql, [$token, $_POST['pseudo']]);
+  }
+
+  function resetPw($token){
+    $sql="UPDATE utilisateur SET mot_de_passe=? WHERE token=?";
+    $resultat=$this->requeteSQL($sql, [sha1($_POST['mot_de_passe']), $token]);
+
+    $sql="UPDATE utilisateur SET token=NULL WHERE token=?";
+    $resultat=$this->requeteSQL($sql, [$token]);
+  }
 }

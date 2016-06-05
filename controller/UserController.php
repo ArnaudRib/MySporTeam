@@ -73,6 +73,62 @@ class UserController
   }
 
 
+  public function resetPw(){
+    if(!empty($_POST)){
+      if(!empty($_POST['resetpw'])){
+        $verification = new Verification($_POST);
+        $verificationPhoto = new Verification($_FILES);
+        $verification->notEmpty('mot_de_passe', "Veuillez compléter le premier champ de mot de passe.");
+        $verification->notEmpty('mot_de_passe_confirmation', "Veuillez compléter la vérification du mot de passe");
+        $error.=$verification->error;
+        if($verification->isValid()){
+          if($_POST['mot_de_passe']==$_POST['mot_de_passe_confirmation']){
+            $this->user->resetPw($_GET['token']);
+            $succes.="Votre mot de passe a été réinitialisé avec succès!
+                      </br>Vous pouvez désormais vous connecter avec votre nouveau mot de passe.
+                      <div style='background-color:rgb(159, 255, 183); width:40%;padding:10px; border-radius:5px; border:1px black solid; margin:10px auto; cursor:pointer;'>Cliquez ici.</div>";
+          }else{
+            $error.='Les deux mots de passe ne corroborent pas.';
+          }
+        }
+      }
+    }
+    $vue=new Vue("ResetPw","User",['stylesheet.css'], ['Verification.js']);
+    $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
+  }
+
+  public function forgottenpw(){
+    if(!empty($_POST)){
+      $succes="";
+      $error="";
+      $nomville="";
+      if(!empty($_POST['sendmail'])){
+        $verification = new Verification($_POST);
+        $verificationPhoto = new Verification($_FILES);
+        $verification->notEmpty('email', "Veuillez compléter le champ email.");
+        $verification->notEmpty('pseudo', "Spécifiez le pseudo.");
+        $error.=$verification->error;
+        if($verification->isValid()){
+          if($this->user->checkEmailPseudo()){
+            $userinfo=$this->user->getDataUser($_POST['pseudo'])->fetch();
+            $token=sendmail($userinfo);
+            if(isset($token)){
+              $this->user->AddToken($token);
+              $succes.="Le mail de confirmation de votre identité vous a été envoyé!</br>Veuillez suivre les étapes qui y seront indiquées.";
+            }else{
+              $error.='Une erreur s\'est produite lors de l\'envoi du mail.';
+            }
+          }else{
+            $error.='Il semblerait que les informations rentrées ne soient pas correctes.';
+          }
+        }
+      }
+    }
+    $vue=new Vue("ForgottenPw","User",['stylesheet.css'], ['Verification.js']);
+    $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
+  }
+
+
   public function loadProfil()
   {
     $pseudouser=str_replace(' ', '-', $_SESSION['user']['pseudo']);

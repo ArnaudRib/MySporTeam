@@ -94,6 +94,15 @@ class Route
         $this->ctr['User']->deconnexion();
         break;
 
+      case 'resetpw':
+        $this->ctr['User']->resetPw();
+        break;
+
+      case 'forgottenpw':
+        $this->ctr['User']->forgottenPw();
+        break;
+
+
       case 'inscription':
         $this->ctr['User']->inscription();
         break;

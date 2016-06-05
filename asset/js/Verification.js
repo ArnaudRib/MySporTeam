@@ -23,9 +23,11 @@ function Verification(){
 
 function showmessage(element){
   console.log(element.value);
+  var mdp1=document.getElementById('mdp');
   var message=document.getElementById('messageMDP');
   if(!element.value.match(/(?=.*[A-Z])(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}/)){
     message.innerHTML='<div class="infobox">Le mot de passe doit contenir <b>6 caractères</b>, dont <b>un symbole</b>, <b>1</b> lettre <b>minuscule</b> et <b>1 majuscule.</b></div>'
+    mdp1.style.backgroundColor="red";
     document.getElementById('submit').disabled=true;
     document.getElementById('submit').style.cursor="not-allowed";
   }else{
@@ -36,6 +38,7 @@ function showmessage(element){
   }
   if(element.value==''){
     message.innerHTML='';
+    mdp1.style.backgroundColor="";
     document.getElementById('submit').disabled=true;
     document.getElementById('submit').style.cursor="not-allowed";
   }

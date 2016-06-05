@@ -710,6 +710,22 @@ input.searchbar{
   height: 150px;
 }
 
+/* NOUVEAU MOT DE PASSE */
+
+.labelnouveaumdp {
+  display: inline-block;
+  width: 300px;
+  text-align: right;
+}
+
+.txtnouveaumdp {
+  width: 200px;
+  border-radius:5px;
+  font-size:15px;
+  padding:12px;
+  margin: 10px 0 10px 0;
+  border:1px black solid;
+}
 
 /* Inscription */
 fieldset {
@@ -2860,7 +2876,7 @@ a{
   margin:0 auto;
 	border: 1px solid #000000;
 	width: 55%;
-	padding: 0 15px 0 15px;
+  padding: 40px;
 	box-shadow: 4px 4px 4px rgba(0,0,0,0.5);
 	background-color: #dbeaef;
 }
@@ -3262,6 +3278,18 @@ a{
   padding:5px;
 }
 
+.msgclick{
+  display:block;
+  width:90%;
+  text-align:center;
+  margin:0 auto;
+  font-family:Arial;
+  transition:1s all ease;
+}
+
+.msgclick:hover{
+  color:red;
+}
 .hidden{
   height:0px;
   width:0px;
