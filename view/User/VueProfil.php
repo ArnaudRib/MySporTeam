@@ -39,14 +39,15 @@
             <li>
               <?php echo lang('Photo de profil') ?> : (1Mo max)
               <div class="import">
-                <img class="classImage UploadedImage" style="padding:0px;margin-top:10px;" src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>"/>
+                <img class="classImage UploadedImage" style="padding:0px;margin-top:10px;" <?php if(file_exists(image('Users/Profil/'.$pseudouser.'.jpg'))){?>  src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>"
+              <?php  }?>/>
                 <label for="photo" class="boutonInputFile" style="width:60%; margin:10px auto;"><?php echo lang("Importer un fichier") ?></label>
                 <input id="photo" class="files" type="file" name="photo" style="display:none; ">
               </div>
             </li>
             <li><?php echo lang('Photo de couverture')?> (5Mo max)
               <div class="import">
-                <img class="classImage UploadedImage" style="padding:0px;margin-top:10px;" src="<?php echo image('Users/Bannière/'.$pseudouser.'.jpg')?>"/>
+                <img class="classImage UploadedImage" style="padding:0px;margin-top:10px;" <?php if(file_exists(image('Users/Bannière/'.$pseudouser.'.jpg'))){?> src="<?php echo image('Users/Bannière/'.$pseudouser.'.jpg')?>" <?php }?>/>
                 <label for="couverture" class="boutonInputFile" style="width:60%; margin:10px auto;"><?php echo lang("Importer un fichier") ?></label>
                 <input id="couverture" class="files" type="file" name="couverture" style="display:none;">
               </div>

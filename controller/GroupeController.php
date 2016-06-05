@@ -120,7 +120,6 @@ class GroupeController
         }if(!empty($_POST['desiste'])){
           $this->groupe->quitInvit($_SESSION['user']['id'], $id_groupe);
         }
-
       if(!empty($_POST['enregistrement'])){
         $info_ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
         $id_ville=$info_ville['id'];
@@ -334,6 +333,7 @@ class GroupeController
           $ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
           $_POST['ville']=intval($ville['id']);
           $id=$this->groupe->addGroupe();
+          $this->user->addLeader();
           $succes="Groupe ajouté avec succès!</br> Vous pouvez consulter sa page en cliquant ";
         }
       }
