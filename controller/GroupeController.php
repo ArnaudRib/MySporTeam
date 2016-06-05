@@ -109,13 +109,14 @@ class GroupeController
   {
     $vue=new Vue("UnEvenementGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
     if(!empty($_POST)){
-      if($_POST['abonnement']=="Rejoindre"){
-          $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
+      if(isset($_POST['abonement'])){
+        if($_POST['abonnement']=="Rejoindre"){
+            $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
+        }
+        if($_POST['abonnement']=="Désinscrire"){
+            $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
+        }
       }
-      if($_POST['abonnement']=="Désinscrire"){
-          $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
-      }
-
       if(!empty($_POST['enregistrement'])){
         $info_ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
         $id_ville=$info_ville['id'];

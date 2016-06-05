@@ -2225,6 +2225,7 @@ ul {
 
 .infos_groupe {
   padding: 10px;
+  transition:1s all ease;
 }
 
 .infos_groupe h2{

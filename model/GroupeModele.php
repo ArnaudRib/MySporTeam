@@ -221,8 +221,7 @@ class GroupeModele extends BaseDeDonnes
 
   function addEventToUser($id_evenement,$id_user){
     $sql="INSERT INTO utilisateur_evenement(id_utilisateur, id_evenement) VALUES (?,?)";
-    $resultat=$this->requeteSQL($sql, [$id_user, $id_evenement])->fetch();
-    return $resultat;
+    $resultat=$this->requeteSQL($sql, [intval($id_user), intval($id_evenement)]);
   }
 
   function deleteEventToUser($id_evenement,$id_user){

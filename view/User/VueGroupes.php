@@ -1,9 +1,9 @@
 <div class="fond_mongroupe">
   <div id="image_de_fond">
-    <img src="<?php echo image('Users/Bannière/'.$pseudouser.'.jpg')?>"/>
+    <img src="<?php echo image('Users/Bannière/'.$pseudouser.'.jpg')?>" alt="La photo n'a pas encore été ajoutée."/>
   </div>
   <div id="haut_mongroupe">
-    <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>"/>
+    <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>" alt="La photo n'a pas encore été ajoutée."/>
     <h1><?php echo $_SESSION['user']['pseudo'] ?></h1>
     <div id="menu_mongroupe">
       <nav>
@@ -49,11 +49,11 @@
   </div>
   <div class="cote_mesgroupes radius_mongroupe forme_case" style="width:80%; margin:20px auto;text-align:center; display:block;">
     <div class="titre">
-      <h1>Photos des groupes auxquels il est inscrit.</h1>
+      <h1>Photos des groupes auxquels je suis inscrit.</h1>
     </div>
     <div class="sports_mesgroupes" style='padding:20px;'>
-    <?php CreateSlider($array, 'Slide', '100%', '400px'); ?>
+      <?php CreateSlider($array, 'Slide', '100%', '400px'); ?>
+      </div>
+    </div>
   </div>
-</div>
-
 </div>
