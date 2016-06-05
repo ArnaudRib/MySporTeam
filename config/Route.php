@@ -68,6 +68,14 @@ class Route
         $this->ctr['Accueil']->loadRechercheGenerale();
         break;
 
+      case 'messageprive':
+        $this->ctr['Accueil']->loadMessagePrive();
+        break;
+
+      case 'ajaxrechercheuser':
+        $this->ctr['Accueil']->loadRechercheUser();
+        break;
+
       //Sports
       case 'ajaxloadphoto':
         $this->ctr['Sport']->loadphoto();
@@ -85,6 +93,15 @@ class Route
       case 'deconnexion':
         $this->ctr['User']->deconnexion();
         break;
+
+      case 'resetpw':
+        $this->ctr['User']->resetPw();
+        break;
+
+      case 'forgottenpw':
+        $this->ctr['User']->forgottenPw();
+        break;
+
 
       case 'inscription':
         $this->ctr['User']->inscription();
@@ -235,7 +252,7 @@ class Route
 }
 
 /* Fonctions Utiles dans toutes les pages. */
-function goToPage($nom, $params=[]){ // ECRIRE : <a href="<?php echo goToPage('nomVertDansLeJsonAvecLesBonsParametres') etc..
+function goToPage($nom, $params=[]){
   $json = file_get_contents("config/Route.json", "r");
   $obj = json_decode($json, true);
   $url=$obj[$nom];

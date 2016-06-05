@@ -4,7 +4,7 @@
   </div>
   <div id="haut_mongroupe">
     <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>"/>
-    <h1><?=$dataUser['pseudo'] ?></h1>
+    <h1><?php echo $dataUser['pseudo'] ?></h1>
     <div id="menu_mongroupe">
       <nav>
         <ul style='margin-top:15px;'>
@@ -35,7 +35,7 @@
       if($value['public']==1) :  ?>
       <div class="infos_groupe"><a href="">
         <h2><?=$value["nom_groupe"] ?></h2>
-        <h3><?=$value["localisation"]  ?></h3>
+        <h4>Adresse : <?php echo !empty($value["adresse"]) ? $value["adresse"] : 'Non précisée.' ?></h4>
         <h4>Sport : <?=$value["nom_sport"]  ?></h3>
         <h4>Nombres max de sportifs : <?=$value["nbmax_sportifs"]  ?></h4>
       </div></a>

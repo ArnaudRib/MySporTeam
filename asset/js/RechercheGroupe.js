@@ -67,7 +67,6 @@ function updatePos(list, sens) {
   }
 }
 
-
 function out(e) {
   list = document.getElementById('results').getElementsByTagName('li');
   var key = e.keyCode;

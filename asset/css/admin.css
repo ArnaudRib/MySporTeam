@@ -241,13 +241,18 @@ table {
     font-style:normal;
 }
 
-tr{
+tr:nth-child(2n){
   background-color:rgba(195, 218, 254, 0.71);
   transition:2s all ease;
 }
 
+tr:nth-child(2n+1){
+  background-color:rgba(150, 188, 249, 0.71);
+  transition:2s all ease;
+}
+
 .lignesport:hover{
-  background-color:rgb(107, 139, 255);
+  background-color:rgb(107, 139, 255) !important;
 }
 
 th, td {
@@ -256,7 +261,7 @@ th, td {
 }
 
 .header_tableau{
-  background-color: rgb(62, 103, 254);
+  background-color: rgb(62, 103, 254)!important;
 }
 
 /*Types */

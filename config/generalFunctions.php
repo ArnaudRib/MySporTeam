@@ -24,7 +24,8 @@ Class Verification
   }
 
   public function isPreviousDate($name, $message){ /*pas testé xD.. */
-    if(!preg_match($this->post[$name],'/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/'))
+    if(!preg_match($this->post[$name],'/^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/'
+    ))
     {
       $this->error.=$message.'</br>';
       return false;
@@ -225,4 +226,28 @@ function showProfil($data) {
     echo "<i style='font-size:13px;'>";
     echo lang('Non spécifié')."</i>";
   }
+}
+
+function sendmail($info, $vue){
+  $destinataire=$info['email'];
+  $subject = 'Oubli de mot de passe.';
+  $token=GenerateToken();
+  ob_start();
+  require_once('view/_required/mail.php');
+  $message=ob_get_contents();
+  ob_end_clean();
+  $headers  = 'MIME-Version: 1.0' . "\r\n";
+  $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+  $headers .= 'From: Admin@MySporTeam.com' . "\r\n";
+  if(mail($destinataire, $subject, $message, $headers)){
+    return $token;
+  }else{
+    return '';
+  }
+}
+
+function GenerateToken($length=30){
+  $token = "abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0987654321";
+  $token = substr(str_shuffle(str_repeat($token,10)), 0, $length);
+  return $token;
 }

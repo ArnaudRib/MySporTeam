@@ -48,10 +48,10 @@
       </div>
       <div class="radius_mongroupe forme_case">
         <div class="titre">
-          <h1><?php echo lang('Informations groupe') ?></h1>
+          <h1 ><?php echo lang('Informations groupe') ?></h1>
         </div>
         <div>
-          <p style="width: 425px;"><?php echo $datagroupe['description']?></p>
+          <p style="width: 100%;"><?php echo $datagroupe['description']?></p>
           <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
         </div>
       </div>
@@ -205,7 +205,7 @@
 </div>
 
 
-  <div id="fb-root"></div>
+   <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;

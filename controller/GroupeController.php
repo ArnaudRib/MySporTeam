@@ -109,10 +109,10 @@ class GroupeController
   {
     $vue=new Vue("UnEvenementGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
     if(!empty($_POST)){
-      if(!empty($_POST['abonnement'])){
+      if($_POST['abonnement']=="Rejoindre"){
           $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
       }
-      if(!empty($_POST['desabonnement'])){
+      if($_POST['abonnement']=="Désinscrire"){
           $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
       }
 
@@ -139,7 +139,7 @@ class GroupeController
     $evenement=$this->groupe->getEvenement($id_evenement)->fetch();
     $club=$this->groupe->getClub($evenement['id_club'])->fetch();
     $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
-    $participants=$this->groupe->conutparticipants($id_evenement)->fetchAll();
+    $participants=$this->groupe->countparticipants($id_evenement)->fetchAll();
     $ville=$this->groupe->getVilleById($evenement['id_ville'])->fetch();
     $vue->loadpage(['datagroupe'=>$datagroupe, 'niveau'=>$niveau, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
   }
@@ -238,7 +238,7 @@ class GroupeController
   {
     $error='';
     $succes='';
-    $vue=new Vue("PublicationsGroupe", "Groupe", ['stylesheet.css']);
+    $vue=new Vue("PublicationsGroupe", "Groupe", ['stylesheet.css', 'RechercheGroupe.js']);
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
         if(($_POST['abonnement']=="Rejoindre")){

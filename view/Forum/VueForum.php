@@ -2,15 +2,7 @@
   <div class="blockforum">
     <div class="sectionForum">
       <div class="forums">
-        <h1 style="text-align: right; font-size: 50px;">Forum</h1>
-      </div>
-      <div class="container-barre">
-        <div class="barre-recherche">
-          <form>
-            <i class="fa fa-search fa-1x"></i>
-            <input type="text" name="recherche" placeholder="rechercher une question">
-          </form>
-        </div>
+        <h1 style="font-size: 50px; text-align:center;">Forum</h1>
       </div>
 
       <?php foreach ($topic as $key => $value) :?>

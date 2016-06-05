@@ -19,6 +19,11 @@
   "En vous inscrivant, vous pourrez participer à des cours, des entraînements, des compétitions proche de chez vous, et communiquer avec des passionnés du sport !":"En vous inscrivant, vous pourrez participer à des cours, des entraînements, des compétitions proche de chez vous, et communiquer avec des passionnés du sport !",
   "Première visite?":"Première visite ?",
   "Inscrivez vous!":"Inscrivez vous !",
+  "Vous avez":"Vous avez",
+  "non lu(s)":"non lu(s)",
+  "Le groupe privé":"Le groupe privé",
+  "vous a invité à les rejoindre!":"vous a invité à les rejoindre!",
+  "Vous pouvez consulter leur page en cliquant sur ce message":"Vous pouvez consulter leur page en cliquant sur ce message",
   "FAQ":"FAQ",
   "Q":"Q",
   "R":"R",
@@ -191,6 +196,10 @@
   "Groupe privé. Evénements masqués.":"Groupe privé. Evénements masqués.",
   "Groupe privé. Membres masqués.":"Groupe privé. Membres masqués.",
   "Ajouter des membres":"Ajouter des membres",
- "Nombre max de membres":"Nombre max de membres",
- "Nombre maximum de membres":"Nombre maximum de membres"
+  "Nombre max de membres":"Nombre max de membres",
+  "Nombre maximum de membres":"Nombre maximum de membres",
+  "Ajouter un club":"Ajouter un club",
+  "Nom du club" : "Nom du club" ,
+  "Ajouter un club" : "Ajouter un club" ,
+  "Importer une bannière du club (.jpg)" : "Importer une bannière du club (.jpg)"
 }

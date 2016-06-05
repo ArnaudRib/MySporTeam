@@ -210,14 +210,47 @@ class AdminController
 
   public function loadBackOfficeClub()
   {
-    if(isset($_POST['Suppr'])){
-      //supprimer groupe ici.
-      $this->admin->deleteClub();
-      $succes="Suppression réussie!";
+    if(!empty($_POST)){
+      if(isset($_POST['modifierclub'])){
+        $verification = new Verification($_POST);
+        $verification->notEmpty('informations', "Veuillez remplir la description du club.");
+        $verification->notEmpty('telephone', "Veuillez remplir le numéro de téléphone du club.");
+        $verification->notEmpty('email', "Veuillez remplir l'adresse email du club.");
+        $verification->notEmpty('lien', "Veuillez ajouter le lien du site du club.");
+        $verification->notEmpty('nom', "Veuillez remplir le nom du club.");
+        $verification->notEmpty('adresse', "Veuillez remplir l'adresse du club.");
+        $error=$verification->error;
+        if($verification->isValid()){
+          if(empty($error)){
+            $this->admin->updateClub($_POST['id_club']);
+          }
+        }
+      }
+
+      if(isset($_POST['addclub'])){
+        $verification = new Verification($_POST);
+        $verification->notEmpty('informations', "Veuillez remplir la description du club.");
+        $verification->notEmpty('telephone', "Veuillez remplir le numéro de téléphone du club.");
+        $verification->notEmpty('email', "Veuillez remplir l'adresse email du club.");
+        $verification->notEmpty('lien', "Veuillez ajouter le lien du site du club.");
+        $verification->notEmpty('nom', "Veuillez remplir le nom du club.");
+        $verification->notEmpty('adresse', "Veuillez remplir l'adresse du club.");
+        $error=$verification->error;
+        if($verification->isValid()){
+          if(empty($error)){
+            $this->admin->addClub();
+          }
+        }
+      }
+
+      if(isset($_POST['Suppr'])){
+        //supprimer club ici.
+        $this->admin->deleteClub();
+        $succes="Suppression réussie!";
+      }
     }
     $clubs=$this->groupe->getClubs()->fetchAll();
     $vue=new Vue("BackOfficeClub","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
-    $vue->loadbackoffice(['clubs'=>$clubs]);
+    $vue->loadbackoffice(['clubs'=>$clubs, 'error'=>$error, 'succes'=>$succes]);
   }
-
 }

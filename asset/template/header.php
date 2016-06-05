@@ -23,6 +23,9 @@
     <a style="color:white;margin: 0px 20px;" href='<?php goToPage('aide');?>'>aide</a>
     <a style="color:white;margin: 0px 20px;" href='<?php goToPage('backoffice');?>'>Admin</a>
     <a style="color:white;margin: 0px 20px;" href="<?php goToPage('sportgroupe',['id_sport'=>'1']);?>">groupe/Sport(accessible depuis page principale sur photo)</a>
+    <a style="color:white; margin: 0px 20px;" href='<?php goToPage('resetpw'); ?>'>reset</a>
+    <a style="color:white; margin: 0px 20px;" href='<?php goToPage('forgottenpw'); ?>'>forgotten</a>
+
   </span>
 
 

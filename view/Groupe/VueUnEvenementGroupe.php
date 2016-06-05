@@ -13,15 +13,15 @@
           <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Publications') ?></li></a>
           <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="selectionne"><li><?php echo lang('Evènements') ?></li></a>
           <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li><?php echo lang('Membres') ?></li></a>
-          <?php if($isMembre==false):
-          if($datagroupe['public']!="0"): 
+           <?php if($isMembre==false):
+          if($datagroupe['public']!="0"):
           if((intval($datagroupe['nbmax_sportifs']))-(intval($NBmembres['0']['COUNT(id)']))>0):?>
           <li id="abonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
               <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
             </form>
           </li>
-          <?php 
+          <?php
           else:
           endif;
           endif;
@@ -57,12 +57,12 @@
             <input style="width:100%;" class="participation" type="submit" name="addPlanning" value="Ajouter au planning" style='cursor:pointer;'>
           </form>
         <?php endif;
-      else:?>
-      <form action="" method="post" style="text-align:center;">
-        <input style="width:100%;" class="participation" type="submit" name="deletePlanning" value="Supprimer du planning" style='cursor:pointer;'>
-      </form>
-    <?php endif;
-    endif;?>
+          else:?>
+          <form action="" method="post" style="text-align:center;">
+            <input style="width:100%;" class="participation" type="submit" name="deletePlanning" value="Supprimer du planning" style='cursor:pointer;'>
+          </form>
+        <?php endif;?>
+      <?php endif;?>
     <!-- Vas falloir faire un submit ici un jour ;D -->
   </div>
 
@@ -102,8 +102,7 @@
         <?php else:?>
             <div>
               <p><?php echo $evenement['description']?></p>
-              <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
-            </div>
+              </div>
         <?php endif;?>
           <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
         </div>
@@ -135,20 +134,20 @@
         <div class="titre">
           <h1>Club</h1>
         </div>
-        <h2 style="font-size:15px;"><?php echo $club['nom']?></h2>
+        <a href="<?php goToPage('clubinfo',['id_club'=>$club['id']])?>" style="font-size:15px; "><?php echo $club['nom']?></a>
       </div>
-        <?php if(!empty($_POST['modif'])):?>
-          <form class="" action="" method="post">
-            <input class="buttonmodif" type="submit" name="enregistrement" value="Enregistrer les modifications">
-          </form>
-          <?php endif;
-        if($isLeader):
-          if(empty($_POST['modif'])):?>
-          <form class="" action="" method="post">
-            <input type="submit" class="buttonmodif" name="modif" value="Modifier les informations" style='cursor:pointer;'>
-          </form>
-        <?php endif;?>
+      <?php if(!empty($_POST['modif'])):?>
+        <form class="" action="" method="post">
+          <input class="buttonmodif" type="submit" name="enregistrement" value="Enregistrer les modifications">
+        </form>
+        <?php endif;
+      if($isLeader):
+        if(empty($_POST['modif'])):?>
+        <form class="" action="" method="post">
+          <input type="submit" class="buttonmodif" name="modif" value="Modifier les informations" style='cursor:pointer;'>
+        </form>
       <?php endif;?>
+    <?php endif;?>
 
       </form>
     </div>
@@ -164,3 +163,12 @@
   </div>
   <div id="fb-root"></div>
 </div>
+
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
