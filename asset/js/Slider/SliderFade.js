@@ -27,4 +27,4 @@ function MakeVisible(numeroimage) {
   d.classList.toggle("visible");
 }
 
-setInterval(Next, 3000);
+setInterval(Next, 5000);

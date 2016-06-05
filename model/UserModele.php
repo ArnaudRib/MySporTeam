@@ -97,9 +97,18 @@ class UserModele extends BaseDeDonnes
   }
 
   function getDataGroupeUser() {
-    $sql="SELECT * FROM utilisateur_groupe JOIN groupe ON groupe.id=utilisateur_groupe.id_groupe WHERE id_utilisateur=? ";
+    $sql="SELECT * FROM utilisateur_groupe JOIN groupe ON groupe.id=utilisateur_groupe.id_groupe WHERE id_utilisateur=?";
     $resultat=$this->requeteSQL($sql,[$_SESSION['user']['id']])->fetchAll();
     return $resultat;
+  }
+
+  function getDataLeaderGroupe($groupes){
+    foreach ($groupes as $key => $value) {
+      $sql="SELECT utilisateur.pseudo FROM utilisateur_groupe JOIN utilisateur ON utilisateur.id=utilisateur_groupe.id_utilisateur WHERE leader_groupe=1 AND id_groupe=?";
+      $resultat=$this->requeteSQL($sql,[$value['id']])->fetchAll();
+      $allresults[$value['id']]=$resultat[0]['pseudo'];
+    }
+    return $allresults;
   }
 
   function getDataGroupeAUser($pseudo) {

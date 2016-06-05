@@ -118,15 +118,13 @@ endif;?>
           <p><strong><?php echo lang("MySporteam") ?></strong> <?php echo lang("vous permet d'intéragir avec des personnes ayant les mêmes passions que vous !") ?> </br></br>
             <?php echo lang("En vous inscrivant, vous pourrez participer à des cours, des entraînements, des compétitions proche de chez vous, et communiquer avec des passionnés du sport !") ?></p>
           </div><div class="Bas1">
-            <div id="bouttoninscription">
-              <a href="<?php goToPage('inscription')?>">
-                <button class="button"><?php echo lang("Première visite?") ?></br><span style="font-size:15px;"><?php echo lang("Inscrivez vous!") ?></span></button>
-              </a>
-            </div>
+          <div id="bouttoninscription">
+            <a href="<?php goToPage('inscription')?>">
+              <button class="button"><?php echo lang("Première visite?") ?></br><span style="font-size:15px;"><?php echo lang("Inscrivez vous!") ?></span></button>
+            </a>
           </div>
         </div>
       </div>
-    </aside>
-  </nav>
-  <!-- <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Fade', '100%', '400px'); ?>
-  <?php CreateSlider(['sport.png', 'sport2.jpg', 'sport3.jpg'], 'Slide', '100%', '400px'); ?> -->
+    </div>
+  </aside>
+</nav>

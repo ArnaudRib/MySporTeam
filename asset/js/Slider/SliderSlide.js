@@ -51,4 +51,4 @@ function Slide(numeroimage){ //Mets les images sur une ligne
   }
 }
 
-setInterval(Automatique, 3000);
+setInterval(Automatique, 5000);
