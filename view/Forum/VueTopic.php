@@ -1,14 +1,6 @@
 <div class="AllForum">
   <div class="forum">
-    <h2 class="forums"><?php echo $topic['titre'] ?></h2>
-    <div class="container-barre">
-      <div class="barre-recherche">
-        <form class="forumrecherche">
-          <i class="fa fa-search fa-1x"></i>
-          <input type="text" name="recherche" placeholder="rechercher une question">
-        </form>
-      </div>
-    </div>
+    <h2 class="forums" style="text-align:center;"><?php echo $topic['titre'] ?></h2>
 
     <div class="padding10 bleu" style="text-align:right;">
       <div class="titreforum">

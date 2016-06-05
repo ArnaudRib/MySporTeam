@@ -260,15 +260,19 @@ left:6rem;
 .apparition {
   transition: opacity 1s ease;
   animation: apparition 1s;
-  visibility: visible;
+  visibility:visible;
 }
 
 @keyframes apparition {
   from {
-    opacity: 0;
+    visibility: hidden;
+    opacity:0;
+    height:0px;
   }
   to {
-    opacity: 1;
+    visibility:visible;
+    opacity:1;
+    height:70px;
   }
 }
 
@@ -282,10 +286,12 @@ left:6rem;
   from {
     visibility:visible;
     opacity: 1;
+    height:70px;
   }
   to {
     visibility: hidden;
     opacity: 0;
+    height:0px;
   }
 }
 
@@ -762,6 +768,7 @@ body{
 }
 .bodybackground{
   background-image:url("../images/wallpaper.png");
+  background-size: cover;
 }
 
 form h1 {
@@ -2561,7 +2568,7 @@ tr {
 
 .forums {
 	display:inline-block;
-	width: 58%;
+	width: 100%;
 }
 
 .barre-recherche {
