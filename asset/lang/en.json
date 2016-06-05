@@ -202,5 +202,12 @@
   "Nom du club" : "Name of the club" ,
   "Ajouter un club" : "Add a club" ,
   "Importer une bannière du club (.jpg)" : "Import a cover picture for the club (.jpg)",
-  "Pour finaliser votre inscription, vous acceptez les":"In order to complete your inscription, you need to accept"
+  "Pour finaliser votre inscription, vous acceptez les":"In order to complete your inscription, you need to accept",
+  "Rejoindre":"Join",
+  "Désinscire":"Quit",
+  "Début":"Begin",
+  "Fin":"End",
+  "Rejoignez le groupe pour vous inscrire":"Join the group to participate",
+  "Ajouter au planning":"Add to planning",
+  "Supprimer du planning":"Delete from planning"
 }

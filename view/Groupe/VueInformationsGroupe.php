@@ -18,7 +18,7 @@
           if((intval($datagroupe['nbmax_sportifs']))-(intval($NBmembres['0']['COUNT(id)']))>0):?>
           <li id="abonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
-              <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
+              <input  type="submit" name="abonnement" value="<?php echo lang('Rejoindre')?>" style='cursor:pointer;'>
             </form>
           </li>
           <?php
@@ -45,7 +45,7 @@
           <?php else:?>
             <li id="desabonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
-              <input type="submit" name="desabonnement" value="Désinscrire" style='cursor:pointer;'>
+              <input type="submit" name="desabonnement" value="<?php echo lang('Désinscire')?>" style='cursor:pointer;'>
             </form>
             </li>
           <?php endif;?>
@@ -73,7 +73,7 @@
         <div>
           <p><?php echo $datagroupe['description']?></p>
           <p><?php echo lang('Nombre maximum de membres')?>:<?php echo $datagroupe['nbmax_sportifs']?></p>
-          <div class="fb-share-button" data-href="" data-layout="button_count"></div>
+          <div class="fb-share-button" data-href="http://mysporteam.esy.es/fr/groupe/<?php echo $datagroupe['id']?>/informations" data-layout="button_count"></div>
         </div>
         <?php endif;?>
       </div>

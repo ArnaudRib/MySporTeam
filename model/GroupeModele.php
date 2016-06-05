@@ -123,7 +123,7 @@ class GroupeModele extends BaseDeDonnes
   }
 
   function getInfoLeader($id_groupe){
-    $sql="SELECT * FROM utilisateur INNER JOIN utilisateur_groupe ON utilisateur.id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe=? AND utilisateur_groupe.@leader_groupe=1";
+    $sql="SELECT * FROM utilisateur INNER JOIN utilisateur_groupe ON utilisateur.id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe=? AND utilisateur_groupe.leader_groupe=1";
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
   }

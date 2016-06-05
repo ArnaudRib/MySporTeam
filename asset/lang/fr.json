@@ -202,5 +202,12 @@
   "Nom du club" : "Nom du club" ,
   "Ajouter un club" : "Ajouter un club" ,
   "Importer une bannière du club (.jpg)" : "Importer une bannière du club (.jpg)",
-  "Pour finaliser votre inscription, vous acceptez les":"Pour finaliser votre inscription, vous acceptez les"
+  "Pour finaliser votre inscription, vous acceptez les":"Pour finaliser votre inscription, vous acceptez les",
+  "Rejoindre":"Rejoindre",
+  "Désinscire":"Désinscrire",
+  "Début":"Début",
+  "Fin":"Fin",
+  "Rejoignez le groupe pour vous inscrire":"Rejoignez le groupe pour vous inscrire",
+  "Ajouter au planning":"Ajouter au planning",
+  "Supprimer du planning":"Supprimer du planning"
 }

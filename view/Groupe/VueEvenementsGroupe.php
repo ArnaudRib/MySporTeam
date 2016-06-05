@@ -18,7 +18,7 @@
           if((intval($datagroupe['nbmax_sportifs']))-(intval($NBmembres['0']['COUNT(id)']))>0):?>
           <li id="abonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
-              <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
+              <input  type="submit" name="abonnement" value="<?php echo lang('Rejoindre')?>" style='cursor:pointer;'>
             </form>
           </li>
           <?php
@@ -28,7 +28,7 @@
           if($isInvit==true):?>
           <li id="abonnement" style="margin-top:-10px; margin-left:40px;">
             <form class="" action="" method="post">
-              <input  type="submit" name="abonnement" value="Accepter l'invitation" style='cursor:pointer;'></input>
+              <input  type="submit" name="abonnement" value="<?php echo lang('Accepter l\'invitation')?>" style='cursor:pointer;'></input>
             </form>
             </li>
             <li id="desabonnement" style="margin-top:-10px; margin-left:10px;">
@@ -45,7 +45,7 @@
           <?php else:?>
             <li id="desabonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
-              <input type="submit" name="desabonnement" value="Désinscrire" style='cursor:pointer;'>
+              <input type="submit" name="desabonnement" value="<?php echo lang('Désinscire')?>" style='cursor:pointer;'>
             </form>
             </li>
           <?php endif;?>
@@ -78,8 +78,8 @@
           <img src="<?php echo image('Groupes/Evenements/'.$nom_evenement.'.jpg')?>"/>
           <div class="texteevenement">
             <h1><?php echo $value['nom']?></h1>
-            <h2 style="font-size:15px; color:grey;">Début : <?php echo $value['date_debut']?></h2>
-            <h2 style="font-size:15px; color:grey;">Fin : <?php echo $value['date_fin']?></h2>
+            <h2 style="font-size:15px; color:grey;"><?php echo lang('Début')?> : <?php echo $value['date_debut']?></h2>
+            <h2 style="font-size:15px; color:grey;"><?php echo lang('Fin')?>  : <?php echo $value['date_fin']?></h2>
 
             <p><?php echo $value['description']?></p>
             <a style="display:inline-block;" href="<?php goToPage('unevenementgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>$value['id']])?>"><?php echo lang("Plus d'info") ?></a>

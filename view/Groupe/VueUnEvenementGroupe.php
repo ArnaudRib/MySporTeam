@@ -18,7 +18,7 @@
           if((intval($datagroupe['nbmax_sportifs']))-(intval($NBmembres['0']['COUNT(id)']))>0):?>
           <li id="abonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
-              <input  type="submit" name="abonnement" value="Rejoindre" style='cursor:pointer;'>
+              <input  type="submit" name="abonnement" value="<?php echo lang('Rejoindre')?>" style='cursor:pointer;'>
             </form>
           </li>
           <?php
@@ -45,7 +45,7 @@
           <?php else:?>
             <li id="desabonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
-              <input type="submit" name="desabonnement" value="Désinscrire" style='cursor:pointer;'>
+              <input type="submit" name="desabonnement" value="<?php echo lang('Désinscire')?>" style='cursor:pointer;'>
             </form>
             </li>
           <?php endif;?>
@@ -60,19 +60,19 @@
     </div>
     <div  style="display:inline-block;width:27%;vertical-align:top;">
       <?php if($isMembre==false):?>
-        <h1 class="radius_mongroupe participation2" style="">Rejoignez le groupe pour vous inscrire</h1>
+        <h1 class="radius_mongroupe participation2" style=""><?php echo lang('Rejoignez le groupe pour vous inscrire')?></h1>
       <?php else:
         if($isParticipant==false):
           if((intval($evenement['places']))-(intval($participants['0']['COUNT(id)']))==0):?>
           <h1 class="radius_mongroupe participation2" style="">Complet</h1>
         <?php else: ?>
           <form action="" method="post" style="text-align:center;">
-            <input style="width:100%;" class="participation" type="submit" name="addPlanning" value="Ajouter au planning" style='cursor:pointer;'>
+            <input style="width:100%;" class="participation" type="submit" name="addPlanning" value="<?php echo lang('Ajouter au planning')?>" style='cursor:pointer;'>
           </form>
         <?php endif;
           else:?>
           <form action="" method="post" style="text-align:center;">
-            <input style="width:100%;" class="participation" type="submit" name="deletePlanning" value="Supprimer du planning" style='cursor:pointer;'>
+            <input style="width:100%;" class="participation" type="submit" name="deletePlanning" value="<?php echo lang('Supprimer du planning')?>" style='cursor:pointer;'>
           </form>
         <?php endif;?>
       <?php endif;?>
@@ -97,10 +97,10 @@
       <div>
       <?php if(!empty($_POST['modif'])):?>
         <form class="" action="" method="post">
-          <h2>date début</h2>
+          <h2><?php echo lang('Début')?></h2>
           <for="date_debut"></label><br />
           <input class="inputinfogroupe" type="datetime" name="date_debut" value="<?php echo $evenement['date_debut']?>" id="pseudo" required/>
-          <h2>date fin</h2>
+          <h2><?php echo lang('Fin')?></h2>
           <for="date_fin"></label><br />
           <input class="inputinfogroupe" type="datetime" name="date_fin" value="<?php echo $evenement['date_fin']?>" id="pseudo" required/>
         <?php else:?>
@@ -117,7 +117,7 @@
               <p><?php echo $evenement['description']?></p>
               </div>
         <?php endif;?>
-          <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
+          <div class="fb-share-button" data-href="http://mysporteam.esy.es/fr/groupe/<?php echo $datagroupe['id']?>/evenements/<?php echo $evenement['id']?>" data-layout="button_count"></div>
         </div>
       </div>
       <div class="radius_mongroupe forme_case">
