@@ -6,17 +6,19 @@
     </div>
 
     <div class="question">
-      <div class="container light-background OmbreContainer centre">
+      <div style="background-color:white;" class="container light-background OmbreContainer centre">
         <?php foreach ($aide as $type => $contenu) :?>
-          <?php $hauteur=50+90*(count($contenu)); ?>
-          <div class="blockSection blackborder radius light-blue-background" style="<?php echo 'height:'.$hauteur.'px;'?>; text-align:left;">
+          <?php $hauteur=50+110*(count($contenu)); ?>
+          <div class="blockSection radius blue" style="<?php echo 'height:'.$hauteur.'px;'?>; text-align:left;">
             <h2 class="TitreSection centre radius">
               <?php echo $type ?>
             </h2>
             <div class="block80">
               <?php foreach ($contenu as $questionreponse) :?>
-                <?php echo lang("Q") ?> : <?php echo ($questionreponse[0]);?></br>
+              <div class="question-reponse">
+                <div style="font-weight:bold"><?php echo lang("Q") ?> : <?php echo ($questionreponse[0]);?></br></div>
                 <?php echo lang("R") ?> : <?php echo ($questionreponse[1]);?></br></br>
+                </div>
               <?php endforeach; ?>
             </div>
           </div>

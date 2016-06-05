@@ -915,6 +915,10 @@ form h1 {
   position: absolute;
 text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -1px;}
 
+.blue{
+  background-color: #045FB4;"
+}
+
 #menu_mongroupe{
   display: block;
   top:110px;
@@ -934,6 +938,24 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   display: inline-block;
   text-decoration: none;
   list-style-type:none;
+}
+
+.question-reponse{
+  font-family: Verdana;
+  background-color: white;
+  color:black;
+  padding:12px;
+  margin-top:8px;
+  margin-bottom:8px;
+  border-radius: 10px;
+}
+
+.bgblue{
+  background-color: #045FB4;
+}
+
+.backgroundcolorwhite{
+  background-color:white;
 }
 
 #non_selectionne{
@@ -1836,6 +1858,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 /* aide*/
 .question {
   width: 100%;
+  background-color: #045FB4;
 }
 
 .blockaide{
@@ -1858,8 +1881,9 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 }
 
 .TitreSection{
-  color:black;
-  padding:4 0;
+  color:white;
+  padding:4px;
+  background-color: darkred;
 }
 
 ul {
