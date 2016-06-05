@@ -23,7 +23,7 @@ endif; */?>
           <div><label for="mdp"><img src="<?php echo image('Users/icone_lock.png')?>" /></label>
             <input id="mdp" type="password" name="mot_de_passe" placeholder="Mot de passe" oninput="Verification()" required></div> <br />
             <div style="margin-top:-15px;">
-              <a style="text-decoration:none !important;" href=""> <p class="textunderconnexion"><?php echo lang('Mot de passe oublié ?') ?></p> </a>
+              <a style="text-decoration:none !important;" href="<?php echo goToPage('forgottenpw')?>"> <p class="textunderconnexion"><?php echo lang('Mot de passe oublié ?') ?></p> </a>
               |
               <a style="text-decoration:none !important;" href="inscription"> <p class="textunderconnexion"><?php echo lang('Pas inscrit ?') ?></p></a>
             </div>
