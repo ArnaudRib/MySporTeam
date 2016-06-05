@@ -35,16 +35,18 @@
       </div>
     </div>
     <?php foreach ($dataGroupUser as $key => $value) :?>
-      <div id="publication" class="radius_mongroupe forme_case">
-        <div class="titre">
-          <h1><?=$value['nom'] ?></h1>
-        <hr style="border:1px black solid; width:80%; margin:0px auto;margin-bottom:7px;">
-          <h2 style="color:red; margin-left:20px; display:block; margin-top:-5px;"><span style='color:white; text-decoration: underline;'>Création :</span> <?=DiffDate($value['date_creation']) ?></h2>
-          <h2 style="color:red; margin-left:20px; display:block;"><span style='color:white; text-decoration: underline;'>Leader :</span> <?=$leader_groupe[$value['id']] ?></h2>
-          <h2 style="color:red; margin-left:20px; display:block; padding-bottom:5px;"><span style='color:white; text-decoration: underline;'>Nombre maximum de membres :</span> <?=$value['nbmax_sportifs'] ?></h2>
+      <a href="<?php goToPage('informationsgroupe', ['id'=>$value['id']])?>">
+        <div id="publication" class="radius_mongroupe forme_case">
+          <div class="titre">
+            <h1><?=$value['nom'] ?></h1>
+          <hr style="border:1px black solid; width:80%; margin:0px auto;margin-bottom:7px;">
+            <h2 style="color:red; margin-left:20px; display:block; margin-top:-5px;"><span style='color:white; text-decoration: underline;'>Création :</span> <?=DiffDate($value['date_creation']) ?></h2>
+            <h2 style="color:red; margin-left:20px; display:block;"><span style='color:white; text-decoration: underline;'>Leader :</span> <?=$leader_groupe[$value['id']] ?></h2>
+            <h2 style="color:red; margin-left:20px; display:block; padding-bottom:5px;"><span style='color:white; text-decoration: underline;'>Nombre maximum de membres :</span> <?=$value['nbmax_sportifs'] ?></h2>
+          </div>
+          <p style="width:90%; text-align:center; margin:0 auto; word-wrap: break-word;"><?=$value['description'] ?></p>
         </div>
-        <p style="width:90%; text-align:center; margin:0 auto;"><?=$value['description'] ?></p>
-      </div>
+      </a>
     <?php endforeach?>
   </div>
   <div class="cote_mesgroupes radius_mongroupe forme_case" style="width:80%; margin:20px auto;text-align:center; display:block;">

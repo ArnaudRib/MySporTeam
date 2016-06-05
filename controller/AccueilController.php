@@ -77,4 +77,9 @@ class AccueilController
     $vue=new Vue("MessagePrive","Accueil", ['stylesheet.css'], ['RechercheUser.js']);
     $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
   }
+
+  public function load404(){
+    $vue=new Vue("404","Accueil", ['stylesheet.css'], ['RechercheUser.js']);
+    $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
+  }
 }

@@ -245,7 +245,8 @@ class Route
         break;
 
       default:
-        # code...
+        echo 'ok';
+        $this->ctr['Accueil']->load404();
         break;
     }
   }
