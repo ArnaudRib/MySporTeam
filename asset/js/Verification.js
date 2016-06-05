@@ -43,3 +43,49 @@ function showmessage(element){
     document.getElementById('submit').style.cursor="not-allowed";
   }
 }
+
+function checkthebox(){
+  var checkbox=document.getElementById('charte');
+  if(checkbox.checked){
+    checkbox.checked=false;
+  }else{
+    checkbox.checked=true;
+  }
+}
+
+
+function modalinfo(e){
+  var i=e.id;
+  var modal=document.querySelector('#modalinfo'+i);
+  var insidemodal=document.querySelector('#insideModalInfo'+i);
+
+  modal.classList.toggle("visiblegrey");
+  insidemodal.classList.toggle("visible5");
+}
+
+
+function closeModalInfo(e){
+  var i=e.id;
+  var modal=document.querySelector('#modalinfo'+i);
+  var insidemodal=document.querySelector('#insideModalInfo'+i);
+  modal.classList.toggle("visiblegrey");
+  insidemodal.classList.toggle("visible5");
+}
+
+function modalSuppr(e){
+  var i=e.id;
+  var modal=document.querySelector('#modalsuppr'+i);
+  var insidemodal=document.querySelector('#insideModalSuppr'+i);
+
+  modal.classList.toggle("visiblegrey");
+  insidemodal.classList.toggle("visible5");
+}
+
+
+function closeModalSuppr(e){
+  var i=e.id;
+  var modal=document.querySelector('#modalsuppr'+i);
+  var insidemodal=document.querySelector('#insideModalSuppr'+i);
+  modal.classList.toggle("visiblegrey");
+  insidemodal.classList.toggle("visible5");
+}

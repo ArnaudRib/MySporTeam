@@ -805,7 +805,7 @@ form h1 {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-#inscription label {
+#inscription label{
   text-align: center;
   float: left;
   width: 10%;
@@ -3309,4 +3309,51 @@ a{
 
 .displaynone{
   display:none;
+}
+
+
+/* MODAL */
+.modalinfo{
+  visibility:hidden;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  z-index:7;
+  background-color: rgba(0, 0, 0, 0);
+  transition:all 0.4s linear;
+}
+
+.insideModalInfo{
+  margin:5% auto;
+  width:80%;
+  height:80%;
+  box-shadow: black 0 0 10px;
+  overflow:scroll;
+  position: static;
+  z-index: 8;
+  opacity:0;
+  background-color:rgba(255, 255, 255, 0.9);
+  transition:all 0.4s linear;
+  text-align: center;
+}
+
+.visible5{
+  opacity:1;
+  visibility:visible:
+}
+
+.visiblegrey{
+  visibility:visible;
+  background-color:rgba(0, 0, 0, 0.70);
+}
+
+.closeButtonModal{
+  top:70px;
+  float:right;
+  margin-right:20px;
+  color:red;
+  font-size:60px;
+  cursor:pointer;
 }
