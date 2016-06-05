@@ -75,8 +75,8 @@
           <div><label for="check_psswd"><img src="<?php echo image('Users/icone_lock.png')?>" /></label>
           <input id="mdp_verification" type="password" name="mot_de_passe_confirmation" placeholder="Confirmation du mdp" oninput="Verification()" required></div> <br />
 
-          <div id="blockcharte" style="display:inline-flex; align-items:center; width:110%; margin-right:30px; margin-bottom:10px; cursor:pointer" onclick="checkthebox()">
-            <span style="font-style:italic; font-size:12px;display:inline-block; width:80%;">Pour finaliser votre inscription, vous acceptez les <span style="font-weight:bold;" onclick="modalinfo(this)">Conditions Générales d'Utilisation</span> du site.</span>
+          <div id="blockcharte" style="display:inline-flex; align-items:center; width:110%; margin-right:30px; margin-bottom:10px; cursor:help" onclick="checkthebox()">
+            <span style="font-style:italic; font-size:12px;display:inline-block; width:80%;"><?php echo lang('Pour finaliser votre inscription, vous acceptez les')?> <span style="font-weight:bold; cursor:pointer;" onclick="modalinfo(this)">Conditions Générales d'Utilisation</span> du site.</span>
             <input id="charte" type="checkbox" style="display:inline-block; width:5%; padding:0px; margin:0px;height:20px;padding-bottom:20px;" name="charte" required> <br />
           </div>
 
