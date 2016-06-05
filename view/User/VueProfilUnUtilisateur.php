@@ -4,7 +4,7 @@
   </div>
   <div id="haut_mongroupe">
     <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>"/>
-    <h1><?php echo $_SESSION['user']['pseudo'] ?></h1>
+    <h1><?=$dataUser['pseudo'] ?></h1>
     <div id="menu_mongroupe">
       <nav>
         <ul style='margin-top:15px;'>

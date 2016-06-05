@@ -140,8 +140,8 @@ class UserModele extends BaseDeDonnes
     return $allresults;
   }
 
-  function searchUserName($nbdisplay){
-    $sql="SELECT pseudo FROM utilisateur WHERE pseudo LIKE ?  ORDER BY pseudo LIMIT ?";
+  function searchUser($nbdisplay){
+    $sql="SELECT * FROM utilisateur WHERE pseudo LIKE ?  ORDER BY pseudo LIMIT ?";
     $resultats=$this->connectBDD()->prepare($sql);
     $text="%" . $_GET['resultat'] . "%";
     $resultats->bindParam(1, $text, PDO::PARAM_STR);

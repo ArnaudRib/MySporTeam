@@ -43,6 +43,7 @@ class UserController
   public function inscription()
   {
     $error='';
+    $succes='';
     if(!empty($_POST)){
       if (isset($_POST['pseudo']) || isset($_POST['mot_de_passe'])){
         if($_POST['mot_de_passe']==$_POST['mot_de_passe_confirmation']){

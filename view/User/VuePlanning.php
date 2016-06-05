@@ -100,7 +100,6 @@
                     <?php endif;?>
                   </td>
                 <?php endif;?>
-
               <?php endfor;?>
             </tr>
           </tbody>

@@ -36,26 +36,32 @@
   </div>
 
   <div id="corps_mongroupe">
-      <?php if($isLeader):?>
+    <?php if($isLeader):?>
+      <?php $i=0; ?>
     <?php foreach ($nonmembre as $key => $value):?>
-        <div id="<?php echo $i=count($membre) ?>" class="case_membre radius_mongroupe forme_case">
+      <?php $estinvité=false;?>
+        <div id="<?php echo count($membre) ?>" class="case_membre radius_mongroupe forme_case" style="vertical-align: top;">
           <img src="<?php echo image('Groupes/sport3.jpg')?>" />
           <a href="<?php goToPage('profilUnUtilisateur',['pseudo'=>$value['pseudo']])?>"><h1><?php echo $value['pseudo']?></h1></a>
-          <?php if($isLeader==true):
-            if(($value['leader_groupe'])!=1):?>
-          <form style="float:right; margin-right:30px;" class="" action="" method="post">
-            <!--<label style="display:inline-block;" for="deletebutton" class="deletebutton">&#10006;</label>-->
+          <?php foreach ($invites as $key => $valeur) :
+            if($valeur['id_utilisateur']==$value['useful_id']):?>
+              <i style="display:block; font-size:10px; float:right; top:0px;">Invitation en cours d'acceptation</i>
+              <?php $estinvité=true;?>
+            <?php endif;?>
+          <?php endforeach; ?>
+          <button id="<?php echo $i?>" class="plusbutton" style="<?php if($estinvité==true){echo 'display:none;';}?>" onclick="sendmessageblock(this)">&#10010;</button>
+          <form id="messageblockinvitation" class="displaynone" style="float:right; margin-right:30px;" class="" action="" method="post">
             <input type="hidden" name="id_utilisateur" value="<?php echo $value['id_utilisateur']?>">
-            <input class="plusbutton"  type="submit" name="invitUser" value="&#10010;">
+            <p style="text-align:center">Message</p>
+            <textarea style="border:1px black solid; margin:5px; width:80%; float:right; padding:4px;" placeholder="Message d'invitation.." name="message" rows="8" cols="40"></textarea>
+            <input type="submit" name="invitUser" class="buttonmodif" style="margin:0 5%;" value="Inviter l'utilisateur">
           </form>
-        <?php endif;
-      endif;?>
-        </div>
-        <?php
+      </div>
+      <?php
+      $i++;
       endforeach;
      else:?>
     <h1>Erreur, vous n'êtes pas l'administrateur de groupe<h1>
     <?php endif;?>
 
   </div>
-
