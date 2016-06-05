@@ -39,7 +39,7 @@ class GroupeController
 
   public function loadAjaxRecherche()
   {
-    $rechercheVille=$this->groupe->searchVilleName(10)->fetchAll();
+    $rechercheVille=$this->groupe->searchVille(10)->fetchAll();
     $vue=new Vue("AfficherVille","Groupe");
     $vue->loadajax(['rechercheVille'=>$rechercheVille, 'resultat'=>$_GET['resultat']]);
   }
@@ -47,7 +47,6 @@ class GroupeController
 
   public function loadInformationsGroupe($id_groupe)
   {
-    $vue=new Vue("InformationsGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
         if(($_POST['abonnement']=="Rejoindre")){
@@ -70,6 +69,7 @@ class GroupeController
     $infoleader=$this->groupe->getInfoLeader($id_groupe)->fetch();
     $ville=$this->groupe->getVilleById($datagroupe['id_ville'])->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
+    $vue=new Vue("InformationsGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
     $vue->loadpage(['datagroupe'=>$datagroupe, 'niveau'=>$niveau, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'infoleader'=>$infoleader,'isLeader'=>$isLeader, 'sport'=>$sport, 'isMembre'=>$isMembre]);
   }
 
