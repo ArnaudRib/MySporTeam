@@ -196,7 +196,12 @@ class UserController
     $vue=new Vue("Groupes","User",['stylesheet.css']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
     $sports = $this->user->getGroupesSportsUtilisateur();
     $dataGroupUser = $this->user->getDataGroupeUser();
-    $vue->loadpage(['sports'=>$sports,'dataGroupUser'=>$dataGroupUser,'pseudouser'=>$pseudouser]);
+    $leader_groupe=$this->user->getDataLeaderGroupe($dataGroupUser);
+    $array=[];
+    foreach ($dataGroupUser as $key => $value) {
+      array_push($array, 'Groupes/Profil/'.str_replace(' ', '-', $value['nom']).'.jpg');
+    }
+    $vue->loadpage(['sports'=>$sports,'dataGroupUser'=>$dataGroupUser,'pseudouser'=>$pseudouser, 'array'=>$array, 'leader_groupe'=>$leader_groupe]);
   }
 
   public function LoadAUser($pseudo_user){ //Profil des autres

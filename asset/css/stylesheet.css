@@ -47,6 +47,7 @@ form{
 
 #content{
   position: relative;
+  min-height:625px;
 }
 
 
@@ -56,7 +57,7 @@ form{
   background: linear-gradient(141deg, #045FB4 30%, #084B8A 61%, #084B8A 75%);
   background-size: cover;
   width: 100%;
-  height:80px;
+  height:90px;
   margin: 0;
   display: block;
   z-index:2;
@@ -104,7 +105,7 @@ left:6rem;
 .menushort nav{
   position: absolute;
   right:4rem;;
-  top:10px;
+  top:0px;
   display: inline-block;
   z-index: 3;
 }
@@ -232,7 +233,7 @@ left:6rem;
 
 .menu nav{
   position:absolute;
-  top:-2px;
+  top:4px;
   right:3rem;
   margin:20px;
 }
@@ -478,7 +479,7 @@ footer {
 .div1{ /* Division Sport*/
   position:relative;
   width:100%;
-  height:450px;
+  height:465px;
   display: inline-block;
   background-color:black;
   opacity:1;
@@ -488,7 +489,7 @@ footer {
 .div3{ /* Division Forum + Aide*/
   position:relative;
   width:50%;
-  height:150px;
+  height:175px;
   display: inline-block;
   background-color:black;
   opacity:1;
@@ -548,10 +549,6 @@ footer {
 .div3 span:hover + .img2{
   filter:blur(10px);
     -webkit-filter:blur(3px);
-  /*EFFET ZOOM + GRISE
-  transform:scale(1.5);
-  filter:brightness(0.5);
-    -webkit-filter:brightness(0.5);*/
 }
 
 #bouttoninscription{
@@ -668,7 +665,7 @@ input.searchbar{
 
 /*Section aside*/
 .div2{
-  height:600px;
+  height:625px;
   filter: opacity(80%);
   -webkit-filter: opacity(80%);
   position:relative;
@@ -677,7 +674,7 @@ input.searchbar{
 .div2bis{
   width:100%;
   position:absolute;
-  height:600px;
+  height:630px;
   filter: opacity(80%);
     -webkit-filter: opacity(80%);
   display:inline-block;
@@ -808,7 +805,7 @@ form h1 {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-#inscription label {
+#inscription label{
   text-align: center;
   float: left;
   width: 10%;
@@ -2212,6 +2209,17 @@ ul {
   padding: inherit;
 }
 
+.blockSliderPhoto{
+  width:80%;
+  background-color:rgb(190, 255, 253);
+  margin:20px auto;
+  text-align:center;
+  padding:20px;
+  border-radius:5px;
+  border:1px black solid;
+  box-shadow:0px 0px 5px blue;
+}
+
 .sesInfos {
   float: left;
   width: 30%;
@@ -2496,8 +2504,9 @@ tr {
 
 .areacreation{
   border:1px black solid;
-  padding:5px;
-  margin:10px 0;
+  padding:15px;
+  margin:10px auto;
+  width:100%;
   transition:1s all ease;
 }
 
@@ -3005,12 +3014,14 @@ a{
 }
 
 .Police1{
-  color:red;
+  color: rgb(202, 253, 255);
+  text-shadow: 4px 3px rgb(0, 77, 105);
   font-size:60px;
 }
 
 .Police2{
-  color:green;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 1px black;
   font-size:30px;
 }
 
@@ -3318,4 +3329,51 @@ a{
 
 .displaynone{
   display:none;
+}
+
+
+/* MODAL */
+.modalinfo{
+  visibility:hidden;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  z-index:7;
+  background-color: rgba(0, 0, 0, 0);
+  transition:all 0.4s linear;
+}
+
+.insideModalInfo{
+  margin:5% auto;
+  width:80%;
+  height:80%;
+  box-shadow: black 0 0 10px;
+  overflow:scroll;
+  position: static;
+  z-index: 8;
+  opacity:0;
+  background-color:rgba(255, 255, 255, 0.9);
+  transition:all 0.4s linear;
+  text-align: center;
+}
+
+.visible5{
+  opacity:1;
+  visibility:visible:
+}
+
+.visiblegrey{
+  visibility:visible;
+  background-color:rgba(0, 0, 0, 0.70);
+}
+
+.closeButtonModal{
+  top:70px;
+  float:right;
+  margin-right:20px;
+  color:red;
+  font-size:60px;
+  cursor:pointer;
 }

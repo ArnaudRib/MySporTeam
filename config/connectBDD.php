@@ -19,6 +19,7 @@ class BaseDeDonnes
     if ($this->db==null){
       $this->db = new PDO("mysql:host=$this->servername;dbname=$this->dbname;charset=utf8", $this->username, $this->password);
       $this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+      $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     return $this->db;
   }
@@ -34,7 +35,9 @@ class BaseDeDonnes
           return $query;
         }
       } catch (Exception $e) {
+        echo '<pre>';
         echo $e->getMessage();
+        echo '</pre>';
       }
     }
   }

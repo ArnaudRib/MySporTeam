@@ -262,7 +262,7 @@ function goToPage($nom, $params=[]){
       $url=str_replace("{".$key."}", $value, $url);
     }
   }
-  echo "/".$_GET['lang']."/".$url;
+  echo "/mysporteam/".$_GET['lang']."/".$url;
 }
 
 function loadlang(){

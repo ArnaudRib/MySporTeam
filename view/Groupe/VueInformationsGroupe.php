@@ -89,7 +89,7 @@
 
           <div class="search">
             <h2><?php echo lang('Ville') ?></h2>
-            <input id="search" class="inputinfogroupe" style="margin-left:20px;" type="text" class="form-control" name="ville" value="" style="width:70%; margin: 10px 0px; font-size:15px;" placeholder="Ville"  onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch3()" spellcheck="false">
+            <input id="search" class="inputinfogroupe" style="margin-left:20px;" type="text" class="form-control" name="ville" value="" style="width:70%; margin: 10px 0px; font-size:15px;" placeholder="Ville"  onkeyup="getresults(this.value, event); out(event)" autocomplete="off" onfocus="showsearch()" spellcheck="false">
             <p id="results">
               <span style="font-size:20px; padding-top:30px;">Veuillez rentrer un nom de ville.</span>
             </p>

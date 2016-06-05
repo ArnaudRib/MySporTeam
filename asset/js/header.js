@@ -2,7 +2,7 @@ function toggleMenu() {
   var hauteur=window.pageYOffset;
   var header= document.getElementsByClassName("menushort")[0];
 
-  if (hauteur>=150){
+  if (hauteur>=110){
     header.classList.add('apparition');
     header.classList.remove('dissolution');
   }else{

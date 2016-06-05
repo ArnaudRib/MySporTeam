@@ -17,7 +17,6 @@ class SportModele extends BaseDeDonnes
   function getSports($nbsport=1000){
     $nbsport+=1;
     $sql="SELECT * FROM sports LIMIT ?";
-    $resultat=$this->requeteSQL($sql, [$nbsport]);
     $resultat=$this->connectBDD()->prepare($sql);
     $resultat->bindParam(1, $nbsport, PDO::PARAM_INT);
     $resultat->execute();

@@ -26,7 +26,10 @@
       <div class="sports_mesgroupes">
         <ul>
           <?php foreach ($sports as $key => $value) :?>
-          <li><?=$value ?></li>
+            READ ME !!!! -> nécessite l'id du sport pour le lien -> :3 je crois que u as refait la requête :3..
+            <a href="<?php goToPage('sportgroupe', ['id_sport'=>$value['id']])?>">
+              <li style="margin:5px;"><?=ucfirst($value) ?></li>
+            </a>
         <?php endforeach; ?>
         </ul>
       </div>
@@ -35,13 +38,22 @@
       <div id="publication" class="radius_mongroupe forme_case">
         <div class="titre">
           <h1><?=$value['nom'] ?></h1>
-          <h2><?=$value['date_creation'] ?></h2>
-          <h2><?=$value['nom_leader'] ?></h2>
-          <h2><?=$value['nbmax_sportifs'] ?></h2>
+        <hr style="border:1px black solid; width:80%; margin:0px auto;margin-bottom:7px;">
+          <h2 style="color:red; margin-left:20px; display:block; margin-top:-5px;"><span style='color:white; text-decoration: underline;'>Création :</span> <?=DiffDate($value['date_creation']) ?></h2>
+          <h2 style="color:red; margin-left:20px; display:block;"><span style='color:white; text-decoration: underline;'>Leader :</span> <?=$leader_groupe[$value['id']] ?></h2>
+          <h2 style="color:red; margin-left:20px; display:block; padding-bottom:5px;"><span style='color:white; text-decoration: underline;'>Nombre maximum de membres :</span> <?=$value['nbmax_sportifs'] ?></h2>
         </div>
-        <p><?=$value['description'] ?></p>
+        <p style="width:90%; text-align:center; margin:0 auto;"><?=$value['description'] ?></p>
       </div>
     <?php endforeach?>
   </div>
+  <div class="cote_mesgroupes radius_mongroupe forme_case" style="width:80%; margin:20px auto;text-align:center; display:block;">
+    <div class="titre">
+      <h1>Photos des groupes auxquels il est inscrit.</h1>
+    </div>
+    <div class="sports_mesgroupes" style='padding:20px;'>
+    <?php CreateSlider($array, 'Slide', '100%', '400px'); ?>
+  </div>
+</div>
 
 </div>

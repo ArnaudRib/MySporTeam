@@ -9,7 +9,7 @@
   "ajaxrecherchegroupe":"ajaxrecherchegroupe",
   "ajaxrecherchegenerale":"ajaxrecherchegenerale",
   "ajaxrechercheuser":"ajaxrechercheuser",
-  "sportgroupe":"groupe/sport/{id_sport}",
+  "sportgroupe":"sport/{id_sport}",
   "recherchegroupe":"recherchegroupe",
   "informationsgroupe":"groupe/{id}/informations",
   "publicationsgroupe":"groupe/{id}/publications",
