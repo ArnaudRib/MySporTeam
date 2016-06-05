@@ -32,13 +32,13 @@ class Vue
 
   function loadcss(){ //Sous forme de tableau!
     foreach ($this->nomcss as $nom) {
-      echo '<link rel="stylesheet" href="/mysporteam/asset/css/'.$nom.'">';
+      echo '<link rel="stylesheet" href="/asset/css/'.$nom.'">';
     }
   }
 
   function loadjs(){ //Sous forme de tableau!
     foreach ($this->nomjs as $nom) {
-      echo '<script src="/mysporteam/asset/js/'.$nom.'"></script>';
+      echo '<script src="/asset/js/'.$nom.'"></script>';
     }
   }
 
