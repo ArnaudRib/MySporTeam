@@ -212,7 +212,22 @@ class GroupeModele extends BaseDeDonnes
         return true;
     return false;
   }
+  
+  function isInvit($id_groupe, $id_user){
+    $sql = "SELECT * FROM utilisateur_invitation WHERE id_utilisateur=? AND id_groupe=?";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe])->fetch();
+    if($resultat)
+        return true;
+    return false;
+  }
 
+
+  function quitInvit($id_user, $id_groupe){
+    $sql="DELETE FROM utilisateur_invitation WHERE id_utilisateur=? AND id_groupe=?";
+    $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
+  }
+  
+  
   function isMembre($id_user, $id_groupe){
     $sql = "SELECT * FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe])->fetch();
@@ -286,6 +301,12 @@ class GroupeModele extends BaseDeDonnes
     $sql="DELETE FROM utilisateur_groupe WHERE id_groupe=? AND id_utilisateur=?";
     $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_utilisateur']]);
   }
+  
+   function addLeader($id_groupe){
+    $sql="UPDATE utilisateur_groupe SET leader_groupe=? WHERE id_groupe=? AND id_utilisateur=?";
+    $resultat=$this->requeteSQL($sql, ["1",$id_groupe, $_POST['id_utilisateur']]);
+    return $resultat;
+  }
 
    function invitUser($id_groupe){
     $sql="INSERT INTO utilisateur_invitation(id_utilisateur, id_groupe, date, message) VALUES (?,?,NOW(),?)";
@@ -341,7 +362,8 @@ class GroupeModele extends BaseDeDonnes
     }
     return $allresults;
   }
-
+  
+  
   function RechercheGroupes(){
     $sql.='SELECT * FROM groupe
     JOIN city ON city.id=groupe.id_ville

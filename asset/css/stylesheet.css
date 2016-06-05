@@ -1200,6 +1200,19 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   color:orange;
 }
 
+
+.addbutton{
+  position:absolute;
+  font-size:25px;
+  padding-top:-10px;
+  padding-left:12px;
+  cursor:pointer;
+  color:blue;
+  transition:1s all ease;
+  background-color: white;
+  border-radius:5px;
+}
+
 .plusbutton{
   position:absolute;
   font-size:25px;
@@ -1290,6 +1303,13 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 
 /*MON GROUPE MEMBRES*/
 .case_membre{
+  display: inline-block;
+  width:32%;
+  padding:10px;
+  margin:4px;
+}
+
+.case_membre:hover{
   display: inline-block;
   width:32%;
   padding:10px;

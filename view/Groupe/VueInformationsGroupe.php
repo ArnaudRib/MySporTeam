@@ -24,6 +24,19 @@
           <?php
           else:
           endif;
+          else: 
+          if($isInvit==true):?>
+          <li id="abonnement" style="margin-top:-10px; margin-left:40px;">
+            <form class="" action="" method="post">
+              <input  type="submit" name="abonnement" value="Accepter l'invitation" style='cursor:pointer;'></input>
+            </form>
+            </li>
+            <li id="desabonnement" style="margin-top:-10px; margin-left:10px;">
+            <form class="" action="" method="post">
+              <input  type="submit" name="desiste" value=" X " style='cursor:pointer;'></input>
+            </form>
+            </li>
+          <?php endif;
           endif;
         elseif($isLeader==true):?>
           <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
@@ -32,7 +45,7 @@
           <?php else:?>
             <li id="desabonnement" style="margin-top:-10px;">
             <form class="" action="" method="post">
-              <input type="submit" name="abonnement" value="Désinscrire" style='cursor:pointer;'>
+              <input type="submit" name="desabonnement" value="Désinscrire" style='cursor:pointer;'>
             </form>
             </li>
           <?php endif;?>

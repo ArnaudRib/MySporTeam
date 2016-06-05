@@ -50,12 +50,13 @@ class GroupeController
     $vue=new Vue("InformationsGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
-        if(($_POST['abonnement']=="Rejoindre")){
           $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
-        }if($_POST['abonnement']=="Désinscrire"){
+          $this->groupe->quitInvit($_SESSION['user']['id'], $id_groupe);
+        }if(!empty($_POST['desabonnement'])){
           $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
+        }if(!empty($_POST['desiste'])){
+          $this->groupe->quitInvit($_SESSION['user']['id'], $id_groupe);
         }
-      }
       if(!empty($_POST['enregistrement'])){
         $info_ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
         $id_ville=$info_ville['id'];
@@ -65,12 +66,13 @@ class GroupeController
     $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
+    $isInvit=$this->groupe->isInvit($id_groupe, $_SESSION['user']['id']);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $niveau=$this->groupe->getLevel($datagroupe['id_niveau'])->fetch();
     $infoleader=$this->groupe->getInfoLeader($id_groupe)->fetch();
     $ville=$this->groupe->getVilleById($datagroupe['id_ville'])->fetch();
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'niveau'=>$niveau, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'infoleader'=>$infoleader,'isLeader'=>$isLeader, 'sport'=>$sport, 'isMembre'=>$isMembre]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'isInvit'=>$isInvit, 'niveau'=>$niveau, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'infoleader'=>$infoleader,'isLeader'=>$isLeader, 'sport'=>$sport, 'isMembre'=>$isMembre]);
   }
 
   public function loadEvenementsGroupe($id_groupe)
@@ -80,13 +82,13 @@ class GroupeController
     $error="";
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
-        if(($_POST['abonnement']=="Rejoindre")){
           $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
-        }
-        if($_POST['abonnement']=="Désinscrire"){
+          $this->groupe->quitInvit($_SESSION['user']['id'], $id_groupe);
+        }if(!empty($_POST['desabonnement'])){
           $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
+        }if(!empty($_POST['desiste'])){
+          $this->groupe->quitInvit($_SESSION['user']['id'], $id_groupe);
         }
-      }
       if(!empty($_POST['deleteEve'])){
         $this->groupe->deleteEvenement($id_groupe);
         $nom_evenement=str_replace(' ', '-',$_POST['nom']);
@@ -100,21 +102,24 @@ class GroupeController
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $ville=$this->groupe->getVilleById($datagroupe['id_ville'])->fetch();
     $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
+     $isInvit=$this->groupe->isInvit($id_groupe, $_SESSION['user']['id']);
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $evenement=$this->groupe->getEvenements($id_groupe)->fetchAll();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre, 'error'=>$error, 'succes'=>$succes]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'isInvit'=>$isInvit, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre, 'error'=>$error, 'succes'=>$succes]);
   }
 
   public function loadUnEvenementGroupe($id_groupe, $id_evenement)
   {
     $vue=new Vue("UnEvenementGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js']);
     if(!empty($_POST)){
-      if($_POST['abonnement']=="Rejoindre"){
+     if(!empty($_POST['abonnement'])){
           $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
-      }
-      if($_POST['abonnement']=="Désinscrire"){
+          $this->groupe->quitInvit($_SESSION['user']['id'], $id_groupe);
+        }if(!empty($_POST['desabonnement'])){
           $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
-      }
+        }if(!empty($_POST['desiste'])){
+          $this->groupe->quitInvit($_SESSION['user']['id'], $id_groupe);
+        }
 
       if(!empty($_POST['enregistrement'])){
         $info_ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
@@ -137,11 +142,12 @@ class GroupeController
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $niveau=$this->groupe->getLevel($datagroupe['id_niveau'])->fetch();
     $evenement=$this->groupe->getEvenement($id_evenement)->fetch();
+     $isInvit=$this->groupe->isInvit($id_groupe, $_SESSION['user']['id']);
     $club=$this->groupe->getClub($evenement['id_club'])->fetch();
     $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
     $participants=$this->groupe->countparticipants($id_evenement)->fetchAll();
     $ville=$this->groupe->getVilleById($evenement['id_ville'])->fetch();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'niveau'=>$niveau, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'isInvit'=>$isInvit, 'niveau'=>$niveau, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
   }
 
   public function loadCreateEvenement($id_groupe){
@@ -214,14 +220,19 @@ class GroupeController
     $vue=new Vue("MembresGroupe", "Groupe", ['stylesheet.css']);
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
-      if(($_POST['abonnement']=="Rejoindre")){
-        $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
-      }if($_POST['abonnement']=="Désinscrire"){
-        $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
-      }
-      }
+          $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
+          $this->groupe->quitInvit($_SESSION['user']['id'], $id_groupe);
+        }if(!empty($_POST['desabonnement'])){
+          $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
+        }if(!empty($_POST['desiste'])){
+          $this->groupe->quitInvit($_SESSION['user']['id'], $id_groupe);
+        }
       if(!empty($_POST['deleteUser'])){
         $this->groupe->deleteUser($id_groupe);
+        $succes="";
+        }
+       if(!empty($_POST['addLeader'])){
+        $this->groupe->addLeader($id_groupe);
         $succes="";
         }
     }
@@ -229,8 +240,9 @@ class GroupeController
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
     $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
+     $isInvit=$this->groupe->isInvit($id_groupe, $_SESSION['user']['id']);
     $membre=$this->groupe->getMembres($id_groupe)->fetchAll();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'NBmembres'=>$NBmembres, 'membre'=>$membre, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader]);
+    $vue->loadpage(['datagroupe'=>$datagroupe,'isInvit'=>$isInvit, 'NBmembres'=>$NBmembres, 'NBmembres'=>$NBmembres, 'membre'=>$membre, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader]);
   }
 
 
@@ -241,12 +253,13 @@ class GroupeController
     $vue=new Vue("PublicationsGroupe", "Groupe", ['stylesheet.css', 'RechercheGroupe.js']);
     if(!empty($_POST)){
       if(!empty($_POST['abonnement'])){
-        if(($_POST['abonnement']=="Rejoindre")){
           $this->groupe->joinGroupe($_SESSION['user']['id'], $id_groupe);
-        }if($_POST['abonnement']=="Désinscrire"){
+          $this->groupe->quitInvit($_SESSION['user']['id'], $id_groupe);
+        }if(!empty($_POST['desabonnement'])){
           $this->groupe->quitGroupe($_SESSION['user']['id'], $id_groupe);
+        }if(!empty($_POST['desiste'])){
+          $this->groupe->quitInvit($_SESSION['user']['id'], $id_groupe);
         }
-      }
       if(!empty($_POST['Poster'])){
         $verification = new Verification($_POST);
         $verification->notEmpty('titre', "Veuillez spécifier un titre à votre publication.");
@@ -266,6 +279,7 @@ class GroupeController
     $isMembre=$this->groupe->isMembre($_SESSION['user']['id'], $id_groupe);
     $isLeader=$this->groupe->isleader($_SESSION['user']['id'], $id_groupe);
     $datagroupe=$this->groupe->getInfoGroup($id_groupe)->fetch();
+     $isInvit=$this->groupe->isInvit($id_groupe, $_SESSION['user']['id']);
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $ville=$this->groupe->getVilleById($datagroupe['id_ville'])->fetch();
     $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
@@ -275,7 +289,7 @@ class GroupeController
     $user=$this->user->getUserNamePub($publication); // compliqué :D .. permet d'associer à chaque publication l'id du user qui l'a postée :o..
     }
     $evenement=$this->groupe->getEvenements($id_groupe)->fetchAll();
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'NBmembres'=>$NBmembres, 'sport'=>$sport, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader, 'ville'=>$ville, 'publication'=>$publication,  'evenement'=>$evenement, 'error'=>$error, 'succes'=>$succes, 'user'=>$user]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'isInvit'=>$isInvit, 'NBmembres'=>$NBmembres, 'sport'=>$sport, 'isMembre'=>$isMembre, 'isLeader'=>$isLeader, 'ville'=>$ville, 'publication'=>$publication,  'evenement'=>$evenement, 'error'=>$error, 'succes'=>$succes, 'user'=>$user]);
   }
 
   public function loadUnePublicationsGroupe($id_groupe, $id_publication)
