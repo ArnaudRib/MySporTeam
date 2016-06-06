@@ -23,6 +23,9 @@
           <li> <a style="color:white;" href='<?php goToPage('Accueil'); ?>'><?php echo lang('Accueil') ?></a></li>
           <li> <a style="color:white;" href='<?php goToPage('profil'); ?>'><?php echo lang('Mon profil') ?></a></li>
           <li> <a style="color:white;" href='<?php goToPage('forum');?>'><?php echo lang('Forum') ?></a></li>
+          <?php if(isAdmin()): ?>
+            <li> <a style="color:white;" href='<?php goToPage('backoffice');?>'>BackOffice</a></li>
+          <?php endif; ?>
           <li> <a href="<?php goToPage('deconnexion');?>"><img src="<?php echo image('General/bouton_on-off.png') ?>" width="20px" height="20px"/></a></li>
           <?php else: ?>
             <li> <a style="color:white;" href='<?php goToPage('Accueil'); ?>'><?php echo lang('Accueil') ?></a></li>
