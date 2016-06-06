@@ -93,7 +93,7 @@ class UserModele extends BaseDeDonnes
   }
 
   function getDataGroupeUser() {
-    $sql="SELECT * FROM groupe JOIN utilisateur_groupe ON groupe.id=utilisateur_groupe.id_groupe JOIN sports ON groupe.id_sport=sports.id WHERE id_utilisateur=?";
+    $sql="SELECT *, groupe.nom as NomGroupe FROM groupe JOIN utilisateur_groupe ON groupe.id=utilisateur_groupe.id_groupe JOIN sports ON groupe.id_sport=sports.id WHERE id_utilisateur=?";
     $resultat=$this->requeteSQL($sql,[$_SESSION['user']['id']])->fetchAll();
     return $resultat;
   }
