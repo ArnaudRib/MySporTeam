@@ -33,7 +33,7 @@ class Route
   function getPage(){
     $json = file_get_contents("config/Route.json", "r");
     $obj = json_decode($json, true);
-    if(isset($_GET['p'])){
+    if(!empty($_GET['p'])){
       foreach ($obj as $key => $value) {
         $value=preg_replace("/{[^}]*}/", "([a-zA-Z0-9]+)", $value);
         $value = "#^".$value."$#";
@@ -43,10 +43,16 @@ class Route
           }
           $url = $key;
           $this->loadController($url);
+          die;
         }
+        $get404=true;
       }
     } else {
       $this->loadController('Accueil');
+    }
+    if($get404){
+      $this->loadController('404');
+      die; // la puissance du die :)
     }
   }
 
@@ -242,6 +248,10 @@ class Route
 
       case 'backofficeclub':
         $this->ctr['Admin']->loadBackOfficeClub();
+        break;
+
+      case '404':
+        $this->ctr['Accueil']->load404();
         break;
 
       default:

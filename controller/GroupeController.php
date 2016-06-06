@@ -21,7 +21,7 @@ class GroupeController
     $groupes=$this->groupe->getGroup()->fetchAll();
     $niveaux=$this->groupe->getNiveau()->fetchAll();
     $departements=$this->groupe->getDepartements()->fetchAll();
-
+    
     if(!empty($_POST['rechercheAvancee'])){
       if(!empty($_POST['ville'])){
         $ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
@@ -361,7 +361,6 @@ class GroupeController
           $ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
           $_POST['ville']=intval($ville['id']);
           $id=$this->groupe->addGroupe();
-          dump($id);
           $this->user->addLeader($id);
           $succes="Groupe ajouté avec succès!</br> Vous pouvez consulter sa page en cliquant ";
         }

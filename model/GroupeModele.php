@@ -373,10 +373,9 @@ class GroupeModele extends BaseDeDonnes
 
 
   function RechercheGroupes(){
-    $sql.='SELECT * FROM groupe
-    JOIN city ON city.id=groupe.id_ville
-    JOIN departement ON departement.departement_code=city.departement_code
-    WHERE ';
+    $sql.='SELECT * FROM groupe';
+    $sql.=(!empty($_POST['departement']) || !empty($_POST['ville'])) ? " JOIN city ON city.id=groupe.id_ville JOIN departement ON departement.departement_code=city.departement_code" :'';
+    $sql.= ' WHERE ';
     $sql.=!empty($_POST['departement']) ? "departement.departement_code=?" : '';
     $sql.=!empty($_POST['departement']) && (!empty($_POST['ville']) || (!empty($_POST['niveau']) || !empty($_POST['sport']))) ? ' AND ' : '';
 

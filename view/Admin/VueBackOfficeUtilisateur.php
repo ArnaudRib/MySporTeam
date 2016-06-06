@@ -17,8 +17,8 @@
             <div class="content-imggroupe">
               <h4 class="title" style="margin-left:10px;"><?php echo lang("Image de l'utilisateur") ?></h4>
               <img class='classImage imguser' src="<?php echo image('Users/Profil/'.$value['id'].'.jpg')?>" alt=""/>
-              <label for="photo" class="boutonInputFile modifgroupeimg"><?php echo lang("Modifier") ?></label>
-              <input id="photo" class="files" type="file" name="photo" style="display:none;">
+              <label for="photo<?php echo $value['id']?>" class="boutonInputFile modifgroupeimg"><?php echo lang("Modifier") ?></label>
+              <input id="photo<?php echo $value['id']?>" class="files" type="file" name="photo" style="display:none;">
             </div>
             <div class="infouser">
               <h3 style='margin-bottom:10px;'><?php echo lang("Informations") ?> :</h3>

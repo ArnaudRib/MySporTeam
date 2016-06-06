@@ -18,14 +18,14 @@
             <div class="content-imggroupe">
               <h4 class="title" style="margin-left:10px;"><?php echo lang("Image du groupe") ?></h4>
               <img class='classImage imggroupe' style="width:30%;height:auto;" src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>" alt=""/>
-              <label for="photo" class="boutonInputFile modifgroupeimg"><?php echo lang("Modifier") ?></label>
-              <input id="photo" class="files" type="file" name="photo" style="display:none;">
+              <label for="photo<?php echo $value['id']?>" class="boutonInputFile modifgroupeimg"><?php echo lang("Modifier") ?></label>
+              <input id="photo<?php echo $value['id']?>" class="files" type="file" name="photo" style="display:none;">
             </div>
             <div class="content-imggroupe">
               <h4 class="title" style="margin-left:10px;"><?php echo lang("Bannière du groupe") ?></h4>
               <img class='classImage imggroupe' style="width:60%;height:auto;" src="<?php echo image('Groupes/Bannière/'.$nomgroupe.'.jpg')?>" alt=""/>
-              <label for="photo" class="boutonInputFile modifgroupeimg"><?php echo lang("Modifier") ?></label>
-              <input id="photo" class="files" type="file" name="couverture" style="display:none;">
+              <label for="photo01<?php echo $value['id']?>" class="boutonInputFile modifgroupeimg"><?php echo lang("Modifier") ?></label>
+              <input id="photo01<?php echo $value['id']?>" class="files" type="file" name="couverture" style="display:none;">
             </div>
             <div class="infouser">
               <h3 style='margin-bottom:10px;'><?php echo lang("Informations") ?> :</h3>

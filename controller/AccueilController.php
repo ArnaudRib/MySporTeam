@@ -81,7 +81,7 @@ class AccueilController
   }
 
   public function load404(){
-    $vue=new Vue("404","Accueil", ['stylesheet.css'], ['RechercheUser.js']);
-    $vue->loadpage(['error'=>$error, 'succes'=>$succes]);
+    $vue=new Vue("404","Accueil", ['404.css']);
+    $vue->loadbackoffice(['error'=>$error, 'succes'=>$succes]);
   }
 }
