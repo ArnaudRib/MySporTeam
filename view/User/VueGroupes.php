@@ -19,35 +19,40 @@
 
   <div id="mes_groupes" class="profil">
 
-    <div class="cote_mesgroupes radius_mongroupe forme_case">
+    <div class="cote_mesgroupes radius_mongroupe forme_case" style="vertical-align:top; margin:10px;">
       <div class="titre">
-        <h1>Trier par sport :</h1>
+        <h1>Sports pratiqués</h1>
       </div>
       <div class="sports_mesgroupes">
         <ul>
           <?php foreach ($sports as $key => $value) :?>
-            READ ME !!!! -> nécessite l'id du sport pour le lien -> :3 je crois que u as refait la requête :3..
-            <a href="<?php goToPage('sportgroupe', ['id_sport'=>$value['id']])?>">
-              <li style="margin:5px;"><?=ucfirst($value) ?></li>
+            <?php $nomphotosport=str_replace(' ', '-', $value['nom']) ?>
+            <a href="<?php goToPage('sportgroupe', ['id_sport'=>$value['id_sport']])?>">
+              <li class="sportitem" style="margin:5px;">
+                <?=ucfirst($value['nom']) ?>
+                <img style="display:inline-block; width:20px;float:right; margin-right:20px;" src="<?php echo image('svg/'.$nomphotosport.'.svg')?>" alt="" />
+              </li>
             </a>
         <?php endforeach; ?>
         </ul>
       </div>
     </div>
-    <?php foreach ($dataGroupUser as $key => $value) :?>
-      <a href="<?php goToPage('informationsgroupe', ['id'=>$value['id']])?>">
-        <div id="publication" class="radius_mongroupe forme_case">
-          <div class="titre">
-            <h1><?=$value['nom'] ?></h1>
-          <hr style="border:1px black solid; width:80%; margin:0px auto;margin-bottom:7px;">
-            <h2 style="color:red; margin-left:20px; display:block; margin-top:-5px;"><span style='color:white; text-decoration: underline;'>Création :</span> <?=DiffDate($value['date_creation']) ?></h2>
-            <h2 style="color:red; margin-left:20px; display:block;"><span style='color:white; text-decoration: underline;'>Leader :</span> <?=$leader_groupe[$value['id']] ?></h2>
-            <h2 style="color:red; margin-left:20px; display:block; padding-bottom:5px;"><span style='color:white; text-decoration: underline;'>Nombre maximum de membres :</span> <?=$value['nbmax_sportifs'] ?></h2>
+    <div class="sesGroupes fond" style="display:inline-block; width:60%;">
+      <h1 class="titre">Mes Groupes</h1>
+      <?php foreach ($dataGroupUser as $key => $value) :?>
+        <a href="<?php goToPage('informationsgroupe', ['id'=>$value['id']])?>">
+          <div class="infos_groupe">
+            <h2><?=$value["nom"] ?></h2>
+            <h4 ><span style='color:black; text-decoration: underline;'>Création :</span> <?=DiffDate($value['date_creation']) ?></h4>
+            <h4 ><span style='color:black; text-decoration: underline;'>Leader :</span> <?=$leader_groupe[$value['id']] ?></h4>
+            <h4 ><span style='color:black; text-decoration: underline;'>Nombre maximum de membres :</span> <?=$value['nbmax_sportifs'] ?></h4>
           </div>
-          <p style="width:90%; text-align:center; margin:0 auto; word-wrap: break-word;"><?=$value['description'] ?></p>
-        </div>
-      </a>
-    <?php endforeach?>
+        </a>
+      <?php endforeach;?>
+    </div>
+
+
+
   </div>
   <div class="cote_mesgroupes radius_mongroupe forme_case" style="width:80%; margin:20px auto;text-align:center; display:block;">
     <div class="titre">

@@ -36,13 +36,12 @@
       <a href="<?php goToPage('informationsgroupe', ['id'=>$value['id']])?>">
         <div class="infos_groupe">
           <h2><?=$value["nom_groupe"] ?></h2>
-          <h4>Adresse : <?php echo !empty($value["adresse"]) ? $value["adresse"] : 'Non précisée.' ?></h4>
+          <h4>Adresse : <?php echo !empty($nomville) ? $value["adresse"] : 'Non précisée.' ?></h4>
           <h4>Sport : <?=$value["nom_sport"]  ?></h3>
           <h4>Nombres max de sportifs : <?=$value["nbmax_sportifs"]  ?></h4>
         </div>
       </a>
-    <?php endif; ?>
-    <?php
+    <?php endif;
   } ?>
   </div>
   <div class="cote_mesgroupes radius_mongroupe forme_case" style="width:80%; margin:20px auto;text-align:center; display:block;">

@@ -21,7 +21,7 @@
 
 		<div>
 			<label class="labelnouveaumdp"for="mot_de_passe">Nouveau mot de passe :</label>
-			<input id="mdp"class="txtnouveaumdp" type="password" name="mot_de_passe"  maxlength="100" placeholder="Nouveau mot de passe" oninput="Verification(), showmessage(this)"/>
+			<input id="mdp" class="txtnouveaumdp" type="password" name="mot_de_passe"  maxlength="100" placeholder="Nouveau mot de passe" oninput="Verification(), showmessage(this)"/>
 		</div>
 		<div>
 			<label class="labelnouveaumdp" for="mot_de_passe_confirmation">R&eacute;p&eacute;tition nouveau mot de passe:</label>

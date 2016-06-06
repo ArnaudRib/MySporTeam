@@ -80,14 +80,10 @@ class UserModele extends BaseDeDonnes
     }
   }
 
-  function getGroupesSportsUtilisateur() {
-    $sql="SELECT * FROM utilisateur_sport JOIN sports ON sports.id=utilisateur_sport.id_sport WHERE id_utilisateur=?";
+  function getSportName(){
+    $sql="SELECT * FROM groupe JOIN utilisateur_groupe ON groupe.id=utilisateur_groupe.id_groupe JOIN sports ON groupe.id_sport=sports.id WHERE id_utilisateur=? GROUP BY groupe.id_sport";
     $resultat=$this->requeteSQL($sql,[$_SESSION['user']['id']])->fetchAll();
-    $sports=array();
-    foreach ($resultat as $key => $value) {
-      $sports[$key]=$value['nom'];
-    }
-    return $sports;
+    return $resultat;
   }
 
   function getEvent() {
@@ -97,7 +93,7 @@ class UserModele extends BaseDeDonnes
   }
 
   function getDataGroupeUser() {
-    $sql="SELECT * FROM utilisateur_groupe JOIN groupe ON groupe.id=utilisateur_groupe.id_groupe WHERE id_utilisateur=?";
+    $sql="SELECT * FROM groupe JOIN utilisateur_groupe ON groupe.id=utilisateur_groupe.id_groupe JOIN sports ON groupe.id_sport=sports.id WHERE id_utilisateur=?";
     $resultat=$this->requeteSQL($sql,[$_SESSION['user']['id']])->fetchAll();
     return $resultat;
   }

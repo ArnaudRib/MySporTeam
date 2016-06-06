@@ -1,3 +1,34 @@
+<div id="modalinfo<?php echo $value['id']?>" class="modalinfo">
+  <div id="insideModalInfo<?php echo $value['id']?>" class="insideModalInfo" style="font-family:Arial; padding:20px; text-align:center; box-shadow: transparent 0px 0px 0px; background-color:transparent;">
+    <form name="nouveau-message" class="messageform" method="post" action="" style="margin-top:40px; width:70%;">
+      <div style="text-align:center; padding:10px;">
+        <h2 class="h2-message">R&eacute;initialisation mot de passe :</h2>
+      </div>
+
+      <div style="text-align: left;">
+        <label class="labelnouveaumdp" for="mot_de_passe_confirmation">Ancien mot de passe:</label>
+        <input class="txtnouveaumdp" type="password" name="ex_mot_de_passe" maxlength="100" placeholder="Nouveau mot de passe" oninput="Verification()"/>
+      </div>
+
+      <div style="text-align: left;">
+        <label class="labelnouveaumdp"for="mot_de_passe">Nouveau mot de passe :</label>
+        <input id="mdp"class="txtnouveaumdp" type="password" name="mot_de_passe"  maxlength="100" placeholder="Nouveau mot de passe" oninput="Verification(), showmessage(this)"/>
+      </div>
+
+      <div style="text-align: left;">
+        <label class="labelnouveaumdp" for="mot_de_passe_confirmation">R&eacute;p&eacute;tition nouveau mot de passe:</label>
+        <input id="mdp_verification" class="txtnouveaumdp" type="password" name="mot_de_passe_confirmation" maxlength="100" placeholder="Nouveau mot de passe" oninput="Verification()"/>
+      </div>
+
+      <div class="submitmessageprive">
+        <input id="submit" class="bouttonmsgprive sendmessageboutton" type="submit" name="resetpw" value="Envoyer">
+        <button class="bouttonmsgprive cancelboutton" onclick="closeModalInfo(this)">Annuler</button>
+      </div>
+      <div id="messageMDP" class=""></div>
+    </form>
+  </div>
+</div>
+
 <div class="fond_mongroupe">
   <div id="image_de_fond">
     <img src="<?php echo image('Users/Bannière/'.$pseudouser.'.jpg')?>"/>
@@ -31,15 +62,17 @@
         </div>
       <?php endif; ?>
       <div class="infos">
-        <div class="bouttonchangemdp">
+        <div class="bouttonchangemdp" onclick="modalinfo(this)">
           <?php echo lang('Changer son mot de passe') ?> </a></li>
         </div>
         <form action="" method="post" enctype="multipart/form-data">
           <ul>
             <li>
               <?php echo lang('Photo de profil') ?> : (1Mo max)
+              <?php dump(image('Users/Profil/'.$pseudouser.'.jpg')) ?>
+            <?php  dump(file_exists(image('Users/Profil/'.$pseudouser.'.jpg')))?>
               <div class="import">
-                <img class="classImage UploadedImage" style="padding:0px;margin-top:10px;" <?php if(file_exists(image('Users/Profil/'.$pseudouser.'.jpg'))){?>  src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>"
+                <img class="classImage UploadedImage" style="padding:0px;margin-top:10px;" <?php if(file_exists(image('Users/Profil/'.$pseudouser.'.jpg'))){ echo 'src="'.image("Users/Profil/".$pseudouser.".jpg").'"';?>
               <?php  }?>/>
                 <label for="photo" class="boutonInputFile" style="width:60%; margin:10px auto;"><?php echo lang("Importer un fichier") ?></label>
                 <input id="photo" class="files" type="file" name="photo" style="display:none; ">
@@ -47,7 +80,7 @@
             </li>
             <li><?php echo lang('Photo de couverture')?> (5Mo max)
               <div class="import">
-                <img class="classImage UploadedImage" style="padding:0px;margin-top:10px;" <?php if(file_exists(image('Users/Bannière/'.$pseudouser.'.jpg'))){?> src="<?php echo image('Users/Bannière/'.$pseudouser.'.jpg')?>" <?php }?>/>
+                <img class="classImage UploadedImage" style="padding:0px;margin-top:10px;" <?php if(file_exists(image('Users/Bannière/'.$pseudouser.'.jpg'))){ echo 'src="'.image("Users/Bannière/".$pseudouser.".jpg").'"';?> <?php }?>/>
                 <label for="couverture" class="boutonInputFile" style="width:60%; margin:10px auto;"><?php echo lang("Importer un fichier") ?></label>
                 <input id="couverture" class="files" type="file" name="couverture" style="display:none;">
               </div>

@@ -179,7 +179,7 @@ class UserController
       $nomville=$ville['name'];
     }
     $_SESSION['user']=$this->user->getDataUser($_SESSION['user']['pseudo'])->fetch(); //refresh la session.
-    $vue=new Vue("Profil","User",['stylesheet.css'], ['calendrier.js', 'modifier_profil.js', 'showphoto.js', 'RechercheGroupe.js']);
+    $vue=new Vue("Profil","User",['stylesheet.css'], ['calendrier.js', 'modifier_profil.js', 'showphoto.js', 'RechercheGroupe.js', 'Verification.js']);
     $vue->loadpage(['nomville'=>$nomville, 'pseudouser'=>$pseudouser, 'error'=>$error, 'succes'=>$succes]);
   }
 
@@ -193,14 +193,15 @@ class UserController
 
   public function LoadGroupesUser(){
     $pseudouser=str_replace(' ', '-', $_SESSION['user']['pseudo']);
-    $vue=new Vue("Groupes","User",['stylesheet.css']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
-    $sports = $this->user->getGroupesSportsUtilisateur();
     $dataGroupUser = $this->user->getDataGroupeUser();
+    $sports=$this->user->getSportName();
     $leader_groupe=$this->user->getDataLeaderGroupe($dataGroupUser);
     $array=[];
     foreach ($dataGroupUser as $key => $value) {
       array_push($array, 'Groupes/Profil/'.str_replace(' ', '-', $value['nom']).'.jpg');
     }
+
+    $vue=new Vue("Groupes","User",['stylesheet.css']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
     $vue->loadpage(['sports'=>$sports,'dataGroupUser'=>$dataGroupUser,'pseudouser'=>$pseudouser, 'array'=>$array, 'leader_groupe'=>$leader_groupe]);
   }
 

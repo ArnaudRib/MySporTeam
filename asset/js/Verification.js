@@ -81,7 +81,6 @@ function modalSuppr(e){
   insidemodal.classList.toggle("visible5");
 }
 
-
 function closeModalSuppr(e){
   var i=e.id;
   var modal=document.querySelector('#modalsuppr'+i);
@@ -89,3 +88,5 @@ function closeModalSuppr(e){
   modal.classList.toggle("visiblegrey");
   insidemodal.classList.toggle("visible5");
 }
+
+document.onclick = closeModalInfo;

@@ -1223,15 +1223,15 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 }
 
 .plusbutton{
-  position:absolute;
+  position:relative;
+  top: -25px;
+  left: 140px;
   font-size:25px;
-  padding-top:-10px;
   cursor:pointer;
   color:green;
   transition:1s all ease;
   background-color: white;
   border-radius:5px;
-  margin-left: 14%;
 }
 
 .plusbutton:hover{
@@ -1326,7 +1326,6 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 }
 
 .case_membre img{
-  width:80px;
   height:80px;
   display: inline-block;
   vertical-align: middle;
@@ -2269,8 +2268,15 @@ ul {
 .infos_groupe {
   padding: 10px;
   transition:1s all ease;
+  border-bottom: 1px black solid;
 }
 
+.sportitem{
+  transition:1s all ease;
+}
+.sportitem:hover{
+  background-color:rgba(68, 68, 68, 0.69);
+}
 .infos_groupe h2{
   border-bottom: 1px solid #094e95;
   padding: 5px;
