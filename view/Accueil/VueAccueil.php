@@ -79,7 +79,7 @@ endif;?>
   <div id="division1" class="division1" style="width:90%; height:90%;">
     <div class="Recherche">
       <h2 style="margin-left:10%; margin-right:10%; text-align:left; font-size:1.8em; display:inline-block;"><?php echo lang("Sports") ?></h2>
-      <input id="search" type="text" name="search" class="barRecherche searchbar" style='margin-top:0px; width:200px; padding:5px; padding-left:40px;!important' placeholder="Recherche..." onkeyup="getresults(this.value)"  autocomplete="off" spellcheck="false"/>
+      <input id="search" type="text" name="search" class="barRecherche searchbar" style='margin-top:0px; width:300px; height:40px; padding:5px; padding-left:40px;!important; background-size: 19px 19px;' placeholder="Recherche..." onkeyup="getresults(this.value)"  autocomplete="off" spellcheck="false"/>
     </div>
     <div id="PhotoSport">
     </div>

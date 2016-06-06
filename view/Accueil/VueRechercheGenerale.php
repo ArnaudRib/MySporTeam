@@ -1,22 +1,3 @@
-<!-- <div class="BlockVille">
-  <div class="headerVille">
-    <div class="left-block">
-      <?php echo lang("Villes") ?>
-    </div>
-    <div class="right-block">
-      <?php echo lang("+ de villes ..") ?>
-    </div>
-  </div>
-<?php if (count($rechercheVille) == 0) :?>
-     <span style='font-size:20px; padding-top:15px; color:black;'><?php echo lang("") ?>Aucune ville trouvée.</span>
-  <?php endif; ?>
-  <ul style="padding:7px;">
-  <?php foreach ($rechercheVille as $key => $value) :?>
-    <li onclick="get(this.innerHTML)"><?php echo $value['name']?></li>
-  <?php endforeach; ?>
-  </ul>
-</div> -->
-
 <div class="BlockVille">
   <div class="headerVille">
     <div style="text-align:center; font-size:25px;">
@@ -64,6 +45,33 @@
         </div>
         <div class="nomgroupeRecherche">
           <?php echo $value['pseudo']?>
+        </div>
+      </li>
+    </a>
+  <?php endforeach; ?>
+</div>
+
+<div class="separation"></div>
+
+<div class="BlockVille">
+  <div class="headerVille">
+    <div style="text-align:center; font-size:25px;">
+      <?php echo lang("Clubs") ?>
+    </div>
+  </div>
+<?php if (count($rechercheclub) == 0) :?>
+     <span style='font-size:20px; padding-top:15px; color:black;'><?php echo lang("Aucun club trouvé.") ?></span>
+  <?php endif; ?>
+  <ul>
+  <?php foreach ($rechercheclub as $key => $value) :?>
+    <?php $clubnom=str_replace(' ', '-', $value['nom']); ?>
+    <a href="<?php echo goToPage('clubinfo', ['id_club'=>$value['id']])?>">
+      <li onclick="get(this.innerHTML)">
+        <div class="photogroupeRecherche">
+          <img src="<?php echo image('Clubs/Bannière/'.$clubnom.'.jpg')?>" class="imgRecherche" alt="" />
+        </div>
+        <div class="nomgroupeRecherche">
+          <?php echo $value['nom']?>
         </div>
       </li>
     </a>

@@ -1,4 +1,4 @@
-<div class="AllForum">
+<div class="AllForum bodybackground">
 
   <?php if($error!=''):?>
     <div class="errorbox blackborder radius" style="text-align:center; margin:10px auto;">

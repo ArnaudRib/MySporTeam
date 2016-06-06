@@ -177,6 +177,16 @@ class GroupeModele extends BaseDeDonnes
     return $resultats;
   }
 
+  function searchClub($nbdisplay){
+    $sql="SELECT * FROM club WHERE nom LIKE ?  ORDER BY nom LIMIT ?";
+    $resultats=$this->connectBDD()->prepare($sql);
+    $text="%" . $_GET['resultat'] . "%";
+    $resultats->bindParam(1, $text, PDO::PARAM_STR);
+    $resultats->bindParam(2, $nbdisplay, PDO::PARAM_INT);
+    $resultats->execute();
+    return $resultats;
+  }
+
   /* Fonctions count.*/
   function getNbGroupeSports($sports){ // renvoie [idsport=>nbgroupe]
     foreach ($sports as $key => $value) {
@@ -210,7 +220,7 @@ class GroupeModele extends BaseDeDonnes
         return true;
     return false;
   }
-  
+
   function isInvit($id_groupe, $id_user){
     $sql = "SELECT * FROM utilisateur_invitation WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe])->fetch();
@@ -224,8 +234,8 @@ class GroupeModele extends BaseDeDonnes
     $sql="DELETE FROM utilisateur_invitation WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe]);
   }
-  
-  
+
+
   function isMembre($id_user, $id_groupe){
     $sql = "SELECT * FROM utilisateur_groupe WHERE id_utilisateur=? AND id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_user, $id_groupe])->fetch();
@@ -298,7 +308,7 @@ class GroupeModele extends BaseDeDonnes
     $sql="DELETE FROM utilisateur_groupe WHERE id_groupe=? AND id_utilisateur=?";
     $resultat=$this->requeteSQL($sql, [$id_groupe, $_POST['id_utilisateur']]);
   }
-  
+
    function addLeader($id_groupe){
     $sql="UPDATE utilisateur_groupe SET leader_groupe=? WHERE id_groupe=? AND id_utilisateur=?";
     $resultat=$this->requeteSQL($sql, ["1",$id_groupe, $_POST['id_utilisateur']]);
@@ -360,8 +370,8 @@ class GroupeModele extends BaseDeDonnes
     }
     return $allresults;
   }
-  
-  
+
+
   function RechercheGroupes(){
     $sql.='SELECT * FROM groupe
     JOIN city ON city.id=groupe.id_ville

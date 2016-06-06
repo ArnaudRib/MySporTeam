@@ -1,4 +1,4 @@
-<div class="AllForum">
+<div class="AllForum bodybackground">
   <div class="forum">
     <h2 class="forums" style="text-align:center;"><?php echo $topic['titre'] ?></h2>
 

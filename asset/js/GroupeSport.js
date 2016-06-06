@@ -9,25 +9,29 @@ function displayPopUp()
 }
 
 function MakeVisible() {
-  var d = document.getElementById("GeneralPopUp");
-  var interieur = document.getElementById("FirstdivPopUp");
+  var d = document.getElementById("GeneralPopUp2");
+  var interieur2 = document.getElementById("FirstdivPopUp2");
+  var close= document.getElementById('bouttonclose');
+  close.classList.toggle("displaynone");
   d.classList.toggle("visible");
-  interieur.classList.toggle("visible2");
+  interieur2.classList.toggle("visible2");
 }
 
-var outside = document.getElementById('GeneralPopUp');
-var inside = document.getElementById('FirstdivPopUp');
+var outside = document.getElementById('GeneralPopUp2');
+var inside = document.getElementById('FirstdivPopUp2');
 
 function closePopUp(){
+  var close= document.getElementById('bouttonclose');
   outside.classList.toggle("visible");
   inside.classList.toggle("visible2");
+  close.classList.toggle("displaynone");
 }
 
-function ClickOutside(e){
+function Clickoutside(e){
   if (e.target==outside){
     outside.classList.toggle("visible");
     inside.classList.toggle("visible2");
   }
 }
 
-document.onclick = ClickOutside;
+document.onclick = Clickoutside;

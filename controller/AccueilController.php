@@ -47,8 +47,10 @@ class AccueilController
     $rechercheVille=$this->groupe->searchVille(6)->fetchAll();
     $recherchegroupe=$this->groupe->searchGroupe(6)->fetchAll();
     $rechercheuser=$this->user->searchUser(6)->fetchAll();
+    $rechercheclub=$this->groupe->searchClub(6)->fetchAll();
+
     $vue=new Vue("RechercheGenerale","Accueil");
-    $vue->loadajax(['rechercheVille'=>$rechercheVille, 'rechercheuser'=>$rechercheuser,'recherchegroupe'=>$recherchegroupe, 'resultat'=>$_GET['resultat']]);
+    $vue->loadajax(['rechercheVille'=>$rechercheVille, 'rechercheuser'=>$rechercheuser,'recherchegroupe'=>$recherchegroupe, 'rechercheclub'=>$rechercheclub, 'resultat'=>$_GET['resultat']]);
   }
 
   public function loadRechercheUser()

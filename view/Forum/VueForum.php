@@ -1,4 +1,4 @@
-<div class="bodybackground">
+<div class="AllForum bodybackground">
   <div class="blockforum">
     <div class="sectionForum">
       <div class="forums">
