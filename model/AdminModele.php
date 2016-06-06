@@ -24,6 +24,35 @@ class AdminModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$_POST['section'], $_POST['question'],$_POST['reponse']]);
   }
 
+  function addTopic(){
+    $sql="INSERT INTO topic (titre, description) VALUES (?,?)";
+    $resultat=$this->requeteSQL($sql, [$_POST['titre'], $_POST['description']]);
+  }
+
+
+  function addDiscussion(){
+    $sql="INSERT INTO message (titre, texte, id_topic) VALUES (?,?,?)";
+    $resultat=$this->requeteSQL($sql, [$_POST['titre'], $_POST['texte'], $_POST['id_topic']]);
+  }
+
+  function getDataDiscussion(){
+    $sql="SELECT * FROM message";
+    $resultat=$this->requeteSQL($sql);
+    return $resultat;
+  }
+
+  function updateTopic($id_topic){
+    $titre=$_POST['titre']; $description=$_POST['description']; $id_topic=$_POST['id_topic'];
+    $sql="UPDATE topic SET titre=?, description=?  WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$titre, $description, $id_topic]);
+  }
+
+  function updateDiscussion($id_message){
+    $titre=$_POST['titre']; $texte=$_POST['texte']; $id_topic=$_POST['id_topic']; $id_message=$_POST['id_message'];
+    $sql="UPDATE message SET titre=?, description=?, id_topic=?  WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$titre, $texte, $id_topic, $id_message]);
+  }
+
   function updateSport($id_sport){
     $description=$_POST['description']; $id_type=$_POST['id_type'];
     $sql="UPDATE sports SET description=?, id_type=? WHERE id=?";
@@ -77,4 +106,17 @@ class AdminModele extends BaseDeDonnes
     $sql="DELETE FROM aide WHERE id=?";
     $resultat=$this->requeteSQL($sql, [$_POST['id_aide']]);
   }
+
+  function deleteTopic(){
+    $sql="DELETE FROM topic WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$_POST['id_topic']]);
+  }
+
+
+  function deleteDiscussion(){
+    $sql="DELETE FROM message WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$_POST['id_message']]);
+  }
+
+
 }

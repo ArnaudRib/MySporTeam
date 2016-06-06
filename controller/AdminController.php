@@ -15,6 +15,7 @@ class AdminController
     $this->groupe=new GroupeModele();
     $this->sport=new SportModele();
     $this->admin=new AdminModele();
+    $this->forum=new ForumModele();
   }
 
   public function loadBackOffice()
@@ -198,8 +199,64 @@ class AdminController
 
   public function loadBackOfficeForum()
   {
-    $vue=new Vue("BackOfficeForum","Admin",['font-awesome.css', 'admin.css']);
-    $vue->loadbackoffice();
+    if(!empty($_POST)){
+      if(isset($_POST['modifiertopic'])){
+        $verification = new Verification($_POST);
+        $verification->notEmpty('description', "Veuillez remplir la description du topic.");
+        $verification->notEmpty('nom', "Veuillez remplir le nom du topic.");
+        $error=$verification->error;
+        if($verification->isValid()){
+          if(empty($error)){
+            $this->admin->updateTopic($_POST['id_topic']);
+          }
+        }
+      }
+      if(isset($_POST['addtopic'])){
+        if(empty($error)){
+            $this->admin->addTopic();
+          }else{
+            $error.="Ce topic existe déjà.";
+          }
+      }
+      if(isset($_POST['Suppr'])){
+        //supprimer club ici.
+        $this->admin->deleteTopic();
+        $succes="Suppression réussie!";
+      }
+    }
+
+    if(!empty($_POST)){
+      if(isset($_POST['modifierdiscussion'])){
+        $verification = new Verification($_POST);
+        $verification->notEmpty('titre', "Veuillez remplir le titre de la discussion.");
+        $verification->notEmpty('texte', "Veuillez remplir le texte de la discussion.");
+        $verification->notEmpty('id_topic', "Veuillez remplir l'id Topic de la discussion.");
+
+        $error=$verification->error;
+        if($verification->isValid()){
+          if(empty($error)){
+            $this->admin->updateDiscussion($_POST['id_message']);
+          }
+        }
+      }
+
+      if(isset($_POST['adddiscussion'])){
+        if(empty($error)){
+            $this->admin->addDiscussion();
+        }
+        if(isset($_POST['Suppr'])){
+          //supprimer club ici.
+          $this->admin->deleteDiscussion();
+          $succes="Suppression réussie!";
+        }
+      }
+    }
+
+    $discussions=$this->admin->getDataDiscussion()->fetchAll();
+    $topics=$this->forum->getDataTopic()->fetchAll();
+
+    $vue=new Vue("BackOfficeForum","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
+    $vue->loadbackoffice(['topics'=>$topics, 'discussions'=>$discussions, 'error'=>$error, 'succes'=>$succes]);
   }
 
   public function loadBackOfficeClub()
@@ -270,7 +327,7 @@ class AdminController
         $this->admin->deleteQuest();
       }
     }
-    
+
     $aide=$this->accueil->getAide();
     $vue=new Vue("BackOfficeAide","Admin",['font-awesome.css', 'admin.css']);
     $vue->loadbackoffice(['aide'=>$aide,'error'=>$error]);
