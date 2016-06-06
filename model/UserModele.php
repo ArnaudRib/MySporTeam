@@ -177,6 +177,12 @@ class UserModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$token, $_POST['pseudo']]);
   }
 
+  function addLeader(){
+    $sql="INSERT INTO utilisateur_groupe(id_utilisateur, id_groupe, leader_groupe) VALUES (?,?,?)";
+    $resultat=$this->requeteSQL($sql,[$_SESSION['user']['id'], $id, 1]);
+    return $resultat;
+  }
+
   function resetPw($token){
     $sql="UPDATE utilisateur SET mot_de_passe=? WHERE token=?";
     $resultat=$this->requeteSQL($sql, [sha1($_POST['mot_de_passe']), $token]);

@@ -149,7 +149,7 @@
         <div class="titre">
           <h1>Club</h1>
         </div>
-        <a href="<?php goToPage('clubinfo',['id_club'=>$club['id']])?>" style="font-size:15px; "><?php echo $club['nom']?></a>
+        <a href="<?php goToPage('clubinfo',['id_club'=>$club['id']])?>" style="font-size:15px;"><span style="padding:5px;"><?php echo $club['nom']?></span></a>
       </div>
       <?php if(!empty($_POST['modif'])):?>
         <form class="" action="" method="post">

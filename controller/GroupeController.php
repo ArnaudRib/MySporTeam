@@ -333,7 +333,7 @@ class GroupeController
           $ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
           $_POST['ville']=intval($ville['id']);
           $id=$this->groupe->addGroupe();
-          $this->user->addLeader();
+          $this->user->addLeader($id);
           $succes="Groupe ajouté avec succès!</br> Vous pouvez consulter sa page en cliquant ";
         }
       }
