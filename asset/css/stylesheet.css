@@ -1712,7 +1712,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
 .titreforum {
   display: inline-block;
   width: 55%;
-  text-align:center;
+  margin-left: 65px;
 }
 
 .vide {

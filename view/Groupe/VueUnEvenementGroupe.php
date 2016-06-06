@@ -15,7 +15,8 @@
           <a href="<?php  goToPage('publicationsgroupe',['id'=>$datagroupe['id'], 'id_publication'=>'1'])?>" id="non_selectionne"><li><?php echo lang('Publications') ?></li></a>
           <a href="<?php  goToPage('evenementsgroupe',['id'=>$datagroupe['id'], 'id_evenement'=>'1'])?>" id="selectionne"><li><?php echo lang('Evènements') ?></li></a>
           <a href="<?php  goToPage('membresgroupe',['id'=>$datagroupe['id']])?>" id="non_selectionne"><li><?php echo lang('Membres') ?></li></a>
-           <?php if($isMembre==false):
+           <?php if(!empty($_SESSION['user']['pseudo'])):
+           if($isMembre==false):
           if($datagroupe['public']!="0"):
           if((intval($datagroupe['nbmax_sportifs']))-(intval($NBmembres['0']['COUNT(id)']))>0):?>
           <li id="abonnement" style="margin-top:-10px;">
@@ -50,7 +51,8 @@
               <input type="submit" name="desabonnement" value="<?php echo lang('Désinscire')?>" style='cursor:pointer;'>
             </form>
             </li>
-          <?php endif;?>
+          <?php endif;
+          endif;?>
         </ul>
       </nav>
     </div>
