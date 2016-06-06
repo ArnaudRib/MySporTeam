@@ -1,6 +1,6 @@
 <!--Partie Popup-->
 <div id="GeneralPopUp2" class="GeneralPopUp">
-  <p id='bouttonclose' class="closeButtonPopup displaynone" onclick="closePopUp()">&#10006;</p>
+  <p id='bouttonclose' class="closeButtonPopup" onclick="closePopUp()">&#10006;</p>
   <div id="FirstdivPopUp2" class="FirstdivPopUp" style="width:100%; height:100%;">
     <div class="iconeblock" style="margin:0 auto; width:90%;">
       <?php foreach ($Allsports as $key => $value): ?>
