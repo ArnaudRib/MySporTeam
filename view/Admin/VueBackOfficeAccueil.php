@@ -69,14 +69,55 @@
 
 <div class="main-panel">
   <div class="navbar navbar-header">
-    <p class="title"><?php echo lang("ok") ?></p>
-    <i class="subtitle"><?php echo lang("ok") ?></i>
+    <p class="title"><?php echo lang("Gestion des données du site") ?></p>
+    <i class="subtitle"><?php echo lang("Statistiques") ?></i>
   </div>
-  <div class="block95 hauteur80">
-    <?php echo lang("ok") ?>
+  <div class="block95 card">
+    <div class="header">
+      <div style="display:inline-block;">
+        <h4 class="title"><?php echo lang("Statistiques Importantes") ?> </h4>
+        <p class="sousheader">
+          <?php echo lang('Chiffres clés');?>
+        </p>
+      </div>
+      <div style="block95">
+        <div class="Figures">
+          <div class="card" style="width:70%; margin:0 auto;box-shadow:0px 0px 5px black;">
+            <div class="TitreStat">
+              Nombre d'Utilisateurs
+            </div>
+            <div class="StatsFigure">
+              <?php echo $nbuser['nbuser'] ?>
+            </div>
+          </div>
+        </div>
 
-    <button type="button" name="button" oncick="">clickme</button>
-    <div id="testblock" class="" style="height: 30px;color: black;">
+        <div class="Figures">
+          <div class="card" style="width:70%; margin:0 auto;box-shadow:0px 0px 5px black;">
+            <div class="TitreStat">
+              Nombre de Groupes
+            </div>
+            <div class="StatsFigure">
+              <?php echo $nbgroupe['nbgroup']?>
+            </div>
+          </div>
+        </div>
+
+        <div class="Figures">
+          <div class="card" style="width:70%; margin:0 auto; box-shadow:0px 0px 5px black;">
+            <div class="TitreStat">
+              Nombre de vues totales (forum)
+            </div>
+            <div class="StatsFigure">
+              <?php echo $nbvues['nbvues'] ?>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="centered-content">
 
     </div>
   </div>

@@ -20,12 +20,12 @@ class AdminController
 
   public function loadBackOffice()
   {
-    //$nbgroupe=$this->admin->countGroup();
-    //$nbuser=$this->admin->countUser();
-    //$nbvues=$this->admin->countVue();
+    $nbgroupe=$this->admin->countGroup();
+    $nbuser=$this->admin->countUser();
+    $nbvues=$this->admin->countVue();
 
     $vue=new Vue("BackOfficeAccueil","Admin",['font-awesome.css', 'admin.css']);
-    $vue->loadbackoffice();
+    $vue->loadbackoffice(['nbgroupe'=>$nbgroupe, 'nbvues'=>$nbvues, 'nbuser'=>$nbuser]);
   }
 
   public function loadBackOfficeUser()

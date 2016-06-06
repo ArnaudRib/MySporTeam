@@ -136,5 +136,21 @@ class AdminModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$_POST['id_discussion']]);
   }
 
+  function countGroup(){
+    $sql="SELECT COUNT(*) as nbgroup FROM groupe";
+    $resultat=$this->requeteSQL($sql)->fetch();
+    return $resultat;
+  }
 
+  function countUser(){
+    $sql="SELECT COUNT(*) as nbuser FROM utilisateur";
+    $resultat=$this->requeteSQL($sql)->fetch();
+    return $resultat;
+  }
+
+  function countVue(){
+    $sql="SELECT SUM(vues) as nbvues FROM discussion";
+    $resultat=$this->requeteSQL($sql)->fetch();
+    return $resultat;
+  }
 }
