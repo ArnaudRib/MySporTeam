@@ -168,13 +168,14 @@ class GroupeController
     $sport=$this->groupe->getSport($datagroupe['id_sport'])->fetch();
     $niveau=$this->groupe->getLevel($datagroupe['id_niveau'])->fetch();
     $evenement=$this->groupe->getEvenement($id_evenement)->fetch();
-     $isInvit=$this->groupe->isInvit($id_groupe, $_SESSION['user']['id']);
+    $isInvit=$this->groupe->isInvit($id_groupe, $_SESSION['user']['id']);
     $club=$this->groupe->getClub($evenement['id_club'])->fetch();
+    $clubs=$this->groupe->getClubs()->fetchAll();
     $NBmembres=$this->groupe->countmembres($id_groupe)->fetchAll();
     $participants=$this->groupe->countparticipants($id_evenement)->fetchAll();
     $ville=$this->groupe->getVilleById($evenement['id_ville'])->fetch();
     $vue=new Vue("UnEvenementGroupe", "Groupe", ['stylesheet.css'], ['RechercheGroupe.js', 'showphoto.js']);
-    $vue->loadpage(['datagroupe'=>$datagroupe, 'isInvit'=>$isInvit, 'niveau'=>$niveau, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
+    $vue->loadpage(['datagroupe'=>$datagroupe, 'isInvit'=>$isInvit, 'niveau'=>$niveau, 'NBmembres'=>$NBmembres, 'ville'=>$ville, 'participants'=>$participants, 'club'=>$club, 'clubs'=>$clubs, 'isParticipant'=>$isParticipant, 'sport'=>$sport, 'isLeader'=>$isLeader, 'evenement'=>$evenement, 'isMembre'=>$isMembre]);
   }
 
   public function loadCreateEvenement($id_groupe){

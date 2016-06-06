@@ -138,6 +138,7 @@
           <p id="results">
             <span style="font-size:20px; padding-top:30px;">Veuillez rentrer un nom de ville.</span>
           </p>
+         
         <?php else:?>
           <div>
             <h2><?php echo lang('Mail') ?></h2>
@@ -151,7 +152,15 @@
         <div class="titre">
           <h1>Club</h1>
         </div>
-        <a href="<?php goToPage('clubinfo',['id_club'=>$club['id']])?>" style="font-size:15px;"><span style="padding:5px;"><?php echo $club['nom']?></span></a>
+        <?php if(!empty($_POST['modif'])):?>
+        <select style="padding:10px;" name="club" id="pays">
+          <?php foreach ($clubs as $key => $value):?>
+           <option value="<?php echo $value['id']?>"><?php echo $value['nom']?></option>
+           <?php endforeach;?>
+       </select>
+      <?php else:?>
+       <a href="<?php goToPage('clubinfo',['id_club'=>$club['id']])?>" style="font-size:15px;"><span style="padding:5px;"><?php echo $club['nom']?></span></a>
+      <?php endif?>
       </div>
       <?php if(!empty($_POST['modif'])):?>
         <form class="" action="" method="post">

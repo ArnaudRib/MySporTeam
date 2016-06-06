@@ -46,7 +46,7 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_club]);
     return $resultat;
   }
-
+  
   function getClubs(){
     $sql="SELECT * FROM club";
     $resultat=$this->requeteSQL($sql);
@@ -111,6 +111,7 @@ class GroupeModele extends BaseDeDonnes
   }
 
    function getNonMembres($id_groupe){
+    //$sql="SELECT * from utilisateur";
     $sql="SELECT *, utilisateur.id as useful_id FROM utilisateur JOIN utilisateur_groupe ON utilisateur.id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe!=? GROUP BY utilisateur.id ORDER BY pseudo;";
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
@@ -283,8 +284,8 @@ class GroupeModele extends BaseDeDonnes
     $ville=2;
     $mail=$_POST['mail'];
     $telephone=$_POST['telephone'];
-    $sql="UPDATE evenement SET description=?, id_ville=?, telephone=?, mail=?, date_debut=?, date_fin=? WHERE id=?";
-    $resultat=$this->requeteSQL($sql, [$info, $id_ville, $telephone, $mail, $_POST['date_debut'], $_POST['date_fin'], $id_evenement]);
+    $sql="UPDATE evenement SET description=?, id_ville=?, telephone=?, mail=?, date_debut=?, date_fin=?, id_club=? WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$info, $id_ville, $telephone, $mail, $_POST['date_debut'], $_POST['date_fin'], $_POST['club'], $id_evenement]);
     return $resultat;
   }
 
