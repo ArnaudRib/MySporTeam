@@ -264,6 +264,25 @@ th, td {
   background-color: rgb(62, 103, 254)!important;
 }
 
+/*Accueil*/
+.Figures{
+  width:49%;
+  display:inline-block;
+  margin:40px 0;
+  text-align:center;
+}
+
+.TitreStat{
+  padding-top:20px;
+  font-size:30px;
+  font-style:bold;
+  font-style:italic;
+}
+
+.StatsFigure{
+  padding:20px;
+  font-size:40px;
+}
 /*Types */
 
 .typesport{

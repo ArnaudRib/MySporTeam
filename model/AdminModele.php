@@ -31,12 +31,24 @@ class AdminModele extends BaseDeDonnes
 
 
   function addDiscussion(){
+    $sql="INSERT INTO discussion (titre, id_topic, creation_date, id_user) VALUES (?,?, NOW(), ?)";
+    $resultat=$this->requeteSQL($sql, [$_POST['titre'], $_POST['id_topic'], $_SESSION['user']['id']]);
+  }
+
+  function addMessage(){
     $sql="INSERT INTO message (titre, texte, id_topic) VALUES (?,?,?)";
     $resultat=$this->requeteSQL($sql, [$_POST['titre'], $_POST['texte'], $_POST['id_topic']]);
   }
 
-  function getDataDiscussion(){
+
+  function getDataMessage(){
     $sql="SELECT * FROM message";
+    $resultat=$this->requeteSQL($sql);
+    return $resultat;
+  }
+
+  function getDataDiscussion(){
+    $sql="SELECT * FROM discussion";
     $resultat=$this->requeteSQL($sql);
     return $resultat;
   }
@@ -47,10 +59,16 @@ class AdminModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$titre, $description, $id_topic]);
   }
 
-  function updateDiscussion($id_message){
-    $titre=$_POST['titre']; $texte=$_POST['texte']; $id_topic=$_POST['id_topic']; $id_message=$_POST['id_message'];
-    $sql="UPDATE message SET titre=?, description=?, id_topic=?  WHERE id=?";
-    $resultat=$this->requeteSQL($sql, [$titre, $texte, $id_topic, $id_message]);
+  function updateDiscussion(){
+    $titre=$_POST['titre']; $texte=$_POST['texte']; $id_topic=$_POST['id_topic']; $id_discussion=$_POST['id_discussion'];
+    $sql="UPDATE discussion SET titre=?, id_topic=?  WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$titre, $id_topic, $id_discussion]);
+  }
+
+  function updateMessage($id_message){
+    $titre=$_POST['titre']; $texte=$_POST['texte']; $id_discussion=$_POST['id_discussion'];$id_topic=$_POST['id_topic']; $id_message=$_POST['id_message'];
+    $sql="UPDATE message SET titre=?, description=?, id_topic=?, id_discussion=?  WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$titre, $texte, $id_topic, $id_discussion]);
   }
 
   function updateSport($id_sport){
@@ -114,9 +132,25 @@ class AdminModele extends BaseDeDonnes
 
 
   function deleteDiscussion(){
-    $sql="DELETE FROM message WHERE id=?";
-    $resultat=$this->requeteSQL($sql, [$_POST['id_message']]);
+    $sql="DELETE FROM discussion WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$_POST['id_discussion']]);
   }
 
+  function countGroup(){
+    $sql="SELECT COUNT(*) as nbgroup FROM groupe";
+    $resultat=$this->requeteSQL($sql)->fetch();
+    return $resultat;
+  }
 
+  function countUser(){
+    $sql="SELECT COUNT(*) as nbuser FROM utilisateur";
+    $resultat=$this->requeteSQL($sql)->fetch();
+    return $resultat;
+  }
+
+  function countVue(){
+    $sql="SELECT SUM(vues) as nbvues FROM discussion";
+    $resultat=$this->requeteSQL($sql)->fetch();
+    return $resultat;
+  }
 }
