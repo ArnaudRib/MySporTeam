@@ -42,7 +42,7 @@
     <div class="sesGroupes fond" style="display:inline-block; width:60%;">
       <h1 class="titre"><?php echo lang('Mes Groupes')?></h1>
       <?php foreach ($dataGroupUser as $key => $value) :?>
-        <a href="<?php goToPage('informationsgroupe', ['id'=>$value['id']])?>">
+        <a href="<?php goToPage('informationsgroupe', ['id'=>$value['id_groupe']])?>">
           <div class="infos_groupe">
             <h2><?=$value["NomGroupe"] ?></h2>
             <h4 ><span style='color:black; text-decoration: underline;'>Création :</span> <?=DiffDate($value['date_creation']) ?></h4>
