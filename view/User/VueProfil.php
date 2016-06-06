@@ -69,8 +69,8 @@
           <ul>
             <li>
               <?php echo lang('Photo de profil') ?> : (1Mo max)
-              <?php dump(image('Users/Profil/'.$pseudouser.'.jpg')) ?>
-            <?php  dump(file_exists(image('Users/Profil/'.$pseudouser.'.jpg')))?>
+              <?php //dump(image('Users/Profil/'.$pseudouser.'.jpg')) ?>
+            <?php  // dump(file_exists(image('Users/Profil/'.$pseudouser.'.jpg'))) SI NON FIXE, ENLEVE LES DEUX BALISE IMAGES QUI SUIVENT?>
               <div class="import">
                 <img class="classImage UploadedImage" style="padding:0px;margin-top:10px;" <?php if(file_exists(image('Users/Profil/'.$pseudouser.'.jpg'))){ echo 'src="'.image("Users/Profil/".$pseudouser.".jpg").'"';?>
               <?php  }?>/>
