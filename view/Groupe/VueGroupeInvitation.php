@@ -41,9 +41,10 @@
     <?php if($isLeader):?>
       <?php $i=0; ?>
     <?php foreach ($nonmembre as $key => $value):?>
+      <?php $pseudouser=str_replace(' ', '-', $value['pseudo']); ?>
       <?php $estinvité=false;?>
         <div id="<?php echo count($membre) ?>" class="case_membre radius_mongroupe forme_case" style="vertical-align: top;">
-          <img src="<?php echo image('Groupes/sport3.jpg')?>" />
+          <img src="<?php echo image('Groupes/Profil/'.$pseudouser.'.jpg')?>" />
           <a href="<?php goToPage('profilUnUtilisateur',['pseudo'=>$value['pseudo']])?>"><h1><?php echo $value['pseudo']?></h1></a>
           <?php foreach ($invites as $key => $valeur) :
             if($valeur['id_utilisateur']==$value['useful_id']):?>

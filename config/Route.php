@@ -214,40 +214,76 @@ class Route
 
       //Backoffice
       case 'backoffice':
-        $this->ctr['Admin']->loadBackOffice();
+        if(isAdmin()):
+          $this->ctr['Admin']->loadBackOffice();
+        else:
+          $this->ctr['Accueil']->load404();
+        endif;
         break;
 
       case 'backofficegroupe':
-        $this->ctr['Admin']->loadBackOfficeGroupe();
+        if(isAdmin()):
+          $this->ctr['Admin']->loadBackOfficeGroupe();
+        else:
+          $this->ctr['Accueil']->load404();
+        endif;
         break;
 
       case 'backofficeaide':
-        $this->ctr['Admin']->loadBackOfficeAide();
+        if(isAdmin()):
+          $this->ctr['Admin']->loadBackOfficeAide();
+        else:
+          $this->ctr['Accueil']->load404();
+        endif;
         break;
 
       case 'backofficeforum':
-        $this->ctr['Admin']->loadBackOfficeForum();
+        if(isAdmin()):
+          $this->ctr['Admin']->loadBackOfficeForum();
+        else:
+          $this->ctr['Accueil']->load404();
+        endif;
         break;
 
       case 'backofficetype':
-        $this->ctr['Admin']->loadBackOfficeType();
+        if(isAdmin()):
+          $this->ctr['Admin']->loadBackOfficeType();
+        else:
+          $this->ctr['Accueil']->load404();
+        endif;
         break;
 
       case 'backofficesport':
-        $this->ctr['Admin']->loadBackOfficeSport();
+        if(isAdmin()):
+          $this->ctr['Admin']->loadBackOfficeSport();
+        else:
+          $this->ctr['Accueil']->load404();
+        endif;
         break;
 
       case 'backofficeAsport':
-        $id_sport=intval($this->params[0]);
-        $this->ctr['Admin']->loadBackOfficeASport($id_sport);
+        if(isAdmin()):
+          $id_sport=intval($this->params[0]);
+          $this->ctr['Admin']->loadBackOfficeASport($id_sport);
+        else:
+          $this->ctr['Accueil']->load404();
+        endif;
         break;
 
       case 'backofficeuser':
-        $this->ctr['Admin']->loadBackOfficeUser();
+        if(isAdmin()):
+          $this->ctr['Admin']->loadBackOfficeUser();
+        else:
+          $this->ctr['Accueil']->load404();
+        endif;
         break;
 
       case 'backofficeclub':
-        $this->ctr['Admin']->loadBackOfficeClub();
+        if(isAdmin()):
+          $this->ctr['Admin']->loadBackOfficeClub();
+        else:
+          $this->ctr['Accueil']->load404();
+        endif;
         break;
 
       case '404':
@@ -255,7 +291,6 @@ class Route
         break;
 
       default:
-        echo 'ok';
         break;
     }
   }

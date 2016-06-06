@@ -68,8 +68,8 @@
 
 <div class="main-panel">
   <div class="navbar navbar-header">
-    <p class="title"><?php echo lang("ok") ?></p>
-    <i class="subtitle"><?php echo lang("ok") ?></i>
+    <p class="title"><?php echo lang("Aide") ?></p>
+    <i class="subtitle"><?php echo lang("Gérer la FAQ") ?></i>
   </div>
 
   <?php if(isset($_POST['addQuest'])):

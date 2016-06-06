@@ -13,7 +13,16 @@ endif; */?>
         <div class="haut_inscription">
           <h1><?php echo lang('Connexion') ?></h1>
         </div>
-
+        <?php if($error!=''):?>
+              <div class="errorbox blackborder radius" style="font-size:15px; margin: 20px auto; ">
+                <?php echo $error;?>
+              </div>
+            <?php endif; ?>
+            <?php if($succes!=''): ?>
+              <div class="successbox blackborder radius" style='margin:20px auto;padding:20px;'>
+                <?php echo $succes;?>
+              </div>
+            <?php endif; ?>
         <fieldset>
           <div>
             <label for="login"><img src="<?php echo image('Users/icone_utilisateur.png')?>" /></label>

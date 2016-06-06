@@ -107,11 +107,13 @@ function closeModalSuppr2(e){
   insidemodal.classList.toggle("visible");
 }
 
-var i = 0;
-var block=document.getElementById('testblock');
-setInterval(function(){
-  if(i<50){
-    i++;
-    block.innerHTML=i;
-  }
-}, 1000);
+
+function compt(element, nb, interval) {
+  i = 0
+  setInterval(function () {
+    if (i < nb) {
+      i++
+      element.innerHTML = i
+    }
+  }, interval);
+}

@@ -16,6 +16,7 @@ class UserController
   public function connexion()
   {
     $message='';
+    $error='';
     if (!empty($_POST['pseudo']) && !empty($_POST['mot_de_passe']) ) //Oublie d'un champ
     {
       //On check le mot de passe
@@ -27,7 +28,7 @@ class UserController
       }
       else // Acces pas OK !
       {
-        $message = '<p>Une erreur s\'est produite
+        $error.= '<p>Une erreur s\'est produite
         pendant votre identification.<br /> Le mot de passe ou le pseudo
         entré n\'est pas correcte.
         <br />Cliquez <a href="./">ici</a>
@@ -36,7 +37,7 @@ class UserController
     }
 
     $vue=new Vue("Connexion","User",['stylesheet.css']);
-    $vue->loadpage(['message'=>$message]);
+    $vue->loadpage(['message'=>$message, 'error'=>$error]);
   }
 
 

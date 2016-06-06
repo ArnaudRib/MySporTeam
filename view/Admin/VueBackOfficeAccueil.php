@@ -86,7 +86,7 @@
             <div class="TitreStat">
               Nombre d'Utilisateurs
             </div>
-            <div class="StatsFigure">
+            <div id='user' class="StatsFigure">
               <?php echo $nbuser['nbuser'] ?>
             </div>
           </div>
