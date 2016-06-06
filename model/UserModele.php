@@ -54,11 +54,22 @@ class UserModele extends BaseDeDonnes
     return $resultat;
   }
 
+  function CheckPasswordUser(){
+    $sql="SELECT * FROM utilisateur WHERE pseudo=? and mot_de_passe=?";
+    $resultat=$this->requeteSQL($sql,[$_SESSION['user']['pseudo'], sha1($_POST['ex_mot_de_passe'])])->fetch();
+    return $resultat;
+  }
+
   function FreePseudo($PSEUDO){
     $sql="SELECT pseudo FROM utilisateur WHERE pseudo=?";
     $resultat=$this->requeteSQL($sql,[$PSEUDO]);
     $resultats=$resultat->fetch();
     return $resultats;
+  }
+
+  function updatePw(){
+    $sql="UPDATE utilisateur SET mot_de_passe=? WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [sha1($_POST['mot_de_passe']), $_SESSION['user']['id']]);
   }
 
   function InscriptionUser(){
@@ -93,7 +104,7 @@ class UserModele extends BaseDeDonnes
   }
 
   function getDataGroupeUser() {
-    $sql="SELECT *, groupe.nom as NomGroupe FROM groupe JOIN utilisateur_groupe ON groupe.id=utilisateur_groupe.id_groupe JOIN sports ON groupe.id_sport=sports.id WHERE id_utilisateur=?";
+    $sql="SELECT *, groupe.nom as NomGroupe, sports.nom as NomSport FROM groupe JOIN utilisateur_groupe ON groupe.id=utilisateur_groupe.id_groupe JOIN sports ON groupe.id_sport=sports.id WHERE id_utilisateur=?";
     $resultat=$this->requeteSQL($sql,[$_SESSION['user']['id']])->fetchAll();
     return $resultat;
   }

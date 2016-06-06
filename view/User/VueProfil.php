@@ -6,7 +6,7 @@
       </div>
 
       <div style="text-align: left;">
-        <label class="labelnouveaumdp" for="mot_de_passe_confirmation">Ancien mot de passe:</label>
+        <label class="labelnouveaumdp" for="mot_de_passe_confirmation">Ancien mot de passe :</label>
         <input class="txtnouveaumdp" type="password" name="ex_mot_de_passe" maxlength="100" placeholder="Ancien mot de passe" oninput="Verification()"/>
       </div>
 
@@ -21,7 +21,7 @@
       </div>
 
       <div class="submitmessageprive">
-        <input id="submit" class="bouttonmsgprive sendmessageboutton" type="submit" name="resetpw" value="Envoyer">
+        <input id="submit" class="bouttonmsgprive sendmessageboutton" type="submit" name="changePw" value="Envoyer">
         <button class="bouttonmsgprive cancelboutton" onclick="closeModalInfo(this)">Annuler</button>
       </div>
       <div id="messageMDP" class=""></div>
@@ -65,7 +65,7 @@
       <?php endif; ?>
       <div class="infos">
         <div class="bouttonchangemdp" onclick="modalinfo(this)">
-          <?php echo lang('Changer son mot de passe') ?> </a></li>
+          <?php echo lang('Changer mon mot de passe') ?> </a></li>
         </div>
         <form action="" method="post" enctype="multipart/form-data">
           <ul>

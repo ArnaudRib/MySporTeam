@@ -161,7 +161,7 @@
   "Photo de profil":"Profil picture",
   "Pseudo":"Pseudo",
   "Email":"Email",
-  "Changer son mot de passe":"Change your password",
+  "Changer mon mot de passe":"Change my password",
   "Nom":"Name",
   "Prénom":"Surname",
   "Sexe":"Gender",
@@ -214,5 +214,8 @@
   "Modifications des questions":"Modify the questions",
   "Nom de la section":"Section's name",
   "Réponse":"Answer",
-  "Aucun club trouvé.":"No club Found."
+  "Aucun club trouvé.":"No club Found.",
+  "Sports pratiqués":"Practised sports",
+  "Mes Groupes":"My Groups",
+  "Cliquez ici pour lui envoyer un message":"Click here to send a message too"
 }

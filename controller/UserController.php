@@ -136,39 +136,67 @@ class UserController
     $succes="";
     $error="";
     $nomville="";
-    if(!empty($_POST['modifyProfil'])){
-      $verification = new Verification($_POST);
-      $verificationPhoto = new Verification($_FILES);
-      $verification->notEmpty('email', "Veuillez compléter le champ email.");
-      $verification->notEmpty('nom', "Spécifiez votre nom de famille.");
-      $verification->notEmpty('prenom', "Spécifiez votre prénom.");
-      $verification->notEmpty('sexe', "Êtes-vous un homme ou une femme?");
-      $verification->notEmpty('ville', "Choississez une ville.");
-      $error.=$verification->error;
+    if(!empty($_POST)){
+      if(!empty($_POST['modifyProfil'])){
+        $verification = new Verification($_POST);
+        $verificationPhoto = new Verification($_FILES);
+        $verification->notEmpty('email', "Veuillez compléter le champ email.");
+        $verification->notEmpty('nom', "Spécifiez votre nom de famille.");
+        $verification->notEmpty('prenom', "Spécifiez votre prénom.");
+        $verification->notEmpty('sexe', "Êtes-vous un homme ou une femme?");
+        $verification->notEmpty('ville', "Choississez une ville.");
+        $error.=$verification->error;
 
-      if($verification->isValid()){
-        if(!empty($_FILES['photo']['name']))
-          $verificationPhoto->PhotoOk('photo', $pseudouser.'.jpg','Users/Profil', false);
-        if(!empty($_FILES['couverture']['name']))
-          $verificationPhoto->PhotoOk('couverture', $pseudouser.'.jpg','Users/Bannière', false);
-
-        if(!$verificationPhoto->isValid()){
-          $error.="Un problème s'est produit lors de l'ajout des photos.";
-        }else{
+        if($verification->isValid()){
           if(!empty($_FILES['photo']['name']))
-             deletePhoto($pseudouser.'.jpg', 'Users/Profil', 'photo');
+            $verificationPhoto->PhotoOk('photo', $pseudouser.'.jpg','Users/Profil', false);
           if(!empty($_FILES['couverture']['name']))
-             deletePhoto($pseudouser.'.jpg', 'Users/Bannière', 'couverture');
-         /*upload images*/
-         //
-         $error.=uploadPhoto($pseudouser.'.jpg', 'Users/Profil', 'photo');
-         $error.=uploadPhoto($pseudouser.'.jpg', 'Users/Bannière', 'couverture');
+            $verificationPhoto->PhotoOk('couverture', $pseudouser.'.jpg','Users/Bannière', false);
+
+          if(!$verificationPhoto->isValid()){
+            $error.="Un problème s'est produit lors de l'ajout des photos.";
+          }else{
+            if(!empty($_FILES['photo']['name']))
+               deletePhoto($pseudouser.'.jpg', 'Users/Profil', 'photo');
+            if(!empty($_FILES['couverture']['name']))
+               deletePhoto($pseudouser.'.jpg', 'Users/Bannière', 'couverture');
+           /*upload images*/
+           //
+           $error.=uploadPhoto($pseudouser.'.jpg', 'Users/Profil', 'photo');
+           $error.=uploadPhoto($pseudouser.'.jpg', 'Users/Bannière', 'couverture');
+          }
+          if(empty($error)){
+            $ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
+            $id_ville=$ville['id'];
+            $this->user->modifierProfil($_SESSION['user']['pseudo'], $id_ville);
+            $succes="Profil modifié avec succès!";
+          }
         }
-        if(empty($error)){
-          $ville=$this->groupe->getVilleByName($_POST['ville'])->fetch();
-          $id_ville=$ville['id'];
-          $this->user->modifierProfil($_SESSION['user']['pseudo'], $id_ville);
-          $succes="Profil modifié avec succès!";
+      }
+      if(!empty($_POST['changePw'])){
+        $verification = new Verification($_POST);
+        $verificationPhoto = new Verification($_FILES);
+        $verification->notEmpty('ex_mot_de_passe', "Veuillez spécifier votre ancien mot de passer.");
+        $verification->notEmpty('mot_de_passe', "Spécifiez votre nouveau mot de passe.");
+        $verification->notEmpty('mot_de_passe_confirmation', "Retapez votre nouveau mot de passe.");
+        $error.=$verification->error;
+        if($verification->isValid()){
+          if($this->user->CheckPasswordUser()){
+            if($_POST['mot_de_passe']==$_POST['mot_de_passe_confirmation']){
+              if(passwordOk($_POST['mot_de_passe'])){
+                $this->user->updatePw();
+                $data=$this->user->CheckUser()->fetch();
+                $_SESSION['user']=$data;
+                $succes="Mot de passe modifié avec succès.";
+              }else{
+                $error.='Le mot de passe ne possède pas les bons critères';
+              }
+            }else{
+              $error.='Les deux nouveaux mots de passent ne correspondent pas.';
+            }
+          }else{
+            $error.="L'ancien mot de passe fourni n'est pas correcte.";
+          }
         }
       }
     }
@@ -198,7 +226,7 @@ class UserController
     $leader_groupe=$this->user->getDataLeaderGroupe($dataGroupUser);
     $array=[];
     foreach ($dataGroupUser as $key => $value) {
-      array_push($array, 'Groupes/Profil/'.str_replace(' ', '-', $value['nom']).'.jpg');
+      array_push($array, 'Groupes/Profil/'.str_replace(' ', '-', $value['NomGroupe']).'.jpg');
     }
 
     $vue=new Vue("Groupes","User",['stylesheet.css']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .

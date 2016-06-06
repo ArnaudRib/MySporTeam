@@ -3259,7 +3259,7 @@ a{
   background-color:rgba(255, 249, 116, 1);
   border-radius:5px;
   height:auto;
-  animation: apparition 1s;
+  animation: apparition2 1s;
   width:600px;
 }
 
@@ -3272,15 +3272,19 @@ a{
   cursor:default;;
 }
 
-@keyframe apparition{
-  from{
+@keyframes apparition2 {
+  from {
+    visibility: hidden;
+    opacity:0;
     height:0px;
-    max-height:0px;
   }
-  to{
-    max-height:auto;
+  to {
+    visibility:visible;
+    opacity:1;
+    height:auto;
   }
 }
+
 
 .notifInvitation{
   background-color:rgb(255, 198, 73);

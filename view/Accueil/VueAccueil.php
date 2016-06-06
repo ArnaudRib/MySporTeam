@@ -52,6 +52,11 @@ if(isset($_SESSION['user']['id'])):
                       <u><b>Message</u></b> : <?php echo $value['message']?>
                     </div>
                   </div>
+                  <a href="<?php echo goToPage('messageprive')?>">
+                    <div class="msgclick">
+                        <i><?php echo lang('Cliquez ici pour lui envoyer un message')?>.</i>
+                    </div>
+                  </a>
                   <div style="display:block; width:90%; text-align:center; margin:0 auto">
                     <form class="" action="" method="post">
                       <input type="hidden" name="id_message" value="<?php echo $value['id_message']?>">

@@ -162,7 +162,7 @@
   "Photo de profil":"Photo de profil",
   "Pseudo":"Pseudo",
   "Email":"Email",
-  "Changer son mot de passe":"Changer son mot de passe",
+  "Changer mon mot de passe":"Changer mon mot de passe",
   "Nom":"Nom",
   "Prénom":"Prénom",
   "Sexe":"Sexe",
@@ -214,5 +214,8 @@
   "Modifications des questions":"Modifications des questions",
   "Nom de la section":"Nom de la section",
   "Réponse":"Réponse",
-  "Aucun club trouvé.":"Aucun club trouvé."
+  "Aucun club trouvé.":"Aucun club trouvé.",
+  "Sports pratiqués":"Sports pratiqués",
+  "Mes Groupes":"Mes Groupes",
+  "Cliquez ici pour lui envoyer un message":"Cliquez ici pour lui envoyer un message"
 }

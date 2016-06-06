@@ -23,7 +23,7 @@
 
     <div class="cote_mesgroupes radius_mongroupe forme_case" style="vertical-align:top; margin:10px;">
       <div class="titre">
-        <h1>Sports pratiqués</h1>
+        <h1><?php echo lang('Sports pratiqués')?></h1>
       </div>
       <div class="sports_mesgroupes">
         <ul>
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="sesGroupes fond" style="display:inline-block; width:60%;">
-      <h1 class="titre">Mes Groupes</h1>
+      <h1 class="titre"><?php echo lang('Mes Groupes')?></h1>
       <?php foreach ($dataGroupUser as $key => $value) :?>
         <a href="<?php goToPage('informationsgroupe', ['id'=>$value['id']])?>">
           <div class="infos_groupe">
@@ -52,7 +52,6 @@
         </a>
       <?php endforeach;?>
     </div>
-
 
 
   </div>
