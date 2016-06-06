@@ -16,10 +16,13 @@ $tablab=['fr'=> image('General/Flags/fr.png'), 'en'=> image('General/Flags/en.pn
   </div>
   <div style="display:inline-flex; align-items:center;">
     <div style="display:inline-block;">
-      <a href=""><img class="imgfooter" src="<?php echo image('General/facebook.ico')?>" width="50px"/></a>
+      <a href="https://www.facebook.com/mysporteamm"><img class="imgfooter" src="<?php echo image('General/facebook.ico')?>" width="60px"/></a>
     </div>
     <div class="textfooter">
       Tout droits réservés, mySporteam<span style="font-size:13px;"><sup>TM</sup></span>.
+    </div>
+    <div style="display:inline-block;">
+      <a href="https://twitter.com/MySporTeam"><img class="imgfooter" src="<?php echo image('General/twitter.ico')?>" width="45px"/></a>
     </div>
   </div>
 </footer>

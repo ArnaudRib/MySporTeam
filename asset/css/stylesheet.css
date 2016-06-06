@@ -435,6 +435,26 @@ footer {
 
 .imgfooter{
   margin: 10px 20px;
+  transition:1s all ease;
+}
+
+.imgfooter:hover{
+  animation:shakeurbooty 1s;
+}
+
+@keyframes shakeurbooty {
+  0% {
+    transform:rotate(0def);
+  }
+  25%{
+    transform:rotate(80deg);
+  }
+  75%{
+    transform:rotate(-80deg);
+  }
+  100%{
+    transform:rotate(0deg);
+  }
 }
 
 .textfooter{
