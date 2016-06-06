@@ -74,5 +74,10 @@
   </div>
   <div class="block95 hauteur80">
     <?php echo lang("ok") ?>
+
+    <button type="button" name="button" oncick="">clickme</button>
+    <div id="testblock" class="" style="height: 30px;color: black;">
+
+    </div>
   </div>
 </div>

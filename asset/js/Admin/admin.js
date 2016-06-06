@@ -106,3 +106,12 @@ function closeModalSuppr2(e){
   modal.classList.toggle("visiblegrey");
   insidemodal.classList.toggle("visible");
 }
+
+var i = 0;
+var block=document.getElementById('testblock');
+setInterval(function(){
+  if(i<50){
+    i++;
+    block.innerHTML=i;
+  }
+}, 1000);
