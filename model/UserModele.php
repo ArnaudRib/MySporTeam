@@ -177,7 +177,7 @@ class UserModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$token, $_POST['pseudo']]);
   }
 
-  function addLeader(){
+  function addLeader($id){
     $sql="INSERT INTO utilisateur_groupe(id_utilisateur, id_groupe, leader_groupe) VALUES (?,?,?)";
     $resultat=$this->requeteSQL($sql,[$_SESSION['user']['id'], $id, 1]);
     return $resultat;

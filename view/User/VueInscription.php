@@ -23,7 +23,7 @@
 
     <hr style="width:60%; border:1px black solid; margin:10px auto;">
 
-    <h2>5. Messagerie électronique </h2>
+    <h2>3. Messagerie électronique </h2>
     <p>La messagerie électronique est un moyen d'amélioration de la communication au sein du site. Chaque utilisateur dispose d’un service de discussion.  </p>
 
     <h3>Conseils généraux </h3>
@@ -32,7 +32,7 @@
 
     <hr style="width:60%; border:1px black solid; margin:10px auto;">
 
-    <h2>6. Données personnelles </h2>
+    <h2>4. Données personnelles </h2>
     <p>La loi n° 78­17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, définit les conditions dans lesquelles des traitements de données personnels peuvent être opérés. Elle institue au profit des personnes concernées par les traitements des droits que la présente invite à respecter à l'égard des utilisateurs. </p>
 
     <p>Des traitements de données automatisés et manuels sont effectués dans le cadre des systèmes de contrôle, prévus dans la présente charte. Ils sont, en tant que de besoin, déclarés conformément à la loi du 6 janvier 1978. </p>
