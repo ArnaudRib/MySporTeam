@@ -4,7 +4,9 @@
   <img src="<?php echo image('Groupes/Bannière/'.$nomgroupe.'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
-      <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>
+      <div class="imgprofilsize">
+        <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>
+      </div>
       <h1><?php echo $datagroupe['nom']?></h1>
       <div id="menu_mongroupe">
         <nav>
@@ -24,7 +26,7 @@
           <?php
           else:
           endif;
-          else: 
+          else:
           if($isInvit==true):?>
           <li id="abonnement" style="margin-top:-10px; margin-left:40px;">
             <form class="" action="" method="post">
@@ -106,7 +108,7 @@
 
       <?php endif?>
       <div>
-        <?php 
+        <?php
         if($datagroupe['public']!="0"):
         if ($publication!=NULL):
           $i=1;
@@ -132,10 +134,10 @@
               <h1> <?php echo lang('Aucune Publication') ?></h1>
             </div>
             <?php endif;
-            else: 
+            else:
             if($isMembre==false):
             ?>
-     
+
             <div  class="publication forme_case radius_mongroupe">
              <h1> <?php echo lang('Groupe privé. Publications masquées.') ?></h1>
              </div>
@@ -163,7 +165,7 @@
             <div  class="publication forme_case radius_mongroupe">
               <h1> <?php echo lang('Aucune Publication') ?></h1>
             </div>
-           
+
           <?php endif;
           endif;
           endif;  ?>
@@ -176,7 +178,7 @@
         <div class="titre">
           <h1><?php echo lang('Futurs évènements') ?></h1>
         </div>
-        <?php 
+        <?php
         if($datagroupe['public']!="0"):
         if ($evenement!=NULL):
           foreach ($evenement as $key => $value):
@@ -209,7 +211,7 @@
               <h1><?php echo lang('Aucun événement') ?></h1>
             </div>
             <?php
-          endif; 
+          endif;
           endif;
           endif;?>
     </div>

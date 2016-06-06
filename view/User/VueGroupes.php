@@ -3,7 +3,9 @@
     <img src="<?php echo image('Users/Bannière/'.$pseudouser.'.jpg')?>" alt="La photo n'a pas encore été ajoutée."/>
   </div>
   <div id="haut_mongroupe">
-    <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>" alt="La photo n'a pas encore été ajoutée."/>
+    <div class="imgprofilsize">
+      <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>" alt="La photo n'a pas encore été ajoutée."/>
+    </div>
     <h1><?php echo $_SESSION['user']['pseudo'] ?></h1>
     <div id="menu_mongroupe">
       <nav>

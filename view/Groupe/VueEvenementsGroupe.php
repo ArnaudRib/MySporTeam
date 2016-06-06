@@ -4,7 +4,9 @@
   <img src="<?php echo image('Groupes/Bannière/'.$nomgroupe.'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
-      <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>
+      <div class="imgprofilsize">
+        <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>
+      </div>
       <h1><?php echo $datagroupe['nom']?></h1>
       <div id="menu_mongroupe">
         <nav>
@@ -24,7 +26,7 @@
           <?php
           else:
           endif;
-          else: 
+          else:
           if($isInvit==true):?>
           <li id="abonnement" style="margin-top:-10px; margin-left:40px;">
             <form class="" action="" method="post">
@@ -69,7 +71,7 @@
     </div>
   <?php endif; ?>
 
-  <?php 
+  <?php
   if($datagroupe['public']!="0"):
   if ($evenement!=NULL):
       foreach ($evenement as $key => $value):
@@ -137,7 +139,7 @@
       </div>
       <?php
     endif;
-    endif; 
+    endif;
     endif;?>
   </div>
 </div>

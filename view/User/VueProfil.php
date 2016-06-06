@@ -2,12 +2,12 @@
   <div id="insideModalInfo<?php echo $value['id']?>" class="insideModalInfo" style="font-family:Arial; padding:20px; text-align:center; box-shadow: transparent 0px 0px 0px; background-color:transparent;">
     <form name="nouveau-message" class="messageform" method="post" action="" style="margin-top:40px; width:70%;">
       <div style="text-align:center; padding:10px;">
-        <h2 class="h2-message">R&eacute;initialisation mot de passe :</h2>
+        <h2 class="h2-message">Modification du mot de passe :</h2>
       </div>
 
       <div style="text-align: left;">
         <label class="labelnouveaumdp" for="mot_de_passe_confirmation">Ancien mot de passe:</label>
-        <input class="txtnouveaumdp" type="password" name="ex_mot_de_passe" maxlength="100" placeholder="Nouveau mot de passe" oninput="Verification()"/>
+        <input class="txtnouveaumdp" type="password" name="ex_mot_de_passe" maxlength="100" placeholder="Ancien mot de passe" oninput="Verification()"/>
       </div>
 
       <div style="text-align: left;">
@@ -34,7 +34,9 @@
     <img src="<?php echo image('Users/Bannière/'.$pseudouser.'.jpg')?>"/>
   </div>
   <div id="haut_mongroupe">
-    <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>"/>
+    <div class="imgprofilsize">
+      <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>"/>
+    </div>
     <h1><?php echo $_SESSION['user']['pseudo'] ?></h1>
     <div id="menu_mongroupe">
       <nav>

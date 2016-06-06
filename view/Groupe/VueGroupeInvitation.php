@@ -4,7 +4,9 @@
   <img src="<?php echo image('Groupes/Bannière/'.$nomgroupe.'.jpg')?>"/>
   </div>
     <div id="haut_mongroupe">
-      <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>
+      <div class="imgprofilsize">
+        <img src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>"/>
+      </div>
       <h1><?php echo $datagroupe['nom']?></h1>
       <div id="menu_mongroupe">
         <nav>

@@ -213,7 +213,8 @@ class UserController
     $nomville=$ville['name'];
     $array=[];
     foreach ($groupUser as $key => $value) {
-      array_push($array, 'Groupes/Profil/'.str_replace(' ', '-', $value['nom_groupe']).'.jpg');
+      if($value['public']==1)
+        array_push($array, 'Groupes/Profil/'.str_replace(' ', '-', $value['nom_groupe']).'.jpg');
     }
     $vue=new Vue("ProfilUnUtilisateur","User",['stylesheet.css']); // dans le fichier view/User, chercher Vue"Inscription", et load la page css stylesheet.css .
     $vue->loadpage(['dataUser'=>$dataUser,'groupUser'=>$groupUser,'pseudouser'=>$pseudouser, 'array'=>$array, 'nomville'=>$nomville]);
