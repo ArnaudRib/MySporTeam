@@ -7,7 +7,7 @@ class AccueilModele extends BaseDeDonnes
    $sql="SELECT * FROM aide ORDER BY type";
    $resultats=$this->requeteSQL($sql);
    foreach ($resultats as $value) {
-     $resultat[$value['type']][]=[$value['question'], $value['reponse']]; //remise en forme
+     $resultat[$value['type']][]=[$value['question'], $value['reponse'], $value['id']]; //remise en forme
     }
    return $resultat;
  }

@@ -18,7 +18,12 @@ class AdminModele extends BaseDeDonnes
     $sql="INSERT INTO club (nom, adresse, email, telephone, lien, informations) VALUES (?,?,?,?,?,?)";
     $resultat=$this->requeteSQL($sql, [$_POST['nom'], $_POST['adresse'],$_POST['email'],$_POST['telephone'],$_POST['lien'],$_POST['informations']]);
   }
-  
+
+  function addQuest(){
+    $sql="INSERT INTO aide (type, question, reponse) VALUES (?,?,?)";
+    $resultat=$this->requeteSQL($sql, [$_POST['section'], $_POST['question'],$_POST['reponse']]);
+  }
+
   function updateSport($id_sport){
     $description=$_POST['description']; $id_type=$_POST['id_type'];
     $sql="UPDATE sports SET description=?, id_type=? WHERE id=?";
@@ -68,4 +73,8 @@ class AdminModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$_POST['id_club']]);
   }
 
+  function deleteQuest(){
+    $sql="DELETE FROM aide WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$_POST['id_aide']]);
+  }
 }

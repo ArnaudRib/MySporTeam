@@ -8,8 +8,7 @@
     <div class="question">
       <div style="background-color:white;" class="container light-background OmbreContainer centre">
         <?php foreach ($aide as $type => $contenu) :?>
-          <?php $hauteur=50+110*(count($contenu)); ?>
-          <div class="blockSection radius blue" style="<?php echo 'height:'.$hauteur.'px;'?>; text-align:left;">
+          <div class="blockSection radius blue" style="height:auto; text-align:left;">
             <h2 class="TitreSection centre radius">
               <?php echo $type ?>
             </h2>

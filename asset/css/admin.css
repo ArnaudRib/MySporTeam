@@ -933,3 +933,55 @@ form input {
   font-size:60px;
   cursor:pointer;
 }
+
+/*Aide*/
+.question {
+  width: 100%;
+}
+
+.blockaide{
+  padding: 20px 0;
+}
+
+.faq {
+  width:25%;
+  margin:0 auto;
+  text-align:center;
+}
+
+.blockSection{
+  display:inline-block;
+  width: 40%;
+  text-decoration: none;
+  margin: 10px 15px;
+  vertical-align: top;
+  border:10px;
+}
+
+.TitreSection{
+  color:white;
+  padding:4px;
+  background-color: darkred;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.blue{
+  background-color: #045FB4;
+}
+
+.radius{
+  border-radius:10px;
+}
+
+.question-reponse{
+  font-family: Verdana;
+  background-color: white;
+  color:black;
+  padding:12px;
+  margin-top:8px;
+  margin-bottom:8px;
+  border-radius: 10px;
+}

@@ -215,8 +215,8 @@ class Route
         $this->ctr['Admin']->loadBackOfficeGroupe();
         break;
 
-      case 'backofficereglage':
-        $this->ctr['Admin']->loadBackOfficeReglage();
+      case 'backofficeaide':
+        $this->ctr['Admin']->loadBackOfficeAide();
         break;
 
       case 'backofficeforum':
@@ -246,7 +246,6 @@ class Route
 
       default:
         echo 'ok';
-        $this->ctr['Accueil']->load404();
         break;
     }
   }

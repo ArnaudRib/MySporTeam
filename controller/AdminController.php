@@ -196,12 +196,6 @@ class AdminController
     $vue->loadbackoffice(['sport'=>$sport, 'nbgroupe'=>$nbgroupe, 'types'=>$types, 'error'=>$error]);
   }
 
-  public function loadBackOfficeReglage()
-  {
-    $vue=new Vue("BackOfficeReglage","Admin",['font-awesome.css', 'admin.css']);
-    $vue->loadbackoffice();
-  }
-
   public function loadBackOfficeForum()
   {
     $vue=new Vue("BackOfficeForum","Admin",['font-awesome.css', 'admin.css']);
@@ -252,5 +246,33 @@ class AdminController
     $clubs=$this->groupe->getClubs()->fetchAll();
     $vue=new Vue("BackOfficeClub","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
     $vue->loadbackoffice(['clubs'=>$clubs, 'error'=>$error, 'succes'=>$succes]);
+  }
+
+
+  public function loadBackOfficeAide()
+  {
+    $succes="";
+    $error="";
+    if(!empty($_POST)){
+      if(isset($_POST['addQuest'])){
+        $verification = new Verification($_POST);
+        $verification->notEmpty('section', "Veuillez compléter le champ section.");
+        $verification->notEmpty('question', "Veuillez informer une question.");
+        $verification->notEmpty('reponse', "Ne voulez vous pas répondre à la question?");
+        $error=$verification->error;
+        if($verification->isValid()){
+          if(empty($error)){
+            $this->admin->addQuest();
+          }
+        }
+      }
+      if(isset($_POST['delete'])){
+        $this->admin->deleteQuest();
+      }
+    }
+    
+    $aide=$this->accueil->getAide();
+    $vue=new Vue("BackOfficeAide","Admin",['font-awesome.css', 'admin.css']);
+    $vue->loadbackoffice(['aide'=>$aide,'error'=>$error]);
   }
 }

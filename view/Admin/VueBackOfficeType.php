@@ -28,11 +28,11 @@
 
     <a href="<?php goToPage('backofficeclub')?>">
       <li class="nextline">
-          <i class="fa fa-users"></i>
+          <i class="fa fa-odnoklassniki"></i>
           <p><?php echo lang("Clubs") ?></p>
       </li>
     </a>
-    
+
     <a href="<?php goToPage('backofficetype')?>">
       <li class="nextline active">
           <i class="fa fa-wrench"></i>
@@ -49,15 +49,15 @@
 
     <a href="<?php goToPage('backofficeforum')?>">
       <li class="nextline">
-          <i class="fa fa-bed"></i>
+          <i class="fa fa-archive"></i>
           <p>Forum</p>
       </li>
     </a>
 
-    <a href="<?php goToPage('backofficereglage')?>">
+    <a href="<?php goToPage('backofficeaide')?>">
       <li class="nextline">
-          <i class="fa fa-cog"></i>
-          <p>Réglages</p>
+          <i class="fa fa-hand-spock-o"></i>
+          <p>Aide</p>
       </li>
     </a>
 

@@ -32,7 +32,7 @@
   "messageprive":"messageprive",
   "backoffice":"admin",
   "backofficegroupe":"admin/groupes",
-  "backofficereglage":"admin/reglages",
+  "backofficeaide":"admin/aide",
   "backofficeforum":"admin/forum",
   "backofficetype":"admin/types",
   "backofficesport":"admin/sports",
