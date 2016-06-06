@@ -57,6 +57,16 @@
   </div>
 
   <div id="corps_mongroupe">
+    <?php if($error!=''):?>
+          <div class="errorbox blackborder radius" style="font-size:15px; margin: 20px auto; ">
+            <?php echo $error;?>
+          </div>
+        <?php endif; ?>
+        <?php if($succes!=''): ?>
+          <div class="successbox blackborder radius" style='margin:20px auto;padding:20px;'>
+            <?php echo $succes;?>
+          </div>
+        <?php endif; ?>
     <div class="cote_informations">
       <div class="radius_mongroupe forme_case" id="nom_sport">
         <h1><?php echo ucfirst($sport['nom'])?> (<?php echo $niveau['nom']?>)</h1>
@@ -66,8 +76,9 @@
           <h1><?php echo lang('Informations groupe') ?></h1>
         </div>
         <?php if(!empty($_POST['modif'])):?>
-          <form class="" action="" method="post">
+          <form class="" action="" method="post" enctype="multipart/form-data">
             <label for="publication"></label><br />
+            <input type="hidden" name="nom_groupe" value="<?php echo $nomgroupe ?>">
             <textarea class="areagroupinfo" name="informations" value="" placeholder="Informations relatives à votre groupe." required><?php echo $datagroupe['description']?></textarea>
           <h2><?php echo lang('Nombre max de membres') ?></h2>
           <input class="inputinfogroupe" type="text" name="NBmembres" value="<?php echo $datagroupe['nbmax_sportifs']?>" id="pseudo" required/>
@@ -96,6 +107,24 @@
               <span style="font-size:20px; padding-top:30px;">Veuillez rentrer un nom de ville.</span>
             </p>
           </div>
+          <li>
+              <?php echo lang('Photo de profil') ?> : (1Mo max)
+              <?php //dump(image('Users/Profil/'.$pseudouser.'.jpg')) ?>
+            <?php  // dump(file_exists(image('Users/Profil/'.$pseudouser.'.jpg'))) SI NON FIXE, ENLEVE LES DEUX BALISE IMAGES QUI SUIVENT?>
+              <div class="import">
+                <img class="classImage UploadedImage" style="padding:0px;margin-top:10px;" src="<?php echo image('Groupes/Profil/'.$nomgroupe.'.jpg')?>";>
+                <label for="photo" class="boutonInputFile" style="width:60%; margin:10px auto;"><?php echo lang("Importer un fichier") ?></label>
+                <input id="photo" class="files" type="file" name="photo" style="display:none; ">
+              </div>
+            </li>
+            <li><?php echo lang('Photo de couverture')?> (5Mo max)
+              <div class="import">
+                <img class="classImage UploadedImage" style="padding:0px;margin-top:10px;" src="<?php echo image("Groupes/Bannière/".$nomgroupe.".jpg")?>"/>
+                <label for="couverture" class="boutonInputFile" style="width:60%; margin:10px auto;"><?php echo lang("Importer un fichier") ?></label>
+                <input id="couverture" class="files" type="file" name="couverture" style="display:none;">
+              </div>
+            </li>
+
 
         <?php else:?>
         <div>
@@ -108,9 +137,10 @@
       </div>
       <?php if(!empty($_POST['modif'])):?>
         <input class="buttonmodif" type="submit" name="enregistrement" value="Enregistrer les modifications">
-      <?php endif;
+      <?php endif;?>
+      </form>
 
-      if($isLeader):
+      <?php if($isLeader):
         if(empty($_POST['modif'])):?>
           <form action="" method="post" style="text-align:center;">
             <input class="buttonmodif" type="submit" name="modif" value="Modifier les informations" style='cursor:pointer;'>
