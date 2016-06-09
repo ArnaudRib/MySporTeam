@@ -21,6 +21,7 @@
 
 <!--Partie Modal Modification-->
 <?php foreach ($clubs as $key => $value): ?>
+  <?php $nomclub=str_replace(' ', '-', $value['nom']) ?>
   <div id="modalinfo<?php echo $value['id']?>" class="modalinfo">
     <div id="insideModalInfo<?php echo $value['id']?>" class="insideModalInfo">
       <p id="<?php echo $value['id']?>" class="closeButtonModal" onclick="closeModalInfo(this)">&#10006;</p>
@@ -34,18 +35,15 @@
         <form class="" action="" method="post" enctype="multipart/form-data">
           <div class="card" style="padding-bottom:20px;">
             <input type="hidden" name="id_club" value="<?php echo $value['id']?>">
+            <input type="hidden" name="nomclub" value="<?php echo $nomclub?>">
             <div class="content-imggroupe">
               <h4 class="title" style="margin-left:10px;"><?php echo lang("Bannière du club") ?></h4>
-              <img class='classImage imguser' src="<?php echo image('Groupes/Club/'.$value['id'].'.jpg')?>" alt=""/>
+              <img class='classImage imguser' src="<?php echo image('Clubs/Bannière/'.$nomclub.'.jpg')?>" alt=""/>
               <label for="photo<?php echo $value['id']?>" class="boutonInputFile modifgroupeimg"><?php echo lang("Modifier") ?></label>
               <input id="photo<?php echo $value['id']?>" class="files" type="file" name="photo" style="display:none;">
             </div>
             <div class="infouser">
               <h3 style='margin-bottom:10px;'><?php echo lang("Informations") ?> :</h3>
-              <div class="content-input">
-                <label class="textlabel" for="nom"><?php echo lang("Nom du Club") ?></label>
-                <input id="pseudo" type="text" name="nom" value="<?php echo $value['nom']?>" >
-              </div>
               <div class="content-input">
                 <label class="textlabel" for="email"><?php echo lang("Email") ?> :</label>
                 <input id="email" type="email" name="email" value="<?php echo $value['email']?>">
@@ -53,21 +51,21 @@
               </div>
               <div class="content-input">
                 <label class="textlabel" for="Téléphone"><?php echo lang("Téléphone") ?></label>
-                <input id="Numéro" type="text" name="telephone" value="<?php echo $value['telephone']?>">
+                <input id="Téléphone" type="text" name="telephone" value="<?php echo $value['telephone']?>">
               </div>
 
               <div class="content-input">
                 <label class="textlabel" for="adresse"><?php echo lang("Adresse") ?></label>
-                <input id="Numéro" type="text" name="adresse" value="<?php echo $value['adresse']?>">
+                <input id="adresse" type="text" name="adresse" value="<?php echo $value['adresse']?>">
               </div>
 
               <div class="content-input">
                 <label class="textlabel" for="lien"><?php echo lang("Lien du site") ?></label>
-                <input id="Numéro" type="text" name="lien" value="<?php echo $value['lien']?>">
+                <input id="lien" type="text" name="lien" value="<?php echo $value['lien']?>">
               </div>
               <div class="content-descriptiongroupe">
                 <label for="informations" style="display:block;"><?php echo lang("Modifier la description") ?> : </label>
-                <textarea name="informations" style="display:block; border:1px black solid; border-radius:10px; padding:5px;" rows="3" cols="75" maxlength="30" placeholder="Description du club (MAX : 30 caractères)."><?php echo $value['informations']?></textarea>
+                <textarea name="informations" style="display:block; border:1px black solid; border-radius:10px; padding:5px;" rows="3" cols="75" maxlength="60" placeholder="Description du club (MAX : 60 caractères)."><?php echo $value['informations']?></textarea>
               </div>
             </div>
 

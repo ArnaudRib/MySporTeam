@@ -23,14 +23,26 @@ class ForumController
 
   public function loadATopic($id_topic)
   {
+    if(!empty($_POST)){
+      $verification = new Verification($_POST);
+      $verification->notEmpty('titre', "Veuillez donner un titre à la discussion.");
+      $error.=$verification->error;
+
+      if($verification->isValid()){
+        if(!empty($_POST['addDiscussion'])){
+          $this->forum->addDiscussion($id_topic);
+          $succes="Discussion rajoutée avec succès!";
+        }
+      }
+    }
     $topic=$this->forum->getTopic($id_topic)->fetch();
     $discussions=$this->forum->getDiscussions($id_topic)->fetchAll();
     $creator=$this->user->getDataUserDiscussion($discussions);
     $nbreponses=$this->forum->countReponse($id_topic, $discussions);
     $nbvues=$this->forum->countVues($id_topic, $discussions);
     $lastMessage=$this->forum->getLastMessageInfo($id_topic, $discussions);
-    $vue=new Vue("Topic","Forum",['stylesheet.css']);
-    $vue->loadpage(['discussions'=>$discussions, 'topic'=>$topic, 'creator'=>$creator, 'nbreponses'=>$nbreponses, 'nbvues'=>$nbvues, 'lastMessage'=>$lastMessage]);
+    $vue=new Vue("Topic","Forum",['stylesheet.css'], ['forum.js']);
+    $vue->loadpage(['discussions'=>$discussions, 'error'=>$error, 'succes'=>$succes ,'topic'=>$topic, 'id_topic'=>$id_topic, 'creator'=>$creator, 'nbreponses'=>$nbreponses, 'nbvues'=>$nbvues, 'lastMessage'=>$lastMessage]);
   }
 
   public function loadADiscussion($id_topic, $id_discussion)

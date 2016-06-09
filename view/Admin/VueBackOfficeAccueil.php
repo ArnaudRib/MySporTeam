@@ -87,7 +87,7 @@
               Nombre d'Utilisateurs
             </div>
             <div id='user' class="StatsFigure">
-              <?php echo $nbuser['nbuser'] ?>
+              <?php //echo $nbuser['nbuser'] ?>
             </div>
           </div>
         </div>
@@ -97,8 +97,8 @@
             <div class="TitreStat">
               Nombre de Groupes
             </div>
-            <div class="StatsFigure">
-              <?php echo $nbgroupe['nbgroup']?>
+            <div id='groupe' class="StatsFigure">
+              <?php //echo $nbgroupe['nbgroup']?>
             </div>
           </div>
         </div>
@@ -106,10 +106,21 @@
         <div class="Figures">
           <div class="card" style="width:70%; margin:0 auto; box-shadow:0px 0px 5px black;">
             <div class="TitreStat">
-              Nombre de vues totales (forum)
+              Nombre total de messages postés (forum)
             </div>
-            <div class="StatsFigure">
-              <?php echo $nbvues['nbvues'] ?>
+            <div id='msg' class="StatsFigure">
+              <?php //echo $nbvues['nbvues'] ?>
+            </div>
+          </div>
+        </div>
+
+        <div class="Figures">
+          <div class="card" style="width:70%; margin:0 auto; box-shadow:0px 0px 5px black;">
+            <div class="TitreStat">
+              Nombre Total de vues (forum)
+            </div>
+            <div id='vues' class="StatsFigure">
+              <?php //echo $nbvues['nbvues'] ?>
             </div>
           </div>
         </div>
@@ -122,3 +133,21 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+
+  window.onload=function(){
+    var user=document.querySelector('#user');
+    compteur(user, <?php echo $nbuser['nbuser'] ?>, 100);
+
+    var groupe=document.querySelector('#groupe');
+    compteur(groupe, <?php echo $nbgroupe['nbgroup'] ?>, 100);
+
+    var msg=document.querySelector('#msg');
+    compteur(msg, <?php echo $nbmsg['nbmsg'] ?>, 100);
+
+    var vues=document.querySelector('#vues');
+    compteur(vues, <?php echo $nbvues['nbvues'] ?>, 5);
+  }
+
+</script>

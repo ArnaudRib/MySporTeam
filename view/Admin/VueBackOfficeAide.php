@@ -120,13 +120,13 @@
                   <label class="textlabel" for="nom"><?php echo lang("Réponse") ?></label>
                   <input type="text" value="<?php echo $_POST['nom']?>" class="inputfieldset" name="reponse" placeholder="Jack is in the kitchen." required >
                 </div>
-                <input type="submit" name="addQuest" value="Ajouter une question réponse" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:8px;">
+                <input type="submit" name="addQuest" value="<?php echo lang('Ajouter une question réponse')?>" class="button button--moema button--text-thick button--text-upper button--size-s" style="padding:8px;">
               </fieldset>
             </form>
           </div>
         </div>
         <div class="block95 card">
-          <p style='font-style:italic; text-align:center; font-size:16px; padding:10px;'>Prévisualisation de la section aide :</p>
+          <p style='font-style:italic; text-align:center; font-size:16px; padding:10px;'><?php echo lang('Prévisualisation de la section aide')?> :</p>
           <div class="question">
             <div style="background-color:white;" class="container light-background OmbreContainer centre">
               <?php foreach ($aide as $type => $contenu) :?>
@@ -134,19 +134,19 @@
                   <h2 class="TitreSection centre radius">
                     <?php echo $type ?>
                   </h2>
-                  <div class="block80" style="margin:0 auto;">
+                  <form class="" action="" method="post">
+                    <div class="block80" style="margin:0 auto;">
                       <?php foreach ($contenu as $questionreponse) :?>
-                        <form class="" action="" method="post">
-                          <label for="delete" class="closeButtonModal" style="font-size:20px; float:right; margin-top:5px; margin-left:10px;">&#10006;</label>
+                          <label for="delete<?php echo $questionreponse[2]?>" class="closeButtonModal" style="font-size:20px; float:right; margin-top:5px; margin-left:10px;">&#10006;</label>
                           <input name="id_aide"  type="hidden" value="<?php echo $questionreponse[2] ?>">
                           <div class="question-reponse">
                             <div style="font-weight:bold"><?php echo lang("Q") ?> : <?php echo ($questionreponse[0]);?></br></div>
-                            <?php echo lang("R") ?> : <?php echo ($questionreponse[1]);?></br></br>
+                              <?php echo lang("R") ?> : <?php echo ($questionreponse[1]);?></br></br>
                             </div>
-                          <input type='submit' name="delete" id="delete" style="display:none;">
-                        </form>
+                          <input type='submit' name="delete" id="delete<?php echo $questionreponse[2]?>" style="display:none;">
                       <?php endforeach; ?>
-                  </div>
+                    </div>
+                  </form>
                 </div>
               <?php endforeach; ?>
             </div>

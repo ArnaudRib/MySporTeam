@@ -24,8 +24,10 @@ class GroupeModele extends BaseDeDonnes
 
 
   function addEvenement($id_groupe, $id_ville){
-    $sql="INSERT INTO evenement(nom, description, places, id_groupe, id_ville, date_debut, date_fin) VALUES (?,?,?,?,?,?,?)";
-    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['nombre'], $id_groupe, $id_ville, $_POST['date_debut_finale'],$_POST['date_fin_finale']]);
+    $sql="INSERT INTO evenement(nom, description, places, id_groupe, id_club ,id_ville, date_debut, date_fin) VALUES (?,?,?,?,?,?,?,?)";
+    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['nombre'], $id_groupe, $_POST['club'], $id_ville, $_POST['date_debut_finale'],$_POST['date_fin_finale']]);
+    $id=$this->connectBDD()->lastInsertId(); //fonction intégrée de PDO.
+    return $id;
   }
 
 
@@ -46,7 +48,7 @@ class GroupeModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_club]);
     return $resultat;
   }
-  
+
   function getClubs(){
     $sql="SELECT * FROM club";
     $resultat=$this->requeteSQL($sql);
@@ -84,8 +86,7 @@ class GroupeModele extends BaseDeDonnes
   }
 
 
-
-    function countmembres($id_groupe){
+  function countmembres($id_groupe){
     $sql="SELECT COUNT(id) FROM utilisateur_groupe WHERE id_groupe=?";
     $resultat=$this->requeteSQL($sql, [$id_groupe]);
     return $resultat;
@@ -111,10 +112,20 @@ class GroupeModele extends BaseDeDonnes
   }
 
    function getNonMembres($id_groupe){
-    //$sql="SELECT * from utilisateur";
-    $sql="SELECT *, utilisateur.id as useful_id FROM utilisateur JOIN utilisateur_groupe ON utilisateur.id=utilisateur_groupe.id_utilisateur WHERE utilisateur_groupe.id_groupe!=? GROUP BY utilisateur.id ORDER BY pseudo;";
-    $resultat=$this->requeteSQL($sql, [$id_groupe]);
-    return $resultat;
+    $sql="SELECT *, utilisateur.id as useful_id FROM utilisateur
+    LEFT JOIN utilisateur_groupe ON utilisateur_groupe.id_utilisateur=utilisateur.id
+    GROUP BY utilisateur.id";
+    $users=$this->requeteSQL($sql, [$id_groupe])->fetchAll();
+
+    $array=[];
+    foreach ($users as $key => $value) {
+      if(!$this->isMembre($value['id'],$id_groupe)){
+        if($value['id_groupe']!=$id_groupe){
+          array_push($array, $value);  
+        }
+      }
+    }
+    return $array;
   }
 
   function getMembresInvit($id_groupe){
@@ -281,7 +292,6 @@ class GroupeModele extends BaseDeDonnes
 
   function modifDataEvent($id_evenement, $id_ville){
     $info=$_POST['informations'];
-    $ville=2;
     $mail=$_POST['mail'];
     $telephone=$_POST['telephone'];
     $sql="UPDATE evenement SET description=?, id_ville=?, telephone=?, mail=?, date_debut=?, date_fin=?, id_club=? WHERE id=?";
@@ -329,8 +339,8 @@ class GroupeModele extends BaseDeDonnes
 
 
   function addGroupe(){
-    $sql="INSERT INTO groupe(nom, description, id_categorie, nbmax_sportifs, id_sport, id_ville, public, date_creation) VALUES (?,?,?,?,?,?,?,NOW())";
-    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['categorie'], $_POST['nombre'], $_POST['sport'], $_POST['ville'],$_POST['visibilite']]);
+    $sql="INSERT INTO groupe(nom, description, id_categorie, nbmax_sportifs, id_sport, id_ville, id_niveau, public, date_creation) VALUES (?,?,?,?,?,?,?,?,NOW())";
+    $resultat=$this->requeteSQL($sql,[$_POST['nom'], $_POST['description'], $_POST['categorie'], $_POST['nombre'], $_POST['sport'], $_POST['ville'], $_POST['niveau'],$_POST['visibilite']]);
     $id=$this->connectBDD()->lastInsertId(); //fonction intégrée de PDO.
     return $id;
   }

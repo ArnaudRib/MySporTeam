@@ -1,5 +1,4 @@
 <?php
-
 if (!$photo) ://Si la recherche ne donne rien?>
   <div class="errorbox"> <?php echo "Aucun sport ne semble contenir '$resultat' dans son nom.";?> </div>
 

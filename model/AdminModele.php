@@ -83,9 +83,14 @@ class AdminModele extends BaseDeDonnes
   }
 
   function updateClub($id_club){
-    $informations=$_POST['informations']; $téléphone=$_POST['telephone']; $email=$_POST['email']; $lien=$_POST['lien']; $nom=$_POST['nom']; $adresse=$_POST['adresse']; $id_club=$_POST['id_club'];
-    $sql="UPDATE club SET informations=?, téléphone=?, email=?, lien=?, nom=?, adresse=? WHERE id=?";
-    $resultat=$this->requeteSQL($sql, [$informations, $téléphone, $email, $lien, $nom, $adresse,$id_club]);
+    $informations=$_POST['informations']; $téléphone=$_POST['telephone']; $email=$_POST['email']; $lien=$_POST['lien']; $adresse=$_POST['adresse']; $id_club=$_POST['id_club'];
+    $sql="UPDATE club SET informations=?, telephone=?, email=?, lien=?, adresse=? WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$informations, $téléphone, $email, $lien, $adresse,$id_club]);
+  }
+
+  function updateUser($id_user){
+    $sql="UPDATE utilisateur SET admin_util=? WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [intval($_POST['admin']), $id_user]);
   }
 
   function UsedType($type){
@@ -98,6 +103,16 @@ class AdminModele extends BaseDeDonnes
   function addType(){
     $sql="INSERT INTO types_sports(titre) VALUES (?)";
     $resultat=$this->requeteSQL($sql, [$_POST['type']]);
+  }
+
+  function BanUser($id_user){
+    $sql="UPDATE utilisateur SET banned=1 WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$id_user]);
+  }
+
+  function UnBanUser($id_user){
+    $sql="UPDATE utilisateur SET banned=0 WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$id_user]);
   }
 
   function ModifyType(){
@@ -136,6 +151,11 @@ class AdminModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$_POST['id_discussion']]);
   }
 
+  function deleteUser($id_user){
+    $sql="DELETE FROM utilisateur WHERE id=?";
+    $resultat=$this->requeteSQL($sql, [$id_user]);
+  }
+
   function countGroup(){
     $sql="SELECT COUNT(*) as nbgroup FROM groupe";
     $resultat=$this->requeteSQL($sql)->fetch();
@@ -150,6 +170,12 @@ class AdminModele extends BaseDeDonnes
 
   function countVue(){
     $sql="SELECT SUM(vues) as nbvues FROM discussion";
+    $resultat=$this->requeteSQL($sql)->fetch();
+    return $resultat;
+  }
+
+  function countMessage(){
+    $sql="SELECT COUNT(*) as nbmsg FROM message";
     $resultat=$this->requeteSQL($sql)->fetch();
     return $resultat;
   }

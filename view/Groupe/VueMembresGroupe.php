@@ -93,8 +93,9 @@
         </div>
         <?php else:
         foreach ($membre as $key => $value):?>
+        <?php $pseudo=str_replace(' ', '-', $value['nom']) ?>
           <div id="<?php echo $i=count($membre) ?>" class="case_membre radius_mongroupe forme_case">
-            <img src="<?php echo image('Groupes/sport3.jpg')?>" />
+            <img src="<?php echo image('Users/Profil/'.$pseudo.'.jpg')?>" />
             <a href="<?php goToPage('profilUnUtilisateur',['pseudo'=>$value['pseudo']])?>"><h1><?php echo $value['pseudo']?></h1></a>
             <?php if($isLeader==true):
               if(($value['leader_groupe'])!=1):?>

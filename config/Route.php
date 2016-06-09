@@ -101,7 +101,11 @@ class Route
         break;
 
       case 'resetpw':
-        $this->ctr['User']->resetPw();
+        if(isLogged()){
+          $this->ctr['User']->resetPw();
+        }else{
+          $this->ctr['Accueil']->load404();
+        }
         break;
 
       case 'forgottenpw':
@@ -114,7 +118,11 @@ class Route
         break;
 
       case 'profil':
+        if(isLogged()){
         $this->ctr['User']->loadProfil();
+        }else{
+          $this->ctr['Accueil']->load404();
+        }
         break;
 
       case 'profilUnUtilisateur':
@@ -123,11 +131,19 @@ class Route
         break;
 
       case 'planningUtilisateur':
-        $this->ctr['User']->LoadPlanningUser();
+        if(isLogged()){
+          $this->ctr['User']->LoadPlanningUser();
+        }else{
+          $this->ctr['Accueil']->load404();
+        }
         break;
 
       case 'groupesUtilisateur':
-        $this->ctr['User']->LoadGroupesUser();
+        if(isLogged()){
+          $this->ctr['User']->LoadGroupesUser();
+        }else{
+          $this->ctr['Accueil']->load404();
+        }
         break;
 
 

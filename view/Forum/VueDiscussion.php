@@ -1,7 +1,7 @@
 <div class="AllForum bodybackground">
 
   <?php if($error!=''):?>
-    <div class="errorbox blackborder radius" style="text-align:center; margin:10px auto;">
+    <div class="errorbox blackborder radius" style="text-align:center; margin:20px auto;">
       <?php echo $error;?>
     </div>
   <?php endif; ?>
@@ -35,7 +35,7 @@
     <?php $creator=str_replace(' ', '-', $value['creator']) ?>
     <article class="post">
       <div class="conv-pseudo">
-        <a href="#" class="pseudo"><?php echo $value['creator']?></a>
+        <a href="<?php goToPage('profilUnUtilisateur', ['pseudo'=>$value['creator']])?>" class="pseudo"><?php echo $value['creator']?></a>
         <img class="avatar" src="<?php echo image('Users/Profil/'.$creator.'.jpg')?>" />
         <p class="nombre-message">Messages: <?php echo $nbTotalMessageUsers[$value['id_utilisateur']]?>
       </div>
@@ -86,7 +86,6 @@
     <?php $i+=1; ?>
   <?php endforeach; ?>
 <?php endif; ?>
-    <!-- <hr class="HR1"> -->
     <?php if(isLogged() && !isset($modification)): ?>
     <div class="repondre">
       <form id="form-reponse" action="" method="post">

@@ -120,7 +120,7 @@ endif;?>
       <div class="img3 usualbackground" style="background-image:url('/asset/images/chintoc.jpg');"></div>
       <div class="div2bis">
         <div class="Haut1" style="padding:20px; text-align:justify; font-size:20px; min-height:420px;">
-          <p><strong><?php echo lang("MySporteam") ?></strong> <?php echo lang("vous permet d'intéragir avec des personnes ayant les mêmes passions que vous !") ?> </br></br>
+          <p style="font-size:24px;"><strong><?php echo lang("MySporteam") ?></strong> <?php echo lang("vous permet d'intéragir avec des personnes ayant les mêmes passions que vous !") ?> </br></br>
             <?php echo lang("En vous inscrivant, vous pourrez participer à des cours, des entraînements, des compétitions proche de chez vous, et communiquer avec des passionnés du sport !") ?></p>
           </div><div class="Bas1">
           <div id="bouttoninscription">

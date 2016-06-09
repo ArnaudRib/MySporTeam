@@ -23,8 +23,12 @@ class UserController
       $data=$this->user->CheckUser()->fetch();
       if ($data['mot_de_passe'] == sha1($_POST['mot_de_passe'])) // Acces OK !
       {
-        $_SESSION['user']=$data;
-        header('Location: '.goToPage('Accueil').'?connexion=true');
+        if($data['banned']!=1){
+          $_SESSION['user']=$data;
+          header('Location: '.goToPage('Accueil').'?connexion=true');
+        }else{
+          $error.='Ce compte est banni. Vous ne pouvez pas vous connecter.</br> Si vous considérez que ceci est une erreur, veuillez nous contacter à mysporteam@hotmail.fr';
+        }
       }
       else // Acces pas OK !
       {
@@ -113,7 +117,7 @@ class UserController
         if($verification->isValid()){
           if($this->user->checkEmailPseudo()){
             $userinfo=$this->user->getDataUser($_POST['pseudo'])->fetch();
-            $token=sendmail($userinfo);
+            $token=sendmail($userinfo, 'Oubli de mot de passe.', 'mail.php');
             if(isset($token)){
               $this->user->AddToken($token);
               $succes.="Le mail de confirmation de votre identité vous a été envoyé!</br>Veuillez suivre les étapes qui y seront indiquées.";

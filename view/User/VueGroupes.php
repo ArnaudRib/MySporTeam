@@ -44,7 +44,7 @@
       <?php foreach ($dataGroupUser as $key => $value) :?>
         <a href="<?php goToPage('informationsgroupe', ['id'=>$value['id_groupe']])?>">
           <div class="infos_groupe">
-            <h2><?=$value["NomGroupe"] ?></h2>
+            <h2><?=$value["NomGroupe"] ?> <span style="float:right; color:grey; text-style:italic; font-size:14px;"><?php echo $value['leader_groupe']==1 ? 'Leader' : '' ?></span></h2>
             <h4 ><span style='color:black; text-decoration: underline;'>Création :</span> <?=DiffDate($value['date_creation']) ?></h4>
             <h4 ><span style='color:black; text-decoration: underline;'>Leader :</span> <?=$leader_groupe[$value['id']] ?></h4>
             <h4 ><span style='color:black; text-decoration: underline;'>Nombre maximum de membres :</span> <?=$value['nbmax_sportifs'] ?></h4>

@@ -168,7 +168,7 @@ class UserModele extends BaseDeDonnes
 
   function checkEmailPseudo(){
     $sql="SELECT * FROM utilisateur WHERE pseudo=? AND email=?";
-    $resultat=$this->requeteSQL($sql, [$_POST['pseudo'], $_POST['email']]);
+    $resultat=$this->requeteSQL($sql, [$_POST['pseudo'], $_POST['email']])->fetch();
     return $resultat;
   }
 

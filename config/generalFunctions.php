@@ -36,7 +36,6 @@ Class Verification
     $url=$directory.'/'.$futurnomimage;
     $fileURL= substr(image($url),1);
     $imageFileType=pathinfo($fileURL, PATHINFO_EXTENSION);
-
     if($imageFileType!='svg'){
       $check = getimagesize($this->post[$name]["tmp_name"]);
       if ($check == false) {
@@ -86,8 +85,14 @@ function isAdmin(){
   return false;
 }
 
+function isBanned(){
+  if($_SESSION['user']['banned']==1)
+    return true;
+  return false;
+}
+
 function passwordOk($password){
-  return preg_match("/(?=.*[A-Z])(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}/", $password); // regex for password
+  return preg_match("/(?=.*[A-Z])(?=.*[$@$!%*#?.&])[A-Za-z0-9\d$@$!%*.#?&]{6,}/", $password); // regex for password
 }
 
 /* Remise en forme */
@@ -231,12 +236,11 @@ function showProfil($data) {
   }
 }
 
-function sendmail($info, $vue){
+function sendmail($info, $subject, $vue){
   $destinataire=$info['email'];
-  $subject = 'Oubli de mot de passe.';
   $token=GenerateToken();
   ob_start();
-  require_once('view/_required/mail.php');
+  require_once('view/_required/'.$vue);
   $message=ob_get_contents();
   ob_end_clean();
   $headers  = 'MIME-Version: 1.0' . "\r\n";

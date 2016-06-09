@@ -29,7 +29,7 @@ class AccueilController
 
   public function loadphoto()
   {
-    $photos=$this->accueil->LoadSports($_GET['resultat'], 10)->fetchAll();
+    $photos=$this->accueil->LoadSports($_GET['resultat'], 20)->fetchAll();
     $vue=new Vue("AfficherPhoto","Accueil");
     $vue->loadajax(['photo'=>$photos, 'resultat'=>$_GET['resultat']]);
   }

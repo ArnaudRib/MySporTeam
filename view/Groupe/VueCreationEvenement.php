@@ -12,7 +12,7 @@
         <?php endif; ?>
         <?php if($succes!=''): ?>
           <div class="successbox blackborder radius" style='margin:20px auto; margin-bottom:0px'>
-            <?php echo $succes;?>
+            <?php echo $succes;?> <a href="<?php echo goToPage('unevenementgroupe', ['id'=>$id_groupe, 'id_evenement'=>$id])?>"> ici</a> pour le voir!
           </div>
         <?php endif; ?>
 
@@ -33,6 +33,15 @@
             </p>
             </div>
           </div>
+          <div style="display:block;margin-left:45px;">
+            <select class="selectcreation" name="club">
+              <option selected value=""><?php echo lang('Clubs') ?></option>
+              <?php foreach ($clubs as $key=>$value) :?>
+                <option value="<?php echo $value['id'] ?>"><?php echo $value['nom']?></option>
+              <?php endforeach ?>
+            </select>
+          </div>
+
           <div style="display:block;margin-left:20px;">
             <div class="titlehorraire">
               Date de début :

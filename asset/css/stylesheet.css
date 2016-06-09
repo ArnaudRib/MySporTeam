@@ -1,7 +1,7 @@
 
 /*GROSSES SECTIONS*/
 html{
-  font-family: 'Kaushan Script', cursive;
+  font-family: 'Fixed, monospace';
 }
 
 *{
@@ -900,7 +900,7 @@ form h1 {
   margin:auto;
   height:220px;
   width:100%;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 #image_de_fond img{
@@ -1374,6 +1374,7 @@ text-shadow: #585858 1px 1px, #585858 -1px 1px, #585858 -1px -1px, #585858 1px -
   vertical-align: top;
   padding:2px;
   padding-top: 10px;
+  width:40%;
   display: inline-block;
 }
 
@@ -3438,4 +3439,6 @@ a{
   border:solid 1px grey;
   background-color: white;
   border-radius:4px;
+  margin-left: 40px;
+  overflow: hidden;
 }

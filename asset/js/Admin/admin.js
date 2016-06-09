@@ -108,8 +108,8 @@ function closeModalSuppr2(e){
 }
 
 
-function compt(element, nb, interval) {
-  i = 0
+function compteur(element, nb, interval) {
+  var i = 0
   setInterval(function () {
     if (i < nb) {
       i++

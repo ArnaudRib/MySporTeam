@@ -23,18 +23,66 @@ class AdminController
     $nbgroupe=$this->admin->countGroup();
     $nbuser=$this->admin->countUser();
     $nbvues=$this->admin->countVue();
+    $nbmsg=$this->admin->countMessage();
 
-    $vue=new Vue("BackOfficeAccueil","Admin",['font-awesome.css', 'admin.css']);
-    $vue->loadbackoffice(['nbgroupe'=>$nbgroupe, 'nbvues'=>$nbvues, 'nbuser'=>$nbuser]);
+    $vue=new Vue("BackOfficeAccueil","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
+    $vue->loadbackoffice(['nbgroupe'=>$nbgroupe, 'nbvues'=>$nbvues, 'nbuser'=>$nbuser, 'nbmsg'=>$nbmsg]);
   }
 
   public function loadBackOfficeUser()
   {
+    $error='';
+    $succes='';
+    if(!empty($_POST)){
+      if(isset($_POST['modifieruser'])){
+        $verificationPhoto = new Verification($_FILES);
+        if(!empty($_FILES['photo']['name']))
+          $verificationPhoto->PhotoOk('photo', $_POST['pseudouser'].'.jpg', 'Users/Profil', false);
+        if(!empty($_FILES['couverture']['name']))
+          $verificationPhoto->PhotoOk('couverture', $_POST['pseudouser'].'.jpg', 'Users/Bannière', false);
+
+        $error.=$verificationPhoto->error;
+
+        if(!empty($_FILES['photo']['name']))
+           $error.=deletePhoto($_POST['pseudouser'].'.jpg', 'Users/Profil', 'Erreur de suppression du champ photo.');
+
+       if(!empty($_FILES['couverture']['name']))
+          $error.=deletePhoto($_POST['pseudouser'].'.jpg', 'Users/Bannière', 'Erreur de suppression du champ photo.');
+
+        $error.=uploadPhoto($_POST['pseudouser'].'.jpg', 'Users/Profil', 'photo');
+        $error.=uploadPhoto($_POST['pseudouser'].'.jpg', 'Users/Bannière', 'couverture');
+
+        if(empty($error)){
+          $this->admin->updateUser($_POST['id_user']);
+          $succes="Modification effectuée!";
+        }
+      }
+      if(isset($_POST['SupprUser'])){
+        $this->admin->deleteUser($_POST['id_user']);
+        $succes="Utilisateur supprimé avec succès!";
+      }
+
+      if(isset($_POST['Ban'])){
+        $this->admin->BanUser($_POST['id_user']);
+        $succes="Utilisateur banni avec succès!";
+        $user=$this->user->getDataUserById($_POST['id_user'])->fetchAll();
+        sendmail($user[0], 'Bannissement du compte.', 'banned.php');
+      }
+
+      if(isset($_POST['unBan'])){
+        $this->admin->UnBanUser($_POST['id_user']);
+        $succes="Utilisateur unban avec succès!";
+        $user=$this->user->getDataUserById($_POST['id_user'])->fetchAll();
+        sendmail($user[0], 'Unban du compte.', 'unbanned.php');
+      }
+    }
+
     $users=$this->user->getDataUsers()->fetchAll();
     $nbGroupeUsers=$this->user->getNbGroupeUsers($users);
     $nbPostUsers=$this->user->getNbPostUsers($users);
+
     $vue=new Vue("BackOfficeUtilisateur","Admin",['font-awesome.css', 'admin.css'], ['Admin/admin.js']);
-    $vue->loadbackoffice(['users'=>$users, 'nbGroupeUsers'=>$nbGroupeUsers, 'nbPostUsers'=>$nbPostUsers]);
+    $vue->loadbackoffice(['users'=>$users, 'nbGroupeUsers'=>$nbGroupeUsers, 'nbPostUsers'=>$nbPostUsers, 'error'=>$error, 'succes'=>$succes]);
   }
 
   public function loadBackOfficeGroupe()
@@ -47,7 +95,7 @@ class AdminController
         $verificationPhoto = new Verification($_FILES);
         if(!empty($_FILES['photo']['name']))
           $verificationPhoto->PhotoOk('photo', $_POST['nomgroupe'].'.jpg', 'Groupes/Profil', false);
-        if(!empty($_FILES['photo']['name']))
+        if(!empty($_FILES['couverture']['name']))
           $verificationPhoto->PhotoOk('couverture', $_POST['nomgroupe'].'.jpg', 'Groupes/Bannière', false);
 
         $verification->notEmpty('nom', "Veuillez spécifier le nom du groupe.");
@@ -254,30 +302,6 @@ class AdminController
         $succes="Suppression réussie!";
       }
     }
-    //
-    // if(!empty($_POST)){
-    //   if(isset($_POST['modifiermessage'])){
-    //     $verification = new Verification($_POST);
-    //     $verification->notEmpty('titre', "Veuillez remplir le titre de la discussion.");
-    //     $verification->notEmpty('id_topic', "Veuillez remplir l'id Topic de la discussion.");
-    //
-    //     $error=$verification->error;
-    //     if($verification->isValid()){
-    //       if(empty($error)){
-    //         $this->admin->updateDiscussion($_POST['id_message']);
-    //       }
-    //     }
-    //   }
-    //   if(isset($_POST['addmessage'])){
-    //     if(empty($error)){
-    //         $this->admin->addDiscussion();
-    //     }
-    //     if(isset($_POST['Supprmessage'])){
-    //       //supprimer club ici.
-    //       $this->admin->deleteDiscussion();
-    //       $succes="Suppression réussie!";
-    //     }
-    //  }
 
     $messages=$this->admin->getDataMessage()->fetchAll();
     $topics=$this->forum->getDataTopic()->fetchAll();
@@ -292,32 +316,53 @@ class AdminController
     if(!empty($_POST)){
       if(isset($_POST['modifierclub'])){
         $verification = new Verification($_POST);
+        $verificationPhoto = new Verification($_FILES);
+        if(!empty($_FILES['photo']['name']))
+          $verificationPhoto->PhotoOk('photo', $_POST['nomclub'].'.jpg','Clubs/Bannière/', false);
+
         $verification->notEmpty('informations', "Veuillez remplir la description du club.");
         $verification->notEmpty('telephone', "Veuillez remplir le numéro de téléphone du club.");
         $verification->notEmpty('email', "Veuillez remplir l'adresse email du club.");
         $verification->notEmpty('lien', "Veuillez ajouter le lien du site du club.");
-        $verification->notEmpty('nom', "Veuillez remplir le nom du club.");
         $verification->notEmpty('adresse', "Veuillez remplir l'adresse du club.");
         $error=$verification->error;
-        if($verification->isValid()){
+
+        if($verification->isValid() && $verificationPhoto->isValid()){
+          if(!empty($_FILES['photo']['name']))
+            deletePhoto($_POST['nomclub'].'.jpg', 'Clubs/Bannière', 'photo');
+          /*upload images*/
+          $error.=uploadPhoto($_POST['nomclub'].'.jpg', 'Clubs/Bannière', 'photo');
           if(empty($error)){
             $this->admin->updateClub($_POST['id_club']);
+            $succes="Club modifié avec succès!";
           }
         }
       }
 
       if(isset($_POST['addclub'])){
+        if(!empty($_FILES['photo']['name']))
+          $error.="Veuillez selectionner une icone pour le club.";
+
         $verification = new Verification($_POST);
+        $verificationPhoto = new Verification($_FILES);
+
         $verification->notEmpty('informations', "Veuillez remplir la description du club.");
         $verification->notEmpty('telephone', "Veuillez remplir le numéro de téléphone du club.");
         $verification->notEmpty('email', "Veuillez remplir l'adresse email du club.");
         $verification->notEmpty('lien', "Veuillez ajouter le lien du site du club.");
         $verification->notEmpty('nom', "Veuillez remplir le nom du club.");
         $verification->notEmpty('adresse', "Veuillez remplir l'adresse du club.");
+        $nomclub=str_replace(' ', '-', $_POST['nom']);
+
+        $verificationPhoto->PhotoOk('photo', $nomclub.'.jpg','Clubs/Bannière');
+
         $error=$verification->error;
-        if($verification->isValid()){
+        if($verification->isValid() && $verificationPhoto->isValid()){
+          $error.=uploadPhoto($nomclub.'.jpg', 'Clubs/Bannière/', 'photo');
+
           if(empty($error)){
             $this->admin->addClub();
+            $succes="Club ajouté avec succès!";
           }
         }
       }

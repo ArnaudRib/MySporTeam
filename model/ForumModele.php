@@ -94,6 +94,11 @@ class ForumModele extends BaseDeDonnes
     $resultat=$this->requeteSQL($sql, [$id_discussion, $id_topic, $_POST['id']]);
   }
 
+  function addDiscussion($id_topic){
+    $sql="INSERT INTO discussion (titre, id_topic, creation_date, id_user) VALUES (?,?, NOW(), ?)";
+    $resultat=$this->requeteSQL($sql, [$_POST['titre'], $id_topic, $_SESSION['user']['id']]);
+  }
+
   function UpdateMessage($id_topic, $id_discussion, $id_publication){
     $sql="UPDATE message SET titre=?, texte=?, date_modification=NOW(), id_user_modification=? WHERE id=? AND id_topic=? AND id_discussion=?";
     $resultat=$this->requeteSQL($sql, [$_POST['titre'], $_POST['reponse'], $_SESSION['user']['id'], $id_publication, $id_topic, $id_discussion]);

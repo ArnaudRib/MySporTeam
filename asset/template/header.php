@@ -1,3 +1,10 @@
+<?php require_once 'model/AccueilModele.php';
+if(isLogged()){
+  $this->accueil=new AccueilModele();
+  $notificationmessage=$this->accueil->getNotifMessage()->fetchAll();
+  $notificationinvitation=$this->accueil->getNotifInvitation()->fetchAll();
+}
+?>
 <!--Partie Popup-->
 <div id="GeneralPopUp" class="GeneralPopUp">
   <p class="closeButtonPopup" onclick="closePopUp2()">&#10006;</p>
@@ -20,6 +27,7 @@
       <nav class="menuderoulant">
         <ul>
           <?php if(isLogged()): ?>
+          <a style="color:white;" title="Vous avez <?php echo count($notificationmessage)+count($notificationinvitation)?> notification(s)." href='<?php goToPage('Accueil'); ?>?connexion=true'><li style="cursor:pointer;"> <span style="position:absolute; color:red; font-size:18px; margin-left:15px; margin-top:4px;"><?php echo count($notificationmessage)+count($notificationinvitation);?></span><span class="fa fa-bell-o" style="cursor:pointer; color:white; padding:5px; margin-right:10px; font-size:30px;"></span></li></a>
           <li> <a style="color:white;" href='<?php goToPage('Accueil'); ?>'><?php echo lang('Accueil') ?></a></li>
           <li> <a style="color:white;" href='<?php goToPage('profil'); ?>'><?php echo lang('Mon profil') ?></a></li>
           <li> <a style="color:white;" href='<?php goToPage('forum');?>'><?php echo lang('Forum') ?></a></li>
@@ -46,9 +54,13 @@
     <nav>
       <ul>
         <?php if(isLogged()): ?>
+          <a style="color:white;" title="Vous avez <?php echo count($notificationmessage)+count($notificationinvitation)?> notification(s)." href='<?php goToPage('Accueil'); ?>?connexion=true'><li style="cursor:pointer;"> <span style="position:absolute; color:red; font-size:18px; margin-left:15px; margin-top:4px;"><?php echo count($notificationmessage)+count($notificationinvitation);?></span><span class="fa fa-bell-o" style="cursor:pointer; color:white; padding:5px; margin-right:10px; font-size:30px;"></span></li></a>
           <li> <a style="color:white;" href='<?php goToPage('Accueil'); ?>'><?php echo lang('Accueil') ?></a></li>
           <li> <a style="color:white;" href='<?php goToPage('profil'); ?>'><?php echo lang('Mon profil') ?></a></li>
           <li> <a style="color:white;" href='<?php goToPage('forum');?>'><?php echo lang('Forum') ?></a></li>
+          <?php if(isAdmin()): ?>
+            <li> <a style="color:white;" href='<?php goToPage('backoffice');?>'>BackOffice</a></li>
+          <?php endif; ?>
           <li> <a href="<?php goToPage('deconnexion');?>"><img src="<?php echo image('General/bouton_on-off.png') ?>" width="20px" height="20px"/></a></li>
         <?php else: ?>
           <li> <a style="color:white;" href='<?php goToPage('Accueil'); ?>'><?php echo lang('Accueil') ?></a></li>

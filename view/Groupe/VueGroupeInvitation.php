@@ -44,7 +44,7 @@
       <?php $pseudouser=str_replace(' ', '-', $value['pseudo']); ?>
       <?php $estinvité=false;?>
         <div id="<?php echo count($membre) ?>" class="case_membre radius_mongroupe forme_case" style="vertical-align: top;">
-          <img src="<?php echo image('Groupes/Profil/'.$pseudouser.'.jpg')?>" />
+          <img src="<?php echo image('Users/Profil/'.$pseudouser.'.jpg')?>" />
           <a href="<?php goToPage('profilUnUtilisateur',['pseudo'=>$value['pseudo']])?>"><h1><?php echo $value['pseudo']?></h1></a>
           <?php foreach ($invites as $key => $valeur) :
             if($valeur['id_utilisateur']==$value['useful_id']):?>
@@ -52,9 +52,9 @@
               <?php $estinvité=true;?>
             <?php endif;?>
           <?php endforeach; ?>
-          <button id="<?php echo $i?>" class="plusbutton" style="<?php if($estinvité==true){echo 'display:none;';}?>" onclick="sendmessageblock(this)">&#10010;</button>
+          <button id="<?php echo $i?>" class="plusbutton" style="<?php if($estinvité==true){echo 'display:none;';}?>; position:unset; float:right;" onclick="sendmessageblock(this)">&#10010;</button>
           <form id="messageblockinvitation" class="displaynone" style="float:right; margin-right:30px;" class="" action="" method="post">
-            <input type="hidden" name="id_utilisateur" value="<?php echo $value['id_utilisateur']?>">
+            <input type="hidden" name="id_utilisateur" value="<?php echo $value['useful_id']?>">
             <p style="text-align:center">Message</p>
             <textarea style="border:1px black solid; margin:5px; width:80%; float:right; padding:4px;" placeholder="Message d'invitation.." name="message" rows="8" cols="40"></textarea>
             <input type="submit" name="invitUser" class="buttonmodif" style="margin:0 5%;" value="Inviter l'utilisateur">

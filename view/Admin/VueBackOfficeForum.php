@@ -351,7 +351,7 @@
         <?php foreach ($discussions as $key => $value): ?>
             <tr class="lignesport">
               <td><?php echo ucfirst($value['titre']) ?></td>
-              <td><?php echo DiffDate($value['date_creation']) ?></td>
+              <td><?php echo DiffDate($value['creation_date']) ?></td>
               <td><?php echo !empty($value['vues']) ? $value['vues'] : lang('Aucune vue.')?></td>
               <td><?php echo $value['id_topic'] ?></td>
               <td><?php echo $value['id'] ?></td>

@@ -19,29 +19,27 @@
            if($isMembre==false):
           if($datagroupe['public']!="0"):
           if((intval($datagroupe['nbmax_sportifs']))-(intval($NBmembres['0']['COUNT(id)']))>0):?>
-          <li id="abonnement" style="margin-top:-10px;">
-            <form class="" action="" method="post">
-              <input  type="submit" name="abonnement" value="<?php echo lang('Rejoindre')?>" style='cursor:pointer;'>
-            </form>
-          </li>
-          <?php
-          else:
-          endif;
-          else:
-          if($isInvit==true):?>
-          <li id="abonnement" style="margin-top:-10px; margin-left:40px;">
-            <form class="" action="" method="post">
-              <input  type="submit" name="abonnement" value="<?php echo lang('Accepter l\'invitation')?>" style='cursor:pointer;'></input>
-            </form>
-            </li>
-            <li id="desabonnement" style="margin-top:-10px; margin-left:10px;">
-            <form class="" action="" method="post">
-              <input  type="submit" name="desiste" value=" X " style='cursor:pointer;'></input>
-            </form>
-            </li>
-          <?php endif;
-          endif;
-        elseif($isLeader==true):?>
+        <?php  if($isInvit==true):?>
+            <li id="abonnement" style="margin-top:-10px; margin-left:40px;">
+              <form class="" action="" method="post">
+                <input  type="submit" name="abonnement" value="Accepter l'invitation" style='cursor:pointer;'></input>
+              </form>
+              </li>
+              <li id="desabonnement" style="margin-top:-10px; margin-left:10px;">
+              <form class="" action="" method="post">
+                <input  type="submit" name="desiste" value=" X " style='cursor:pointer;'></input>
+              </form>
+              </li>
+            <?php else:  ?>
+              <li id="abonnement" style="margin-top:-10px;">
+                <form class="" action="" method="post">
+                  <input  type="submit" name="abonnement" value="<?php echo lang('Rejoindre')?>" style='cursor:pointer;'>
+                </form>
+              </li>
+            <?php endif;?>
+          <?php endif;?>
+        <?php  endif; ?>
+      <?php  elseif($isLeader==true):?>
           <li id="abonnement" style="margin-top:-10px; margin-left:60px; padding:4px;">
             <a href="<?php goToPage('createevenement',['id'=>$datagroupe['id']])?>"><?php echo lang("Créer un événement") ?></a>
           </li>
@@ -61,18 +59,6 @@
   <?php /*$taille=10; ?>
   <?php $hauteur=30+310*($taille); */?> <!-- REMPLACER $EVENEMNT PAR COUNT($EVENEMENT) plus tard qd requete. permet de setup la hauteur de la page. Evite pb ac footer -->
   <div id="corps_mongroupe" />
-
-  <?php if($error!=''):?>
-    <div class="errorbox blackborder radius">
-      <?php echo $error;?>
-    </div>
-  <?php endif; ?>
-  <?php if($succes!=''): ?>
-    <div class="successbox blackborder radius" style='margin:20px auto; padding:10px;'>
-      <?php echo $succes;?>
-    </div>
-  <?php endif; ?>
-
   <?php
   if($datagroupe['public']!="0"):
   if ($evenement!=NULL):

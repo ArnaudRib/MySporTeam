@@ -40,6 +40,12 @@
               <option value="<?php echo $value['id']?>"><?php echo $value['nom']?></option>
             <?php endforeach; ?>
           </select>
+          <select name="niveau" class="selectcreation"  require >
+            <option selected value=""> --- <?php echo lang("Niveau") ?> --- </option>
+            <?php foreach ($niveau as $key => $value): ?>
+              <option value="<?php echo $value['id']?>"><?php echo $value['nom']?></option>
+            <?php endforeach; ?>
+          </select>
           <select  class="selectcreation" name="sport">
             <option value="" selected> --- <?php echo lang("Sport") ?> --- </option>
             <?php foreach ($sports as $key => $value): ?>
@@ -50,7 +56,7 @@
 
         <div style="text-align:center;">
           <label for='public' style="display: inline-block; width: 60px; float: none;"><?php echo lang("Public") ?></label>
-          <input id='public' style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" name="visibilite" value="1">
+           <input id='public' style="display: inline-block; width: 30px; padding: 0; margin: 0; height:15px" type="radio" name="visibilite" value="1" selected checked> 
           <label for='prive' style="display: inline-block; width: 60px; float: none;"><?php echo lang("Privé") ?></label>
           <input id='prive' type="radio" name="visibilite" value="0" style="display: inline-block; width: 30px; height: 15px">
         </div>
